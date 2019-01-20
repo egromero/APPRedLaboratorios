@@ -1,0 +1,31 @@
+<h1>Enrolling Student</h1>
+
+Laboratorios matriculados:
+
+<div class=inputGroup>
+<%@labs_enrollment.each do |labs|%>
+<div class='container'>
+<%=labs.nombre%>
+</div>
+<%end%>
+</div>
+<div class = 'container'>
+<form class="form" action='enroll' method= 'post'>
+  <h2>Matricular a:</h2>
+  <%@laboratories.each do |labs|%>
+  <div class="inputGroup">
+    <input id=<%=labs.id%> name = 'checkbox_id[]' value =<%=labs.id%> type= 'checkbox'>
+    <label for=<%=labs.id%>> <%=labs.nombre%> </label>
+    </div>
+   <%end%>  
+<input type = 'submit' value = 'Listo' class= 'button1'>
+</form>
+
+
+</div>
+
+
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+
+
+<%= link_to 'Back', students_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rfid: MyString
+  nombre: MyString
+  nalumno: MyString
+  sit_academica: MyString
+  correo: MyString
+
+two:
+  rfid: MyString
+  nombre: MyString
+  nalumno: MyString
+  sit_academica: MyString
+  correo: MyString

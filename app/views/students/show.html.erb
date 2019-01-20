@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rfid:</strong>
+  <%= @student.rfid %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @student.nombre %>
+</p>
+
+<p>
+  <strong>Nalumno:</strong>
+  <%= @student.nalumno %>
+</p>
+
+<p>
+  <strong>Sit academica:</strong>
+  <%= @student.sit_academica %>
+</p>
+
+<p>
+  <strong>Correo:</strong>
+  <%= @student.correo %>
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>
+
