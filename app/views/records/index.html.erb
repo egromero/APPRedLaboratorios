@@ -1,0 +1,12 @@
+<h1> Header </h1>
+
+<% @records.each do |record| %>
+      <tr>
+      <div>
+        <td><%= record.created_at%></td>
+        <td><%= record.id_usuario %></td>
+        <td><%= record.tipo %></td>
+        </div>
+      </tr>
+
+    <% end %>
