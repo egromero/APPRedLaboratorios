@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'home_page#index'
+  devise_for :users
   resources :laboratories
   resources :students
   get 'home_page/index'
@@ -8,5 +10,8 @@ Rails.application.routes.draw do
     post 'enroll'
   end
   resources :records
-  root 'home_page#index'
+  resources :laboratories do
+    get 'new_admin'
+    post 'set_admin'
+  end
 end

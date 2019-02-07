@@ -21,6 +21,20 @@ class LaboratoriesController < ApplicationController
   def edit
   end
 
+  def new_admin
+    @laboratory = Laboratory.find(params[:laboratory_id])
+    @users = User.all
+  end
+  
+  def set_admin
+    @user = User.find(params[:user_id])
+    @laboratory.user_id = @user.id
+    respond_to do |format|
+    format.html { redirect_to home_page_path, notice: 'Nuevo administrador asignado' }
+    end
+  end
+
+
   # POST /laboratories
   # POST /laboratories.json
   def create

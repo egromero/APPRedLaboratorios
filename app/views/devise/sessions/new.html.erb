@@ -1,0 +1,9 @@
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="login">
+  <h1> Ingresa para continuar</h1>
+    <%= f.text_field :email, autocomplete: "Usuario", placeholder: "Usuario"  %>
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "Contraseña" %>
+    <%= f.submit "Enviar" %>
+  </div>
+<% end %>
