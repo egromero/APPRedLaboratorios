@@ -1,12 +1,25 @@
-<h1> Registros </h1>
+<h2>Registros:</h2>
 
-<% @records.each do |record| %>
-      <tr>
-      <div>
-        <td><%= record.created_at%></td>
-        <td><%= record.id_usuario %></td>
-        <td><%= record.tipo %></td>
-        </div>
-      </tr>
 
-    <% end %>
+
+</head>
+<body>
+<%=DateTime.now.to_time%>
+<table id="records">
+  <tr>
+    <th>Nombre</th>
+    <th>Hora Registro</th>
+    <th>Tipo</th>
+    <th>Matriculado</th>
+  </tr>
+  <%@records.each do |record|%>
+  <tr>
+    <td><%=record.student.nombre%></td>
+    <td><%=record.created_at%></td>
+    <td><%=record.tipo%></td>
+    
+  </tr>
+   <%end%>
+</table>
+</body>
+</html>

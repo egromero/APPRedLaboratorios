@@ -8,17 +8,29 @@ class RecordsController < ApplicationController
     def new
         @record = Record.new
     end
+    #POST /records/rfid,tipo
+    def create 
+        st_id = Student.where(rfid: params[:rfid])[0]
+        if st_id 
+            @record = st_id.records.new({:tipo => params[:tipo]})
+            respond_to do |format|
+            if @record.save
+                format.json {render json: @record.student, status: 200}
+            else
+                format.json {render json: @record.errors, status: :unprocessable_entity}
+            end
+            end
+        else    
+            respond_to do |format|
+                format.json {render json: @record, status:404}
 
-    def create
-        @record = Record.new({:id_usuario => params[:id_usuario], :tipo => params[:tipo]})
-        #respond_to do |format|
-        if @record.save
-            redirect_to records_path
+            end
         end
-         #   format.html { redirect_to records_path, notice: 'Registro' }
-          #else
-           # format.json { render json: @record.errors, status: :unprocessable_entity }
-          #end
-        #end
+    end 
+
+    private
+
+    def record_params
+        params.require(:record).permit(:tipo, :student_id)
     end
 end

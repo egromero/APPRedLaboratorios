@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_06_160408) do
+ActiveRecord::Schema.define(version: 2019_02_12_153636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 2019_02_06_160408) do
     t.bigint "laboratory_id", null: false
     t.index ["laboratory_id", "student_id"], name: "index_laboratories_students_on_laboratory_id_and_student_id"
     t.index ["student_id", "laboratory_id"], name: "index_laboratories_students_on_student_id_and_laboratory_id"
+  end
+
+  create_table "records", force: :cascade do |t|
+    t.string "tipo"
+    t.bigint "student_id"
+    t.datetime "created_at"
+    t.index ["student_id"], name: "index_records_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -56,4 +63,5 @@ ActiveRecord::Schema.define(version: 2019_02_06_160408) do
   end
 
   add_foreign_key "laboratories", "users"
+  add_foreign_key "records", "students"
 end
