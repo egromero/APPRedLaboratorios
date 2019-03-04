@@ -34761,3 +34761,9 @@ Processing by RecordsController#index as HTML
 Completed 200 OK in 169ms (Views: 155.3ms | ActiveRecord: 8.1ms)
 
 
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (19.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLaboratory Load (90.0ms)[0m  [1m[34mSELECT  "laboratories".* FROM "laboratories" WHERE "laboratories"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mLaboratory Load (0.6ms)[0m  [1m[34mSELECT  "laboratories".* FROM "laboratories" WHERE "laboratories"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mLaboratory Load (0.4ms)[0m  [1m[34mSELECT "laboratories".* FROM "laboratories" WHERE "laboratories"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mLaboratory Load (0.3ms)[0m  [1m[34mSELECT  "laboratories".* FROM "laboratories" WHERE "laboratories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
