@@ -34767,3 +34767,394 @@ Completed 200 OK in 169ms (Views: 155.3ms | ActiveRecord: 8.1ms)
   [1m[36mLaboratory Load (0.6ms)[0m  [1m[34mSELECT  "laboratories".* FROM "laboratories" WHERE "laboratories"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
   [1m[36mLaboratory Load (0.4ms)[0m  [1m[34mSELECT "laboratories".* FROM "laboratories" WHERE "laboratories"."user_id" = $1[0m  [["user_id", 1]]
   [1m[36mLaboratory Load (0.3ms)[0m  [1m[34mSELECT  "laboratories".* FROM "laboratories" WHERE "laboratories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2019-03-04 11:49:07 -0300
+  [1m[35m (65.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 1733ms (Views: 1667.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-03-04 11:49:34 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (171.5ms)
+Completed 200 OK in 1696ms (Views: 839.6ms | ActiveRecord: 752.5ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-03-04 11:49:42 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kXH6b8pQXcfmNEEi2z8Xh2N8hbicn57Pou9azDOYo+6DhnjVq1Aw/TDAxaOXw3R34OuIevMxJg+eV0INl31Z1g==", "user"=>{"email"=>"egromero@uc.cl", "password"=>"[FILTERED]"}, "commit"=>"Enviar"}
+  [1m[36mUser Load (219.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "egromero@uc.cl"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 483ms (ActiveRecord: 219.8ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kXH6b8pQXcfmNEEi2z8Xh2N8hbicn57Pou9azDOYo+6DhnjVq1Aw/TDAxaOXw3R34OuIevMxJg+eV0INl31Z1g==", "user"=>{"email"=>"egromero@uc.cl", "password"=>"[FILTERED]"}, "commit"=>"Enviar"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 275ms (Views: 122.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-03-04 11:49:48 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PFc3qa8IlOMCaYwnWRDBaFREWE2f9JRi85EHIQY1nIaLJaE/0Fvaa2wqtpG/nUyKHK53Qh6uieLY4BM3D+7SRA==", "user"=>{"email"=>"egromero@uc.cl", "password"=>"[FILTERED]"}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "egromero@uc.cl"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 156ms (ActiveRecord: 0.7ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PFc3qa8IlOMCaYwnWRDBaFREWE2f9JRi85EHIQY1nIaLJaE/0Fvaa2wqtpG/nUyKHK53Qh6uieLY4BM3D+7SRA==", "user"=>{"email"=>"egromero@uc.cl", "password"=>"[FILTERED]"}, "commit"=>"Enviar"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 247ms (Views: 97.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-03-04 11:49:55 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZL7pt7YDDlMOE8tZzl+1OBCZfQTduN4RGqNm7t1raYHTzH8hyVBA22BQ8e8o0jjaWHNSC1ziw5Ex0nL41LAnQw==", "user"=>{"email"=>"egromero@uc.cl", "password"=>"[FILTERED]"}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "egromero@uc.cl"], ["LIMIT", 1]]
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 255ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-04 11:49:56 -0300
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (38.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+Completed 200 OK in 196ms (Views: 154.3ms | ActiveRecord: 38.8ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-04 11:49:59 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (140.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:15
+  [1m[36mStudent Load (80.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  Rendered records/index.html.erb within layouts/application (337.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+Completed 200 OK in 632ms (Views: 191.9ms | ActiveRecord: 230.6ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2019-03-04 11:50:22 -0300
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/students/index.html.erb:18
+  Rendered students/index.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+Completed 200 OK in 134ms (Views: 102.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-04 11:50:42 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:15
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  Rendered records/index.html.erb within layouts/application (14.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+Completed 200 OK in 115ms (Views: 107.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2019-03-04 11:51:15 -0300
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/students/index.html.erb:18
+  Rendered students/index.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+Completed 200 OK in 243ms (Views: 238.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/students/3/enrollment" for 127.0.0.1 at 2019-03-04 11:51:17 -0300
+Processing by StudentsController#enrollment as HTML
+  Parameters: {"student_id"=>"3"}
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:28
+  Rendering students/enrollment.html.erb within layouts/application
+  [1m[36mLaboratory Load (277.6ms)[0m  [1m[34mSELECT "laboratories".* FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 3]]
+  ↳ app/views/students/enrollment.html.erb:6
+  [1m[36mLaboratory Load (0.4ms)[0m  [1m[34mSELECT "laboratories".* FROM "laboratories"[0m
+  ↳ app/views/students/enrollment.html.erb:15
+  Rendered students/enrollment.html.erb within layouts/application (303.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+Completed 200 OK in 679ms (Views: 107.5ms | ActiveRecord: 283.4ms)
+
+
+Started POST "/students/3/enroll" for 127.0.0.1 at 2019-03-04 11:51:29 -0300
+Processing by StudentsController#enroll as HTML
+  Parameters: {"checkbox_id"=>["1"], "student_id"=>"3"}
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:34
+  [1m[36mLaboratory Load (0.4ms)[0m  [1m[34mSELECT  "laboratories".* FROM "laboratories" WHERE "laboratories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:35
+  [1m[35m (40.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/students_controller.rb:36
+  [1m[36mStudent::HABTM_Laboratories Create (200.3ms)[0m  [1m[32mINSERT INTO "laboratories_students" ("student_id", "laboratory_id") VALUES ($1, $2)[0m  [["student_id", 3], ["laboratory_id", 1]]
+  ↳ app/controllers/students_controller.rb:36
+  [1m[35m (142.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/students_controller.rb:36
+Redirected to http://localhost:3000/students/3
+Completed 302 Found in 398ms (ActiveRecord: 385.2ms)
+
+
+Started GET "/students/3" for 127.0.0.1 at 2019-03-04 11:51:29 -0300
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:86
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+Completed 200 OK in 134ms (Views: 89.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2019-03-04 11:51:33 -0300
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/students/index.html.erb:18
+  Rendered students/index.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+Completed 200 OK in 94ms (Views: 88.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/students/3/enrollment" for 127.0.0.1 at 2019-03-04 11:51:34 -0300
+Processing by StudentsController#enrollment as HTML
+  Parameters: {"student_id"=>"3"}
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:28
+  Rendering students/enrollment.html.erb within layouts/application
+  [1m[36mLaboratory Load (0.6ms)[0m  [1m[34mSELECT "laboratories".* FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 3]]
+  ↳ app/views/students/enrollment.html.erb:6
+  [1m[36mLaboratory Load (0.3ms)[0m  [1m[34mSELECT "laboratories".* FROM "laboratories"[0m
+  ↳ app/views/students/enrollment.html.erb:15
+  Rendered students/enrollment.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+Completed 200 OK in 102ms (Views: 94.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-04 11:52:01 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:15
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  Rendered records/index.html.erb within layouts/application (13.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+Completed 200 OK in 110ms (Views: 104.7ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/records" for 127.0.0.1 at 2019-03-04 11:53:23 -0300
+Processing by RecordsController#create as */*
+  Parameters: {"rfid"=>"803941AF2", "tipo"=>"ingreso"}
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "803941AF2"]]
+  ↳ app/controllers/records_controller.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/records_controller.rb:17
+  [1m[36mRecord Create (2548.3ms)[0m  [1m[32mINSERT INTO "records" ("tipo", "student_id", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["tipo", "ingreso"], ["student_id", 1], ["created_at", "2019-03-04 11:53:23.961522"]]
+  ↳ app/controllers/records_controller.rb:17
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/records_controller.rb:17
+Completed 200 OK in 2669ms (Views: 3.2ms | ActiveRecord: 2550.2ms)
+
+
+Started POST "/records" for 127.0.0.1 at 2019-03-04 11:53:35 -0300
+Processing by RecordsController#create as */*
+  Parameters: {"rfid"=>"803941AF2", "tipo"=>"ingreso"}
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "803941AF2"]]
+  ↳ app/controllers/records_controller.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/records_controller.rb:17
+  [1m[36mRecord Create (30.5ms)[0m  [1m[32mINSERT INTO "records" ("tipo", "student_id", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["tipo", "ingreso"], ["student_id", 1], ["created_at", "2019-03-04 11:53:35.885493"]]
+  ↳ app/controllers/records_controller.rb:17
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/records_controller.rb:17
+Completed 200 OK in 38ms (Views: 1.1ms | ActiveRecord: 32.0ms)
+
+
+Started POST "/records" for 127.0.0.1 at 2019-03-04 11:54:00 -0300
+Processing by RecordsController#create as */*
+  Parameters: {"rfid"=>"80394AF2", "tipo"=>"ingreso"}
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "80394AF2"]]
+  ↳ app/controllers/records_controller.rb:13
+Completed 404 Not Found in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/records" for 127.0.0.1 at 2019-03-04 11:54:09 -0300
+Processing by RecordsController#create as */*
+  Parameters: {"rfid"=>"80394AF2", "tipo"=>"ingreso"}
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "80394AF2"]]
+  ↳ app/controllers/records_controller.rb:13
+Completed 404 Not Found in 2ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-04 11:57:04 -0300
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+Completed 200 OK in 294ms (Views: 287.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/records" for 127.0.0.1 at 2019-03-04 11:57:54 -0300
+Processing by RecordsController#create as */*
+  Parameters: {"rfid"=>"80394AF2", "tipo"=>"ingreso"}
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "80394AF2"]]
+  ↳ app/controllers/records_controller.rb:13
+Completed 404 Not Found in 3ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/records" for 127.0.0.1 at 2019-03-04 11:58:03 -0300
+Processing by RecordsController#create as */*
+  Parameters: {"rfid"=>"80394AF2", "tipo"=>"ingreso"}
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "80394AF2"]]
+  ↳ app/controllers/records_controller.rb:13
+Completed 404 Not Found in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-04 11:58:09 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:15
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  Rendered records/index.html.erb within layouts/application (19.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+Completed 200 OK in 491ms (Views: 450.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-04 11:58:24 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:15
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  Rendered records/index.html.erb within layouts/application (18.0ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+Completed 200 OK in 191ms (Views: 184.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-04 12:35:31 -0300
+  [1m[35m (24.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/egromero_s/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (69.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:26
+Completed 200 OK in 32417ms (Views: 32175.3ms | ActiveRecord: 218.8ms)
+
+
