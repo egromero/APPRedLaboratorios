@@ -14,4 +14,5 @@ Rails.application.routes.draw do
     get 'new_admin'
     post 'set_admin'
   end
+  resources :visits
 end

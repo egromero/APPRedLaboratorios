@@ -1,0 +1,25 @@
+<h2>Visitas:</h2>
+
+
+
+</head>
+<body>
+<table id="records">
+  <tr>
+    <th>Nombre</th>
+    <th>Hora Registro</th>
+    <th>Tipo</th>
+    <th>Matriculado</th>
+  </tr>
+  <%@visits.each do |visit|%>
+  <tr>
+    <td><%=visit.rut%></td>
+    <td><%=visit.created_at%></td>
+    <td><%=visit.motivo%></td>
+    <td><%=visit.institucion%></td>
+    
+  </tr>
+   <%end%>
+</table>
+</body>
+</html>

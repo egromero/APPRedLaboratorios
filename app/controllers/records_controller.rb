@@ -21,6 +21,7 @@ class RecordsController < ApplicationController
             end
             end
         else    
+            
             respond_to do |format|
                 format.json {render json: @record, status:404}
 

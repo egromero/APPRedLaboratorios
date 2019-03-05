@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Rfid</th>
+      <th>Rut</th>
       <th>Nombre</th>
       <th>Nalumno</th>
       <th>Sit academica</th>
@@ -18,10 +19,12 @@
     <% @students.each do |student| %>
       <tr>
         <td><%= student.rfid %></td>
+        <td><%= student.rut %></td>
         <td><%= student.nombre %></td>
         <td><%= student.nalumno %></td>
         <td><%= student.sit_academica %></td>
         <td><%= student.correo %></td>
+
         <td><%= link_to 'Enrollment', student_enrollment_path(student) %></td>
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
