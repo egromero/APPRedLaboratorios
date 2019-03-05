@@ -74,26 +74,26 @@ class MainWindow(QMainWindow):
         self.pushButton_4.setGeometry(QRect(90, 340, 161, 91))
         self.pushButton_4.setStyleSheet("font: 16pt \"MS Shell Dlg 2\";")
         self.pushButton_4.setObjectName("pushButton_4")
-        self.pushButton_5 = QPushButton(self.centralwidget)
-        self.pushButton_5.setGeometry(QRect(410, 340, 161, 91))
-        self.pushButton_5.setStyleSheet("font: 16pt \"MS Shell Dlg 2\";")
-        self.pushButton_5.setObjectName("pushButton_5")
         self.pushButton_6 = QPushButton(self.centralwidget)
-        self.pushButton_6.setGeometry(QRect(250, 340, 161, 91))
+        self.pushButton_6.setGeometry(QRect(410, 340, 161, 91))
         self.pushButton_6.setStyleSheet("font: 16pt \"MS Shell Dlg 2\";")
         self.pushButton_6.setObjectName("pushButton_6")
+        self.pushButton_5 = QPushButton(self.centralwidget)
+        self.pushButton_5.setGeometry(QRect(250, 340, 161, 91))
+        self.pushButton_5.setStyleSheet("font: 16pt \"MS Shell Dlg 2\";")
+        self.pushButton_5.setObjectName("pushButton_5")
         self.pushButton_7 = QPushButton(self.centralwidget)
         self.pushButton_7.setGeometry(QRect(90, 430, 161, 91))
         self.pushButton_7.setStyleSheet("font: 16pt \"MS Shell Dlg 2\";\n""\n""")
         self.pushButton_7.setObjectName("pushButton_7")
-        self.pushButton_8 = QPushButton(self.centralwidget)
-        self.pushButton_8.setGeometry(QRect(410, 430, 161, 91))
-        self.pushButton_8.setStyleSheet("font: 16pt \"MS Shell Dlg 2\";")
-        self.pushButton_8.setObjectName("pushButton_8")
         self.pushButton_9 = QPushButton(self.centralwidget)
-        self.pushButton_9.setGeometry(QRect(250, 430, 161, 91))
+        self.pushButton_9.setGeometry(QRect(410, 430, 161, 91))
         self.pushButton_9.setStyleSheet("font: 16pt \"MS Shell Dlg 2\";")
         self.pushButton_9.setObjectName("pushButton_9")
+        self.pushButton_8 = QPushButton(self.centralwidget)
+        self.pushButton_8.setGeometry(QRect(250, 430, 161, 91))
+        self.pushButton_8.setStyleSheet("font: 16pt \"MS Shell Dlg 2\";")
+        self.pushButton_8.setObjectName("pushButton_8")
         self.pushButton_10 = QPushButton(self.centralwidget)
         self.pushButton_10.setGeometry(QRect(90, 520, 161, 91))
         self.pushButton_10.setStyleSheet("font: 16pt \"MS Shell Dlg 2\";")
@@ -151,7 +151,7 @@ class MainWindow(QMainWindow):
         self.thread = Reader()
         self.thread.sig1.connect(self.changeColor)
         self.thread.sig2.connect(self.changeColor)
-        #self.thread.start()
+        self.thread.start()
         self.sym ={'12':'0', '11':'-', '10':'K'}
         self.visible(False)
    
@@ -199,15 +199,15 @@ class MainWindow(QMainWindow):
         self.label_5.setText(self.label_5.text() + '{}'.format(value))
 
     def send(self):
+        url = 'http://localhost:3000/visits'
         data = {'rut': self.label_5.text(), 
-                    'motivo': self.comboBox.currentText(),
-                    'institucion': self.comboBox_2.currentText()}
-        #response = requests.post(url, data).json()
-        #print(response)
+                'motivo': self.comboBox.currentText(),
+                'institucion': self.comboBox_2.currentText()}
+        response = requests.post(url, data).json()
         self.visible(False)
 
 
-        ## Send text between two class with pyqsignal 
+
 
     def changeColor(self, value):
 
@@ -243,11 +243,11 @@ class MainWindow(QMainWindow):
         self.pushButton_2.setText(_translate("MainWindow", "2"))
         self.pushButton_3.setText(_translate("MainWindow", "3"))
         self.pushButton_4.setText(_translate("MainWindow", "4"))
-        self.pushButton_5.setText(_translate("MainWindow", "6"))
-        self.pushButton_6.setText(_translate("MainWindow", "5"))
+        self.pushButton_6.setText(_translate("MainWindow", "6"))
+        self.pushButton_5.setText(_translate("MainWindow", "5"))
         self.pushButton_7.setText(_translate("MainWindow", "7"))
-        self.pushButton_8.setText(_translate("MainWindow", "9"))
-        self.pushButton_9.setText(_translate("MainWindow", "8"))
+        self.pushButton_9.setText(_translate("MainWindow", "9"))
+        self.pushButton_8.setText(_translate("MainWindow", "8"))
         self.pushButton_10.setText(_translate("MainWindow", "K"))
         self.pushButton_11.setText(_translate("MainWindow", "-"))
         self.pushButton_12.setText(_translate("MainWindow", "0"))
@@ -275,7 +275,7 @@ class Reader(QThread):
     def run(self):
         while True:
             time.sleep(5)
-            self.lectura = {"rfid":"80394AF2", "tipo":"ingreso"}
+            self.lectura = {"rfid":"8af1345ea", "tipo":"ingreso"}
             try:
                 req = requests.post("http://localhost:3000/records", self.lectura).json()
                 if not req:
