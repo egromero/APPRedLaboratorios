@@ -2,9 +2,14 @@ class RecordsController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def index
+        @laboratory = Laboratory.find(current_user.lab_id)
         @records_day = Record.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+        @records_day = @records_day.where(lab_id: @laboratory.id)
         @records_week = Record.where(created_at: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
+        @records_week = @records_week.where(lab_id: @laboratory.id)
         @records_month = Record.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+        @records_month = @records_month.where(lab_id: @laboratory.id)
+        
     end
 
 
@@ -40,6 +45,6 @@ class RecordsController < ApplicationController
     private
 
     def record_params
-        params.require(:record).permit(:tipo, :student_id)
+        params.require(:record).permit(:tipo, :student_id, :lab_id)
     end
 end

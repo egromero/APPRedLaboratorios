@@ -1,5 +1,9 @@
-rut,created_at,motivo,institucion
-19065385-4,2019-02-09 23:53:44.221309,Académica,Otro
-19065385-4,2019-01-09 23:56:41.313778,Pregrado,Otro
-19065385-4,2019-02-23 23:56:41.313778,Pregrado,Otro
-19065385-4,2019-02-24 23:56:41.313778,Pregrado,Otro
+rut,created_at,motivo,institucion,lab_id
+1s905-4,2019-02-09 23:53:44,Académica,Otro,1
+19065d-4,2019-01-09 23:56:41,Pregrado,Otro,2
+190s685-4,2019-02-23 23:56:41,Pregrado,Otro,1
+19-4,2019-02-24 23:56:41,Pregrado,Otro,1
+190655-4,2019-03-10 18:45:56,personal,UC,1
+1906rr55-4,2019-03-10 18:45:56,personal,UC,2
+190e655-4,2019-03-10 18:45:56,personal,UC,1
+190655-4,2019-03-10 18:45:56,personal,UC,2

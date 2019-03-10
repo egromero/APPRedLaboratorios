@@ -1,6 +1,6 @@
 <h2>Registros:</h2>
 
-<div>
+<div id="buttonFile">
 <%= form_tag import_records_path, multipart: true do%>
 <%= file_field_tag :file%>
 <%= submit_tag 'Cargar Datos'%>
@@ -8,8 +8,8 @@
 </div>
 </head>
 <body>
-<%=DateTime.now.to_time%>
-
+<%=DateTime.now.to_time.to_s[0..-6]%>
+<%=@laboratory.nombre%>
 
 <div class="tabset">
   <!-- Tab 1 -->
@@ -38,6 +38,7 @@
      <td><%=record.created_at.to_s.split(' ')[0]%></td>
     <td><%=record.created_at.to_s.split(' ')[1]%></td>
     <td><%=record.tipo%></td>
+    <td><%=record.lab_id%></td>
     </tr>
     <%end%>
     </table>  

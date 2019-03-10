@@ -36,6 +36,7 @@ class MainWindow(QMainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1202, 706)
         MainWindow.setStyleSheet("background: rgba(222, 222, 222, 255)")
+        self.lab_id = 1
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QPushButton(self.centralwidget)
@@ -216,7 +217,10 @@ class MainWindow(QMainWindow):
         data = {'rut': self.label_5.text(), 
                 'motivo': self.comboBox.currentText(),
                 'institucion': self.comboBox_2.currentText()
-                'tipo': 'ingreso'}
+                'tipo': 'ingreso'
+                'lab_id':self.lab_id}
+
+
         if internet_on():
             response = requests.post(url, data).json()
             if response['type'] == 'student':

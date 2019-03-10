@@ -2,9 +2,13 @@ class VisitsController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def index
+        @laboratory = Laboratory.find(current_user.lab_id)
         @visits_day = Visit.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+        @visits_day = @visits_day.where(lab_id: @laboratory.id)
         @visits_week = Visit.where(created_at: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
+        @visits_week = @visits_week.where(lab_id: @laboratory.id)
         @visits_month = Visit.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+        @visits_month = @visits_month.where(lab_id: @laboratory.id)
     end
 
     def new
@@ -40,11 +44,7 @@ class VisitsController < ApplicationController
         end
     end 
 
-    private
 
-    def record_params
-        params.require(:record).permit(:tipo, :student_id)
-    end
 end
 
 

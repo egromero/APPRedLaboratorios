@@ -5,10 +5,10 @@
 </head>
 <body>
 
-<div id="botonFile">
+<div id="buttonFile">
 <%= form_tag import_visits_path, multipart: true do%>
-<%= file_field_tag :file , class: "button"%>
-<%= submit_tag 'Cargar Datos', class: "button"%>
+<%= file_field_tag :file%>
+<%= submit_tag 'Cargar Datos'%>
 <%end%>
 </div>
 <div class="tabset">
@@ -31,6 +31,7 @@
     <th>Hora Registro</th>
     <th>Motivo</th>
     <th>Institución</th>
+    <th>Institución</th>
     </tr>
     <%@visits_day.each do |visit|%>
     <tr>
@@ -39,6 +40,7 @@
      <td><%=visit.created_at.to_s.split(' ')[1]%></td>
      <td><%=visit.motivo%></td>
      <td><%=visit.institucion%></td>
+     <td><%=visit.lab_id%></td>
 
     </tr>
     <%end%>
