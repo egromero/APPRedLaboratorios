@@ -9,12 +9,23 @@ import datetime
 import time
 import sys
 import requests
-
+import urllib.request
+from localdbmanager import recordsWriter, visitsRecordsWriter
+      
 
 font_but = QtGui.QFont()
 font_but.setFamily("Segoe UI Symbol")
 font_but.setPointSize(20)
 font_but.setWeight(200) 
+
+
+def internet_on():
+    try:
+        urllib.request.urlopen('http://216.58.192.142', timeout=1)
+        return True
+    except urllib.request.URLError as err: 
+        return False
+
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
@@ -200,18 +211,32 @@ class MainWindow(QMainWindow):
         self.label_5.setText(self.label_5.text() + '{}'.format(value))
 
     def send(self):
+        
         url = 'http://localhost:3000/visits'
         data = {'rut': self.label_5.text(), 
                 'motivo': self.comboBox.currentText(),
                 'institucion': self.comboBox_2.currentText()}
-        response = requests.post(url, data).json()
-        if response['type'] == 'student':
-            self.visible(False)
-            self.changeColor(response['data'])
+        if internet_on():
+            response = requests.post(url, data).json()
+            if response['type'] == 'student':
+                self.visible(False)
+                self.changeColor(response['data'])
+            else:
+                self.visible(False)
+                texto = 'Visita Registrada, Bienvenido'
+                color = 'rgb(255,164,32)'
+                self.label_6.setText(texto)
+                self.pushButton.setVisible(False)
+                self.setStyleSheet("QWidget {background-color: %s ;}" % (color))
+                QTest.qWait(1500)
+                self.setStyleSheet("QWidget {background-color: rgb(222,222,222);}")
+                self.pushButton.setVisible(True)
+                self.label_6.setText('Sistema De Acceso a Laboratorios UC')
         else:
+            visitsRecordsWriter(data)
             self.visible(False)
-            texto = 'Visita Registrada, Bienvenido'
-            color = 'rgb(255,164,32)'
+            texto = 'Sin Conexión a internet, Visita registrada en cola'
+            color = 'rgb(255,164,0)'
             self.label_6.setText(texto)
             self.pushButton.setVisible(False)
             self.setStyleSheet("QWidget {background-color: %s ;}" % (color))
@@ -219,7 +244,7 @@ class MainWindow(QMainWindow):
             self.setStyleSheet("QWidget {background-color: rgb(222,222,222);}")
             self.pushButton.setVisible(True)
             self.label_6.setText('Sistema De Acceso a Laboratorios UC')
-            
+
 
     def changeColor(self, value):
 

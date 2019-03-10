@@ -8,6 +8,11 @@ class VisitsController < ApplicationController
     def new
         @visit = Visit.new
     end
+
+    def import
+        Visit.import(params[:file])
+        redirect_to root_path, notice: "Registros de visitas actualizados"
+    end
     
     def create 
         st_id = Student.where(rut: params[:rut])[0]

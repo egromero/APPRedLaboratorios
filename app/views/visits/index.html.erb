@@ -4,6 +4,13 @@
 
 </head>
 <body>
+
+<div>
+<%= form_tag import_visits_path, multipart: true do%>
+<%= file_field_tag :file%>
+<%= submit_tag 'Cargar Datos'%>
+<%end%>
+</div>
 <table id="records">
   <tr>
     <th>Nombre</th>

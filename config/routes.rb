@@ -18,4 +18,7 @@ Rails.application.routes.draw do
   resources :records do 
     collection {post :import}
   end
+  resources :visits do 
+    collection {post :import}
+  end
 end

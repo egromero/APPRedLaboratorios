@@ -38125,3 +38125,338 @@ Processing by RecordsController#index as HTML
 Completed 200 OK in 737ms (Views: 703.9ms | ActiveRecord: 0.8ms)
 
 
+Started POST "/visits" for 127.0.0.1 at 2019-03-09 23:35:39 -0300
+  [1m[35m (18.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/egromero_s/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"19065385-4", "motivo"=>"Pregrado", "institucion"=>"Otro"}
+  [1m[36mStudent Load (0.9ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/controllers/visits_controller.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:17
+  [1m[36mRecord Create (49.7ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 23:35:41.342520"]]
+  ↳ app/controllers/visits_controller.rb:17
+  [1m[35m (28.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:17
+Completed 200 OK in 421ms (Views: 1.1ms | ActiveRecord: 88.2ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-09 23:35:54 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.7ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 1802ms (Views: 1769.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-09 23:38:06 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (3.5ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (214.1ms)
+Completed 500 Internal Server Error in 300ms (ActiveRecord: 13.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `split' for Sat, 09 Mar 2019 23:35:41 -03 -03:00:Time):
+    19:   <%@records.each do |record|%>
+    20:   <tr>
+    21:     <td><%=record.student.nombre%></td>
+    22:     <td><%=record.created_at.split(' ')[1]%></td>
+    23:     <td><%=record.tipo%></td>
+    24:     
+    25:   </tr>
+  
+app/views/records/index.html.erb:22:in `block in _app_views_records_index_html_erb__4271496401762737019_70172199338820'
+app/views/records/index.html.erb:19:in `_app_views_records_index_html_erb__4271496401762737019_70172199338820'
+Started GET "/records" for 127.0.0.1 at 2019-03-09 23:41:10 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 800ms (Views: 774.1ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/visits" for 127.0.0.1 at 2019-03-09 23:57:26 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"19065385-4", "motivo"=>"Pregrado", "institucion"=>"Otro"}
+  [1m[36mStudent Load (1.5ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/controllers/visits_controller.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:17
+  [1m[36mRecord Create (153.9ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 23:57:26.998266"]]
+  ↳ app/controllers/visits_controller.rb:17
+  [1m[35m (87.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:17
+Completed 200 OK in 280ms (Views: 3.0ms | ActiveRecord: 248.7ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-09 23:58:22 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.6ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (31.7ms)
+Completed 200 OK in 586ms (Views: 552.3ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 00:08:56 -0300
+Processing by VisitsController#index as HTML
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/models/visit.rb:17: syntax error, unexpected end-of-input, expecting end):
+  
+app/models/visit.rb:17: syntax error, unexpected end-of-input, expecting end
+app/controllers/visits_controller.rb:5:in `index'
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 00:09:42 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (25.6ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  Rendered visits/index.html.erb within layouts/application (470.1ms)
+Completed 500 Internal Server Error in 605ms (ActiveRecord: 36.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `import_visits_path' for #<#<Class:0x00007fa47a797dd8>:0x00007fa47a796050>
+Did you mean?  edit_visit_path):
+     6: <body>
+     7: 
+     8: <div>
+     9: <%= form_tag import_visits_path, multipart: true do%>
+    10: <%= file_field_tag :file%>
+    11: <%= submit_tag 'Cargar Datos'%>
+    12: <%end%>
+  
+app/views/visits/index.html.erb:9:in `_app_views_visits_index_html_erb___3071214921812944858_70172203050020'
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 00:10:24 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:21
+  Rendered visits/index.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 1364ms (Views: 1300.5ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/visits/import" for 127.0.0.1 at 2019-03-10 00:10:41 -0300
+Processing by VisitsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PF2F9PlE2N0pR2raTkF7J+ZCWG3g6hEeOzUy4h3pyLA6Mq+p0N5OCxuy+lcvw3mHq7kPTVYIJzQz4mUlPdpASQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fa47b464b60 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190310-17239-1es0eh9.csv>, @original_filename="registrosVisitasOffline.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"registrosVisitasOffline.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/models/visit.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/visit.rb:11
+  [1m[36mRecord Create (66.6ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 23:53:44.221309"]]
+  ↳ app/models/visit.rb:11
+  [1m[35m (24.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/visit.rb:11
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "3-9"]]
+  ↳ app/models/visit.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/visit.rb:14
+  [1m[36mVisit Create (34.5ms)[0m  [1m[32mINSERT INTO "visits" ("rut", "motivo", "institucion", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["rut", "3-9"], ["motivo", "Académica"], ["institucion", "Otro"], ["created_at", "2019-03-10 00:10:42.244067"], ["updated_at", "2019-03-10 00:10:42.244067"]]
+  ↳ app/models/visit.rb:14
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/visit.rb:14
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/models/visit.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/visit.rb:11
+  [1m[36mRecord Create (0.5ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 23:56:41.313778"]]
+  ↳ app/models/visit.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/visit.rb:11
+Redirected to http://localhost:3000/
+Completed 302 Found in 268ms (ActiveRecord: 143.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-10 00:10:42 -0300
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 1836ms (Views: 1834.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 00:10:49 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:21
+  Rendered visits/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 189ms (Views: 167.8ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:11:24 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.3ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 222ms (Views: 145.4ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 00:12:17 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:21
+  Rendered visits/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 655ms (Views: 628.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:12:29 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 123ms (Views: 75.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:13:23 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 508ms (Views: 490.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 00:13:26 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:21
+  Rendered visits/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 112ms (Views: 74.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2019-03-10 00:13:28 -0300
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/students/index.html.erb:19
+  Rendered students/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 144ms (Views: 100.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:13:29 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (1.9ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 109ms (Views: 103.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:13:31 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 76ms (Views: 73.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:13:33 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 77ms (Views: 73.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:13:34 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 83ms (Views: 80.2ms | ActiveRecord: 0.7ms)
+
+

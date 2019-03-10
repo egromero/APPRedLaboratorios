@@ -19,7 +19,7 @@
   <%@records.each do |record|%>
   <tr>
     <td><%=record.student.nombre%></td>
-    <td><%=record.created_at%></td>
+    <td><%=record.created_at.to_s.split(' ')[1]%></td>
     <td><%=record.tipo%></td>
     
   </tr>
