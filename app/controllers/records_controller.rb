@@ -9,6 +9,11 @@ class RecordsController < ApplicationController
         @record = Record.new
     end
     #POST /records/rfid,tipo
+    def import
+        Record.import(params[:file])
+        redirect_to root_path, notice: "Registros actualizados"
+    end
+
     def create 
         st_id = Student.where(rfid: params[:rfid])[0]
         if st_id 

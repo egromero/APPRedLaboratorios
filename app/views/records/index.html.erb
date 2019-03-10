@@ -1,7 +1,11 @@
 <h2>Registros:</h2>
 
-
-
+<div>
+<%= form_tag import_records_path, multipart: true do%>
+<%= file_field_tag :file%>
+<%= submit_tag 'Cargar Datos'%>
+<%end%>
+</div>
 </head>
 <body>
 <%=DateTime.now.to_time%>

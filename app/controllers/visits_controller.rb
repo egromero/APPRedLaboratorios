@@ -8,15 +8,14 @@ class VisitsController < ApplicationController
     def new
         @visit = Visit.new
     end
-
     
     def create 
         st_id = Student.where(rut: params[:rut])[0]
         if st_id 
-            @record = st_id.records.new({:tipo => 'ingreso'})
+            @record = st_id.records.new({:tipo => params[:tipo]})
             respond_to do |format|
             if @record.save
-                format.json {render json: @record.student, status: 200}
+                format.json {render json: {'type': 'student', 'data': @record.student}, status: 200}
             else
                 format.json {render json: @record.errors, status: :unprocessable_entity}
             end
@@ -26,7 +25,7 @@ class VisitsController < ApplicationController
             @visit = Visit.new(rut: params[:rut], motivo: params[:motivo], institucion: params[:institucion])
             respond_to do |format|  
             if @visit.save
-                format.json {render json: @visit, status: 200}
+                format.json {render json: {'type': 'visit', 'data': @visit}, status: 200}
             else
                 format.json {render json: @visit.errors, status: :unprocessable_entity}
             end

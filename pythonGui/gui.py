@@ -1,4 +1,4 @@
-# coding=utf-8
+# -*- coding: utf-8 -*-
 import sys
 from PyQt5 import QtGui
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QPushButton, QGridLayout, QLabel, QVBoxLayout, QMessageBox, QComboBox, QStyle
@@ -9,6 +9,7 @@ import datetime
 import time
 import sys
 import requests
+
 
 font_but = QtGui.QFont()
 font_but.setFamily("Segoe UI Symbol")
@@ -151,7 +152,7 @@ class MainWindow(QMainWindow):
         self.thread = Reader()
         self.thread.sig1.connect(self.changeColor)
         self.thread.sig2.connect(self.changeColor)
-        self.thread.start()
+        #self.thread.start()
         self.sym ={'12':'0', '11':'-', '10':'K'}
         self.visible(False)
    
@@ -204,10 +205,21 @@ class MainWindow(QMainWindow):
                 'motivo': self.comboBox.currentText(),
                 'institucion': self.comboBox_2.currentText()}
         response = requests.post(url, data).json()
-        self.visible(False)
-
-
-
+        if response['type'] == 'student':
+            self.visible(False)
+            self.changeColor(response['data'])
+        else:
+            self.visible(False)
+            texto = 'Visita Registrada, Bienvenido'
+            color = 'rgb(255,164,32)'
+            self.label_6.setText(texto)
+            self.pushButton.setVisible(False)
+            self.setStyleSheet("QWidget {background-color: %s ;}" % (color))
+            QTest.qWait(1500)
+            self.setStyleSheet("QWidget {background-color: rgb(222,222,222);}")
+            self.pushButton.setVisible(True)
+            self.label_6.setText('Sistema De Acceso a Laboratorios UC')
+            
 
     def changeColor(self, value):
 

@@ -36881,3 +36881,1247 @@ Processing by RecordsController#index as HTML
 Completed 200 OK in 94ms (Views: 91.0ms | ActiveRecord: 1.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-03-05 20:46:48 -0300
+  [1m[35m (42.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/egromero_s/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 2915ms (Views: 2907.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2019-03-05 20:47:46 -0300
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (1.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/students/index.html.erb:19
+  Rendered students/index.html.erb within layouts/application (58.4ms)
+Completed 200 OK in 421ms (Views: 262.6ms | ActiveRecord: 27.3ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-05 20:48:01 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:15
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  Rendered records/index.html.erb within layouts/application (204.8ms)
+Completed 200 OK in 537ms (Views: 384.0ms | ActiveRecord: 6.5ms)
+
+
+Started POST "/visits" for 127.0.0.1 at 2019-03-05 20:48:31 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"19065385-4", "motivo"=>"Personal", "institucion"=>"Pontificia Universidad Católica de Chile"}
+  [1m[36mStudent Load (0.9ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/controllers/visits_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:18
+  [1m[36mRecord Create (98.9ms)[0m  [1m[32mINSERT INTO "records" ("tipo", "student_id", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["tipo", "ingreso"], ["student_id", 1], ["created_at", "2019-03-05 20:48:32.227878"]]
+  ↳ app/controllers/visits_controller.rb:18
+  [1m[35m (48.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:18
+Completed 200 OK in 368ms (Views: 0.9ms | ActiveRecord: 148.0ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-05 20:48:44 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:15
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  Rendered records/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 92ms (Views: 89.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-05 20:48:56 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:14
+  Rendered visits/index.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 183ms (Views: 89.7ms | ActiveRecord: 9.5ms)
+
+
+Started POST "/visits" for 127.0.0.1 at 2019-03-05 20:49:18 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"22222255-K", "motivo"=>"Académica", "institucion"=>"Otro"}
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "22222255-K"]]
+  ↳ app/controllers/visits_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[36mVisit Create (0.6ms)[0m  [1m[32mINSERT INTO "visits" ("rut", "motivo", "institucion", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["rut", "22222255-K"], ["motivo", "Académica"], ["institucion", "Otro"], ["created_at", "2019-03-05 20:49:18.514241"], ["updated_at", "2019-03-05 20:49:18.514241"]]
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[35m (40.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:28
+Completed 200 OK in 49ms (Views: 0.5ms | ActiveRecord: 44.5ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-05 20:49:22 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:14
+  Rendered visits/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 82ms (Views: 80.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-05 20:49:33 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.2ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:15
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:17
+  Rendered records/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 76ms (Views: 73.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-05 20:49:37 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:14
+  Rendered visits/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 76ms (Views: 70.6ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-09 20:17:52 -0300
+  [1m[35m (240.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/egromero_s/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (75.3ms)
+Completed 200 OK in 5417ms (Views: 5277.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/visits" for 127.0.0.1 at 2019-03-09 20:19:30 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"19065385-4", "motivo"=>"Académica", "institucion"=>"Otro"}
+  [1m[36mStudent Load (93.5ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/controllers/visits_controller.rb:14
+  [1m[35m (41.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:18
+  [1m[36mRecord Create (149.0ms)[0m  [1m[32mINSERT INTO "records" ("tipo", "student_id", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["tipo", "ingreso"], ["student_id", 1], ["created_at", "2019-03-09 20:19:30.741180"]]
+  ↳ app/controllers/visits_controller.rb:18
+  [1m[35m (51.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:18
+Completed 200 OK in 721ms (Views: 26.1ms | ActiveRecord: 514.4ms)
+
+
+Started POST "/visits" for 127.0.0.1 at 2019-03-09 20:19:41 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"55-9", "motivo"=>"Académica", "institucion"=>"Otro"}
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "55-9"]]
+  ↳ app/controllers/visits_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[36mVisit Create (105.8ms)[0m  [1m[32mINSERT INTO "visits" ("rut", "motivo", "institucion", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["rut", "55-9"], ["motivo", "Académica"], ["institucion", "Otro"], ["created_at", "2019-03-09 20:19:41.771617"], ["updated_at", "2019-03-09 20:19:41.771617"]]
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[35m (15.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:28
+Completed 200 OK in 158ms (Views: 0.9ms | ActiveRecord: 125.9ms)
+
+
+Started POST "/visits" for 127.0.0.1 at 2019-03-09 20:21:19 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"22-6", "motivo"=>"Académica", "institucion"=>"Otro"}
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "22-6"]]
+  ↳ app/controllers/visits_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[36mVisit Create (0.7ms)[0m  [1m[32mINSERT INTO "visits" ("rut", "motivo", "institucion", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["rut", "22-6"], ["motivo", "Académica"], ["institucion", "Otro"], ["created_at", "2019-03-09 20:21:20.035439"], ["updated_at", "2019-03-09 20:21:20.035439"]]
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:28
+Completed 200 OK in 24ms (Views: 2.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-09 20:21:50 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (41.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:14
+  Rendered visits/index.html.erb within layouts/application (47.8ms)
+Completed 200 OK in 1472ms (Views: 1370.3ms | ActiveRecord: 41.6ms)
+
+
+Started POST "/visits" for 127.0.0.1 at 2019-03-09 20:24:00 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"2", "motivo"=>"Académica", "institucion"=>"Otro"}
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "2"]]
+  ↳ app/controllers/visits_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[36mVisit Create (1.1ms)[0m  [1m[32mINSERT INTO "visits" ("rut", "motivo", "institucion", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["rut", "2"], ["motivo", "Académica"], ["institucion", "Otro"], ["created_at", "2019-03-09 20:24:00.193676"], ["updated_at", "2019-03-09 20:24:00.193676"]]
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:28
+Completed 200 OK in 25ms (Views: 2.5ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/visits" for 127.0.0.1 at 2019-03-09 20:25:45 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"6", "motivo"=>"Académica", "institucion"=>"Otro"}
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "6"]]
+  ↳ app/controllers/visits_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[36mVisit Create (0.5ms)[0m  [1m[32mINSERT INTO "visits" ("rut", "motivo", "institucion", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["rut", "6"], ["motivo", "Académica"], ["institucion", "Otro"], ["created_at", "2019-03-09 20:25:45.880273"], ["updated_at", "2019-03-09 20:25:45.880273"]]
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[35m (41.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:28
+Completed 200 OK in 51ms (Views: 0.7ms | ActiveRecord: 42.3ms)
+
+
+Started POST "/visits" for 127.0.0.1 at 2019-03-09 20:27:10 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"555", "motivo"=>"Académica", "institucion"=>"Otro"}
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "555"]]
+  ↳ app/controllers/visits_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[36mVisit Create (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("rut", "motivo", "institucion", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["rut", "555"], ["motivo", "Académica"], ["institucion", "Otro"], ["created_at", "2019-03-09 20:27:11.291236"], ["updated_at", "2019-03-09 20:27:11.291236"]]
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[35m (39.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:28
+Completed 200 OK in 93ms (Views: 0.7ms | ActiveRecord: 52.5ms)
+
+
+Started POST "/visits" for 127.0.0.1 at 2019-03-09 20:28:37 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"19065385-4", "motivo"=>"Académica", "institucion"=>"Otro"}
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/controllers/visits_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:18
+  [1m[36mRecord Create (20.3ms)[0m  [1m[32mINSERT INTO "records" ("tipo", "student_id", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["tipo", "ingreso"], ["student_id", 1], ["created_at", "2019-03-09 20:28:37.817185"]]
+  ↳ app/controllers/visits_controller.rb:18
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:18
+Completed 200 OK in 82ms (Views: 0.8ms | ActiveRecord: 29.9ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-09 20:30:41 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:14
+  Rendered visits/index.html.erb within layouts/application (40.5ms)
+Completed 200 OK in 3153ms (Views: 3045.5ms | ActiveRecord: 13.5ms)
+
+
+Started POST "/visits" for 127.0.0.1 at 2019-03-09 20:35:40 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"19065385-4", "motivo"=>"Académica", "institucion"=>"Otro"}
+  [1m[36mStudent Load (4.7ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/controllers/visits_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:18
+  [1m[36mRecord Create (1.7ms)[0m  [1m[32mINSERT INTO "records" ("tipo", "student_id", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["tipo", "ingreso"], ["student_id", 1], ["created_at", "2019-03-09 20:35:40.474354"]]
+  ↳ app/controllers/visits_controller.rb:18
+  [1m[35m (24.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:18
+Completed 200 OK in 72ms (Views: 3.6ms | ActiveRecord: 36.2ms)
+
+
+Started POST "/visits" for 127.0.0.1 at 2019-03-09 20:37:05 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"5", "motivo"=>"Académica", "institucion"=>"Otro"}
+  [1m[36mStudent Load (1.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "5"]]
+  ↳ app/controllers/visits_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[36mVisit Create (1.6ms)[0m  [1m[32mINSERT INTO "visits" ("rut", "motivo", "institucion", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["rut", "5"], ["motivo", "Académica"], ["institucion", "Otro"], ["created_at", "2019-03-09 20:37:05.595476"], ["updated_at", "2019-03-09 20:37:05.595476"]]
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:28
+Completed 200 OK in 31ms (Views: 2.3ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/visits" for 127.0.0.1 at 2019-03-09 20:38:42 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"66", "motivo"=>"Académica", "institucion"=>"Otro"}
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "66"]]
+  ↳ app/controllers/visits_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[36mVisit Create (0.4ms)[0m  [1m[32mINSERT INTO "visits" ("rut", "motivo", "institucion", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["rut", "66"], ["motivo", "Académica"], ["institucion", "Otro"], ["created_at", "2019-03-09 20:38:42.670499"], ["updated_at", "2019-03-09 20:38:42.670499"]]
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:28
+Completed 200 OK in 95ms (Views: 0.4ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/visits" for 127.0.0.1 at 2019-03-09 20:38:53 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"19065385-4", "motivo"=>"Académica", "institucion"=>"Otro"}
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/controllers/visits_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:18
+  [1m[36mRecord Create (0.8ms)[0m  [1m[32mINSERT INTO "records" ("tipo", "student_id", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["tipo", "ingreso"], ["student_id", 1], ["created_at", "2019-03-09 20:38:53.750583"]]
+  ↳ app/controllers/visits_controller.rb:18
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:18
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-09 20:42:16 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:14
+  Rendered visits/index.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 652ms (Views: 614.7ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/visitsdf" for 127.0.0.1 at 2019-03-09 21:41:42 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/visitsdf"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-03-09 21:47:55 -0300
+  [1m[35m (42.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/egromero_s/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 1551ms (Views: 1543.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-09 21:48:02 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.4ms)[0m  [1m[34mSELECT  "records".* FROM "records" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Record Load (0.0ms)[0m  [1m[34mSELECT  "records".* FROM "records" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Record Load (0.0ms)[0m  [1m[34mSELECT  "records".* FROM "records" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Record Load (0.0ms)[0m  [1m[34mSELECT  "records".* FROM "records" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Record Load (0.0ms)[0m  [1m[34mSELECT  "records".* FROM "records" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Record Load (0.0ms)[0m  [1m[34mSELECT  "records".* FROM "records" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Record Load (0.0ms)[0m  [1m[34mSELECT  "records".* FROM "records" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Record Load (0.0ms)[0m  [1m[34mSELECT  "records".* FROM "records" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  Rendered records/index.html.erb within layouts/application (669.8ms)
+Completed 500 Internal Server Error in 1175ms (ActiveRecord: 10.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `import_record_path' for #<#<Class:0x00007ff809e2dca0>:0x00007ff809e475b0>
+Did you mean?  import_records_path
+               import_records_url):
+    1: <h2>Registros:</h2>
+    2: 
+    3: <div>
+    4: <%= form_tag import_record_path, multipart: true do%>
+    5: <%= file_field_tag :file%>
+    6: <%= submit_tag 'Cargar Datos'%>
+    7: <%end%>
+  
+app/views/records/index.html.erb:4:in `_app_views_records_index_html_erb__3668139340153010040_70351647227100'
+Started GET "/records" for 127.0.0.1 at 2019-03-09 21:49:04 -0300
+  
+SyntaxError (/Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:14: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+...redirect_to root_path, notice "Registros actualizados"
+...                              ^):
+  
+app/controllers/records_controller.rb:14: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+Started GET "/records" for 127.0.0.1 at 2019-03-09 21:49:43 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.7ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (26.6ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (205.1ms)
+Completed 200 OK in 866ms (Views: 766.3ms | ActiveRecord: 40.2ms)
+
+
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 21:52:58 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9LGXJDi2jDuSv73gHFOj3mAwfCTJVeK/BsyJk/Tv2z/y3r15ESwa7aBKLW190aF+LcsrBH+31JUOG95U1NxTxg==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff80e4db238 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-1pjc3it.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `row' for #<Class:0x00007ff80e0c1c10>):
+  
+app/models/record.rb:7:in `block in import'
+app/models/record.rb:6:in `import'
+app/controllers/records_controller.rb:13:in `import'
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 21:53:33 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9LGXJDi2jDuSv73gHFOj3mAwfCTJVeK/BsyJk/Tv2z/y3r15ESwa7aBKLW190aF+LcsrBH+31JUOG95U1NxTxg==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff809dfb638 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-vbxntk.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'Nombre' for Record.):
+  
+app/models/record.rb:7:in `block in import'
+app/models/record.rb:6:in `import'
+app/controllers/records_controller.rb:13:in `import'
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 21:58:59 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9LGXJDi2jDuSv73gHFOj3mAwfCTJVeK/BsyJk/Tv2z/y3r15ESwa7aBKLW190aF+LcsrBH+31JUOG95U1NxTxg==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff80d260220 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-1nau2r0.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 72ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-09 21:59:00 -0300
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 528ms (Views: 524.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2019-03-09 21:59:42 -0300
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (2.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/students/index.html.erb:19
+  Rendered students/index.html.erb within layouts/application (59.4ms)
+Completed 200 OK in 768ms (Views: 664.7ms | ActiveRecord: 31.2ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-09 22:05:18 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.8ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (1.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (111.6ms)
+Completed 200 OK in 1309ms (Views: 1116.9ms | ActiveRecord: 45.2ms)
+
+
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 22:05:54 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ah343jWkIMEXn6XM4/txQYZjmTrP67nSN/ycrc9N7qSXK5d+8xSFyQYv9npSnbCb2cdqE/+xqAyOh4MFbzpheQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff80d1f5ba0 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-1eeigf8.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (0.9ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" IS NULL[0m
+  ↳ app/models/record.rb:9
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.9ms)
+
+
+  
+NoMethodError (undefined method `new' for []:Array):
+  
+app/models/record.rb:9:in `block in import'
+app/models/record.rb:6:in `import'
+app/controllers/records_controller.rb:13:in `import'
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 22:06:13 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ah343jWkIMEXn6XM4/txQYZjmTrP67nSN/ycrc9N7qSXK5d+8xSFyQYv9npSnbCb2cdqE/+xqAyOh4MFbzpheQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff80d1f88c8 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-1x8ncok.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" IS NULL[0m
+  ↳ app/models/record.rb:8
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 4.0ms)
+
+
+  
+NoMethodError (undefined method `records' for nil:NilClass):
+  
+app/models/record.rb:9:in `block in import'
+app/models/record.rb:6:in `import'
+app/controllers/records_controller.rb:13:in `import'
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 22:08:48 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ah343jWkIMEXn6XM4/txQYZjmTrP67nSN/ycrc9N7qSXK5d+8xSFyQYv9npSnbCb2cdqE/+xqAyOh4MFbzpheQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff8093dbdb0 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-7eqcba.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" IS NULL[0m
+  ↳ app/models/record.rb:8
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `records' for nil:NilClass):
+  
+app/models/record.rb:9:in `block in import'
+app/models/record.rb:6:in `import'
+app/controllers/records_controller.rb:13:in `import'
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 22:13:11 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ah343jWkIMEXn6XM4/txQYZjmTrP67nSN/ycrc9N7qSXK5d+8xSFyQYv9npSnbCb2cdqE/+xqAyOh4MFbzpheQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff808cfc828 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-121du0o.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" IS NULL[0m
+  ↳ app/models/record.rb:8
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 5.7ms)
+
+
+  
+NoMethodError (undefined method `records' for nil:NilClass):
+  
+app/models/record.rb:10:in `block in import'
+app/models/record.rb:6:in `import'
+app/controllers/records_controller.rb:13:in `import'
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 22:14:18 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ah343jWkIMEXn6XM4/txQYZjmTrP67nSN/ycrc9N7qSXK5d+8xSFyQYv9npSnbCb2cdqE/+xqAyOh4MFbzpheQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff80d310b48 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-dg4di7.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" IS NULL[0m
+  ↳ app/models/record.rb:9
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 3.1ms)
+
+
+  
+NoMethodError (undefined method `records' for nil:NilClass):
+  
+app/models/record.rb:10:in `block in import'
+app/models/record.rb:6:in `import'
+app/controllers/records_controller.rb:13:in `import'
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 22:16:50 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ah343jWkIMEXn6XM4/txQYZjmTrP67nSN/ycrc9N7qSXK5d+8xSFyQYv9npSnbCb2cdqE/+xqAyOh4MFbzpheQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff80d4ba278 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-3irzp1.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" IS NULL[0m
+  ↳ app/models/record.rb:10
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 2.0ms)
+
+
+  
+NoMethodError (undefined method `new' for []:Array):
+  
+app/models/record.rb:10:in `block in import'
+app/models/record.rb:6:in `import'
+app/controllers/records_controller.rb:13:in `import'
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 22:19:36 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ah343jWkIMEXn6XM4/txQYZjmTrP67nSN/ycrc9N7qSXK5d+8xSFyQYv9npSnbCb2cdqE/+xqAyOh4MFbzpheQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff808ca4448 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-16ppuul.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" IS NULL[0m
+  ↳ app/models/record.rb:10
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 2.3ms)
+
+
+  
+NoMethodError (undefined method `new' for []:Array):
+  
+app/models/record.rb:10:in `block in import'
+app/models/record.rb:6:in `import'
+app/controllers/records_controller.rb:13:in `import'
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 22:20:27 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ah343jWkIMEXn6XM4/txQYZjmTrP67nSN/ycrc9N7qSXK5d+8xSFyQYv9npSnbCb2cdqE/+xqAyOh4MFbzpheQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff80d421be0 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-14j4hy5.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" IS NULL[0m
+  ↳ app/models/record.rb:10
+Completed 500 Internal Server Error in 85ms (ActiveRecord: 3.0ms)
+
+
+  
+NoMethodError (undefined method `new' for []:Array):
+  
+app/models/record.rb:10:in `block in import'
+app/models/record.rb:6:in `import'
+app/controllers/records_controller.rb:13:in `import'
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 22:21:09 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ah343jWkIMEXn6XM4/txQYZjmTrP67nSN/ycrc9N7qSXK5d+8xSFyQYv9npSnbCb2cdqE/+xqAyOh4MFbzpheQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff808f290b0 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-179frnv.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (1.5ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+Completed 500 Internal Server Error in 96ms (ActiveRecord: 13.4ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'create_at' for Record.):
+  
+app/models/record.rb:9:in `block in import'
+app/models/record.rb:6:in `import'
+app/controllers/records_controller.rb:13:in `import'
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 22:24:08 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ah343jWkIMEXn6XM4/txQYZjmTrP67nSN/ycrc9N7qSXK5d+8xSFyQYv9npSnbCb2cdqE/+xqAyOh4MFbzpheQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff809577ed0 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-zr5fs1.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 155ms (ActiveRecord: 14.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-09 22:24:09 -0300
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 720ms (Views: 708.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-09 22:24:13 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.2ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (0.7ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 306ms (Views: 175.3ms | ActiveRecord: 8.4ms)
+
+
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 22:25:28 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kytD30W+QZ5ciXg8nyii929tmYAhMtMg76pmCHpHoVFuHSx/gw7klk05K4ouTmMtMMlqqRFowv5W0Xmg2jAujA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff80d2f00c8 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-qkav93.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (0.9ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:10
+  [1m[36mRecord Create (44.7ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:25:29.256706"]]
+  ↳ app/models/record.rb:10
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:10
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:10
+  [1m[36mRecord Create (0.5ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:25:29.306810"]]
+  ↳ app/models/record.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:10
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:10
+  [1m[36mRecord Create (24.8ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:25:29.312679"]]
+  ↳ app/models/record.rb:10
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:10
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:10
+  [1m[36mRecord Create (0.7ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:25:29.343467"]]
+  ↳ app/models/record.rb:10
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:10
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:10
+  [1m[36mRecord Create (0.7ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:25:29.349899"]]
+  ↳ app/models/record.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:10
+Redirected to http://localhost:3000/
+Completed 302 Found in 184ms (ActiveRecord: 87.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-09 22:25:29 -0300
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 435ms (Views: 433.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-09 22:25:32 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.6ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (63.9ms)
+Completed 200 OK in 213ms (Views: 152.8ms | ActiveRecord: 10.2ms)
+
+
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 22:27:07 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"liHx4uifprQviw8vQ8CFV8u4fUbk49VxeTHK0Gb4XGJrF55CLi8DvD47XJnypkSNlByOb9S5xK/AStV4xo/Tvw==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff80e2cb588 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-2wyai0.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (1.5ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:10
+  [1m[36mRecord Create (1.4ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:27:07.133906"]]
+  ↳ app/models/record.rb:10
+  [1m[35m (17.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:10
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:10
+  [1m[36mRecord Create (0.9ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:27:07.157801"]]
+  ↳ app/models/record.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:10
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:10
+  [1m[36mRecord Create (29.4ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:27:07.163365"]]
+  ↳ app/models/record.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:10
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:10
+  [1m[36mRecord Create (0.7ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:27:07.199361"]]
+  ↳ app/models/record.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:10
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:10
+  [1m[36mRecord Create (0.6ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:27:07.204895"]]
+  ↳ app/models/record.rb:10
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:10
+Redirected to http://localhost:3000/
+Completed 302 Found in 80ms (ActiveRecord: 58.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-09 22:27:07 -0300
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 517ms (Views: 515.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-09 22:27:09 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 170ms (Views: 118.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 22:28:44 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZU6xj1F4Cxj9q06sPABlCb3Ou9jL4UkbKR22M43DYYaYeN4vl8iuEOwbHRqNZqTT4mpI8fu7WMWQZqmbLbTuWw==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff80d4e0040 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-qusak.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:11
+  [1m[36mRecord Create (0.6ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:28:45.030936"]]
+  ↳ app/models/record.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:11
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:11
+  [1m[36mRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:28:45.036464"]]
+  ↳ app/models/record.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:11
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:11
+  [1m[36mRecord Create (34.4ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:28:45.040582"]]
+  ↳ app/models/record.rb:11
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:11
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:11
+  [1m[36mRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:28:45.080209"]]
+  ↳ app/models/record.rb:11
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:11
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:11
+  [1m[36mRecord Create (0.5ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:28:45.086223"]]
+  ↳ app/models/record.rb:11
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:11
+Redirected to http://localhost:3000/
+Completed 302 Found in 140ms (ActiveRecord: 54.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-09 22:28:45 -0300
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 452ms (Views: 450.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-09 22:28:48 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.1ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (28.6ms)
+Completed 200 OK in 244ms (Views: 222.9ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 22:29:32 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WSDh+zMAJw7Q8mZkk3VsDOb7y/8KYeeY3y55FsIgww2kFo5b9bCCBsFCNdIiE63WuV841jo79kZmVWa+YldM0A==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff80d529538 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-13zso37.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:11
+  [1m[36mRecord Create (0.6ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:29:32.733978"]]
+  ↳ app/models/record.rb:11
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:11
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:11
+  [1m[36mRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:29:32.741375"]]
+  ↳ app/models/record.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:11
+  [1m[36mStudent Load (1.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:11
+  [1m[36mRecord Create (0.5ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:29:32.748626"]]
+  ↳ app/models/record.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:11
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:11
+  [1m[36mRecord Create (1.7ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:29:32.756655"]]
+  ↳ app/models/record.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:11
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:11
+  [1m[36mRecord Create (0.6ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-09 22:29:32.763995"]]
+  ↳ app/models/record.rb:11
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:11
+Redirected to http://localhost:3000/
+Completed 302 Found in 100ms (ActiveRecord: 13.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-09 22:29:32 -0300
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 516ms (Views: 514.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-09 22:29:36 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (2.7ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (44.8ms)
+Completed 200 OK in 167ms (Views: 126.8ms | ActiveRecord: 11.2ms)
+
+
+Started POST "/records/import" for 127.0.0.1 at 2019-03-09 22:31:44 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PGlo3znSrERnUh7emb32IFZIqrROnZzcSivZgf29eeDBXwd//2IJTHbiTWgo2zf6CexZnX7HjQLzUMYpXcr2PQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff80f044cf0 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190309-14465-1w0mshx.csv>, @original_filename="file.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (0.9ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:10
+  [1m[36mRecord Create (0.7ms)[0m  [1m[32mINSERT INTO "records" ("tipo", "student_id", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["tipo", "Ingreso"], ["student_id", 1], ["created_at", "2019-03-05 17:12:21"]]
+  ↳ app/models/record.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:10
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:10
+  [1m[36mRecord Create (0.5ms)[0m  [1m[32mINSERT INTO "records" ("tipo", "student_id", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["tipo", "Ingreso"], ["student_id", 1], ["created_at", "2019-03-05 17:13:21"]]
+  ↳ app/models/record.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:10
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:10
+  [1m[36mRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "records" ("tipo", "student_id", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["tipo", "Ingreso"], ["student_id", 1], ["created_at", "2019-03-05 17:14:21"]]
+  ↳ app/models/record.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:10
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:10
+  [1m[36mRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "records" ("tipo", "student_id", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["tipo", "Ingreso"], ["student_id", 1], ["created_at", "2019-03-05 17:16:21"]]
+  ↳ app/models/record.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:10
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" = $1[0m  [["rfid", "8af1345ea"]]
+  ↳ app/models/record.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/record.rb:10
+  [1m[36mRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "records" ("tipo", "student_id", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["tipo", "Ingreso"], ["student_id", 1], ["created_at", "2019-03-05 17:16:21"]]
+  ↳ app/models/record.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/record.rb:10
+Redirected to http://localhost:3000/
+Completed 302 Found in 133ms (ActiveRecord: 8.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-09 22:31:44 -0300
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 533ms (Views: 530.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-09 22:31:47 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.7ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  [1m[36mStudent Load (0.7ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:21
+  Rendered records/index.html.erb within layouts/application (40.6ms)
+Completed 200 OK in 178ms (Views: 118.8ms | ActiveRecord: 2.9ms)
+
+
+  [1m[36mRecord Destroy (45.0ms)[0m  [1m[31mDELETE FROM "records"[0m
+Started GET "/records" for 127.0.0.1 at 2019-03-09 22:34:13 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:19
+  Rendered records/index.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 737ms (Views: 703.9ms | ActiveRecord: 0.8ms)
+
+

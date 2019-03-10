@@ -15,4 +15,7 @@ Rails.application.routes.draw do
     post 'set_admin'
   end
   resources :visits
+  resources :records do 
+    collection {post :import}
+  end
 end
