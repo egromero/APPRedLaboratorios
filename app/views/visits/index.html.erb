@@ -5,28 +5,90 @@
 </head>
 <body>
 
-<div>
+<div id="botonFile">
 <%= form_tag import_visits_path, multipart: true do%>
-<%= file_field_tag :file%>
-<%= submit_tag 'Cargar Datos'%>
+<%= file_field_tag :file , class: "button"%>
+<%= submit_tag 'Cargar Datos', class: "button"%>
 <%end%>
 </div>
-<table id="records">
-  <tr>
-    <th>Nombre</th>
+<div class="tabset">
+  <!-- Tab 1 -->
+  <input type="radio" name="tabset" id="tab1" aria-controls="Hoy" checked>
+  <label for="tab1">Hoy</label>
+  <!-- Tab 2 -->
+  <input type="radio" name="tabset" id="tab2" aria-controls="Semana">
+  <label for="tab2">Semana</label>
+  <!-- Tab 3 -->
+  <input type="radio" name="tabset" id="tab3" aria-controls="Mes">
+  <label for="tab3">Mes</label>
+  
+  <div class="tab-panels">
+    <section id="Hoy" class="tab-panel">
+    <table id= "records">
+    <tr>
+    <th>RUT</th>
+    <th>Fecha Registro</th>
     <th>Hora Registro</th>
-    <th>Tipo</th>
-    <th>Matriculado</th>
-  </tr>
-  <%@visits.each do |visit|%>
-  <tr>
-    <td><%=visit.rut%></td>
-    <td><%=visit.created_at%></td>
-    <td><%=visit.motivo%></td>
-    <td><%=visit.institucion%></td>
-    
-  </tr>
-   <%end%>
-</table>
-</body>
-</html>
+    <th>Motivo</th>
+    <th>Institución</th>
+    </tr>
+    <%@visits_day.each do |visit|%>
+    <tr>
+     <td><%=visit.rut%></td>
+     <td><%=visit.created_at.to_s.split(' ')[0]%></td>
+     <td><%=visit.created_at.to_s.split(' ')[1]%></td>
+     <td><%=visit.motivo%></td>
+     <td><%=visit.institucion%></td>
+
+    </tr>
+    <%end%>
+    </table>  
+  </section>
+    <section id="Semana" class="tab-panel">
+     <table id= "records">
+      <tr>
+      <th>RUT</th>
+      <th>Fecha Registro</th>
+      <th>Hora Registro</th>
+      <th>Motivo</th>
+      <th>Institución</th>
+      </tr>
+      <%@visits_week.each do |visit|%>
+      <tr>
+      <td><%=visit.rut%></td>
+      <td><%=visit.created_at.to_s.split(' ')[0]%></td>
+      <td><%=visit.created_at.to_s.split(' ')[1]%></td>
+      <td><%=visit.motivo%></td>
+      <td><%=visit.institucion%></td>
+      </tr>
+      <%end%>
+      </table> 
+    </section>
+    <section id="Mes" class="tab-panel">
+      <table id= "records">
+      <tr>
+      <th>RUT</th>
+      <th>Fecha Registro</th>
+      <th>Hora Registro</th>
+      <th>Motivo</th>
+      <th>Institución</th>
+      </tr>
+      <%@visits_month.each do |visit|%>
+      <tr>
+      <td><%=visit.rut%></td>
+      <td><%=visit.created_at.to_s.split(' ')[0]%></td>
+      <td><%=visit.created_at.to_s.split(' ')[1]%></td>
+      <td><%=visit.motivo%></td>
+      <td><%=visit.institucion%></td>
+      </tr>
+      <%end%>
+      </table> 
+    </section>
+  </div>
+  
+</div>
+
+
+
+
+

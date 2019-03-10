@@ -9,21 +9,84 @@
 </head>
 <body>
 <%=DateTime.now.to_time%>
-<table id="records">
-  <tr>
+
+
+<div class="tabset">
+  <!-- Tab 1 -->
+  <input type="radio" name="tabset" id="tab1" aria-controls="Hoy" checked>
+  <label for="tab1">Hoy</label>
+  <!-- Tab 2 -->
+  <input type="radio" name="tabset" id="tab2" aria-controls="Semana">
+  <label for="tab2">Semana</label>
+  <!-- Tab 3 -->
+  <input type="radio" name="tabset" id="tab3" aria-controls="Mes">
+  <label for="tab3">Mes</label>
+  
+  <div class="tab-panels">
+    <section id="Hoy" class="tab-panel">
+    <table id= "records">
+    <tr>
     <th>Nombre</th>
+    <th>Fecha Registro</th>
     <th>Hora Registro</th>
     <th>Tipo</th>
     <th>Matriculado</th>
-  </tr>
-  <%@records.each do |record|%>
-  <tr>
+    </tr>
+    <%@records_day.each do |record|%>
+    <tr>
     <td><%=record.student.nombre%></td>
+     <td><%=record.created_at.to_s.split(' ')[0]%></td>
     <td><%=record.created_at.to_s.split(' ')[1]%></td>
     <td><%=record.tipo%></td>
-    
-  </tr>
-   <%end%>
-</table>
-</body>
-</html>
+    </tr>
+    <%end%>
+    </table>  
+  </section>
+    <section id="Semana" class="tab-panel">
+     <table id= "records">
+      <tr>
+      <th>Nombre</th>
+      <th>Fecha Registro</th>
+      <th>Hora Registro</th>
+      <th>Tipo</th>
+      <th>Matriculado</th>
+      </tr>
+      <%@records_week.each do |record|%>
+      <tr>
+      <td><%=record.student.nombre%></td>
+      <td><%=record.created_at.to_s.split(' ')[0]%></td>
+      <td><%=record.created_at.to_s.split(' ')[1]%></td>
+      <td><%=record.tipo%></td>
+      </tr>
+      <%end%>
+      </table> 
+    </section>
+    <section id="Mes" class="tab-panel">
+      <table id= "records">
+      <tr>
+      <th>Nombre</th>
+      <th>Fecha Registro</th>
+      <th>Hora Registro</th>
+      <th>Tipo</th>
+      <th>Matriculado</th>
+      </tr>
+      <%@records_month.each do |record|%>
+      <tr>
+      <td><%=record.student.nombre%></td>
+      <td><%=record.created_at.to_s.split(' ')[0]%></td>
+      <td><%=record.created_at.to_s.split(' ')[1]%></td>
+      <td><%=record.tipo%></td>
+      </tr>
+      <%end%>
+      </table> 
+    </section>
+  </div>
+  
+</div>
+
+
+
+
+
+
+

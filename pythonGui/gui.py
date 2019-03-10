@@ -215,7 +215,8 @@ class MainWindow(QMainWindow):
         url = 'http://localhost:3000/visits'
         data = {'rut': self.label_5.text(), 
                 'motivo': self.comboBox.currentText(),
-                'institucion': self.comboBox_2.currentText()}
+                'institucion': self.comboBox_2.currentText()
+                'tipo': 'ingreso'}
         if internet_on():
             response = requests.post(url, data).json()
             if response['type'] == 'student':

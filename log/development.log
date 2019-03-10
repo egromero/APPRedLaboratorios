@@ -38460,3 +38460,1779 @@ Processing by RecordsController#index as HTML
 Completed 200 OK in 83ms (Views: 80.2ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:44:09 -0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/egromero_s/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:24
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:26
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:26
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:26
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:26
+  Rendered records/index.html.erb within layouts/application (167.4ms)
+Completed 200 OK in 1520ms (Views: 1353.9ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:45:45 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.7ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:25
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:27
+  Rendered records/index.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 479ms (Views: 467.2ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:47:10 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:26
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:28
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:28
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:28
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:28
+  Rendered records/index.html.erb within layouts/application (30.2ms)
+Completed 200 OK in 652ms (Views: 643.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:47:55 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (2.2ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:26
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:28
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:28
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:28
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:28
+  Rendered records/index.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 455ms (Views: 411.7ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:48:37 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (2.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:48
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:50
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:50
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:50
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:50
+  Rendered records/index.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 476ms (Views: 464.5ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:50:26 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.2ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:58
+  [1m[36mStudent Load (0.9ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:60
+  [1m[36mCACHE Student Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:60
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:60
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:60
+  Rendered records/index.html.erb within layouts/application (30.8ms)
+Completed 200 OK in 11574ms (Views: 11569.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:51:33 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (3.1ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:34
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  Rendered records/index.html.erb within layouts/application (75.7ms)
+Completed 200 OK in 579ms (Views: 563.1ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:51:52 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:34
+  [1m[36mStudent Load (0.9ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  Rendered records/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 422ms (Views: 419.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:52:54 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:34
+  [1m[36mStudent Load (0.7ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  Rendered records/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 444ms (Views: 440.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:53:06 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:34
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  Rendered records/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 251ms (Views: 248.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:54:29 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.1ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:34
+  [1m[36mStudent Load (0.7ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  Rendered records/index.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 577ms (Views: 569.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:55:19 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.5ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:34
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  Rendered records/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 188ms (Views: 184.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 00:59:38 -0300
+  
+SyntaxError (/Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:6: syntax error, unexpected '(', expecting end
+...     @records_month = @records("DATE_TRUNC('month', created_...
+...                              ^
+/Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:6: syntax error, unexpected ')', expecting end
+...TE_TRUNC('month', created_at)")
+...                              ^
+/Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:43: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/records_controller.rb:6: syntax error, unexpected '(', expecting end
+app/controllers/records_controller.rb:6: syntax error, unexpected ')', expecting end
+app/controllers/records_controller.rb:43: syntax error, unexpected end-of-input, expecting end
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:01:02 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/controllers/records_controller.rb:6
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  Rendered records/index.html.erb within layouts/application (48.5ms)
+Completed 500 Internal Server Error in 138ms (ActiveRecord: 20.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `student' for #<Array:0x00007fc911fbeca8>):
+    67:       </tr>
+    68:       <%@records_month.each do |record|%>
+    69:       <tr>
+    70:       <td><%=record.student.nombre%></td>
+    71:       <td><%=record.created_at.to_s.split(' ')[1]%></td>
+    72:       <td><%=record.tipo%></td>
+    73:       </tr>
+  
+app/views/records/index.html.erb:70:in `block in _app_views_records_index_html_erb__3666935139606795649_70250755628780'
+app/views/records/index.html.erb:68:in `each'
+app/views/records/index.html.erb:68:in `_app_views_records_index_html_erb__3666935139606795649_70250755628780'
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:02:00 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/controllers/records_controller.rb:6
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  Rendered records/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 533ms (Views: 528.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:02:38 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/controllers/records_controller.rb:6
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  Rendered records/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 98ms (Views: 93.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:03:46 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/controllers/records_controller.rb:6
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  Rendered records/index.html.erb within layouts/application (8.9ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    65:       <th>Tipo</th>
+    66:       <th>Matriculado</th>
+    67:       </tr>
+    68:       <%@records_month[1].each do |record|%>
+    69:       <tr>
+    70:       <td><%=record%></td>
+    71:       
+  
+app/views/records/index.html.erb:68:in `_app_views_records_index_html_erb__3666935139606795649_70250747690400'
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:04:07 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/controllers/records_controller.rb:6
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  Rendered records/index.html.erb within layouts/application (42.7ms)
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    65:       <th>Tipo</th>
+    66:       <th>Matriculado</th>
+    67:       </tr>
+    68:       <%@records_month.each do |record|%>
+    69:       <tr>
+    70:       <td><%=record%></td>
+    71:       
+  
+app/views/records/index.html.erb:68:in `_app_views_records_index_html_erb__3666935139606795649_70250798691760'
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:04:16 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/controllers/records_controller.rb:6
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  Rendered records/index.html.erb within layouts/application (45.2ms)
+Completed 500 Internal Server Error in 125ms (ActiveRecord: 10.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    65:       <th>Tipo</th>
+    66:       <th>Matriculado</th>
+    67:       </tr>
+    68:       <%@records_month.each do |record|%>
+    69:       <tr>
+    70:       <td><%=record%></td>
+    71:       
+  
+app/views/records/index.html.erb:68:in `_app_views_records_index_html_erb__3666935139606795649_70250790091620'
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:04:23 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/controllers/records_controller.rb:6
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  Rendered records/index.html.erb within layouts/application (40.2ms)
+Completed 200 OK in 547ms (Views: 514.7ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:04:54 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/controllers/records_controller.rb:6
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  Rendered records/index.html.erb within layouts/application (42.0ms)
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    65:       <th>Tipo</th>
+    66:       <th>Matriculado</th>
+    67:       </tr>
+    68:       <%@records_month.each do |record|%>
+    69:       <tr>
+    70:       <td><%=record%></td>
+    71:       
+  
+app/views/records/index.html.erb:68:in `_app_views_records_index_html_erb__3666935139606795649_70250811801000'
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:05:01 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/controllers/records_controller.rb:6
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  Rendered records/index.html.erb within layouts/application (42.9ms)
+Completed 200 OK in 646ms (Views: 597.6ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:05:37 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/controllers/records_controller.rb:6
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.7ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  Rendered records/index.html.erb within layouts/application (37.6ms)
+Completed 200 OK in 490ms (Views: 456.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:07:12 -0300
+  
+SyntaxError (/Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:6: syntax error, unexpected tINTEGER, expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+...by{ |u| u.created_at.month }[:1]
+...                              ^
+/Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:43: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/records_controller.rb:6: syntax error, unexpected tINTEGER, expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+app/controllers/records_controller.rb:43: syntax error, unexpected end-of-input, expecting end
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:08:57 -0300
+  
+SyntaxError (/Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:42: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/records_controller.rb:42: syntax error, unexpected end-of-input, expecting end
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:09:23 -0300
+Processing by RecordsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "extract(month from created_at) DESC". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:6)
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (5.6ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:34
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mRecord Load (855.5ms)[0m  [1m[34mSELECT "records".* FROM "records" ORDER BY extract(month from created_at) DESC[0m
+  ↳ app/views/records/index.html.erb:68
+  Rendered records/index.html.erb within layouts/application (935.9ms)
+Completed 200 OK in 2485ms (Views: 1436.0ms | ActiveRecord: 878.3ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:09:43 -0300
+Processing by RecordsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "extract(month from created_at) DESC". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:6)
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:34
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" ORDER BY extract(month from created_at) DESC[0m
+  ↳ app/views/records/index.html.erb:68
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  Rendered records/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 390ms (Views: 387.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:10:09 -0300
+Processing by RecordsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "extract(month from created_at) DESC". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:6)
+  Rendering records/index.html.erb within layouts/application
+  Rendered records/index.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/views/records/index.html.erb:71: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ed_at.to_s.split(' ')[0] record.created_at.to_s.split(' ')[1...
+...                         ^~~~~~):
+  
+app/views/records/index.html.erb:71: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:10:14 -0300
+Processing by RecordsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "extract(month from created_at) DESC". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:6)
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:34
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mRecord Load (5.6ms)[0m  [1m[34mSELECT "records".* FROM "records" ORDER BY extract(month from created_at) DESC[0m
+  ↳ app/views/records/index.html.erb:68
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  Rendered records/index.html.erb within layouts/application (45.1ms)
+Completed 200 OK in 1051ms (Views: 984.9ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:10:26 -0300
+Processing by RecordsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "extract(month from created_at) DESC". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:6)
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:34
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mRecord Load (1.7ms)[0m  [1m[34mSELECT "records".* FROM "records" ORDER BY extract(month from created_at) DESC[0m
+  ↳ app/views/records/index.html.erb:68
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  Rendered records/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 121ms (Views: 111.2ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:11:18 -0300
+Processing by RecordsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "extract(month from created_at) DESC". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:6)
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.6ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:34
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" ORDER BY extract(month from created_at) DESC[0m
+  ↳ app/views/records/index.html.erb:69
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:71
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:71
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:71
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:71
+  Rendered records/index.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 742ms (Views: 738.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:12:10 -0300
+Processing by RecordsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "extract(month from created_at) DESC". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:6)
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.3ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:35
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mRecord Load (1.2ms)[0m  [1m[34mSELECT "records".* FROM "records" ORDER BY extract(month from created_at) DESC[0m
+  ↳ app/views/records/index.html.erb:71
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:73
+  Rendered records/index.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 483ms (Views: 473.7ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:13:11 -0300
+Processing by RecordsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "extract(day from created_at) DESC". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:6)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "extract(week from created_at) DESC". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:7)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "extract(month from created_at) DESC". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:8)
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:35
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" ORDER BY extract(month from created_at) DESC[0m
+  ↳ app/views/records/index.html.erb:71
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:73
+  Rendered records/index.html.erb within layouts/application (64.6ms)
+Completed 200 OK in 948ms (Views: 799.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:14:34 -0300
+Processing by RecordsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "extract(day from created_at) DESC". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:6)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "extract(week from created_at) DESC". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:7)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "extract(month from created_at) DESC". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:8)
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.6ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:35
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mRecord Load (0.6ms)[0m  [1m[34mSELECT "records".* FROM "records" ORDER BY extract(month from created_at) DESC[0m
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  Rendered records/index.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 500ms (Views: 495.9ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/records/import" for 127.0.0.1 at 2019-03-10 01:16:29 -0300
+Processing by RecordsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Gke/UU9wVIEsIDcFo5sEH3idtYf9Ow96S3TXkkjMwGccKJUMZurCVx7Vp4jCGQa/NWbip0vZOVBDo4BVaP9Ing==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fc913a83bd8 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190310-18633-1q02gu9.csv>, @original_filename="registrosVisitasOffline.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"registrosVisitasOffline.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rfid" IS NULL[0m
+  ↳ app/models/record.rb:8
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 3.3ms)
+
+
+  
+NoMethodError (undefined method `records' for nil:NilClass):
+  
+app/models/record.rb:9:in `block in import'
+app/models/record.rb:6:in `import'
+app/controllers/records_controller.rb:17:in `import'
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 01:17:59 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (85.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:21
+  Rendered visits/index.html.erb within layouts/application (105.1ms)
+Completed 200 OK in 1253ms (Views: 1083.4ms | ActiveRecord: 92.8ms)
+
+
+Started POST "/visits/import" for 127.0.0.1 at 2019-03-10 01:18:11 -0300
+Processing by VisitsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qSSgPVolYU1ZTf7cMeKPkgIDzoXrkjDPXBdn3rSKVIqXArt3sfPT4gmBczkm/vZG5gd36YD4XfcYwsIRmwo73A==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fc90ed9b398 @tempfile=#<Tempfile:/var/folders/_g/55mt79nn52lf8dbw7wg9jt3c0000gn/T/RackMultipart20190310-18633-g8h8yc.csv>, @original_filename="registrosVisitasOffline.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"registrosVisitasOffline.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Cargar Datos"}
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/models/visit.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/visit.rb:11
+  [1m[36mRecord Create (42.1ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-02-09 23:53:44.221309"]]
+  ↳ app/models/visit.rb:11
+  [1m[35m (32.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/visit.rb:11
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/models/visit.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/visit.rb:11
+  [1m[36mRecord Create (0.6ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-01-09 23:56:41.313778"]]
+  ↳ app/models/visit.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/visit.rb:11
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/models/visit.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/visit.rb:11
+  [1m[36mRecord Create (0.5ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-02-23 23:56:41.313778"]]
+  ↳ app/models/visit.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/visit.rb:11
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/models/visit.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/visit.rb:11
+  [1m[36mRecord Create (0.6ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-02-24 23:56:41.313778"]]
+  ↳ app/models/visit.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/visit.rb:11
+Redirected to http://localhost:3000/
+Completed 302 Found in 136ms (ActiveRecord: 81.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-10 01:18:11 -0300
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 1101ms (Views: 1067.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:18:14 -0300
+Processing by RecordsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "extract(day from created_at) DESC". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:6)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "extract(week from created_at) DESC". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:7)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "extract(month from created_at) DESC". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:8)
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:35
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mRecord Load (1.4ms)[0m  [1m[34mSELECT "records".* FROM "records" ORDER BY extract(month from created_at) DESC[0m
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  Rendered records/index.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 234ms (Views: 110.6ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:24:48 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/controllers/records_controller.rb:6
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 11.4ms)
+
+
+  
+NoMethodError (undefined method `today' for Sat, 09 Mar 2019 23:35:41 -03 -03:00:Time
+Did you mean?  today?):
+  
+app/controllers/records_controller.rb:6:in `block in index'
+app/controllers/records_controller.rb:6:in `group_by'
+app/controllers/records_controller.rb:6:in `index'
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:26:19 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mRecord Load (0.7ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/controllers/records_controller.rb:6
+Completed 500 Internal Server Error in 189ms (ActiveRecord: 7.4ms)
+
+
+  
+NoMethodError (undefined method `group_by' for #<RecordsController:0x00007fc912e0f2d0>):
+  
+app/controllers/records_controller.rb:7:in `index'
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:26:32 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/controllers/records_controller.rb:6
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 4.8ms)
+
+
+  
+NoMethodError (undefined method `week' for Sat, 09 Mar 2019 23:35:41 -03 -03:00:Time):
+  
+app/controllers/records_controller.rb:7:in `block in index'
+app/controllers/records_controller.rb:7:in `group_by'
+app/controllers/records_controller.rb:7:in `index'
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:27:20 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT  "records".* FROM "records" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.0ms)
+
+
+  
+  [1m[36mCACHE Record Load (0.0ms)[0m  [1m[34mSELECT  "records".* FROM "records" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+NoMethodError (undefined method `group_by_day' for #<Record::ActiveRecord_Relation:0x00007fc912ccc0a8>
+Did you mean?  group_by):
+  
+app/controllers/records_controller.rb:6:in `index'
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:28:58 -0300
+  [1m[35m (18.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/egromero_s/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 176ms (ActiveRecord: 2.4ms)
+
+
+  
+Groupdate::Error (ActiveRecord::Base.default_timezone must be :utc to use Groupdate):
+  
+app/controllers/records_controller.rb:6:in `index'
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:30:39 -0300
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.7ms)
+
+
+  
+Groupdate::Error (ActiveRecord::Base.default_timezone must be :utc to use Groupdate):
+  
+app/controllers/records_controller.rb:6:in `index'
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:31:31 -0300
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.7ms)
+
+
+  
+Groupdate::Error (ActiveRecord::Base.default_timezone must be :utc to use Groupdate):
+  
+app/controllers/records_controller.rb:6:in `index'
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:32:50 -0300
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 2.5ms)
+
+
+  
+Groupdate::Error (ActiveRecord::Base.default_timezone must be :utc to use Groupdate):
+  
+app/controllers/records_controller.rb:6:in `index'
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:36:12 -0300
+Processing by RecordsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "date_trunc('week', created_at)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:6)
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.5ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:35
+  [1m[36mStudent Load (33.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  Rendered records/index.html.erb within layouts/application (141.6ms)
+Completed 500 Internal Server Error in 209ms (ActiveRecord: 47.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    70:       <th>Tipo</th>
+    71:       <th>Matriculado</th>
+    72:       </tr>
+    73:       <%@records_month.each do |record|%>
+    74:       <tr>
+    75:       <td><%=record.student.nombre%></td>
+    76:       <td><%=record.created_at.to_s.split(' ')[0]%></td>
+  
+app/views/records/index.html.erb:73:in `_app_views_records_index_html_erb__4565359050575577152_70276422591700'
+Started GET "/" for 127.0.0.1 at 2019-03-10 01:36:28 -0300
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 5267ms (Views: 5250.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-10 01:37:12 -0300
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 1773ms (Views: 1771.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 01:37:17 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:21
+  Rendered visits/index.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 218ms (Views: 85.5ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:37:19 -0300
+Processing by RecordsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "date_trunc('day', created_at)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:6)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "date_trunc('week', created_at)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:7)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "date_trunc('month', created_at)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:8)
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:35
+  [1m[36mStudent Load (0.7ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mRecord Load (174.5ms)[0m  [1m[34mSELECT "records".* FROM "records" ORDER BY date_trunc('month', created_at)[0m
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  Rendered records/index.html.erb within layouts/application (323.7ms)
+Completed 200 OK in 588ms (Views: 224.4ms | ActiveRecord: 183.5ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:39:08 -0300
+Processing by RecordsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "date_trunc('week', created_at)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:7)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "date_trunc('month', created_at)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:8)
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:35
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" ORDER BY date_trunc('month', created_at)[0m
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  Rendered records/index.html.erb within layouts/application (80.9ms)
+Completed 200 OK in 556ms (Views: 500.9ms | ActiveRecord: 13.6ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:39:33 -0300
+Processing by RecordsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "date_trunc('week', created_at)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:7)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "date_trunc('month', created_at)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:8)
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:35
+  [1m[36mStudent Load (0.7ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" ORDER BY date_trunc('month', created_at)[0m
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  Rendered records/index.html.erb within layouts/application (36.9ms)
+Completed 200 OK in 192ms (Views: 157.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:40:06 -0300
+  [1m[35m (29.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/egromero_s/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by RecordsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "date_trunc('week', created_at)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:7)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "date_trunc('month', created_at)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:8)
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:35
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.8ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:37
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" ORDER BY date_trunc('month', created_at)[0m
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  Rendered records/index.html.erb within layouts/application (156.4ms)
+Completed 200 OK in 1507ms (Views: 1341.3ms | ActiveRecord: 13.5ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:40:59 -0300
+Processing by RecordsController#index as HTML
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "date_trunc('week', created_at)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:7)
+DEPRECATION WARNING: Dangerous query method (method whose arguments are used as raw SQL) called with non-attribute argument(s): "date_trunc('month', created_at)". Non-attribute arguments will be disallowed in Rails 6.0. This method should not be called with user-provided values, such as request parameters or model attributes. Known-safe values can be passed by wrapping them in Arel.sql(). (called from index at /Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/records_controller.rb:8)
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (244.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/records/index.html.erb:35
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  ↳ app/views/records/index.html.erb:54
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mRecord Load (0.6ms)[0m  [1m[34mSELECT "records".* FROM "records" ORDER BY date_trunc('month', created_at)[0m
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  Rendered records/index.html.erb within layouts/application (295.6ms)
+Completed 200 OK in 507ms (Views: 258.5ms | ActiveRecord: 245.9ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:41:56 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/records/index.html.erb:35
+  Rendered records/index.html.erb within layouts/application (23.6ms)
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 8.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    51:       <th>Tipo</th>
+    52:       <th>Matriculado</th>
+    53:       </tr>
+    54:       <%@records.each do |record|%>
+    55:       <tr>
+    56:       <td><%=record.student.nombre%></td>
+    57:       <td><%=record.created_at.to_s.split(' ')[0]%></td>
+  
+app/views/records/index.html.erb:54:in `_app_views_records_index_html_erb__990031339182920105_70354431576320'
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:42:17 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/records/index.html.erb:35
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/records/index.html.erb:54
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  Rendered records/index.html.erb within layouts/application (77.6ms)
+Completed 200 OK in 633ms (Views: 618.0ms | ActiveRecord: 11.8ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:44:17 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/records/index.html.erb:35
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/records/index.html.erb:54
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  Rendered records/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 558ms (Views: 536.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 01:44:18 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.8ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:21
+  Rendered visits/index.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 232ms (Views: 125.2ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 01:44:19 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.7ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/records/index.html.erb:35
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/records/index.html.erb:54
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  Rendered records/index.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 125ms (Views: 119.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 02:24:49 -0300
+  [1m[35m (41.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/egromero_s/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (24.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:35
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"], ["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"], ["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"], ["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"], ["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"], ["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"], ["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"], ["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"], ["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"], ["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"], ["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"], ["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"], ["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"], ["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"], ["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"], ["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mCACHE Visit Load (0.0ms)[0m  [1m[34mSELECT  "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 LIMIT $3[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"], ["LIMIT", 11]]
+  ↳ /Users/egromero_s/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  Rendered visits/index.html.erb within layouts/application (585.2ms)
+Completed 500 Internal Server Error in 791ms (ActiveRecord: 32.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `record' for #<#<Class:0x00007fbfea5583e8>:0x00007fbfea554590>
+Did you mean?  record_url):
+    35:     <%@visits_day.each do |visit|%>
+    36:     <tr>
+    37:       <td><%=visit.rut%></td>
+    38:       <td><%=record.created_at.to_s.split(' ')[0]%></td>
+    39:       <td><%=record.created_at.to_s.split(' ')[1]%></td>
+    40:       <td><%=visit.motivo%></td>
+    41:       <td><%=visit.institucion%></td>
+  
+app/views/visits/index.html.erb:38:in `block in _app_views_visits_index_html_erb___2792191242071127465_70231123480020'
+app/views/visits/index.html.erb:35:in `_app_views_visits_index_html_erb___2792191242071127465_70231123480020'
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 02:25:46 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (0.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:35
+  [1m[36mVisit Load (0.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:57
+  [1m[36mVisit Load (0.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:79
+  Rendered visits/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 2421ms (Views: 2394.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 02:28:08 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (3.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:35
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:56
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:77
+  Rendered visits/index.html.erb within layouts/application (36.9ms)
+Completed 200 OK in 645ms (Views: 622.9ms | ActiveRecord: 13.1ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 02:28:30 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (16.1ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/records/index.html.erb:35
+  [1m[36mRecord Load (0.7ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/records/index.html.erb:54
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mRecord Load (0.7ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  Rendered records/index.html.erb within layouts/application (123.9ms)
+Completed 200 OK in 674ms (Views: 568.3ms | ActiveRecord: 35.1ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 02:32:49 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (0.9ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:36
+  [1m[36mVisit Load (0.9ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:57
+  [1m[36mVisit Load (0.8ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:78
+  Rendered visits/index.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 551ms (Views: 544.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 02:33:14 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  Rendered visits/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 553ms (Views: 550.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 02:34:09 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (3.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:35
+  Rendered visits/index.html.erb within layouts/application (27.5ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 12.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `student' for #<Visit:0x00007fbfebf00d40>):
+    34:     </tr>
+    35:     <%@visits_day.each do |record|%>
+    36:     <tr>
+    37:     <td><%=record.student.nombre%></td>
+    38:      <td><%=record.created_at.to_s.split(' ')[0]%></td>
+    39:     <td><%=record.created_at.to_s.split(' ')[1]%></td>
+    40:     <td><%=record.tipo%></td>
+  
+app/views/visits/index.html.erb:37:in `block in _app_views_visits_index_html_erb___2792191242071127465_70231126632540'
+app/views/visits/index.html.erb:35:in `_app_views_visits_index_html_erb___2792191242071127465_70231126632540'
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 02:34:26 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:35
+  Rendered visits/index.html.erb within layouts/application (11.4ms)
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `tipo' for #<Visit:0x00007fbfeed027e8>):
+    36:     <tr>
+    37:      <td><%=record.created_at.to_s.split(' ')[0]%></td>
+    38:     <td><%=record.created_at.to_s.split(' ')[1]%></td>
+    39:     <td><%=record.tipo%></td>
+    40:     </tr>
+    41:     <%end%>
+    42:     </table>  
+  
+app/views/visits/index.html.erb:39:in `block in _app_views_visits_index_html_erb___2792191242071127465_70231160967600'
+app/views/visits/index.html.erb:35:in `_app_views_visits_index_html_erb___2792191242071127465_70231160967600'
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 02:34:38 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (0.9ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:35
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:52
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:69
+  Rendered visits/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 542ms (Views: 536.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 02:44:44 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.8ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:35
+  Rendered visits/index.html.erb within layouts/application (28.3ms)
+Completed 200 OK in 846ms (Views: 828.8ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 02:45:14 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:35
+  [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:56
+  [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:76
+  Rendered visits/index.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 414ms (Views: 402.9ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 02:50:20 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (3.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:36
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:57
+  [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:77
+  Rendered visits/index.html.erb within layouts/application (39.6ms)
+Completed 200 OK in 656ms (Views: 601.3ms | ActiveRecord: 11.8ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 02:50:46 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (5.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:36
+  [1m[36mVisit Load (0.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:57
+  [1m[36mVisit Load (1.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:77
+  Rendered visits/index.html.erb within layouts/application (29.6ms)
+Completed 200 OK in 399ms (Views: 382.3ms | ActiveRecord: 13.5ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 02:57:14 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:36
+  [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:57
+  [1m[36mVisit Load (0.7ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:77
+  Rendered visits/index.html.erb within layouts/application (33.3ms)
+Completed 200 OK in 944ms (Views: 903.1ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 02:57:22 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (0.8ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:35
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:56
+  [1m[36mVisit Load (0.7ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:76
+  Rendered visits/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 156ms (Views: 150.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 02:59:59 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (3.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:38
+  [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:59
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:79
+  Rendered visits/index.html.erb within layouts/application (37.8ms)
+Completed 200 OK in 10822ms (Views: 10785.8ms | ActiveRecord: 9.7ms)
+
+
+Started POST "/visits/import" for 127.0.0.1 at 2019-03-10 03:00:14 -0300
+Processing by VisitsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GsqNM2/tEBGwvunow6r2EfW7puEuc+yuFCUiaLc6xWgcpaduRneGx4JLeWWiKPSxuEDxwZiR2oQc8nWvlwlNkQ==", "commit"=>"Cargar Datos"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `path' for nil:NilClass):
+  
+app/models/visit.rb:6:in `import'
+app/controllers/visits_controller.rb:15:in `import'
+Started POST "/visits/import" for 127.0.0.1 at 2019-03-10 03:00:38 -0300
+Processing by VisitsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GsqNM2/tEBGwvunow6r2EfW7puEuc+yuFCUiaLc6xWgcpaduRneGx4JLeWWiKPSxuEDxwZiR2oQc8nWvlwlNkQ==", "commit"=>"Cargar Datos"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `path' for nil:NilClass):
+  
+app/models/visit.rb:6:in `import'
+app/controllers/visits_controller.rb:15:in `import'
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 03:01:01 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (3.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:37
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:58
+  [1m[36mVisit Load (1.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:78
+  Rendered visits/index.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 1287ms (Views: 1268.6ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 03:02:00 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (0.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:37
+  [1m[36mVisit Load (0.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:58
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:78
+  Rendered visits/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 7610ms (Views: 7595.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 03:04:24 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:35
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:56
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:76
+  Rendered visits/index.html.erb within layouts/application (27.5ms)
+Completed 200 OK in 7393ms (Views: 7373.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 03:04:50 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (6.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:35
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:56
+  [1m[36mVisit Load (0.8ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:76
+  Rendered visits/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 7114ms (Views: 7088.1ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 03:05:07 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:35
+  [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:56
+  [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:76
+  Rendered visits/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 5677ms (Views: 5673.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 03:06:46 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  Rendered visits/index.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 260ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/views/visits/index.html.erb:10: syntax error, unexpected class, expecting ')'
+...d=( file_field_tag :file  class: "btn btn-inverse");@output_...
+...                          ^~~~~
+/Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/views/visits/index.html.erb:11: syntax error, unexpected class, expecting ')'
+...submit_tag 'Cargar Datos' class: "btn btn-inverse");@output_...
+...                          ^~~~~):
+  
+app/views/visits/index.html.erb:10: syntax error, unexpected class, expecting ')'
+app/views/visits/index.html.erb:11: syntax error, unexpected class, expecting ')'
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 03:06:58 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (3.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:35
+  [1m[36mVisit Load (0.7ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:56
+  [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:76
+  Rendered visits/index.html.erb within layouts/application (148.2ms)
+Completed 200 OK in 701ms (Views: 565.1ms | ActiveRecord: 132.6ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 03:07:25 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (3.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:35
+  [1m[36mVisit Load (0.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:56
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:76
+  Rendered visits/index.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 442ms (Views: 429.2ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 03:08:45 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:35
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:56
+  [1m[36mVisit Load (0.7ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:76
+  Rendered visits/index.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 7774ms (Views: 7764.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 03:09:37 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:35
+  [1m[36mVisit Load (0.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:56
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:76
+  Rendered visits/index.html.erb within layouts/application (25.9ms)
+Completed 200 OK in 18903ms (Views: 18852.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-10 03:10:18 -0300
+Processing by RecordsController#index as HTML
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (49.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/records/index.html.erb:35
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/records/index.html.erb:54
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:56
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/records/index.html.erb:73
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:75
+  Rendered records/index.html.erb within layouts/application (87.2ms)
+Completed 200 OK in 1464ms (Views: 1349.4ms | ActiveRecord: 59.5ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-10 03:10:23 -0300
+Processing by VisitsController#index as HTML
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.7ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-10 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:35
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-04 00:00:00"], ["created_at", "2019-03-10 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:56
+  [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"]]
+  ↳ app/views/visits/index.html.erb:76
+  Rendered visits/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 127ms (Views: 100.3ms | ActiveRecord: 2.5ms)
+
+

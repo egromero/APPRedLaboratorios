@@ -2,7 +2,9 @@ class VisitsController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def index
-        @visits = Visit.all
+        @visits_day = Visit.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+        @visits_week = Visit.where(created_at: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
+        @visits_month = Visit.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
     end
 
     def new

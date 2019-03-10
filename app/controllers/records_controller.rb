@@ -2,8 +2,11 @@ class RecordsController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def index
-        @records = Record.all
+        @records_day = Record.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+        @records_week = Record.where(created_at: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
+        @records_month = Record.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
     end
+
 
     def new
         @record = Record.new
