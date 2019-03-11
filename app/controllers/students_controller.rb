@@ -22,20 +22,14 @@ class StudentsController < ApplicationController
   def edit
   end
 
-
-  #GET /students/1/enrollment
-  def enrollment
-    @student = Student.find(params[:student_id])
-    @laboratories = Laboratory.all
-    @labs_enrollment = @student.laboratories
-  end
-
   def enroll
     @student = Student.find(params[:student_id])
-    @labs = Laboratory.find(params[:checkbox_id])
-    @student.laboratories << @labs
+    @labs = Laboratory.find(current_user.lab_id)
+    @student.each do |student|
+       student.laboratories << @labs
+    end
     respond_to do |format|
-    format.html { redirect_to @student, notice: 'Estudiante matriculado' }
+    format.html { redirect_to records_url , notice: 'Estudiante matriculado' }
     end
   end
 

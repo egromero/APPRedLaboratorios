@@ -7,6 +7,7 @@
 <%end%>
 </div>
 </head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <body>
 <%=DateTime.now.to_time.to_s[0..-6]%>
 <%=@laboratory.nombre%>
@@ -38,8 +39,16 @@
      <td><%=record.created_at.to_s.split(' ')[0]%></td>
     <td><%=record.created_at.to_s.split(' ')[1]%></td>
     <td><%=record.tipo%></td>
-    <td><%=record.lab_id%></td>
-    </tr>
+    <% if record.student.laboratories.ids.include?(@laboratory.id)%>
+        <td><i class="material-icons" style="font-size:28px;color:blue">check</i></td>
+      <%else%>
+        <td><i class="material-icons" style="font-size:28px;color:red">clear</i>
+        <form action="/students/enroll" method="post"><div>
+        <input id=<%=record.id%> name = 'student_id[]' value =<%=record.student.id%> type= 'checkbox'>
+        <label for=<%=record.id%>> Matricular </label></td>
+        </div>
+      </tr>
+      <%end%>
     <%end%>
     </table>  
   </section>
@@ -58,7 +67,12 @@
       <td><%=record.created_at.to_s.split(' ')[0]%></td>
       <td><%=record.created_at.to_s.split(' ')[1]%></td>
       <td><%=record.tipo%></td>
+      <% if record.student.laboratories.ids.include?(@laboratory.id)%>
+        <td><i class="material-icons" style="font-size:28px;color:blue">check</i></td>
+      <%else%>
+        <td><i class="material-icons" style="font-size:28px;color:red">clear</i></td>
       </tr>
+      <%end%>
       <%end%>
       </table> 
     </section>
@@ -77,12 +91,17 @@
       <td><%=record.created_at.to_s.split(' ')[0]%></td>
       <td><%=record.created_at.to_s.split(' ')[1]%></td>
       <td><%=record.tipo%></td>
+      <% if record.student.laboratories.ids.include?(@laboratory.id)%>
+        <td><i class="material-icons" style="font-size:28px;color:blue">check</i></td>
+      <%else%>
+        <td><i class="material-icons" style="font-size:28px;color:red">clear</i></td>
       </tr>
+      <%end%>
       <%end%>
       </table> 
     </section>
   </div>
-  
+  <input type = 'submit' value = 'Matricular'>
 </div>
 
 
