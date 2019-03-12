@@ -28,7 +28,7 @@ class RecordsController < ApplicationController
             # if not(student.status)
             #     student = {status: True}
             # end
-            @record = student.records.new({:tipo => student.status})
+            @record = student.records.new({:tipo => student.status, :lab_id =>params[:lab_id]})
             respond_to do |format|
             if @record.save
                 format.json {render json: @record.student, status: 200}
