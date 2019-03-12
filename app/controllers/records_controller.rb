@@ -25,9 +25,10 @@ class RecordsController < ApplicationController
     def create 
         student = Student.where(rfid: params[:rfid])[0]
         if student
-            # if not(student.status)
-            #     student = {status: True}
-            # end
+            if student.status.nil?
+                student.status = true
+                student.save
+            end
             @record = student.records.new({:tipo => student.status, :lab_id =>params[:lab_id]})
             respond_to do |format|
             if @record.save
@@ -36,7 +37,8 @@ class RecordsController < ApplicationController
                 format.json {render json: @record.errors, status: :unprocessable_entity}
             end
             end
-            #student = {status: not(student.status)}
+            student.status = !student.status
+            student.save
         else    
             
             respond_to do |format|
