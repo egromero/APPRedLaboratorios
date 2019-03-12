@@ -10,6 +10,8 @@ import sys
 import requests
 import urllib.request
 from localdbmanager import recordsWriter, visitsRecordsWriter
+import RPi.GPIO as GPIO
+import MFRC522
       
 
 font_but = QtGui.QFont()
@@ -212,7 +214,7 @@ class MainWindow(QMainWindow):
 
     def send(self):
         
-        url = 'http://localhost:3000/visits'
+        url = 'https://redlabuc.herokuapp.com/visits'
 
         data = {'rut': self.label_5.text(), 
                 'motivo': self.comboBox.currentText(),
@@ -312,25 +314,68 @@ class Reader(QThread):
         QThread.__init__(self, parent)
 
     def run(self):
-        url = ''
-        while True:
-            time.sleep(5)
-            self.lectura = {"rfid":"8af1345ea", "tipo":"ingreso"}
-            try:
-                req = requests.post(url, self.lectura).json()
-                if not req:
-                    req = ''
+        url = 'https://redlabuc.herokuapp.com/records'
+        continue_reading = True
+        # Create an object of the class MFRC522
+        MIFAREReader = MFRC522.MFRC522()
+        # Welcome message
+        print("Welcome to the MFRC522 data read example")
+        print("Press Ctrl-C to stop.")
+
+        # This loop keeps checking for chips. If one is near it will get the UID and authenticate
+        while continue_reading:
+            
+            # Scan for cards    
+            (status,TagType) = MIFAREReader.MFRC522_Request(MIFAREReader.PICC_REQIDL)
+
+            # If a card is found
+            if status == MIFAREReader.MI_OK:
+                print("Card detected")
+            
+            # Get the UID of the card
+            (status,uid) = MIFAREReader.MFRC522_Anticoll()
+
+            # If we have the UID, continue
+            if status == MIFAREReader.MI_OK:
+
+                # Print UID
+                print("Card read UID: "+str(uid[0])+","+str(uid[1])+","+str(uid[2])+","+str(uid[3]))
+                print(uid)
+                rfid = str(hex(uid[0]))[2:]+str(hex(uid[1]))[2:]+str(hex(uid[2]))[2:]+str(hex(uid[3]))[2:]
+                try:
+                    req = requests.post(url, data={'rfid':rfid,'tipo':"ingreso"}).json()
+                    if not req:
+                        req = ''
+                        self.sig2.emit(req)
+                    else:
+                        self.sig1.emit(req)
+                    print(req)
+                except:
+                    req = 'Not Internet Conection'
                     self.sig2.emit(req)
-                else:
-                    self.sig1.emit(req)
-                print(req)
-            except:
-                req = 'Not Internet Conection'
-                self.sig2.emit(req)
+                    
+                time.sleep(5)
+                GPIO.cleanup()
+
+
+        # while True:
+        #     time.sleep(5)
+        #     self.lectura = {"rfid":"8af1345ea", "tipo":"ingreso"}
+        #     try:
+        #         req = requests.post(url, self.lectura).json()
+        #         if not req:
+        #             req = ''
+        #             self.sig2.emit(req)
+        #         else:
+        #             self.sig1.emit(req)
+        #         print(req)
+        #     except:
+        #         req = 'Not Internet Conection'
+        #         self.sig2.emit(req)
 
             
             
-            time.sleep(4)
+        #     time.sleep(4)
 
 
 

@@ -52451,3 +52451,48 @@ puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
 puma (3.12.0) lib/puma/server.rb:472:in `process_client'
 puma (3.12.0) lib/puma/server.rb:332:in `block in run'
 puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-03-12 13:30:08 -0300
+  [1m[35m (57.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/egromero_s/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 200 OK in 2310ms (Views: 2228.7ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-12 13:30:14 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mLaboratory Load (0.5ms)[0m  [1m[34mSELECT  "laboratories".* FROM "laboratories" WHERE "laboratories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-12 00:00:00"], ["created_at", "2019-03-12 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:38
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-11 00:00:00"], ["created_at", "2019-03-17 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:74
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:106
+  Rendered records/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 1580ms (Views: 156.0ms | ActiveRecord: 14.9ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-12 13:35:04 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mLaboratory Load (0.9ms)[0m  [1m[34mSELECT  "laboratories".* FROM "laboratories" WHERE "laboratories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-12 00:00:00"], ["created_at", "2019-03-12 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:38
+  [1m[36mRecord Load (0.6ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-11 00:00:00"], ["created_at", "2019-03-17 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:74
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:106
+  Rendered records/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 729ms (Views: 674.4ms | ActiveRecord: 6.7ms)
+
+
