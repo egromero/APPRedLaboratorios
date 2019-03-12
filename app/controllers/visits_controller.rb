@@ -23,7 +23,7 @@ class VisitsController < ApplicationController
     def create 
         st_id = Student.where(rut: params[:rut])[0]
         if st_id 
-            @record = st_id.records.new({:tipo => params[:tipo]})
+            @record = st_id.records.new({:tipo => params[:tipo], :lab_id => params[:lab_id]})
             respond_to do |format|
             if @record.save
                 format.json {render json: {'type': 'student', 'data': @record.student}, status: 200}
