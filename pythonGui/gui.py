@@ -5,7 +5,6 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QPushButton, QGr
 from PyQt5.QtCore import pyqtSlot, QTimer, QDate, QTime, QDateTime, pyqtSignal, QThread, Qt, QRect, QMetaObject, QCoreApplication
 from PyQt5.QtTest import QTest
 import datetime
-#import webbrowser
 import time
 import sys
 import requests
@@ -214,6 +213,7 @@ class MainWindow(QMainWindow):
     def send(self):
         
         url = 'http://localhost:3000/visits'
+
         data = {'rut': self.label_5.text(), 
                 'motivo': self.comboBox.currentText(),
                 'institucion': self.comboBox_2.currentText()
@@ -303,9 +303,6 @@ class MainWindow(QMainWindow):
 
 
 
-
-
-
 class Reader(QThread):
 
     sig1 = pyqtSignal(dict)
@@ -315,11 +312,12 @@ class Reader(QThread):
         QThread.__init__(self, parent)
 
     def run(self):
+        url = ''
         while True:
             time.sleep(5)
             self.lectura = {"rfid":"8af1345ea", "tipo":"ingreso"}
             try:
-                req = requests.post("http://localhost:3000/records", self.lectura).json()
+                req = requests.post(url, self.lectura).json()
                 if not req:
                     req = ''
                     self.sig2.emit(req)

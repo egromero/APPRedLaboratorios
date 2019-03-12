@@ -1,7 +1,3 @@
-rfid,created_at,tipo,lab_id
-34ef45ea,2019-03-10 19:33:00,ingreso,1
-34ef45ea,2019-03-10 19:33:00,ingreso,2
-efg3213e,2019-03-10 13:33:00,ingreso,1
-efg3213e,2019-03-10 13:33:00,ingreso,2
-efg3wtde,2019-03-10 14:33:00,ingreso,1
-efg3wtde,2019-03-10 14:33:00,ingreso,2
+rfid,created_at,lab_id
+3e4dd3d,2019-03-12 13:33:00,1
+3e4dd3d,2019-03-12 13:45:00,1

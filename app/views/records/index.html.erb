@@ -30,7 +30,9 @@
     <th>Nombre</th>
     <th>Fecha Registro</th>
     <th>Hora Registro</th>
+    <!--
     <th>Tipo</th>
+    ---->
     <th>Matriculado</th>
     </tr>
     <%@records_day.each do |record|%>
@@ -38,7 +40,13 @@
     <td><%=record.student.nombre%></td>
      <td><%=record.created_at.to_s.split(' ')[0]%></td>
     <td><%=record.created_at.to_s.split(' ')[1]%></td>
-    <td><%=record.tipo%></td>
+    <!--
+    <%if record.student.status%>
+      <td><%='Ingreso'%></td>
+    <%else%>
+      <td><%='Salida'%></td>
+    <%end%>
+    --->
     <% if record.student.laboratories.ids.include?(@laboratory.id)%>
         <td><i class="material-icons" style="font-size:28px;color:blue">check</i></td>
       <%else%>
@@ -58,7 +66,9 @@
       <th>Nombre</th>
       <th>Fecha Registro</th>
       <th>Hora Registro</th>
+       <!----
       <th>Tipo</th>
+      ----->
       <th>Matriculado</th>
       </tr>
       <%@records_week.each do |record|%>
@@ -66,7 +76,13 @@
       <td><%=record.student.nombre%></td>
       <td><%=record.created_at.to_s.split(' ')[0]%></td>
       <td><%=record.created_at.to_s.split(' ')[1]%></td>
-      <td><%=record.tipo%></td>
+      <!----
+      <%if record.student.status%>
+      <td><%='Ingreso'%></td>
+      <%else%>
+      <td><%='Salida'%></td>
+      <%end%>
+      ----->
       <% if record.student.laboratories.ids.include?(@laboratory.id)%>
         <td><i class="material-icons" style="font-size:28px;color:blue">check</i></td>
       <%else%>
@@ -82,7 +98,9 @@
       <th>Nombre</th>
       <th>Fecha Registro</th>
       <th>Hora Registro</th>
+      <!--
       <th>Tipo</th>
+      -->
       <th>Matriculado</th>
       </tr>
       <%@records_month.each do |record|%>
@@ -90,7 +108,13 @@
       <td><%=record.student.nombre%></td>
       <td><%=record.created_at.to_s.split(' ')[0]%></td>
       <td><%=record.created_at.to_s.split(' ')[1]%></td>
-      <td><%=record.tipo%></td>
+      <!--
+       <%if record.student.status%>
+      <td><%='Ingreso'%></td>
+      <%else%>
+      <td><%='Salida'%></td>
+       <%end%>
+      --->
       <% if record.student.laboratories.ids.include?(@laboratory.id)%>
         <td><i class="material-icons" style="font-size:28px;color:blue">check</i></td>
       <%else%>

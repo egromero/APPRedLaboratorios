@@ -29,15 +29,6 @@ def visitsRecordsWriter(value):
 		file.write(text)
 
 
-recordsWriter({"rfid":"8af1345ea", "tipo":"ingreso", "lab_id": "2"})
-recordsWriter({"rfid":"8af1345ea", "tipo":"ingreso", "lab_id": "1"})
-recordsWriter({"rfid":"8af1345ea", "tipo":"ingreso", "lab_id": "1"})
-recordsWriter({"rfid":"8af1345ea", "tipo":"ingreso", "lab_id": "2"})
-recordsWriter({"rfid":"8af1345ea", "tipo":"ingreso", "lab_id": "2"})
-visitsRecordsWriter({'rut': '190655-4', 'motivo': 'personal','institucion': 'UC','tipo': 'ingreso','lab_id':'1'})
-visitsRecordsWriter({'rut': '1906rr55-4', 'motivo': 'personal','institucion': 'UC','tipo': 'ingreso','lab_id':'2'})
-visitsRecordsWriter({'rut': '190e655-4', 'motivo': 'personal','institucion': 'UC','tipo': 'ingreso','lab_id':'1'})
-visitsRecordsWriter({'rut': '190655-4', 'motivo': 'personal','institucion': 'UC','tipo': 'ingreso','lab_id':'2'})
 
  				
 
