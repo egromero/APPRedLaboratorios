@@ -55875,3 +55875,313 @@ Processing by StudentsController#index as HTML
 Completed 200 OK in 406ms (Views: 403.4ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-03-14 16:18:13 -0300
+  [1m[35m (44.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/egromero_s/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (135.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 200 OK in 5863ms (Views: 5299.2ms | ActiveRecord: 450.4ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-14 16:18:41 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mLaboratory Load (24.2ms)[0m  [1m[34mSELECT  "laboratories".* FROM "laboratories" WHERE "laboratories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (89.1ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-14 00:00:00"], ["created_at", "2019-03-14 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-11 00:00:00"], ["created_at", "2019-03-17 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:68
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:78
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:78
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:78
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:96
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:106
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:106
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:106
+  Rendered records/index.html.erb within layouts/application (288.5ms)
+Completed 200 OK in 942ms (Views: 411.0ms | ActiveRecord: 188.5ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-14 16:18:47 -0300
+  
+SyntaxError (/Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/visits_controller.rb:33: syntax error, unexpected '}', expecting =>
+... @record.student.laboratories}}, status: 200}
+...                              ^):
+  
+app/controllers/visits_controller.rb:33: syntax error, unexpected '}', expecting =>
+Started GET "/visits" for 127.0.0.1 at 2019-03-14 16:20:06 -0300
+  
+SyntaxError (/Users/egromero_s/ProyectoLABS/APPRedLaboratorios/app/controllers/visits_controller.rb:33: syntax error, unexpected '}', expecting =>
+... @record.student.laboratories}}, status: 200}
+...                              ^):
+  
+app/controllers/visits_controller.rb:33: syntax error, unexpected '}', expecting =>
+Started GET "/visits" for 127.0.0.1 at 2019-03-14 16:20:47 -0300
+Processing by VisitsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/visits_controller.rb:5
+  [1m[36mLaboratory Load (0.4ms)[0m  [1m[34mSELECT  "laboratories".* FROM "laboratories" WHERE "laboratories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/visits_controller.rb:5
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (37.8ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 AND "visits"."lab_id" = $3[0m  [["created_at", "2019-03-14 00:00:00"], ["created_at", "2019-03-14 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/visits/index.html.erb:36
+  [1m[36mVisit Load (0.7ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 AND "visits"."lab_id" = $3[0m  [["created_at", "2019-03-11 00:00:00"], ["created_at", "2019-03-17 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/visits/index.html.erb:56
+  [1m[36mVisit Load (0.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 AND "visits"."lab_id" = $3[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/visits/index.html.erb:76
+  Rendered visits/index.html.erb within layouts/application (55.3ms)
+Completed 200 OK in 1300ms (Views: 1089.8ms | ActiveRecord: 82.5ms)
+
+
+Started POST "/visits?rut=19065385-4" for 127.0.0.1 at 2019-03-14 16:21:18 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"19065385-4"}
+  [1m[36mStudent Load (21.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/controllers/visits_controller.rb:24
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[36mStudent Update (103.0ms)[0m  [1m[33mUPDATE "students" SET "status" = $1, "updated_at" = $2 WHERE "students"."id" = $3[0m  [["status", true], ["updated_at", "2019-03-14 16:21:18.801351"], ["id", 1]]
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[35m (82.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:32
+  [1m[36mRecord Create (78.3ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-14 16:21:19.015660"]]
+  ↳ app/controllers/visits_controller.rb:32
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:32
+  [1m[36mLaboratory Load (1.0ms)[0m  [1m[34mSELECT "laboratories".* FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 1]]
+  ↳ app/controllers/visits_controller.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:39
+  [1m[36mStudent Update (0.5ms)[0m  [1m[33mUPDATE "students" SET "status" = $1, "updated_at" = $2 WHERE "students"."id" = $3[0m  [["status", false], ["updated_at", "2019-03-14 16:21:19.115175"], ["id", 1]]
+  ↳ app/controllers/visits_controller.rb:39
+  [1m[35m (39.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:39
+Completed 200 OK in 434ms (Views: 12.0ms | ActiveRecord: 351.5ms)
+
+
+Started POST "/visits?rut=19065385-4" for 127.0.0.1 at 2019-03-14 16:21:27 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"19065385-4"}
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/controllers/visits_controller.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:32
+  [1m[36mRecord Create (0.7ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-14 16:21:27.324382"]]
+  ↳ app/controllers/visits_controller.rb:32
+  [1m[35m (40.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:32
+  [1m[36mLaboratory Load (0.7ms)[0m  [1m[34mSELECT "laboratories".* FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 1]]
+  ↳ app/controllers/visits_controller.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:39
+  [1m[36mStudent Update (0.6ms)[0m  [1m[33mUPDATE "students" SET "status" = $1, "updated_at" = $2 WHERE "students"."id" = $3[0m  [["status", true], ["updated_at", "2019-03-14 16:21:27.373126"], ["id", 1]]
+  ↳ app/controllers/visits_controller.rb:39
+  [1m[35m (40.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:39
+Completed 200 OK in 96ms (Views: 3.5ms | ActiveRecord: 83.8ms)
+
+
+Started POST "/visits?rut=19065385-4" for 127.0.0.1 at 2019-03-14 16:21:38 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"19065385-4"}
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/controllers/visits_controller.rb:24
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:32
+  [1m[36mRecord Create (41.1ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-14 16:21:38.306705"]]
+  ↳ app/controllers/visits_controller.rb:32
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:32
+  [1m[36mLaboratory Load (0.6ms)[0m  [1m[34mSELECT "laboratories".* FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 1]]
+  ↳ app/controllers/visits_controller.rb:33
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:39
+  [1m[36mStudent Update (0.7ms)[0m  [1m[33mUPDATE "students" SET "status" = $1, "updated_at" = $2 WHERE "students"."id" = $3[0m  [["status", false], ["updated_at", "2019-03-14 16:21:38.356681"], ["id", 1]]
+  ↳ app/controllers/visits_controller.rb:39
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:39
+Completed 200 OK in 60ms (Views: 4.2ms | ActiveRecord: 44.6ms)
+
+
+Started POST "/visits?rut=19065385-4" for 127.0.0.1 at 2019-03-14 16:21:42 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"19065385-4"}
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/controllers/visits_controller.rb:24
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:32
+  [1m[36mRecord Create (51.0ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at") VALUES ($1, $2) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-14 16:21:42.142586"]]
+  ↳ app/controllers/visits_controller.rb:32
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:32
+  [1m[36mLaboratory Load (0.5ms)[0m  [1m[34mSELECT "laboratories".* FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 1]]
+  ↳ app/controllers/visits_controller.rb:33
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:39
+  [1m[36mStudent Update (32.2ms)[0m  [1m[33mUPDATE "students" SET "status" = $1, "updated_at" = $2 WHERE "students"."id" = $3[0m  [["status", true], ["updated_at", "2019-03-14 16:21:42.204078"], ["id", 1]]
+  ↳ app/controllers/visits_controller.rb:39
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:39
+Completed 200 OK in 103ms (Views: 3.4ms | ActiveRecord: 87.5ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2019-03-14 16:21:47 -0300
+Processing by VisitsController#index as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/visits_controller.rb:5
+  [1m[36mLaboratory Load (0.6ms)[0m  [1m[34mSELECT  "laboratories".* FROM "laboratories" WHERE "laboratories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/visits_controller.rb:5
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 AND "visits"."lab_id" = $3[0m  [["created_at", "2019-03-14 00:00:00"], ["created_at", "2019-03-14 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/visits/index.html.erb:36
+  [1m[36mVisit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 AND "visits"."lab_id" = $3[0m  [["created_at", "2019-03-11 00:00:00"], ["created_at", "2019-03-17 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/visits/index.html.erb:56
+  [1m[36mVisit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."created_at" BETWEEN $1 AND $2 AND "visits"."lab_id" = $3[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/visits/index.html.erb:76
+  Rendered visits/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 902ms (Views: 783.8ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-14 16:21:49 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mLaboratory Load (0.4ms)[0m  [1m[34mSELECT  "laboratories".* FROM "laboratories" WHERE "laboratories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-14 00:00:00"], ["created_at", "2019-03-14 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-11 00:00:00"], ["created_at", "2019-03-17 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:68
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:78
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:78
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:78
+  [1m[36mRecord Load (0.6ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:96
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:106
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:106
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:98
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:106
+  Rendered records/index.html.erb within layouts/application (25.8ms)
+Completed 200 OK in 212ms (Views: 151.8ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/visits?rut=19065385-4&lab_id=1" for 127.0.0.1 at 2019-03-14 16:22:51 -0300
+Processing by VisitsController#create as */*
+  Parameters: {"rut"=>"19065385-4", "lab_id"=>"1"}
+  [1m[36mStudent Load (1.6ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."rut" = $1[0m  [["rut", "19065385-4"]]
+  ↳ app/controllers/visits_controller.rb:24
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:32
+  [1m[36mRecord Create (3.2ms)[0m  [1m[32mINSERT INTO "records" ("student_id", "created_at", "lab_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["student_id", 1], ["created_at", "2019-03-14 16:22:51.108291"], ["lab_id", 1]]
+  ↳ app/controllers/visits_controller.rb:32
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:32
+  [1m[36mLaboratory Load (1.6ms)[0m  [1m[34mSELECT "laboratories".* FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 1]]
+  ↳ app/controllers/visits_controller.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:39
+  [1m[36mStudent Update (0.5ms)[0m  [1m[33mUPDATE "students" SET "status" = $1, "updated_at" = $2 WHERE "students"."id" = $3[0m  [["status", false], ["updated_at", "2019-03-14 16:22:51.127989"], ["id", 1]]
+  ↳ app/controllers/visits_controller.rb:39
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:39
+Completed 200 OK in 42ms (Views: 5.3ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-14 16:22:53 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mLaboratory Load (0.3ms)[0m  [1m[34mSELECT  "laboratories".* FROM "laboratories" WHERE "laboratories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-14 00:00:00"], ["created_at", "2019-03-14 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:38
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 1]]
+  ↳ app/views/records/index.html.erb:46
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-11 00:00:00"], ["created_at", "2019-03-17 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:68
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:78
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:78
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:78
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 1]]
+  ↳ app/views/records/index.html.erb:78
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:96
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:98
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:106
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:106
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:106
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 1]]
+  ↳ app/views/records/index.html.erb:106
+  Rendered records/index.html.erb within layouts/application (34.6ms)
+Completed 200 OK in 720ms (Views: 692.3ms | ActiveRecord: 5.6ms)
+
+
