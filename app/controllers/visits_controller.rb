@@ -30,7 +30,7 @@ class VisitsController < ApplicationController
             @record = student.records.new({:tipo => params[:tipo], :lab_id =>params[:lab_id]})
             respond_to do |format|
             if @record.save
-                format.json {render json: {'type': 'student', 'data': @record.student}, status: 200}
+                format.json {render json: {'type': 'student', {student: @record.student, laboratory: @record.student.laboratories}}, status: 200}
             else
                 format.json {render json: @record.errors, status: :unprocessable_entity}
             end

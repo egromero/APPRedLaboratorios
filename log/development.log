@@ -55772,3 +55772,106 @@ Processing by RecordsController#index as HTML
 Completed 200 OK in 605ms (Views: 595.2ms | ActiveRecord: 5.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-03-12 19:24:02 -0300
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/egromero_s/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 200 OK in 3343ms (Views: 3284.9ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/records" for 127.0.0.1 at 2019-03-12 19:24:21 -0300
+Processing by RecordsController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mLaboratory Load (0.5ms)[0m  [1m[34mSELECT  "laboratories".* FROM "laboratories" WHERE "laboratories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Load (1.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-12 00:00:00"], ["created_at", "2019-03-12 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:36
+  [1m[36mStudent Load (0.7ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:38
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:46
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:38
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:46
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:38
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:46
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-11 00:00:00"], ["created_at", "2019-03-17 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:68
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:78
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:78
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:70
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:78
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."created_at" BETWEEN $1 AND $2 AND "records"."lab_id" = $3[0m  [["created_at", "2019-03-01 00:00:00"], ["created_at", "2019-03-31 23:59:59.999999"], ["lab_id", 1]]
+  ↳ app/views/records/index.html.erb:96
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:106
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:106
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/records/index.html.erb:98
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "laboratories"."id" FROM "laboratories" INNER JOIN "laboratories_students" ON "laboratories"."id" = "laboratories_students"."laboratory_id" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 5]]
+  ↳ app/views/records/index.html.erb:106
+  Rendered records/index.html.erb within layouts/application (254.6ms)
+Completed 200 OK in 1028ms (Views: 519.4ms | ActiveRecord: 27.2ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2019-03-12 19:24:35 -0300
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/students/index.html.erb:19
+  Rendered students/index.html.erb within layouts/application (4.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 200 OK in 746ms (Views: 697.4ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/students/4" for 127.0.0.1 at 2019-03-12 19:24:44 -0300
+Processing by StudentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"E7icUwa/9paXLMV/jaKAzTNRggzCPw/86rtxPIW9xTIEs9oYINYDQWK3aN8252yErx83mLgSumUANRxkXnUbrQ==", "id"=>"4"}
+  [1m[36mStudent Load (0.7ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:80
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/students_controller.rb:70
+  [1m[36mStudent::HABTM_Laboratories Destroy (88.2ms)[0m  [1m[31mDELETE FROM "laboratories_students" WHERE "laboratories_students"."student_id" = $1[0m  [["student_id", 4]]
+  ↳ app/controllers/students_controller.rb:70
+  [1m[36mStudent Destroy (1.2ms)[0m  [1m[31mDELETE FROM "students" WHERE "students"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/students_controller.rb:70
+  [1m[35m (17.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/students_controller.rb:70
+Redirected to http://localhost:3000/students
+Completed 302 Found in 116ms (ActiveRecord: 108.1ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2019-03-12 19:24:44 -0300
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/students/index.html.erb:19
+  Rendered students/index.html.erb within layouts/application (4.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:20
+Completed 200 OK in 406ms (Views: 403.4ms | ActiveRecord: 0.9ms)
+
+
