@@ -20,4 +20,7 @@ Rails.application.routes.draw do
   resources :visits do 
     collection {post :import}
   end
+  resources :students do 
+    collection {post :import}
+  end
 end

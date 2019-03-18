@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Students</h1>
-
+<div id="buttonFile">
+<%= form_tag import_students_path, multipart: true do%>
+<%= file_field_tag :file%>
+<%= submit_tag 'Cargar Datos'%>
+<%end%>
+</div>
 <table>
   <thead>
     <tr>

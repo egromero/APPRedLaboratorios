@@ -9,7 +9,7 @@
 </head>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <body>
-<%=DateTime.now.to_time.to_s[0..-6]%>
+
 <%=@laboratory.nombre%>
 
 <div class="tabset">
@@ -75,10 +75,14 @@
       <%else%>
       <td><%='Salida'%></td>
       <%end%>
-      <% if record.student.laboratories.ids.include?(@laboratory.id)%>
+       <% if record.student.laboratories.ids.include?(@laboratory.id)%>
         <td><i class="material-icons" style="font-size:28px;color:blue">check</i></td>
       <%else%>
-        <td><i class="material-icons" style="font-size:28px;color:red">clear</i></td>
+        <td><i class="material-icons" style="font-size:28px;color:red">clear</i>
+        <form action="/students/enroll" method="post"><div>
+        <input id=<%=record.id%> name = 'student_id[]' value =<%=record.student.id%> type= 'checkbox'>
+        <label for=<%=record.id%>> Matricular </label></td>
+        </div>
       </tr>
       <%end%>
       <%end%>
@@ -103,10 +107,14 @@
       <%else%>
       <td><%='Salida'%></td>
        <%end%>
-      <% if record.student.laboratories.ids.include?(@laboratory.id)%>
+       <% if record.student.laboratories.ids.include?(@laboratory.id)%>
         <td><i class="material-icons" style="font-size:28px;color:blue">check</i></td>
       <%else%>
-        <td><i class="material-icons" style="font-size:28px;color:red">clear</i></td>
+        <td><i class="material-icons" style="font-size:28px;color:red">clear</i>
+        <form action="/students/enroll" method="post"><div>
+        <input id=<%=record.id%> name = 'student_id[]' value =<%=record.student.id%> type= 'checkbox'>
+        <label for=<%=record.id%>> Matricular </label></td>
+        </div>
       </tr>
       <%end%>
       <%end%>

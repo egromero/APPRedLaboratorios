@@ -21,7 +21,10 @@ class StudentsController < ApplicationController
   # GET /students/1/edit
   def edit
   end
-
+  def import
+    Student.import(params[:file])
+    redirect_to root_path, notice: "Estudiantes actualizados"
+  end
   def enroll
     @student = Student.find(params[:student_id])
     @labs = Laboratory.find(current_user.lab_id)

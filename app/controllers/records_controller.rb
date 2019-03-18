@@ -32,7 +32,7 @@ class RecordsController < ApplicationController
             @record = student.records.new({:tipo => student.status, :lab_id =>params[:lab_id]})
             respond_to do |format|
             if @record.save
-                format.json {render json: {student: @record.student, laboratory: @record.student.laboratories}, status: 200}
+                format.json {render json: {'type': 'student', 'data': {student: @record.student, laboratory: @record.student.laboratories}}, status: 200}
             else
                 format.json {render json: @record.errors, status: :unprocessable_entity}
             end
