@@ -3,13 +3,14 @@ class RecordsController < ApplicationController
 
     def index
         @laboratory = Laboratory.find(current_user.lab_id)
-        @records_day = Record.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
-        @records_day = @records_day.where(lab_id: @laboratory.id)
-        @records_week = Record.where(created_at: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
-        @records_week = @records_week.where(lab_id: @laboratory.id)
-        @records_month = Record.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
-        @records_month = @records_month.where(lab_id: @laboratory.id)
-        
+        @record_all = Record.where(lab_id: @laboratory.id)
+        @records_day = @record_all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+        @records_week = @record_all.where(created_at: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
+        @records_month = @record_all.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+        respond_to do |format|
+            format.html
+            format.csv { send_data @record_all.to_csv, filename: "users-#{Date.today}.csv" }
+          end
     end
 
 

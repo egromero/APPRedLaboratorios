@@ -122,6 +122,8 @@
     </section>
   </div>
   <input type = 'submit' value = 'Matricular'>
+
+<%= button_to "Descargar CSV", records_path(@records, format: :csv), method: :get %>
 </div>
 
 

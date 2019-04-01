@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resource :students do 
     post 'enroll'
   end
-  resources :records
+  resources :records 
   resources :laboratories do
     get 'new_admin'
     post 'set_admin'
