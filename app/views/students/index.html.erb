@@ -1,42 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Students</h1>
+<h1>Estudiantes inscritos en el sistema</h1>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<body>
+
+  <div class="tab-panels">
+    <section id="student" class="tab-panel">
+    <table id= "students">
+    <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Número de Alumno</th>
+    <th>Situación Acadámica</th>
+    <th>Correo UC</th>
+    </tr>
+  
+    <%@students.each do |student|%>
+    <tr>
+    <td><%=student.id%></td>
+    <td><%=link_to student.nombre, student%></td>
+    <td><%=student.nalumno%></td>
+    <td><%=student.sit_academica%></td>
+    <td><%=student.correo%></td>
+    <%end%>
+        </div>
+      </tr>
+    </table>  
+  </section>
+<br>
+</body>
 <div id="buttonFile">
 <%= form_tag import_students_path, multipart: true do%>
 <%= file_field_tag :file%>
 <%= submit_tag 'Cargar Datos'%>
 <%end%>
 </div>
-<table>
-  <thead>
-    <tr>
-      <th>Rfid</th>
-      <th>Rut</th>
-      <th>Nombre</th>
-      <th>Nalumno</th>
-      <th>Sit academica</th>
-      <th>Correo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @students.each do |student| %>
-      <tr>
-        <td><%= student.rfid %></td>
-        <td><%= student.rut %></td>
-        <td><%= student.nombre %></td>
-        <td><%= student.nalumno %></td>
-        <td><%= student.sit_academica %></td>
-        <td><%= student.correo %></td>
-        <td><%= link_to 'Show', student %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Student', new_student_path %>
+<%= button_to 'New Student', new_student_path , method: :get%>

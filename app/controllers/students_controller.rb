@@ -5,7 +5,8 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+    @students = Student.all.order("id ASC")
+    
   end
 
   # GET /students/1
@@ -35,7 +36,8 @@ class StudentsController < ApplicationController
     format.html { redirect_to records_url , notice: 'Estudiante matriculado' }
     end
   end
-
+  
+  def 
 
   # POST /students
   # POST /students.json

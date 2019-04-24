@@ -1,16 +1,17 @@
 <h2>Registros:</h2>
-
-<div id="buttonFile">
-<%= form_tag import_records_path, multipart: true do%>
-<%= file_field_tag :file%>
+  <div id="buttonFile">
+  <%= form_tag import_records_path, multipart: true do%>
+  <%= file_field_tag :file%>
 <%= submit_tag 'Cargar Datos'%>
 <%end%>
+
 </div>
 </head>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <body>
 
 <%=@laboratory.nombre%>
+
 
 <div class="tabset">
   <!-- Tab 1 -->
@@ -121,6 +122,7 @@
       </table> 
     </section>
   </div>
+
   <input type = 'submit' value = 'Matricular'>
 
 <%= button_to "Descargar CSV", records_path(@records, format: :csv), method: :get %>

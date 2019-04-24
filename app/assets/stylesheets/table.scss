@@ -20,3 +20,26 @@
   background-color: rgb(68, 173, 68);
   color: white;
 }
+
+#students {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#students td, #records th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#students tr:nth-child(even){background-color: #f2f2f2;}
+
+#students tr:hover {background-color: rgb(255, 255, 255);}
+
+#students th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(131, 160, 255);
+  color: white;
+}
