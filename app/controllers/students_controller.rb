@@ -37,8 +37,6 @@ class StudentsController < ApplicationController
     end
   end
   
-  def 
-
   # POST /students
   # POST /students.json
   def create
