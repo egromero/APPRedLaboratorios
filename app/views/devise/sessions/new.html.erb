@@ -1,10 +1,16 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="login">
-  <h1> Ingresa para continuar</h1>
+    <div>
+    <h1> Ingresa para continuar</h1>
     <%= f.text_field :email, autocomplete: "Usuario", placeholder: "Usuario"  %>
+    </div>
+    <div>
     <%= f.password_field :password, autocomplete: "current-password", placeholder: "Contraseña" %>
+    </div>
+    <div>
     <%= f.submit "Enviar"%>
+    </div>
     <% if flash[:alert] %>
           <div class="alert error">
 		      <input type="checkbox" id="alert1"/>

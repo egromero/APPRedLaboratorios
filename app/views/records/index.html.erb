@@ -9,10 +9,17 @@
 </head>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <body>
-
+<%usuarios = 0%>
 <%=@laboratory.nombre%>
-
-
+ <%@records_day.each do |record|%>
+<%if record.tipo == 't'%>
+      <%usuarios+=1%>
+    <%end%>
+<%end%>
+<div>
+Usuarios en laboratorio:
+<%=usuarios%>
+</div>
 <div class="tabset">
   <!-- Tab 1 -->
   <input type="radio" name="tabset" id="tab1" aria-controls="Hoy" checked>

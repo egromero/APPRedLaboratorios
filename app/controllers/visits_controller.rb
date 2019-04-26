@@ -27,7 +27,7 @@ class VisitsController < ApplicationController
                 student.status = true
                 student.save
             end
-            @record = student.records.new({:tipo => params[:tipo], :lab_id =>params[:lab_id]})
+            @record = student.records.new({:tipo => student.status, :lab_id =>params[:lab_id]})
             respond_to do |format|
             if @record.save
                 format.json {render json: {'type': 'student', 'data': {student: @record.student, laboratory: @record.student.laboratories}}, status: 200}

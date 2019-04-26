@@ -10,37 +10,34 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :rfid %>
-    <%= form.text_field :rfid %>
+  
+  <%= form.label :rfid %>
+  <div>
+    <%= form.text_field:rfid %>
   </div>
-   <div class="field">
-    <%= form.label :rut %>
-    <%= form.text_field :rut %>
+  <%= form.label :rut %>
+   <div>
+    <%= form.text_field:rut %>
   </div>
-
-  <div class="field">
-    <%= form.label :nombre %>
+  <%= form.label :nombre %>
+  <div>
     <%= form.text_field :nombre %>
   </div>
-
-  <div class="field">
-    <%= form.label :nalumno %>
+  <%= form.label :nalumno %>
+  <div>
     <%= form.text_field :nalumno %>
   </div>
-
-  <div class="field">
-    <%= form.label :sit_academica %>
+  <%= form.label :sit_academica %>
+  <div>
     <%= form.text_field :sit_academica %>
   </div>
-
-  <div class="field">
-    <%= form.label :correo %>
+  <%= form.label :correo %>
+  <div>
     <%= form.text_field :correo %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar"%>
+  </div>
   </div>
 <% end %>
