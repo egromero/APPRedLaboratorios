@@ -9,16 +9,19 @@
 </head>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <body>
-<%usuarios = 0%>
+<%activos = 0%>
+<%inactivos = 0%>
 <%=@laboratory.nombre%>
  <%@records_day.each do |record|%>
 <%if record.tipo == 't'%>
-      <%usuarios+=1%>
-    <%end%>
+      <%activos+=1%>
+<%else%>
+      <%inactivos+=1%>
+<%end%>
 <%end%>
 <div>
 Usuarios en laboratorio:
-<%=usuarios%>
+<%=activos-inactivos%>
 </div>
 <div class="tabset">
   <!-- Tab 1 -->
