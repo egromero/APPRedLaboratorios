@@ -30,6 +30,9 @@ Usuarios en laboratorio:
   <!-- Tab 3 -->
   <input type="radio" name="tabset" id="tab3" aria-controls="Mes">
   <label for="tab3">Mes</label>
+  <!-- Tab 4 -->
+  <input type="radio" name="tabset" id="tab4" aria-controls="Ranking">
+  <label for="tab4">Ranking</label>
   
   <div class="tab-panels">
     <section id="Hoy" class="tab-panel">
@@ -128,7 +131,26 @@ Usuarios en laboratorio:
       <%end%>
       </table> 
     </section>
-  </div>
+    <section id="Ranking" class="tab-panel">
+    <table id= "records">
+     <tr>
+    <th>Nombre</th>
+    <th>Cantidad de registros</th>
+    </tr>
+    <%@students.each do |s|%>
+    <tr>
+    <td><%=s.nombre%></td>
+    <td><%=s.records.count%></td>
+    </tr>
+    <%end%>
+    
+    </div>
+    </table>
+    </section>
+    </div>
+
+  
+
 
   <input type = 'submit' value = 'Matricular'>
 

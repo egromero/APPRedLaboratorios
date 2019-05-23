@@ -2,6 +2,11 @@ class RecordsController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def index
+        @students = Student
+        .left_joins(:records)
+        .group(:id)
+        .order('COUNT(records.id) DESC')
+        .limit(10)
         @laboratory = Laboratory.find(current_user.lab_id)
         @record_all = Record.where(lab_id: @laboratory.id)
         @records_day = @record_all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
