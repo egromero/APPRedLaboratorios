@@ -139,7 +139,7 @@ Usuarios en laboratorio:
     </tr>
     <%@students.each do |s|%>
     <tr>
-    <td><%=s.nombre%></td>
+    <td><%=link_to s.nombre, s%></td>
     <td><%=s.records.count%></td>
     </tr>
     <%end%>
