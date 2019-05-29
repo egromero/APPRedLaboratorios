@@ -15,11 +15,13 @@
 <%inactivos = 0%>
 <%=@laboratory.nombre%>
  <%@records_day.each do |record|%>
-<%if record.student.status == true and not record.student.status == nil%>
+ <%record.student.status%>
+ <%record.student.status == true>
+ <%if record.student.status == true%>
       <%activos+=1%>
-<%else%>
+ <%else%>
       <%inactivos+=1%>
-<%end%>
+ <%end%>
 <%end%>
 <div>
 Usuarios en laboratorio:
