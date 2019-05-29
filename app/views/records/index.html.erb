@@ -15,7 +15,7 @@
 <%inactivos = 0%>
 <%=@laboratory.nombre%>
  <%@records_day.each do |record|%>
-<%if record.student.status == true%>
+<%if record.student.status == true and not record.student.status == nil%>
       <%activos+=1%>
 <%else%>
       <%inactivos+=1%>
