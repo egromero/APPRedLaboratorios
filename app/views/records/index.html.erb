@@ -15,8 +15,10 @@
 <%inactivos = 0%>
 <%=@laboratory.nombre%>
  <%@records_day.each do |record|%>
- <%record.student.status%>
- <%record.student.status == true%>
+ <%=record.student.status%>
+ <%=record.student.status == true%>
+ <%end%>
+<!--
  <%if record.student.status == true%>
       <%activos+=1%>
  <%else%>
@@ -29,16 +31,16 @@ Usuarios en laboratorio:
 </div>
 
 <div class="tabset">
-  <!-- Tab 1 -->
+
   <input type="radio" name="tabset" id="tab1" aria-controls="Hoy" checked>
   <label for="tab1">Hoy</label>
-  <!-- Tab 2 -->
+
   <input type="radio" name="tabset" id="tab2" aria-controls="Semana">
   <label for="tab2">Semana</label>
-  <!-- Tab 3 -->
+
   <input type="radio" name="tabset" id="tab3" aria-controls="Mes">
   <label for="tab3">Mes</label>
-  <!-- Tab 4 -->
+
   <input type="radio" name="tabset" id="tab4" aria-controls="Ranking">
   <label for="tab4">Ranking</label>
   
@@ -165,6 +167,6 @@ Usuarios en laboratorio:
 <%= button_to "Descargar CSV", records_path(@records, format: :csv), method: :get %>
 </div>
 
-
+-->
 
 
