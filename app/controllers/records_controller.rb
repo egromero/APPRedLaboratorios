@@ -23,7 +23,7 @@ class RecordsController < ApplicationController
         @records_month = @record_all.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
         @records_month.each do |record|
             if record.student.status
-                record.student.status = False
+                record.student.status = false
                 record.student.save
             end
         end
