@@ -4,6 +4,8 @@
   <%= file_field_tag :file%>
 <%= submit_tag 'Cargar Datos'%>
 <%end%>
+<%= button_to 'Expulsar Estudiantes', button_path, method: :get %>
+</div>
 
 </div>
 </head>
@@ -23,6 +25,7 @@
 Usuarios en laboratorio:
 <%=activos-inactivos%>
 </div>
+
 <div class="tabset">
   <!-- Tab 1 -->
   <input type="radio" name="tabset" id="tab1" aria-controls="Hoy" checked>
@@ -140,7 +143,7 @@ Usuarios en laboratorio:
     <th>Nombre</th>
     <th>Cantidad de registros</th>
     </tr>
-    <%@students.each do |s|%>
+    <%@students_ranking.each do |s|%>
     <tr>
     <td><%=link_to s.nombre, s%></td>
     <td><%=s.records.count%></td>
@@ -155,13 +158,10 @@ Usuarios en laboratorio:
   
 
 
-  <input type = 'submit' value = 'Matricular'>
+<input type = 'submit' value = 'Matricular'>
 
 <%= button_to "Descargar CSV", records_path(@records, format: :csv), method: :get %>
 </div>
-
-
-
 
 
 

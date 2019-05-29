@@ -2,7 +2,7 @@ class RecordsController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def index
-        @students = Student
+        @students_ranking = Student
         .left_joins(:records)
         .group(:id)
         .order('COUNT(records.id) DESC')
@@ -16,6 +16,20 @@ class RecordsController < ApplicationController
             format.html
             format.csv { send_data @record_all.to_csv, filename: "users-#{Date.today}.csv" }
           end
+    end
+    def expulse
+        @laboratory = Laboratory.find(current_user.lab_id)
+        @record_all = Record.where(lab_id: @laboratory.id)
+        @records_month = @record_all.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+        @records_month.each do |record|
+            if record.student.status
+                record.student.status = False
+                record.student.save
+            end
+        end
+        respond_to do |format|
+            format.html { redirect_to root_path, notice: 'Estudiantes expulsados.' }
+        end
     end
 
 

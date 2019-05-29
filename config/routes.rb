@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resource :students do 
     post 'enroll'
   end
+  get '/expulse', to: "records#expulse", as: "button"
+
   resources :records 
   resources :laboratories do
     get 'new_admin'
