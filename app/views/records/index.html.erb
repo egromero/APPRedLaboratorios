@@ -22,8 +22,13 @@
  <%end%>
 <%end%>
 <div>
+<%usuarios = activos-inactivos%>
 Usuarios en laboratorio:
+<%if usuarios < 0%>
+<%=0 %> <%"Redundancias de salidas"%>
+<%else%>
 <%=activos-inactivos%>
+<%end%>
 </div>
 
 <div class="tabset">
