@@ -23,6 +23,8 @@ class RecordsController < ApplicationController
         @records_day = @record_all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
         @records_day.each do |record|
             if not record.student.status
+                @record_new = record.student.records.new(:tipo => record.student.status, :lab_id =>record.lab_id)
+                @record_new.save  
                 record.student.status = true
                 record.student.save
             end
