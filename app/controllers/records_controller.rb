@@ -20,10 +20,10 @@ class RecordsController < ApplicationController
     def expulse
         @laboratory = Laboratory.find(current_user.lab_id)
         @record_all = Record.where(lab_id: @laboratory.id)
-        @records_month = @record_all.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
-        @records_month.each do |record|
-            if record.student.status
-                record.student.status = false
+        @records_day = @record_all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+        @records_day.each do |record|
+            if not record.student.status
+                record.student.status = true
                 record.student.save
             end
         end
