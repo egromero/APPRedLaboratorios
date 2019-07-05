@@ -29,9 +29,9 @@ class RecordsController < ApplicationController
                 record.student.save
             end
         end
-        respond_to do |format|
-            format.html { redirect_to root_path, notice: 'Estudiantes expulsados.' }
-        end
+        sign_out_and_redirect(current_user)
+
+       
     end
 
 
