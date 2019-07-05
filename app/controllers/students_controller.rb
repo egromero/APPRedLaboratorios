@@ -53,6 +53,22 @@ class StudentsController < ApplicationController
     end
   end
 
+def created_from_totem
+  @student = Student.new({:rfid => params[:rfid],:nombre => params[:nombre],
+                          :correo => params[:correo], :sit_academica=> params[:sit_academica],
+                          :rut => params[:rut]})
+  respond_to do |format|
+    if @student.save
+      format.json {render json: @student, status: :created}
+    else
+      format.json {render json: @student.errors, status: :unprocessable_entity }
+    end
+  end
+end
+  
+  
+  
+  
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update

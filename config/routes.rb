@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resource :students do 
     post 'enroll'
+    post 'created_from_totem'
   end
   get '/expulse', to: "records#expulse", as: "button"
 
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
     post 'set_admin'
   end
   resources :visits
+ 
   resources :records do 
     collection {post :import}
   end
