@@ -1,11 +1,17 @@
 class LaboratoriesController < ApplicationController
   before_action :set_laboratory, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource class: "Laboratory"
 
 
   # GET /laboratories
   # GET /laboratories.json
   def index
     @laboratories = Laboratory.all
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:warning] = "Acceso Denegado!"
+    redirect_to root_url
   end
 
   # GET /laboratories/1

@@ -1,7 +1,11 @@
 class VisitsController < ApplicationController
     skip_before_action :verify_authenticity_token
+    load_and_authorize_resource class: "Visit"
 
-
+    rescue_from CanCan::AccessDenied do |exception|
+        flash[:warning] = "Acceso Denegado!"
+        redirect_to root_url
+      end
     def index
         @laboratory = Laboratory.find(current_user.lab_id)
         @visits_day = Visit.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)

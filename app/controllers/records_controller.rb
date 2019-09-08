@@ -1,5 +1,11 @@
 class RecordsController < ApplicationController
     skip_before_action :verify_authenticity_token
+    load_and_authorize_resource class: "Record"
+
+    rescue_from CanCan::AccessDenied do |exception|
+        flash[:warning] = "Acceso Denegado!"
+        redirect_to root_url
+      end
 
     def index
         
