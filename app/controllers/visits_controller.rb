@@ -1,12 +1,5 @@
 class VisitsController < ApplicationController
     skip_before_action :verify_authenticity_token
-    before_action { authorize! :read, :manage}
-
-
-    rescue_from CanCan::AccessDenied do |exception|
-        flash[:warning] = "Acceso Denegado!"
-        redirect_to root_url
-    end
 
 
     def index

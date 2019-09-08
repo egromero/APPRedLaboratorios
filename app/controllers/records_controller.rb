@@ -1,13 +1,5 @@
 class RecordsController < ApplicationController
     skip_before_action :verify_authenticity_token
-    before_action { authorize! :read, :manage}
-
-    
-
-    rescue_from CanCan::AccessDenied do |exception|
-        flash[:warning] = "Acceso denegado!"
-        redirect_to root_url
-    end
 
     def index
         
