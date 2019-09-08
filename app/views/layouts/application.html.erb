@@ -25,6 +25,9 @@
       <a class="nav-link" href="/students">Estudiantes</a></li>
        <li class="nav-item">
       <a class="nav-link" href="/students/new">Inscribir Estudiante</a></li>
+      <% if can? :manage, Laboratory %>
+      <a class="nav-link" href="/laboratories">Administrar Labs</a></li>
+      <% end %>
   <!-- Button Session-->
       <%= link_to "Cerrar Laboratorio", button_path, method: :get ,:class =>"btn navbar-btn btn-danger" %>
         <% else %>
