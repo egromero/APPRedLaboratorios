@@ -1,12 +1,19 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-  skip_before_action :verify_authenticity_token  
+  before_action { authorize! :read, :manage}
+  skip_before_action :verify_authenticity_token
+  
+
 
   # GET /students
   # GET /students.json
   def index
     @students = Student.all.order("id ASC")
-    
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:warning] = "Acceso Denegado!"
+    redirect_to root_url
   end
 
   # GET /students/1

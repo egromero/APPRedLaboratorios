@@ -1,7 +1,16 @@
 class RecordsController < ApplicationController
     skip_before_action :verify_authenticity_token
+    before_action { authorize! :read, :manage}
+
+    
+
+    rescue_from CanCan::AccessDenied do |exception|
+        flash[:warning] = "Acceso denegado!"
+        redirect_to root_url
+    end
 
     def index
+        
         @students_ranking = Student
         .left_joins(:records)
         .group(:id)
@@ -17,6 +26,11 @@ class RecordsController < ApplicationController
             format.csv { send_data @record_all.to_csv, filename: "users-#{Date.today}.csv" }
           end
     end
+
+
+
+
+    
     def expulse
         @laboratory = Laboratory.find(current_user.lab_id)
         @record_all = Record.where(lab_id: @laboratory.id)
