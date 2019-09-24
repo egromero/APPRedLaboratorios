@@ -9,4 +9,17 @@ class ApplicationController < ActionController::Base
             devise_parameter_sanitizer.permit(:sign_up, keys: [:lab_id, :admin])
             devise_parameter_sanitizer.permit(:account_update, keys: [:lab_id, :admin])
     end
+
+    def authenticate
+        api_key = request.headers['X-Api-Key']
+        
+        @totem = Totem.find_by(api_key: api_key) if api_key
+        
+        unless @totem
+            render json: {error: 'Request no autorizada'}, status: 401
+            return false
+        end
+    end
+
 end
+

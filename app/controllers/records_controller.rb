@@ -1,6 +1,7 @@
 class RecordsController < ApplicationController
     skip_before_action :verify_authenticity_token
     load_and_authorize_resource class: "Record"
+    before_action :authenticate, only:[:create]
 
     rescue_from CanCan::AccessDenied do |exception|
         flash[:warning] = "Acceso Denegado!"
@@ -24,10 +25,6 @@ class RecordsController < ApplicationController
             format.csv { send_data @record_all.to_csv, filename: "users-#{Date.today}.csv" }
           end
     end
-
-
-
-
     
     def expulse
         @laboratory = Laboratory.find(current_user.lab_id)
@@ -57,7 +54,7 @@ class RecordsController < ApplicationController
     end
     #POST /records/rfid
     def create 
-        student = Student.where(rfid: params[:rfid])[0]
+        student = Student.where(rfid: params[:rfid])[0]      
         if student
             if student.status.nil?
                 student.status = true
@@ -81,10 +78,4 @@ class RecordsController < ApplicationController
             end
         end
     end 
-
-    private
-
-    def record_params
-        params.require(:record).permit(:tipo, :student_id, :lab_id)
-    end
 end
