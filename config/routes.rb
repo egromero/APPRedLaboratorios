@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'home_page#index'
   devise_for :users
+  scope '/admin' do
+    resources :users
+  end
+  
   resources :laboratories
   resources :students
   get 'home_page/index'
