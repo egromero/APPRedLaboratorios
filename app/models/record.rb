@@ -19,12 +19,12 @@ class Record < ApplicationRecord
         end
     end
     def self.to_csv
-        attributes = %w{estudiante fecha_registro hora_de_registro tipo laboratorio}
+        attributes = %w{estudiante fecha_registro hora_de_registro laboratorio}
     
         CSV.generate(headers: true) do |csv|
           csv << attributes
           all.each do |record|
-            csv << [record.student.nombre, record.created_at.to_s.split(' ')[0], record.created_at.to_s.split(' ')[1], record.tipo, Laboratory.find(record.lab_id).nombre]
+            csv << [record.student.nombre, record.created_at.to_s.split(' ')[0], record.created_at.to_s.split(' ')[1], Laboratory.find(record.lab_id).nombre]
           end
           
         end
