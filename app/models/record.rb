@@ -24,7 +24,7 @@ class Record < ApplicationRecord
         CSV.generate(headers: true) do |csv|
           csv << attributes
           all.each do |record|
-            csv << [record.student.nombre, record.created_at.to_s.split(' ')[0], record.created_at.to_s.split(' ')[1], record.status, Laboratory.find(record.lab_id).nombre]
+            csv << [record.student.nombre, record.created_at.to_s.split(' ')[0], record.created_at.to_s.split(' ')[1], record.tipo, Laboratory.find(record.lab_id).nombre]
           end
           
         end
