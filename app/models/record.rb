@@ -19,7 +19,7 @@ class Record < ApplicationRecord
         end
     end
     def self.to_csv
-        attributes = %w{estudiante fecha_registro hora_de_registro laboratorio}
+        attributes = %w{estudiante fecha_registro hora_de_registro tipo laboratorio}
     
         CSV.generate(headers: true) do |csv|
           csv << attributes
