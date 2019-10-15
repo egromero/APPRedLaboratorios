@@ -1,5 +1,37 @@
-<%=@users.each do |user|%>
-<div>
-<%=user%>
-<%end%>
+<% if flash[:success] %>
+          <div class="alert success">
+		      <input type="checkbox" id="alert1"/>
+          <label class="close" title="close" for="alert1">
+           <i class="icon-remove"></i>x
+          </label>
+	      	<p class="inner">
+		    	<strong><%= flash[:success] %></strong></p>
+          </div>
+    <% end %>
+
+<h2>Administradores laboratorios</h2>
+
+<div class="right">
+<%= button_to "Agregar Administrador", new_user_path, class: "btn btn-dark"%>
 </div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Usuario</th>
+      <th scope="col">Laboratorio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@users.each do |user|%>
+    <tr>
+      <th scope="row"><%=user.id%></th>
+      <td><%=user.email%></td>
+      <td><%=@labs.find(user.lab_id).nombre%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
+
+

@@ -1,25 +1,26 @@
 class UsersController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  load_and_authorize_resource class: "User"
+  
+
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:warning] = "Acceso Denegado!"
+    redirect_to root_url
+  end
   def index
     @users = User.all
-  end
-
-  def show
-    @user = User.find(params[:id])
+    @labs = Laboratory.all
   end
 
   def new
     @user = User.new
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
   def create
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to @user, :flash => { :success => 'User was successfully created.' }
+      redirect_to users_path, :flash => { :success => 'Usuario creado con exito' }
     else
       render :action => 'new'
     end
@@ -27,7 +28,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-
     if @user.update_attributes(user_params)
       sign_in(@user, :bypass => true) if @user == current_user
       redirect_to @user, :flash => { :success => 'User was successfully updated.' }
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :rol, :lab_id)
+      params.permit(:email, :password, :password_confirmation, :rol, :lab_id)
     end
 
 

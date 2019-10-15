@@ -1,18 +1,11 @@
 <h2>Registros:</h2>
-  <div id="buttonFile">
-  <%= form_tag import_records_path, multipart: true do%>
-  <%= file_field_tag :file%>
-<%= submit_tag 'Cargar Datos'%>
-<%end%>
-
-</div>
-</div>
-</head>
+<head>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
 <body>
+<h5><%=@laboratory.nombre%></h5>
 <%activos = 0%>
 <%inactivos = 0%>
-<%=@laboratory.nombre%>
  <%@records_day.each do |record|%>
  <%if record.tipo == 't'%>
       <%activos+=1%>
@@ -20,44 +13,50 @@
       <%inactivos+=1%>
  <%end%>
 <%end%>
+
 <div>
 <%usuarios = activos-inactivos%>
-Usuarios en laboratorio:
+<h5>Usuarios en laboratorio:
 <%if usuarios < 0%>
-<%=0 %> <%="Redundancias de salidas"%>
+<%=0 %> <%="Redundancias de salidas"%></h4>
 <%else%>
-<%=activos-inactivos%>
+<%=activos-inactivos%></h5>
 <%end%>
 </div>
 
-<div class="tabset">
+<div class="right">
+<%= button_to "Descargar CSV", records_path(@records, format: :csv), method: :get, class: "btn btn-dark"%>
+</div>
 
-  <input type="radio" name="tabset" id="tab1" aria-controls="Hoy" checked>
-  <label for="tab1">Hoy</label>
+<ul class="nav nav-tabs" role= "tablist"> 
+  <li class="nav-item">
+    <a class ="nav-link active" id="today-tab" href=#today data-toggle="tab" role="tab"  aria-controls="today" aria-selected ="true">Hoy</a>
+  </li>
+  <li class="nav-item">
+    <a class ="nav-link" id="week-tab" href=#week data-toggle="tab" role="tab" aria-controls="week" aria-selected ="true">Semana</a>
+  </li>
+  <li class="nav-item">
+    <a class ="nav-link" id="month-tab" data-toggle="tab" href=#month  role="tab" aria-controls="month" aria-selected ="true">Mes</a>
+  </li>
+  </ul>
 
-  <input type="radio" name="tabset" id="tab2" aria-controls="Semana">
-  <label for="tab2">Semana</label>
-
-  <input type="radio" name="tabset" id="tab3" aria-controls="Mes">
-  <label for="tab3">Mes</label>
-
-  <input type="radio" name="tabset" id="tab4" aria-controls="Ranking">
-  <label for="tab4">Ranking</label>
-  
-  <div class="tab-panels">
-    <section id="Hoy" class="tab-panel">
-    <table id= "records">
+  <div class="tab-content">
+    <div class="tab-pane fade show active" id="today" role="tabpanel" aria-labelledby="today-tab">
+    <table class="table table-bordered">
+    <thead>
     <tr>
-    <th>Nombre</th>
-    <th>Fecha Registro</th>
-    <th>Hora Registro</th>
-    <th>Tipo</th>
-    <th>Matriculado</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Fecha Registro</th>
+    <th scope="col">Hora Registro</th>
+    <th scope="col">Tipo</th>
+    <th scope="col">Matriculado</th>
     </tr>
+    </thead>
+    <tbody>
     <%@records_day.each do |record|%>
     <tr>
-    <td><%=record.student.nombre%></td>
-     <td><%=record.created_at.to_s.split(' ')[0]%></td>
+    <td scope="row"><%=record.student.nombre%></td>
+    <td><%=record.created_at.to_s.split(' ')[0]%></td>
     <td><%=record.created_at.to_s.split(' ')[1]%></td>
     <%if record.tipo == 't'%>
       <td><%='Ingreso'%></td>
@@ -66,29 +65,37 @@ Usuarios en laboratorio:
     <%end%>
     <% if record.student.laboratories.ids.include?(@laboratory.id)%>
         <td><i class="material-icons" style="font-size:28px;color:blue">check</i></td>
-      <%else%>
+    <%else%>
         <td><i class="material-icons" style="font-size:28px;color:red">clear</i>
-        <form action="/students/enroll" method="post"><div>
+        <form action="/students/enroll" method="post">
+        <div>
         <input id=<%=record.id%> name = 'student_id[]' value =<%=record.student.id%> type= 'checkbox'>
         <label for=<%=record.id%>> Matricular </label></td>
         </div>
       </tr>
       <%end%>
     <%end%>
+    </tbody>
     </table>  
-  </section>
-    <section id="Semana" class="tab-panel">
-     <table id= "records">
+    </div>
+
+
+
+    <div class="tab-pane fade" id="week" role="tabpanel" aria-labelledby="week-tab">
+      <table class="table table-bordered">
+      <thead>
       <tr>
-      <th>Nombre</th>
-      <th>Fecha Registro</th>
-      <th>Hora Registro</th>
-      <th>Tipo</th>
-      <th>Matriculado</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Fecha Registro</th>
+      <th scope="col">Hora Registro</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Matriculado</th>
       </tr>
+      </thead>
+      <tbody>
       <%@records_week.each do |record|%>
       <tr>
-      <td><%=record.student.nombre%></td>
+      <td scope="row"><%=record.student.nombre%></td>
       <td><%=record.created_at.to_s.split(' ')[0]%></td>
       <td><%=record.created_at.to_s.split(' ')[1]%></td>
       <%if record.tipo == 't'%>
@@ -100,7 +107,8 @@ Usuarios en laboratorio:
         <td><i class="material-icons" style="font-size:28px;color:blue">check</i></td>
       <%else%>
         <td><i class="material-icons" style="font-size:28px;color:red">clear</i>
-        <form action="/students/enroll" method="post"><div>
+        <form action="/students/enroll" method="post">
+        <div>
         <input id=<%=record.id%> name = 'student_id[]' value =<%=record.student.id%> type= 'checkbox'>
         <label for=<%=record.id%>> Matricular </label></td>
         </div>
@@ -108,19 +116,26 @@ Usuarios en laboratorio:
       <%end%>
       <%end%>
       </table> 
-    </section>
-    <section id="Mes" class="tab-panel">
-      <table id= "records">
+      </tbody>
+      </div>
+
+
+
+    <div class="tab-pane fade" id="month" role="tabpanel" aria-labelledby="month-tab">
+      <table class="table table-bordered">
+      <thead>
       <tr>
-      <th>Nombre</th>
-      <th>Fecha Registro</th>
-      <th>Hora Registro</th>
-      <th>Tipo</th>
-      <th>Matriculado</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Fecha Registro</th>
+      <th scope="col">Hora Registro</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Matriculado</th>
       </tr>
+      </thead>
+      <tbody>
       <%@records_month.each do |record|%>
       <tr>
-      <td><%=record.student.nombre%></td>
+      <td scope="row"><%=record.student.nombre%></td>
       <td><%=record.created_at.to_s.split(' ')[0]%></td>
       <td><%=record.created_at.to_s.split(' ')[1]%></td>
       <%if record.tipo == 't'%>
@@ -132,7 +147,8 @@ Usuarios en laboratorio:
         <td><i class="material-icons" style="font-size:28px;color:blue">check</i></td>
       <%else%>
         <td><i class="material-icons" style="font-size:28px;color:red">clear</i>
-        <form action="/students/enroll" method="post"><div>
+        <form action="/students/enroll" method="post">
+        <div>
         <input id=<%=record.id%> name = 'student_id[]' value =<%=record.student.id%> type= 'checkbox'>
         <label for=<%=record.id%>> Matricular </label></td>
         </div>
@@ -140,29 +156,23 @@ Usuarios en laboratorio:
       <%end%>
       <%end%>
       </table> 
-    </section>
-    <section id="Ranking" class="tab-panel">
-    <table id= "records">
-     <tr>
-    <th>Nombre</th>
-    <th>Cantidad de registros</th>
-    </tr>
-    <%@students_ranking.each do |s|%>
-    <tr>
-    <td><%=link_to s.nombre, s%></td>
-    <td><%=s.records.count%></td>
-    </tr>
-    <%end%>
-    
-    </div>
-    </table>
-    </section>
-    </div>
-
-  
+      </tbody>
+      </div>
+  <div class="right">
+    <input type = 'submit' value = 'Matricular' class="btn btn-primary">
+  </div>
+</body>
 
 
-<input type = 'submit' value = 'Matricular'>
 
-<%= button_to "Descargar CSV", records_path(@records, format: :csv), method: :get %>
+
+<!--
+<div id="buttonFile">
+  <%= form_tag import_records_path, multipart: true do%>
+  <%= file_field_tag :file%>
+<%= submit_tag 'Cargar Datos'%>
+<%end%>
 </div>
+--->
+
+

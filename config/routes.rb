@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   scope '/admin' do
     resources :users
+    post 'users/new',to: "users#create"
   end
   
   resources :laboratories

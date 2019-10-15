@@ -1,25 +1,33 @@
-<%= form_with(model: @User, local: true) do |form| %>
+<h3>Nuevo administrador</h3>
+
+<%= form_with(model: @User, action: "create", local: true) do |form| %>
 
   <div class="field">
     <%= form.label :email %>
+  </div>
+  <div>
     <%= form.text_field :email %>
   </div>
 
   <div class="password">
     <%= form.label :password %>
+  </div>
+  <div>
     <%= form.text_field :password %>
   </div>
    <div class="rol">
     <%= form.label :rol %>
-    <%= form.text_field :lab_id%>
+    </div>
+  <div>
+    <%=form.select :rol, [['Administrador de lab', "user"], ['Admin General', "admin"]]%>
   </div>
    <div class="lab_id">
     <%= form.label :lab_id %>
-    <%= form.text_field :lab_id%>
   </div>
-
-
-  <div class="actions">
-    <%= form.submit%>
+  <div>
+  <%=form.collection_select :lab_id, Laboratory.order(:nombre), :id, :nombre%>
+  </div>
+  <div class="actions" %>
+    <%=form.submit%>
   </div>
 <% end %>
