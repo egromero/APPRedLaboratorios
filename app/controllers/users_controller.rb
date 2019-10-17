@@ -1,24 +1,51 @@
 class UsersController < ApplicationController
-    def index
-        @users = User.all
-        @laboratories = Laboratory.all
+  skip_before_action :verify_authenticity_token
+  load_and_authorize_resource class: "User"
+  
+
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:warning] = "Acceso Denegado!"
+    redirect_to root_url
+  end
+  def index
+    @users = User.all
+    @labs = Laboratory.all
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+
+    if @user.save
+      redirect_to users_path, :flash => { :success => 'Usuario creado con exito' }
+    else
+      render :action => 'new'
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      sign_in(@user, :bypass => true) if @user == current_user
+      redirect_to @user, :flash => { :success => 'User was successfully updated.' }
+    else
+      render :action => 'edit'
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to users_path, :flash => { :success => 'User was successfully deleted.' }
+  end
+
+  private
+    def user_params
+      params.permit(:email, :password, :password_confirmation, :rol, :lab_id)
     end
 
-    def new
-        @User = User.new
-    end
-    
-    def create
-        @user = User.new(params[:user]) 
-            respond_to do |format|
-                if @user.save
-                  format.html { redirect_to @user, notice: 'user was successfully created.' }
-                  format.json { render :show, status: :created, location: @user }
-                else
-                  format.html { render :new }
-                  format.json { render json: @user.errors, status: :unprocessable_entity }
-                end
-              end
-    end
 
 end

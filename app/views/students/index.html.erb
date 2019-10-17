@@ -1,38 +1,37 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Estudiantes inscritos en el sistema</h1>
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<h2>Estudiantes:</h2>
+
 <body>
-
-  <div class="tab-panels">
-    <section id="student" class="tab-panel">
-    <table id= "students">
+ <table class="table">
+  <thead>
     <tr>
-    <th>ID</th>
-    <th>Nombre</th>
-    <th>RUN</th>
-    <th>Situación Acadámica</th>
-    <th>Correo UC</th>
+    <th scope="col">ID</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">RUN</th>
+    <th scope="col">Situación Acadámica</th>
+    <th scope="col">Correo UC</th>
     </tr>
-  
+    </thead>
+    <tbody>
     <%@students.each do |student|%>
     <tr>
-    <td><%=student.id%></td>
+    <th scope="row"><%=student.id%></td>
     <td><%=link_to student.nombre, student%></td>
     <td><%=student.rut%></td>
     <td><%=student.sit_academica%></td>
     <td><%=student.correo%></td>
     <%end%>
-        </div>
-      </tr>
+    </tr>
+    </tbody>
     </table>  
-  </section>
-<br>
 </body>
-<div id="buttonFile">
+
+
+<div>
 <%= form_tag import_students_path, multipart: true do%>
 <%= file_field_tag :file%>
-<%= submit_tag 'Cargar Datos'%>
+<%= submit_tag 'Cargar Datos', class: "btn btn-primary"%>
 <%end%>
 </div>

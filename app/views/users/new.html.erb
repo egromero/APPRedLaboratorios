@@ -1,28 +1,33 @@
-<%= form_with(model: @User, local: true) do |form| %>
-  <% if @User.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<h3>Nuevo administrador</h3>
 
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with(model: @User, action: "create", local: true) do |form| %>
 
   <div class="field">
     <%= form.label :email %>
+  </div>
+  <div>
     <%= form.text_field :email %>
   </div>
 
   <div class="password">
     <%= form.label :password %>
+  </div>
+  <div>
     <%= form.text_field :password %>
   </div>
-
-
-  <div class="actions">
-    <%= form.submit%>
+   <div class="rol">
+    <%= form.label :rol %>
+    </div>
+  <div>
+    <%=form.select :rol, [['Administrador de lab', "user"], ['Admin General', "admin"]]%>
+  </div>
+   <div class="lab_id">
+    <%= form.label :lab_id %>
+  </div>
+  <div>
+  <%=form.collection_select :lab_id, Laboratory.order(:nombre), :id, :nombre%>
+  </div>
+  <div class="actions" %>
+    <%=form.submit%>
   </div>
 <% end %>
