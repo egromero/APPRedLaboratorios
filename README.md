@@ -18,7 +18,7 @@ Plataforma para el registro y administración de la asistencia a laboratorios de
 
 Este proyecto nace de la necesidad de hacer un levantamiento de datos respecto al uso de los Laboratorios de fabricación en la universidad.
 
-Busca automatizar y simplificar el proceso de registro de asistencia por medio de la Tarjeta UC (TUC) y brindarle control al administrador por medio de señales visuales y sonoras para saber la [categoría de usuario](Categoríasdeusuario) que entra.
+Busca automatizar y simplificar el proceso de registro de asistencia por medio de la Tarjeta UC (TUC) y brindarle control al administrador por medio de señales visuales y sonoras para saber la categoría de usuario que entra.
 
 
 ### Cómo funciona
