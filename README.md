@@ -59,8 +59,15 @@ Permite a los administradores:
 * Inscribir de manera manual a usuarios no pertenecientes a la comunidad UC.
 
 ### API UC
-La universidad dispuso para esta iniciativa una API con datos de las TUC y de las Personas UC. 
+La dirección de informática de la universidad dispuso para esta iniciativa una API con datos de las TUC y de las Personas UC. 
 La API es consultada solo cuando el usuario que ingresa es [usuario nuevo](#categorías-de-usuarios) y pertenece a la comunidad UC, luego los datos son almacenados en la [plataforma](#plataforma)
 
 ### Categorías de usuarios
+* Usuario nuevo
+Usuario que no cuenta con registro en el sistema, puede pertenecer a la comunidad universitaria o no. Si pertenece a la comunidad UC el usuario debe acercar su TUC al [totem](#totem), este enviará una request a la [API](#api-uc) solicitando los datos personales. 
+La aplicación ya con los datos recolectados por el totem inscribe al usuario y almacena sus datos (para no volver a consultarlos a la API). En ese momento, el usuario pasa a ser un Usuario Registrado - No autorizado.
+
+* Usuario Registrado - No autorizado
+
+* Usuario Registrado - Autorizado 
 ### Registros
