@@ -63,11 +63,14 @@ La dirección de informática de la universidad dispuso para esta iniciativa una
 La API es consultada solo cuando el usuario que ingresa es [usuario nuevo](#categorías-de-usuarios) y pertenece a la comunidad UC, luego los datos son almacenados en la [plataforma](#plataforma)
 
 ### Categorías de usuarios
-* Usuario nuevo
+* **Usuario nuevo:**
 Usuario que no cuenta con registro en el sistema, puede pertenecer a la comunidad universitaria o no. Si pertenece a la comunidad UC el usuario debe acercar su TUC al [totem](#totem), este enviará una request a la [API](#api-uc) solicitando los datos personales. 
 La aplicación ya con los datos recolectados por el totem inscribe al usuario y almacena sus datos (para no volver a consultarlos a la API). En ese momento, el usuario pasa a ser un Usuario Registrado - No autorizado.
 
-* Usuario Registrado - No autorizado
+* **Usuario Registrado - No autorizado:** 
+Usuario que el sistema reconoce y almacena sus datos, pero no ha pasado por la capacitación que el laboratorio requiere por lo que no está autorizado para el uso del mismo. Es el administrador por medio de la plataforma quien sede esos permisos para transformar al usuario en usuario Autorizado. 
 
-* Usuario Registrado - Autorizado 
+* **Usuario Registrado - Autorizado:** Usuario que el sistema reconoce y almacena sus datos y que ha sido autorizado por el administrador de laboratorios. Tiene permiso de hacer uso del espacio. 
+
 ### Registros
+Cada vez que un usuario (independiente de su tipo) acerca la TUC al totem, se genera un registro en la plataforma. Este registro incluye: Nombre, Fecha, Hora, Tipo y Autorizado. El tipo puede ser de ingreso o de salida.
