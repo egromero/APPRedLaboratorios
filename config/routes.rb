@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'home_page#index'
+
+  get "/slideshow" => "slideshow#slideshow"
   devise_for :users
   scope '/admin' do
     resources :users

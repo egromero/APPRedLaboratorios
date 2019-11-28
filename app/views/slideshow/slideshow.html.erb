@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Banner</title>
+</head>
+
+<body>
+
+  <div class="slider">
+    <div id="img">
+      <img src=/assets/<%=@images[0]%>>
+    </div>
+  
+
+  </div>
+
+  <script>
+    var images = <%=@images.inspect.html_safe%>;
+    var x = 0;
+
+    var imgs = document.getElementById('img');
+
+    setInterval(slider, 10000);
+
+
+    function slider() {
+
+      if (x < images.length) {
+        x = x + 1;
+      } else {
+        x = 1;
+      }
+      imgs.innerHTML = "<img src=/assets/" + images[x - 1] + ">";
+    }
+
+
+  </script>
+
+
+  <style type="text/css">
+    .slider {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+
+    img {
+      animation: ani 2s linear;
+
+    }
+
+    @keyframes ani {
+      0% {
+        transform: scale(1.2);
+      }
+      10% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+
+
+
+</body>
+
+</html>
