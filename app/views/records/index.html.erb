@@ -49,7 +49,7 @@
     <th scope="col">Fecha Registro</th>
     <th scope="col">Hora Registro</th>
     <th scope="col">Tipo</th>
-    <th scope="col">Matriculado</th>
+    <th scope="col">Autorizado</th>
     </tr>
     </thead>
     <tbody>
@@ -70,7 +70,7 @@
         <form action="/students/enroll" method="post">
         <div>
         <input id=<%=record.id%> name = 'student_id[]' value =<%=record.student.id%> type= 'checkbox'>
-        <label for=<%=record.id%>> Matricular </label></td>
+        <label for=<%=record.id%>> Autorizar </label></td>
         </div>
       </tr>
       <%end%>
@@ -89,7 +89,7 @@
       <th scope="col">Fecha Registro</th>
       <th scope="col">Hora Registro</th>
       <th scope="col">Tipo</th>
-      <th scope="col">Matriculado</th>
+      <th scope="col">Autorizado</th>
       </tr>
       </thead>
       <tbody>
@@ -110,7 +110,7 @@
         <form action="/students/enroll" method="post">
         <div>
         <input id=<%=record.id%> name = 'student_id[]' value =<%=record.student.id%> type= 'checkbox'>
-        <label for=<%=record.id%>> Matricular </label></td>
+        <label for=<%=record.id%>> Autorizar </label></td>
         </div>
       </tr>
       <%end%>
@@ -129,7 +129,7 @@
       <th scope="col">Fecha Registro</th>
       <th scope="col">Hora Registro</th>
       <th scope="col">Tipo</th>
-      <th scope="col">Matriculado</th>
+      <th scope="col">Autorizado</th>
       </tr>
       </thead>
       <tbody>
@@ -150,7 +150,7 @@
         <form action="/students/enroll" method="post">
         <div>
         <input id=<%=record.id%> name = 'student_id[]' value =<%=record.student.id%> type= 'checkbox'>
-        <label for=<%=record.id%>> Matricular </label></td>
+        <label for=<%=record.id%>> Autorizar </label></td>
         </div>
       </tr>
       <%end%>
@@ -159,7 +159,7 @@
       </tbody>
       </div>
   <div class="right">
-    <input type = 'submit' value = 'Matricular' class="btn btn-primary">
+    <input type = 'submit' value = 'Autorizar' class="btn btn-primary">
   </div>
 </body>
 

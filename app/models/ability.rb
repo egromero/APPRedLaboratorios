@@ -5,6 +5,7 @@ class Ability
 
     def initialize(user)
       can :create, [Student, Record, Visit]
+      can :created_from_totem, Student
       if user.present?  # additional permissions for logged in users (they can manage their posts)
         can :manage, [Student, Record]
         can :read, :all

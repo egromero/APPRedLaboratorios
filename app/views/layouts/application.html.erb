@@ -9,7 +9,7 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #fdb515;">
   <div class="container-fluid">
   <a class="navbar-brand" href="/">REDLAB</a>
   <ul class="navbar-nav ml-auto">
@@ -29,7 +29,7 @@
   <!-- Button Session-->
       <%= link_to "Cerrar Laboratorio", button_path, method: :get ,:class =>"btn navbar-btn btn-danger" %>
         <% else %>
-          <%= link_to "Ingresar", new_user_session_path , :class =>"btn btn-outline-success" %>
+          <%= link_to "Ingresar", new_user_session_path , :class =>"btn btn-outline-secondary"%>
        <% end %>
     </ul>  
 </div>

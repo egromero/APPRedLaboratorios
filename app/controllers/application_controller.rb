@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
 
     def authenticate
         api_key = request.headers['X-Api-Key']
-        
+        print 'Recibí api key'
+        print api_key
         @totem = Totem.find_by(api_key: api_key) if api_key
         
         unless @totem
