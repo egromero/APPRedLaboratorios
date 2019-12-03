@@ -73,7 +73,7 @@ class RecordsController < ApplicationController
         else    
             
             respond_to do |format|
-                format.json {render json: @record, status:404}
+                format.json {render json: @records, status:404}
 
             end
         end
