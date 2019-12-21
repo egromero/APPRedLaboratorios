@@ -1,75 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Banner</title>
-</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
 
+/* Slideshow container */
+.slideshow-container {
+  position: center;
+  margin: auto;
+}
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1s;
+  animation-name: fade;
+  animation-duration: 1s;
+}
+.fade:not(.show) {
+    opacity: 1;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+</style>
+</head>
 <body>
 
-  <div class="slider">
-    <div id="img">
-      <img src=/assets/<%=@images[0]%>>
-    </div>
-  
+<div class="slideshow-container" style="text-align:center">
+<%@flayers.each do |flayer|%>
+<div class="mySlides fade">
+  <%=image_tag(flayer.image)%>
+</div>
+<%end%>
+</div>
+<br>
 
-  </div>
+<script>
+var slideIndex = 0;
+showSlides();
 
-  <script>
-    var images = <%=@images.inspect.html_safe%>;
-    var x = 0;
-
-    var imgs = document.getElementById('img');
-
-    setInterval(slider, 10000);
-
-
-    function slider() {
-
-      if (x < images.length) {
-        x = x + 1;
-      } else {
-        x = 1;
-      }
-      imgs.innerHTML = "<img src=/assets/" + images[x - 1] + ">";
-    }
-
-
-  </script>
-
-
-  <style type="text/css">
-    .slider {
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      margin-left: auto;
-      margin-right: auto;
-      width: 50%;
-    }
-
-    img {
-      animation: ani 2s linear;
-
-    }
-
-    @keyframes ani {
-      0% {
-        transform: scale(1.2);
-      }
-      10% {
-        transform: scale(1);
-      }
-      100% {
-        transform: scale(1);
-      }
-    }
-  </style>
-
-
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  slides[slideIndex-1].style.display = "block";  
+  setTimeout(showSlides, 10000);
+}
+</script>
 
 </body>
+</html> 
 
-</html>
+
+
+
+
