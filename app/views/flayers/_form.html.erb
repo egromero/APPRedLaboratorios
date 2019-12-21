@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :tittle %>
+    <%= form.label :Título %>
     <%= form.text_field :tittle %>
   </div>
 
   <div class= "field">
-  <%= form.label :image%>
+  <%= form.label :Imagen%>
   <%=form.file_field :image%>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Subir flayer", :class =>"btn-primary"%>
   </div>
 <% end %>
