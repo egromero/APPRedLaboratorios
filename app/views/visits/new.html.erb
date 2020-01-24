@@ -54,7 +54,9 @@
 <script>
 $('#num')
 	.keyboard({
-		lockInput: true, // prevent manual keyboard entry
+        lockInput: true, // prevent manual keyboard entry
+        usePreview: false,
+        autoAccept: true,
 		layout: 'custom',
 		customLayout: {
 			'normal': [
@@ -63,8 +65,8 @@ $('#num')
 				'7 8 9 ',
                 '{left} 0 {right}',
                 '{bksp} {accept}' 
-			],
-		}
+            ],   
+        }, 
 	})
 	.addTyping();
 </script>

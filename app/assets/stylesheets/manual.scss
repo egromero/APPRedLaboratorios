@@ -1,38 +1,4 @@
-
-
-
-
-/*//////////////////////////////////////////////////////////////////
-[ FONT ]*/
-
-@font-face {
-    font-family: Montserrat-Regular;
-    src: url('../fonts/montserrat/Montserrat-Regular.ttf'); 
-  }
-  
-  @font-face {
-    font-family: Montserrat-Bold;
-    src: url('../fonts/montserrat/Montserrat-Bold.ttf'); 
-  }
-  
-  @font-face {
-    font-family: Montserrat-Black;
-    src: url('../fonts/montserrat/Montserrat-Black.ttf'); 
-  }
-  
-  @font-face {
-    font-family: Montserrat-SemiBold;
-    src: url('../fonts/montserrat/Montserrat-SemiBold.ttf'); 
-  }
-  
-  @font-face {
-    font-family: Montserrat-Medium;
-    src: url('../fonts/montserrat/Montserrat-Medium.ttf'); 
-  }
-  
-  
-  
-  /*//////////////////////////////////////////////////////////////////
+    /*//////////////////////////////////////////////////////////////////
   [ RESTYLE TAG ]*/
   
   * {
@@ -43,12 +9,12 @@
   
   body, html {
       height: 100%;
-      font-family: Poppins-Regular, sans-serif;
+      font-family: verdana, arial, helvetica, sans-serif;
   }
   
   /*---------------------------------------------*/
   a {
-      font-family: Poppins-Regular;
+      font-family: verdana, arial, helvetica, sans-serif;
       font-size: 14px;
       line-height: 1.7;
       color: #666666;
@@ -73,7 +39,7 @@
   }
   
   p {
-      font-family: Poppins-Regular;
+      font-family: verdana, arial, helvetica, sans-serif;
       font-size: 14px;
       line-height: 1.7;
       color: #666666;
@@ -206,7 +172,7 @@
   .contact100-form-title {
     display: block;
     width: 100%;
-    font-family: Montserrat-Black;
+    font-family: verdana, arial, helvetica, sans-serif;
     font-size: 39px;
     color: #333333;
     line-height: 1.2;
@@ -233,7 +199,7 @@
   }
   
   .label-input100 {
-    font-family: Montserrat-SemiBold;
+    font-family: verdana, arial, helvetica, sans-serif;
     font-size: 10px;
     color: #393939;
     line-height: 1.5;
@@ -244,7 +210,7 @@
     display: block;
     width: 100%;
     background: transparent;
-    font-family: Montserrat-SemiBold;
+    font-family: verdana, arial, helvetica, sans-serif;
     font-size: 18px;
     color: #555555;
     line-height: 1.2;
@@ -302,7 +268,7 @@
     background-color: #333333;
     border-radius: 25px;
   
-    font-family: Montserrat-Medium;
+    font-family: verdana, arial, helvetica, sans-serif;
     font-size: 16px;
     color: #fff;
     line-height: 1.2;
@@ -378,14 +344,14 @@
     padding: 0 45px 0 22px;
     pointer-events: none;
   
-    font-family: Montserrat-SemiBold;
+    font-family: verdana, arial, helvetica, sans-serif;
     font-size: 18px;
     color: #fa4251;
     line-height: 1.2;
   }
   
   .btn-hide-validate {
-    font-family: Material-Design-Iconic-Font;
+    font-family: verdana, arial, helvetica, sans-serif;
     font-size: 18px;
     color: #fa4251;
     cursor: pointer;
@@ -409,7 +375,7 @@
   
   .true-validate::after {
     content: "\f26b";
-    font-family: Material-Design-Iconic-Font;
+    font-family: verdana, arial, helvetica, sans-serif;
     font-size: 18px;
     color: #00ad5f;
     display: -webkit-box;
@@ -466,7 +432,7 @@
   /*------------------------------------------------------------------
   [ in select ]*/
   .select2-container .select2-selection--single .select2-selection__rendered {
-    font-family: Montserrat-SemiBold;
+    font-family: verdana, arial, helvetica, sans-serif;
     font-size: 18px;
     color: #555555;
     line-height: 1.2;
@@ -494,7 +460,7 @@
   
   .select2-selection__arrow::before {
     content: '\f312';
-    font-family: Material-Design-Iconic-Font;
+    font-family: verdana, arial, helvetica, sans-serif;
     font-size: 18px;
     color: #555555;
   }
@@ -550,7 +516,7 @@
   }
   
   .select2-results__options {
-    font-family: Montserrat-SemiBold;
+    font-family: verdana, arial, helvetica, sans-serif;
     font-size: 14px;
     color: #555555;
     line-height: 1.2;
@@ -559,7 +525,7 @@
   .select2-search--dropdown .select2-search__field {
     border: 1px solid #aaa;
     outline: none;
-    font-family: Poppins-Regular;
+    font-family: verdana, arial, helvetica, sans-serif;
     font-size: 15px;
     color: #333333;
     line-height: 1.2;
@@ -593,7 +559,7 @@
     position: relative;
     padding-left: 28px;
     cursor: pointer;
-    font-family: Montserrat-SemiBold;
+    font-family: verdana, arial, helvetica, sans-serif;
     font-size: 18px;
     color: #555555;
     line-height: 1.2;
@@ -653,7 +619,7 @@
   }
   
   .contact100-form-range-value {
-    font-family: Montserrat-SemiBold;
+    font-family: verdana, arial, helvetica, sans-serif;
     font-size: 18px;
     color: #555555;
     line-height: 1.2;
