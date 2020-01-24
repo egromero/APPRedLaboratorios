@@ -15,10 +15,12 @@ class VisitsController < ApplicationController
         @visits_month = Visit.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
         @visits_month = @visits_month.where(lab_id: @laboratory.id)
     end
-
+    
     def new
+        render layout: 'slideshow'
         @visit = Visit.new
     end
+
 
     def import
         Visit.import(params[:file])
