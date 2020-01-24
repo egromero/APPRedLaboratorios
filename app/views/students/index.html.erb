@@ -3,6 +3,14 @@
 
 <h2>Estudiantes:</h2>
 
+<div class="container">
+<% if flash[:notice]%>
+<div class="alert alert-notice alert-dismissible">
+  <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+ <strong><%= flash[:notice] %></strong> 
+  <% end %>
+</div>
+
 <body>
  <table class="table">
   <thead>
