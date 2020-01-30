@@ -17,10 +17,10 @@ class VisitsController < ApplicationController
     end
     
     def new
+        @labs =  Laboratory.all
         render layout: 'slideshow'
         @visit = Visit.new
     end
-
 
     def import
         Visit.import(params[:file])
@@ -37,6 +37,8 @@ class VisitsController < ApplicationController
             @record = student.records.new({:tipo => student.status, :lab_id =>params[:lab_id]})
             respond_to do |format|
             if @record.save
+                format.html do redirect_to '/slideshow' , varforalert: 'student'
+                end 
                 format.json {render json: {'type': 'student', 'data': {student: @record.student, laboratory: @record.student.laboratories}}, status: 200}
             else
                 format.json {render json: @record.errors, status: :unprocessable_entity}
@@ -45,10 +47,11 @@ class VisitsController < ApplicationController
             student.status = !student.status
             student.save
         else    
-            
             @visit = Visit.new(rut: params[:rut], motivo: params[:motivo], institucion: params[:institucion], lab_id: params[:lab_id])
             respond_to do |format|  
             if @visit.save
+                format.html do redirect_to '/slideshow' , varforalert: 'visit'
+                end
                 format.json {render json: {'type': 'visit', 'data': @visit}, status: 200}
             else
                 format.json {render json: @visit.errors, status: :unprocessable_entity}

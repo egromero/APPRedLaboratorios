@@ -2,7 +2,7 @@
 <body>
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form">
+			<form class="contact100-form" action="/visits" method="post">
 				<span class="contact100-form-title">
 					Registro Manual y Visitas
 				</span>
@@ -11,11 +11,22 @@
                 </p>
 				<div class="wrap-input100">
 					<span class="label-input100">Ingrese RUN *</span>
-					<input class="input100" id="run" type="text" name="rut" placeholder="Sin puntos ni guion" required oninput="checkRut(this)">
+					<input class="input100" id="run" type="text" name="rut" placeholder="Con guion ej: 12345678-9" required oninput="checkRut(this)">
 				</div>
 				<div class="wrap-input100 bg1">
 					<span class="label-input100">Insitución que pertenece</span>
 					<input class="input100" id="institution" type="text" name="institution" placeholder="ej: Universidad Católica">
+				</div>
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Laboratorio</span>
+					<div>
+						<select class="js-select2" name="lab_id" id="lab">
+                            <%=@labs.each do |lab|%>
+							<option value=<%=lab.id%>> <%=lab.nombre%></option>
+							<%end%>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
 				</div>
 
 				<div class="wrap-input100 input100-select bg1">
@@ -81,7 +92,7 @@ $('#run')
 				'1 2 3 ',
 				'4 5 6 ',
 				'7 8 9 ',
-                '{bksp} 0 {accept}' 
+                '{bksp} 0 -' 
             ],   
         }, 
 	});

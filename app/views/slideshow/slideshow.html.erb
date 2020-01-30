@@ -2,6 +2,8 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 <style>
 * {box-sizing: border-box;}
 body {
@@ -46,9 +48,43 @@ img {
   from {opacity: .4} 
   to {opacity: 1}
 }
+/* #draggable { 
+  width: 150px; 
+  height: 150px; 
+  padding: 0.5em;
+  opacity: 0.85; 
+  border-radius: 50%;} */
+#draggable {
+  opacity: 0.85; 
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 2px 1.5px;
 
+}
+#draggable .btn{
+  display: inline-block;
+  text-decoration: none;
+  background: #333333;
+  opacity: 0.85; 
+  width: 200px;
+  height: 200px;
+  line-height: 180px;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  vertical-align: middle;
+  overflow: hidden;
+  shadow: 1;
+  font-size: 20px;
+}
+
+#draggable .btn:hover{
+    background-color: #00ad5f;;
+}
 </style>
 </head>
+
 <body>
 <div id="slideshow">
 <div class="slideshow-container" style="text-align:center">
@@ -59,7 +95,16 @@ img {
 <%end%>
 </div>
 
-<br>
+<div id="draggable" class="ui-widget-overlay">
+  <%= link_to "Ingreso Manual", new_visit_path, method: :get , :class =>"btn" %>
+</div>
+
+ 
+</body>
+</html>
+
+
+
 <script>
 var slideIndex = 0;
 showSlides();
@@ -77,10 +122,31 @@ function showSlides() {
 }
 </script>
 
-</body>
-</html> 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+  $( "#draggable" ).draggable({
+    opacity: 1
+});
+} );
+</script>
 
 
 
-
+<script>
+$(document).ready(function() {
+ var queryString = window.location.search;
+ var urlParams = new URLSearchParams(queryString);
+ var varforalert = urlParams.get('varforalert')
+ console.log(varforalert)
+ if (varforalert  == 'student')
+ {
+    alert ("Bienvenido, Registro manual estudiante exitoso"); 
+ }
+  else if (varforalert  == 'visit'){
+    alert ("Visita Registrada")
+    }
+});
+</script>
 
