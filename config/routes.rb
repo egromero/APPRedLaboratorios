@@ -17,15 +17,22 @@ Rails.application.routes.draw do
     post 'enroll'
     post 'created_from_totem'
   end
+
   get '/expulse', to: "records#expulse", as: "button"
 
   resources :records 
+
   resources :laboratories do
     get 'new_admin'
     post 'set_admin'
   end
+
+
   resources :visits
  
+
+
+
   resources :records do 
     collection {post :import}
   end

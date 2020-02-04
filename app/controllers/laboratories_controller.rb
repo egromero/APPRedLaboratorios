@@ -6,7 +6,13 @@ class LaboratoriesController < ApplicationController
   # GET /laboratories
   # GET /laboratories.json
   def index
-    @laboratories = Laboratory.all
+    if current_user.rol == "admin"
+        print "administrador"
+        @laboratories = Laboratory.all
+    else
+        print "no administrador!"
+        @laboratory = Laboratory.find(current_user.lab_id)
+    end
   end
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -14,9 +20,15 @@ class LaboratoriesController < ApplicationController
     redirect_to root_url
   end
 
-  # GET /laboratories/1
-  # GET /laboratories/1.json
-  def show
+  def show        
+    @record_all = Record.where(lab_id: @laboratory.id)
+    @records_day = @record_all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+    @records_week = @record_all.where(created_at: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
+    @records_month = @record_all.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+    respond_to do |format|
+        format.html
+        format.csv { send_data @record_all.to_csv, filename: "registros-#{laboratory.nombre}-al-#{Date.today}.csv" }
+    end
   end
 
   # GET /laboratories/new
