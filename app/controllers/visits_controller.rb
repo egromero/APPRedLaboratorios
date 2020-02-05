@@ -15,6 +15,10 @@ class VisitsController < ApplicationController
         @visits_month = Visit.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
         @visits_month = @visits_month.where(lab_id: @laboratory.id)
     end
+    def show
+        @labs = Laboratory.all
+    end
+
     
     def new
         @labs =  Laboratory.all
@@ -47,7 +51,7 @@ class VisitsController < ApplicationController
             student.status = !student.status
             student.save
         else    
-            @visit = Visit.new(rut: params[:rut], motivo: params[:motivo], institucion: params[:institucion], lab_id: params[:lab_id])
+            @visit = Visit.new(rut: params[:rut], motivo: params[:motivo], institucion: params[:institucion], lab_id: params[:lab_id], other: params[:other], quantity: params[:quantity])
             respond_to do |format|  
             if @visit.save
                 format.html do redirect_to '/slideshow' , varforalert: 'visit'

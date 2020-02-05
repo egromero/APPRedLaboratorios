@@ -11,7 +11,12 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all.order("id ASC")
+    if current_user.rol == "admin" 
+      @students = Student.all.order("id ASC")
+    else
+      @students = Student.joins(:laboratories).where(laboratories: {id: current_user.lab_id})
+
+    end
   end
   
   # GET /students/1

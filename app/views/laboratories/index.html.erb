@@ -20,12 +20,13 @@
         <td scope="row"><%= laboratory.facultad %></td>
         <td scope="row"><%= laboratory.campus %></td>
         <td scope="row"><%= link_to 'Mostrar', laboratory %></td>
+        <td scope="row"><%= link_to 'Editar', edit_laboratory_path(laboratory) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-<%= link_to 'New Laboratory', new_laboratory_path %>
+<%= link_to 'Crear nuevo laboratorio', new_laboratory_path %>
 <%else%>
 <tbody>
     <tr>

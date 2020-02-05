@@ -53,10 +53,7 @@
   
   
   /*---------------------------------------------*/
-  input {
-      outline: none;
-      border: none;
-  }
+
   
   input[type="number"] {
       -moz-appearance: textfield;
@@ -115,9 +112,9 @@
   
   
   /*---------------------------------------------*/
-  .container {
-      max-width: 1200px;
-  }
+  // .container {
+  //     max-width: 1200px;
+  // }
   
   
   /*//////////////////////////////////////////////////////////////////
@@ -215,6 +212,8 @@
     color: #555555;
     line-height: 1.2;
     padding-right: 15px;
+    outline: none;
+    border: none;
   }
   
   
@@ -349,25 +348,7 @@
     color: #fa4251;
     line-height: 1.2;
   }
-  
-  .btn-hide-validate {
-    font-family: verdana, arial, helvetica, sans-serif;
-    font-size: 18px;
-    color: #fa4251;
-    cursor: pointer;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    top: 35px;
-    right: 12px;
-  }
+ 
   
   .rs1-alert-validate.alert-validate::before {
     background-color: #fff;
@@ -396,12 +377,6 @@
   @media (max-width: 576px) {
     .alert-validate::before {
       padding: 0 10px 0 10px;
-    }
-  
-    .true-validate::after,
-    .btn-hide-validate {
-      right: 0px;
-      width: 30px;
     }
   }
   
