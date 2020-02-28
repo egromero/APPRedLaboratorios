@@ -1,33 +1,43 @@
-
-
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
 <h2>Estudiantes:</h2>
 
+<div class="container">
+<% if flash[:notice]%>
+<div class="alert alert-notice alert-dismissible">
+  <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+ <strong><%= flash[:notice] %></strong> 
+  <% end %>
+</div>
+<div style="padding-bottom:20px">
+<div class="input-group-prepend">
+    <span class="input-group-text cyan lighten-2" id="basic-text1"><i class="fa fa-search" aria-hidden="true"></i></span>
+<input class="form-control form-control-sm ml-3 w-75" id="student-search" type="text" placeholder="Buscar en taba">
+</div>
+</div>
 <body>
  <table class="table">
   <thead>
     <tr>
-    <th scope="col">ID</th>
     <th scope="col">Nombre</th>
-    <th scope="col">RUN</th>
-    <th scope="col">Situación Acadámica</th>
     <th scope="col">Correo UC</th>
+    <th scope="col">Laboratorios Autorizados</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody id="students-table">
     <%@students.each do |student|%>
     <tr>
-    <th scope="row"><%=student.id%></td>
-    <td><%=link_to student.nombre, student%></td>
-    <td><%=student.rut%></td>
-    <td><%=student.sit_academica%></td>
+    <td scope="row"><%=link_to student.nombre, student%></td>
     <td><%=student.correo%></td>
+    <%student.laboratories.each do |lab|%>
+    <td><%=lab.nombre%></td>
+    <%end%>
     <%end%>
     </tr>
     </tbody>
     </table>  
-</body>
-
 
 <div>
 <%= form_tag import_students_path, multipart: true do%>
@@ -35,3 +45,16 @@
 <%= submit_tag 'Cargar Datos', class: "btn btn-primary"%>
 <%end%>
 </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#student-search").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#students-table tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>

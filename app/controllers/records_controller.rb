@@ -8,24 +8,6 @@ class RecordsController < ApplicationController
         redirect_to root_url
       end
 
-    def index
-        
-        @students_ranking = Student
-        .left_joins(:records)
-        .group(:id)
-        .order('COUNT(records.id) DESC')
-        .limit(35)
-        @laboratory = Laboratory.find(current_user.lab_id)
-        @record_all = Record.where(lab_id: @laboratory.id)
-        @records_day = @record_all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
-        @records_week = @record_all.where(created_at: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
-        @records_month = @record_all.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
-        respond_to do |format|
-            format.html
-            format.csv { send_data @record_all.to_csv, filename: "users-#{Date.today}.csv" }
-          end
-    end
-    
     def expulse
         @laboratory = Laboratory.find(current_user.lab_id)
         @record_all = Record.where(lab_id: @laboratory.id)
@@ -38,9 +20,7 @@ class RecordsController < ApplicationController
                 record.student.save
             end
         end
-        sign_out_and_redirect(current_user)
-
-       
+        sign_out_and_redirect(current_user)  
     end
 
 
@@ -53,6 +33,7 @@ class RecordsController < ApplicationController
         redirect_to root_path, notice: "Registros actualizados"
     end
     #POST /records/rfid
+
     def create 
         student = Student.where(rfid: params[:rfid])[0]      
         if student

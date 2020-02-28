@@ -1,0 +1,206 @@
+</head>
+<body>
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form" action="/visits" method="post">
+				<span class="contact100-form-title">
+					Registro Manual y Visitas
+				</span>
+                <p>
+                Personas que estén registradas en el sistema y no porten su TUC ingresar solamente el RUN y Laboratorio.
+                </p>
+				<div class="wrap-input100">
+					<span class="label-input100">Ingrese RUN *</span>
+					<input class="input100" id="run" type="text" name="rut" placeholder="Con guion ej: 12345678-9" required oninput="checkRut(this)">
+				</div>
+				<div class="wrap-input100 bg1">
+					<span class="label-input100">Insitución que pertenece</span>
+					<input class="input100" id="institution" type="text" name="institucion" placeholder="ej: Universidad Católica">
+				</div>
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Laboratorio</span>
+					<div>
+						<select class="js-select2" name="lab_id" id="lab">
+                            <%=@labs.each do |lab|%>
+							<option value=<%=lab.id%>> <%=lab.nombre%></option>
+							<%end%>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Motivo de visita </span>
+					<div>
+						<select class="js-select2" name="motivo" id="motivo">
+                            <option>Investigación</option>
+							<option>Emprendimiento</option>
+							<option>Curso</option>
+							<option>Taller</option>
+                            <option>Conocer Espacio</option>
+                            <option>Otro</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+                <div class="wrap-input100 bg1" id="otro-motivo">
+					<span class="label-input100">Otro</span>
+					<input class="input100" id="otro" type="text" name="other" placeholder="ej: Consulta por maquinaria">
+				</div>
+                <div class="wrap-input100 bg1" id="contador">
+					<span class="label-input100">Cuantas personas son</span>
+					<input class="input100" type="text" id="counter" name="quantity"placeholder="ej: 15">
+				</div>
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						<span>
+							Ingresar
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
+
+<script>
+$(document).ready(function() {
+  $('#motivo').on('change.states', function() {
+    $("#otro-motivo").toggle($(this).val() == 'Otro');
+  }).trigger('change.states');
+});
+</script>
+<script>
+$(document).ready(function() {
+  $('#motivo').on('change.states', function() {
+    $("#contador").toggle($(this).val() == 'Conocer Espacio');
+  }).trigger('change.states');
+});
+</script>
+
+<script>
+$('#run')
+	.keyboard({
+        lockInput: true, // prevent manual keyboard entry
+        usePreview: false,
+        autoAccept: true,
+		layout: 'custom',
+		customLayout: {
+			'normal': [
+				'1 2 3 ',
+				'4 5 6 ',
+				'7 8 9 ',
+                '{bksp} 0 -' 
+            ],   
+        }, 
+	});
+</script>
+<script>
+$('#counter')
+	.keyboard({
+        lockInput: true, // prevent manual keyboard entry
+        usePreview: false,
+        autoAccept: true,
+		layout: 'custom',
+		customLayout: {
+			'normal': [
+				'1 2 3 ',
+				'4 5 6 ',
+				'7 8 9 ',
+                '{bksp} 0 {accept}' 
+            ],   
+        }, 
+	});
+</script>
+
+<script>
+$('#institution')
+    .keyboard({
+            display: {
+		'bksp'   : '\u2190',
+		'enter'  : 'return',
+		'normal' : 'ABC',
+		'meta1'  : '.?123',
+		'meta2'  : '#+=',
+		'accept' : '\u21d3'
+	},
+            lockInput: true,
+            usePreview: false,
+            autoAccept: true,
+            layout: 'custom',
+            customLayout: {
+		'normal': [
+			'q w e r t y u i o p {bksp}',
+			'a s d f g h j k l {enter}',
+			'{s} z x c v b n m @ . {s}',
+			'{meta1} {space} _ - {accept}'
+		],
+		'shift': [
+			'Q W E R T Y U I O P {bksp}',
+			'A S D F G H J K L {enter}',
+			'{s} Z X C V B N M @ . {s}',
+			'{meta1} {space} _ - {accept}'
+		],
+		'meta1': [
+			'1 2 3 4 5 6 7 8 9 0 {bksp}',
+			'` | { } % ^ * / \' {enter}',
+			'{meta2} $ & ~ # = + . {meta2}',
+			'{normal} {space} ! ? {accept}'
+		],
+		'meta2': [
+			'[ ] { } \u2039 \u203a ^ * " , {bksp}',
+			'\\ | / < > $ \u00a3 \u00a5 \u2022 {enter}',
+			'{meta1} \u20ac & ~ # = + . {meta1}',
+			'{normal} {space} ! ? {accept}'
+		]
+	}, 
+                
+    });
+</script>
+
+<script>
+$('#otro')
+    .keyboard({
+            display: {
+		'bksp'   : '\u2190',
+		'enter'  : 'return',
+		'normal' : 'ABC',
+		'meta1'  : '.?123',
+		'meta2'  : '#+=',
+		'accept' : '\u21d3'
+	},
+            lockInput: true,
+            usePreview: false,
+            autoAccept: true,
+            layout: 'custom',
+            customLayout: {
+		'normal': [
+			'q w e r t y u i o p {bksp}',
+			'a s d f g h j k l {enter}',
+			'{s} z x c v b n m @ . {s}',
+			'{meta1} {space} _ - {accept}'
+		],
+		'shift': [
+			'Q W E R T Y U I O P {bksp}',
+			'A S D F G H J K L {enter}',
+			'{s} Z X C V B N M @ . {s}',
+			'{meta1} {space} _ - {accept}'
+		],
+		'meta1': [
+			'1 2 3 4 5 6 7 8 9 0 {bksp}',
+			'` | { } % ^ * / \' {enter}',
+			'{meta2} $ & ~ # = + . {meta2}',
+			'{normal} {space} ! ? {accept}'
+		],
+		'meta2': [
+			'[ ] { } \u2039 \u203a ^ * " , {bksp}',
+			'\\ | / < > $ \u00a3 \u00a5 \u2022 {enter}',
+			'{meta1} \u20ac & ~ # = + . {meta1}',
+			'{normal} {space} ! ? {accept}'
+		]
+	}, 
+                
+    });
+</script>

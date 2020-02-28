@@ -11,13 +11,13 @@ input[type=text], select, textarea {
 }
 
 label {
-  padding: 12px 12px 12px 0;
+  padding: 10px 5px 0px 5px;
   display: inline-block;
 }
 
 .container {
   border-radius: 5px;
-  padding: 10px;
+  padding: 5px;
 }
 
 .col-25 {
@@ -62,11 +62,11 @@ label {
   <div class="container">
   <div class="row">
     <div class="col-25">
-     Código <%= form.label :rfid %>
+    <%= form.label :rfid, "Código MIFARE" %>
     </div>
     <div class="col-75">
       <%= form.text_field:rfid %>
-      <%= form.label :rut %>
+      <%= form.label :rut, "RUT" %>
       <%= form.text_field:rut %>
     </div>
   </div>
@@ -75,7 +75,7 @@ label {
    <div class="container">
   <div class="row">
     <div class="col-25">
-     <%= form.label :nombre %>
+     <%= form.label :nombre, "Nombre Completo"%>
     </div>
     <div class="col-75">
       <%= form.text_field:nombre %>
@@ -85,7 +85,7 @@ label {
    <div class="container">
   <div class="row">
     <div class="col-25">
-     <%= form.label :nalumno %>
+     <%= form.label :nalumno, "Número de alumno"%>
     </div>
     <div class="col-75">
       <%= form.text_field:nalumno %>
@@ -95,7 +95,7 @@ label {
    <div class="container">
   <div class="row">
     <div class="col-25">
-    <%= form.label :sit_academica%>
+    <%= form.label :sit_academica, "Situación Académica"%>
     </div>
     <div class="col-75">
       <%= form.select :sit_academica, options_for_select([["Seleccionar", ""], "Vigente", "Ex-Alumno", "Adminstrativo"])%>
@@ -105,7 +105,7 @@ label {
    <div class="container">
   <div class="row">
     <div class="col-25">
-     <%= form.label :correo%>
+     <%= form.label :correo, "Correo Electrónico"%>
     </div>
     <div class="col-75">
       <%= form.text_field:correo %>
@@ -115,7 +115,7 @@ label {
 <div class = "container">
   <div class = "row">
     <div class = "col-25">
-     <%= form.submit "Guardar", :class => "btn-primary"%>
+     <%= form.submit "Guardar", :class => "btn btn-primary"%>
     </div>
     <div class="col-75">
     <%= link_to 'Volver', students_path %>

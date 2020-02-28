@@ -2,17 +2,32 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 <style>
 * {box-sizing: border-box;}
-body {font-family: Verdana, sans-serif;}
+body {
+  font-family: Verdana, sans-serif;
+  padding: 0px
+
+}
 .mySlides {display: none;}
-img {vertical-align: middle;}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}
 
 /* Slideshow container */
-.slideshow-container {
+#slideshow .slideshow-container {
   position: center;
   margin: auto;
 }
+#slideshow .slideshow-container a{
+  position: fixed;
+}
+
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
@@ -33,23 +48,62 @@ img {vertical-align: middle;}
   from {opacity: .4} 
   to {opacity: 1}
 }
+/* #draggable { 
+  width: 150px; 
+  height: 150px; 
+  padding: 0.5em;
+  opacity: 0.85; 
+  border-radius: 50%;} */
+#draggable {
+  opacity: 0.85; 
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 2px 1.5px;
 
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
+}
+#draggable .btn{
+  display: inline-block;
+  text-decoration: none;
+  background: #333333;
+  opacity: 0.85; 
+  width: 200px;
+  height: 200px;
+  line-height: 180px;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  vertical-align: middle;
+  overflow: hidden;
+  shadow: 1;
+  font-size: 20px;
+}
+
+#draggable .btn:hover{
+    background-color: #00ad5f;;
 }
 </style>
 </head>
-<body>
 
+<body>
+<div id="slideshow">
 <div class="slideshow-container" style="text-align:center">
 <%@flayers.each do |flayer|%>
-<div class="mySlides fade">
+<div class="mySlides fade" >
   <%=image_tag(flayer.image)%>
 </div>
 <%end%>
 </div>
-<br>
+
+<div id="draggable" class="ui-widget-overlay">
+  <%= link_to "Ingreso Manual", new_visit_path, method: :get , :class =>"btn" %>
+</div>
+
+ 
+</body>
+</html>
+
+
 
 <script>
 var slideIndex = 0;
@@ -68,10 +122,31 @@ function showSlides() {
 }
 </script>
 
-</body>
-</html> 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+  $( "#draggable" ).draggable({
+    opacity: 1
+});
+} );
+</script>
 
 
 
-
+<script>
+$(document).ready(function() {
+ var queryString = window.location.search;
+ var urlParams = new URLSearchParams(queryString);
+ var varforalert = urlParams.get('varforalert')
+ console.log(varforalert)
+ if (varforalert  == 'student')
+ {
+    alert ("Bienvenido, Registro manual estudiante exitoso"); 
+ }
+  else if (varforalert  == 'visit'){
+    alert ("Visita Registrada")
+    }
+});
+</script>
 

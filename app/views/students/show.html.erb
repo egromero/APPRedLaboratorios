@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Rfid:</strong>
-  <%= @student.rfid %>
-</p>
-
-<p>
-  <strong>Nombre:</strong>
-  <%= @student.nombre %>
-</p>
-
-<p>
-  <strong>Nalumno:</strong>
-  <%= @student.nalumno %>
-</p>
-
-<p>
-  <strong>Sit academica:</strong>
-  <%= @student.sit_academica %>
-</p>
-
-<p>
-  <strong>Correo:</strong>
-  <%= @student.correo %>
-</p>
+<h2>información estudiante </h2>
+ <table class="table">
+  <thead>
+    <tr>
+    <th scope="col">Nombre</th>
+    <th scope="col">RUN</th>
+    <th scope="col">Código MIFARE</th>
+    <th scope="col">Situación Acadámica</th>
+    <th scope="col">Correo UC</th>
+    <th scope="col">Laboratorios Autorizados</th>
+    </tr>
+    </thead>
+    <tbody id="student">
+    <tr>
+    <td scope="row"><%=@student.nombre%></td>
+    <td><%=@student.rut%></td>
+    <td><%=@student.rfid%></td>
+    <td><%=@student.sit_academica%></td>
+    <td><%=@student.correo%></td>
+    <%@student.laboratories.each do |lab|%>
+    <td><%=lab.nombre%></td>
+    <%end%>
+    </tr>
+    </tbody>
+    </table>  
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>

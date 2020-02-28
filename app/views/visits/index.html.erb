@@ -1,94 +1,109 @@
+
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<p id="notice"><%= notice %></p>
+
 <h2>Visitas:</h2>
 
-
-
-</head>
 <body>
-<%=DateTime.now.to_time.to_s[0..-6]%>
 
-<div id="buttonFile">
-<%= form_tag import_visits_path, multipart: true do%>
-<%= file_field_tag :file%>
-<%= submit_tag 'Cargar Datos'%>
-<%end%>
+<div class="right">
+<%= button_to "Descargar CSV", records_path(@records, format: :csv), method: :get, class: "btn btn-dark"%>
 </div>
-<div class="tabset">
-  <!-- Tab 1 -->
-  <input type="radio" name="tabset" id="tab1" aria-controls="Hoy" checked>
-  <label for="tab1">Hoy</label>
-  <!-- Tab 2 -->
-  <input type="radio" name="tabset" id="tab2" aria-controls="Semana">
-  <label for="tab2">Semana</label>
-  <!-- Tab 3 -->
-  <input type="radio" name="tabset" id="tab3" aria-controls="Mes">
-  <label for="tab3">Mes</label>
-  
-  <div class="tab-panels">
-    <section id="Hoy" class="tab-panel">
-    <table id= "records">
+
+<ul class="nav nav-tabs" role= "tablist"> 
+  <li class="nav-item">
+    <a class ="nav-link active" id="today-tab" href=#today data-toggle="tab" role="tab"  aria-controls="today" aria-selected ="true">Hoy</a>
+  </li>
+  <li class="nav-item">
+    <a class ="nav-link" id="week-tab" href=#week data-toggle="tab" role="tab" aria-controls="week" aria-selected ="true">Semana</a>
+  </li>
+  <li class="nav-item">
+    <a class ="nav-link" id="month-tab" data-toggle="tab" href=#month  role="tab" aria-controls="month" aria-selected ="true">Mes</a>
+  </li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane fade show active" id="today" role="tabpanel" aria-labelledby="today-tab">
+    <table class="table table-bordered">
+    <thead>
     <tr>
-    <th>RUT</th>
-    <th>Fecha Registro</th>
-    <th>Hora Registro</th>
-    <th>Motivo</th>
-    <th>Institución</th>
+    <th scope="col">RUN</th>
+    <th scope="col">Institución</th>
+    <th scope="col">Motivo</th>
     </tr>
+    </thead>
+    <tbody>
     <%@visits_day.each do |visit|%>
     <tr>
-     <td><%=visit.rut%></td>
-     <td><%=visit.created_at.to_s.split(' ')[0]%></td>
-     <td><%=visit.created_at.to_s.split(' ')[1]%></td>
-     <td><%=visit.motivo%></td>
-     <td><%=visit.institucion%></td>
+    <td scope="row"><%=visit.rut%></td>
+    <td><%=visit.institucion%></td>
+    <td><%=visit.motivo%></td>
+    <td><%=link_to "Ver más", visit%></td>
+    
     </tr>
     <%end%>
+    </tbody>
     </table>  
-  </section>
-    <section id="Semana" class="tab-panel">
-     <table id= "records">
+    </div>
+
+
+
+    <div class="tab-pane fade" id="week" role="tabpanel" aria-labelledby="week-tab">
+      <table class="table table-bordered">
+      <thead>
       <tr>
-      <th>RUT</th>
-      <th>Fecha Registro</th>
-      <th>Hora Registro</th>
-      <th>Motivo</th>
-      <th>Institución</th>
+      <th scope="col">RUN</th>
+      <th scope="col">Institución</th>
+      <th scope="col">Motivo</th>
       </tr>
+      </thead>
+      <tbody>
       <%@visits_week.each do |visit|%>
       <tr>
-      <td><%=visit.rut%></td>
-      <td><%=visit.created_at.to_s.split(' ')[0]%></td>
-      <td><%=visit.created_at.to_s.split(' ')[1]%></td>
-      <td><%=visit.motivo%></td>
+      <td scope="row"><%=visit.rut%></td>
       <td><%=visit.institucion%></td>
+      <td><%=visit.motivo%></td>
+      <td><%=link_to "Ver más", visit%></td>
       </tr>
       <%end%>
       </table> 
-    </section>
-    <section id="Mes" class="tab-panel">
-      <table id= "records">
+      </tbody>
+      </div>
+
+    <div class="tab-pane fade" id="month" role="tabpanel" aria-labelledby="month-tab">
+      <table class="table table-bordered">
+      <thead>
       <tr>
-      <th>RUT</th>
-      <th>Fecha Registro</th>
-      <th>Hora Registro</th>
-      <th>Motivo</th>
-      <th>Institución</th>
+      <th scope="col">RUN</th>
+      <th scope="col">Institución</th>
+      <th scope="col">Motivo</th>
       </tr>
+      </thead>
+      <tbody>
       <%@visits_month.each do |visit|%>
       <tr>
-      <td><%=visit.rut%></td>
-      <td><%=visit.created_at.to_s.split(' ')[0]%></td>
-      <td><%=visit.created_at.to_s.split(' ')[1]%></td>
-      <td><%=visit.motivo%></td>
+      <td scope="row"><%=visit.rut%></td>
       <td><%=visit.institucion%></td>
+      <td><%=visit.motivo%></td>
+      <td><%=link_to "Ver más", visit%></td>
       </tr>
       <%end%>
       </table> 
-    </section>
-  </div>
-  
+      </tbody>
+      </div>
+</body>
+
+
+<div class="left" id="buttonFile">
+<%= form_tag import_visits_path, multipart: true do%>
+<%= file_field_tag :file%>
+<%= submit_tag 'Cargar Datos', class: "btn btn-primary"%>
+<%end%>
 </div>
 
-
-
+</body>
 
 

@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Flayers</h1>
-
-<table>
+<body>
+<table class="table">
   <thead>
     <tr>
-      <th>Tittle</th>
+      <th scope="col">Nombre o título</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,10 +13,9 @@
   <tbody>
     <% @flayers.each do |flayer| %>
       <tr>
-        <td><%= flayer.tittle %></td>
-        <td><%= link_to 'Show', flayer %></td>
-        <td><%= link_to 'Edit', edit_flayer_path(flayer) %></td>
-        <td><%= link_to 'Destroy', flayer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td scope="row"><%= flayer.tittle %></td>
+        <td scope="row"><%= link_to 'Editar', edit_flayer_path(flayer) %></td>
+        <td scope="row"><%= link_to 'Eliminar', flayer, method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar el flayer?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +23,6 @@
 
 <br>
 
-<%= link_to 'New Flayer', new_flayer_path %>
+<%= link_to 'Crear nuevo flayer', new_flayer_path %>
+
+</body>

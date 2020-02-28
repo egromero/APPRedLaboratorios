@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+<h2>información Visita </h2>
+ <table class="table">
+  <thead>
+    <tr>
+    <th scope="col">RUN</th>
+    <th scope="col">Fecha de visita</th>
+    <th scope="col">Hora de visita</th>
+    <th scope="col">Institución</th>
+    <th scope="col">Motivo</th>
+    <th scope="col">Laboratorio</th>
+    <%if @visit.other != ""%>
+    <th scope="col">Otro motivo</th>
+    <%end%>
+    <%if @visit.quantity%>
+    <th scope="col">Cantidad de personas</th>
+    <%end%>
+    </tr>
+    </thead>
+    <tbody id="visit">
+    <tr>
+    <td scope="row"><%=@visit.rut%></td>
+    <td><%=@visit.created_at.to_s.split(' ')[0]%></td>
+    <td><%=@visit.created_at.to_s.split(' ')[1]%></td>
+    <td><%=@visit.institucion%></td>
+    <td><%=@visit.motivo%></td>
+    <td><%=@labs.find(@visit.lab_id).nombre%></td>
+    <%if @visit.other != ""%>
+    <td><%=@visit.other%></td>
+    <%end%>
+    <%if @visit.quantity%>
+    <td><%=@visit.quantity%></td>
+    <%end%>
+
+    </tr>
+    </tbody>
+    </table>  
+

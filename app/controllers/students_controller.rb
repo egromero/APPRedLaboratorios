@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   skip_before_action :verify_authenticity_token
   load_and_authorize_resource class: "Student"
-  before_action :authenticate, only:[:created_from_totem, :create]
+  before_action :authenticate, only:[:created_from_totem]
  
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -11,7 +11,12 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all.order("id ASC")
+    if current_user.rol == "admin" 
+      @students = Student.all.order("id ASC")
+    else
+      @students = Student.joins(:laboratories).where(laboratories: {id: current_user.lab_id})
+
+    end
   end
   
   # GET /students/1
@@ -45,11 +50,16 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.json
   def create
+    if Student.where(rfid: student_params[:rfid]).exists?
+      respond_to do |format|
+        format.html {redirect_to @student, notice: 'MIFARE Estudiante ya existe.'}
+      end
+      return 0
+    end
     @student = Student.new(student_params)
-
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
+        format.html { redirect_to @student, notice: 'Estudiante exitosamente agregado' }
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new }
@@ -57,8 +67,14 @@ class StudentsController < ApplicationController
       end
     end
   end
-
+  
 def created_from_totem
+  if Student.where(rfid: params[:rfid]).exists?
+    respond_to do |format|
+      format.json {render json: @student, status: :created}
+    end
+    return 0
+  end
   @student = Student.new({:rfid => params[:rfid],:nombre => params[:nombre],
                           :correo => params[:correo], :sit_academica=> params[:sit_academica],
                           :rut => params[:rut]})
