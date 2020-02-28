@@ -1,5 +1,5 @@
 class Visit < ApplicationRecord
-    
+    validates :rut, presence: true 
     require 'csv'
 
     def self.import(file)

@@ -52,6 +52,8 @@ class VisitsController < ApplicationController
             student.save
         else    
             @visit = Visit.new(rut: params[:rut], motivo: params[:motivo], institucion: params[:institucion], lab_id: params[:lab_id], other: params[:other], quantity: params[:quantity])
+            print "la visita:"
+            print @visit.valid?
             respond_to do |format|  
             if @visit.save
                 format.html do redirect_to '/slideshow' , varforalert: 'visit'
