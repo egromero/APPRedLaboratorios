@@ -14,11 +14,11 @@
                 Personas que estén registradas en el sistema y no porten su TUC ingresar solamente el RUN y Laboratorio.
                 </p>
 
-				<div class="wrap-input100">
+				<div class="wrap-input100" id= "runField">
 					<span class="label-input100">Ingrese RUN *</span>
 					<input class="input100" id="run" type="text" name="rut" placeholder="Sin guion ej: 123456780">
-					<span class="label-input100" style="color:yellow;" id="lenghtError" hidden>RUN ingresado es demasiado corto</span>
-					<span class="label-input100" style="color:red;" id="invalidError" hidden>RUN ingresado es invalido</span>
+					<span class="label-input100" style="color:red; visibility:hidden;" id="lenghtError" >RUN ingresado es demasiado corto</span>
+					<span class="label-input100" style="color:red ; visibility:hidden;" id="invalidError" >RUN ingresado es invalido</span>
 				</div>
 
 
@@ -90,24 +90,30 @@
 
 <script>
 const visitForm = document.getElementById('visitForm');
-const runField = document.getElementById('run');
+const run = document.getElementById('run');
+const runField = document.getElementById('runField')
 const okButton = document.getElementById('button');
+const lenghtError = document.getElementById("lenghtError")
+const validError = document.getElementById("invalidError")
   
-runField.addEventListener('focusout', function (event) {
-  isValidRun = checkRut(runField);
+run.addEventListener('focusout', function (event) {
+  isValidRun = checkRut(run);
   if ( isValidRun == 1 ) {
-	console.log("run chico")
-	runField.setCustomValidity('RUT Incompleto');
-	console.log(runField.checkValidity())
+	console.log("runchico")
+	lenghtError.style.visibility = 'visible';
+	validError.style.visibility = 'hidden';
+	runField.style["border-color"]  = 'red';
 	okButton.disabled = true;
   
   } else if(isValidRun == 2) {
-	console.log("run invalido")
-	runField.setCustomValidity('RUT Inválido');
+	runField.style["border-color"]  = 'red' ;
+	validError.style.visibility = 'visible';
+	lenghtError.style.visibility = 'hidden';
     okButton.disabled = true;
   } else {
-	console.log("run weno")
-	runField.setCustomValidity('');
+	runField.style["border-color"]  = "black";
+	validError.style.visibility= 'hidden';
+	lenghtError.style.visibility = 'hidden';
 	okButton.disabled = false;
   }
 });
