@@ -18,10 +18,8 @@
 					<span class="label-input100">Ingrese RUN *</span>
 					<input class="input100" id="run" type="text" name="rut" placeholder="Sin guion ej: 123456780">
 					<span class="label-input100" style="color:red; visibility:hidden;" id="lenghtError" >RUN ingresado es demasiado corto</span>
-					<span class="label-input100" style="color:red ; visibility:hidden;" id="invalidError" >RUN ingresado es invalido</span>
+					<span class="label-input100" style="color:red ; visibility:hidden; padding-left: 90px" id="invalidError" >RUN ingresado es invalido</span>
 				</div>
-
-
 
 				<div class="wrap-input100 bg1">
 					<span class="label-input100">Insitución que pertenece</span>
@@ -111,7 +109,7 @@ run.addEventListener('focusout', function (event) {
 	lenghtError.style.visibility = 'hidden';
     okButton.disabled = true;
   } else {
-	runField.style["border-color"]  = "black";
+	runField.style["border-color"]  = "green";
 	validError.style.visibility= 'hidden';
 	lenghtError.style.visibility = 'hidden';
 	okButton.disabled = false;
