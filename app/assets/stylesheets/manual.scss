@@ -190,6 +190,12 @@
     padding: 10px 30px 9px 22px;
     margin-bottom: 20px;
   }
+  .input100:invalid{
+    border-color: rgb(255, 0, 0);
+  }
+  .contact100:valid{
+    border-color: black;
+  }
   
   .rs1-wrap-input100 {
     width: calc((100% - 30px) / 2);
