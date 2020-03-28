@@ -43,7 +43,7 @@ class StudentsController < ApplicationController
        student.laboratories << @labs
     end
     respond_to do |format|
-    format.html { redirect_to records_url , notice: 'Estudiante matriculado' }
+    format.html { redirect_to laboratory_path(@labs) , notice: 'Estudiante matriculado' }
     end
   end
   

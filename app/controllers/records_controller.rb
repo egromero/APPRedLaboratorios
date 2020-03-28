@@ -15,18 +15,22 @@ class RecordsController < ApplicationController
         end
     end 
     def expulse
-        @laboratory = Laboratory.find(current_user.lab_id)
-        @record_all = Record.where(lab_id: @laboratory.id)
-        @records_day = @record_all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
-        @records_day.each do |record|
-            if not record.student.status
-                @record_new = record.student.records.new(:tipo => record.student.status, :lab_id =>record.lab_id)
-                @record_new.save  
-                record.student.status = true
-                record.student.save
+        if @current_user.rol == "admin"
+            sign_out_and_redirect(current_user)  
+        else
+            @laboratory = Laboratory.find(current_user.lab_id)
+            @record_all = Record.where(lab_id: @laboratory.id)
+            @records_day = @record_all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+            @records_day.each do |record|
+                if record.student.status
+                    @record_new = record.student.records.new(:tipo => !record.student.status, :lab_id =>record.lab_id)
+                    @record_new.save  
+                    record.student.status = false
+                    record.student.save
+                end
             end
+            sign_out_and_redirect(current_user)  
         end
-        sign_out_and_redirect(current_user)  
     end
 
 
