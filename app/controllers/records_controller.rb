@@ -7,7 +7,13 @@ class RecordsController < ApplicationController
         flash[:warning] = "Acceso Denegado!"
         redirect_to root_url
       end
-
+    def index
+        @record_all = Record.all
+        respond_to do |format|
+            format.html
+            format.csv { send_data @record_all.to_csv, filename: "records-until-#{Date.today}.csv" }
+        end
+    end 
     def expulse
         @laboratory = Laboratory.find(current_user.lab_id)
         @record_all = Record.where(lab_id: @laboratory.id)
@@ -32,7 +38,6 @@ class RecordsController < ApplicationController
         Record.import(params[:file])
         redirect_to root_path, notice: "Registros actualizados"
     end
-    #POST /records/rfid
 
     def create 
         student = Student.where(rfid: params[:rfid])[0]      

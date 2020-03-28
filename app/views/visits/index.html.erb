@@ -10,7 +10,7 @@
 <body>
 
 <div class="right">
-<%= button_to "Descargar CSV", records_path(@records, format: :csv), method: :get, class: "btn btn-dark"%>
+<%= button_to "Descargar CSV", visits_path(@visits, format: :csv), method: :get, class: "btn btn-dark"%>
 </div>
 
 <ul class="nav nav-tabs" role= "tablist"> 
@@ -79,7 +79,7 @@
       <tr>
       <th scope="col">RUN</th>
       <th scope="col">Institución</th>
-      <th scope="col">Motivo</th>
+      <th scope="col">Motivo</th> 
       </tr>
       </thead>
       <tbody>
