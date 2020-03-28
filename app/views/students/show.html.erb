@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-<h2>Información estudiante </h2>
+<h2>Información del estudiante </h2>
  <table class="table">
   <thead>
     <tr>
@@ -25,6 +24,40 @@
     </tbody>
     </table>  
 
+<h4>Ultimos registros</h4>
+
+<%if @student.records.any?%>
+<table class="table">
+  <thead>
+    <tr>
+    <th scope="col">Laboratorio</th>
+    <th scope="col">Tipo</th>
+    <th scope="col">Acción</th>
+    </tr>
+    </thead>
+    <tbody id="records">
+    <tr> 
+    <%previus_record = @lasets_records[0]%>
+    <%previus_lab = @lasets_records[0].lab_id%>
+    <%previus_type = @lasets_records[0].tipo%>
+    <%@lasets_records.each do |record|%>
+    <td scope="row"><%=@labs.find(record.lab_id).nombre%></td>
+    <td><%=record.tipo == 't' ? "Ingreso": "Salida" %></td>
+    <%if previus_lab != record.lab_id && previus_type =='t' && record.tipo =='f'%>
+    <td>Alerta!</td>
+    <%inconsistency(previus_record, record)%>
+</td>
+    <%end%>
+    <%previus_record = record%>
+    <%previus_lab = record.lab_id%>
+    <%previus_type = record.tipo%>
+    </tr>
+     <%end%>
+     </tbody>
+    </table>
+    <%end%>
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>
+
+
 

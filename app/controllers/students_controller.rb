@@ -18,15 +18,25 @@ class StudentsController < ApplicationController
 
     end
   end
+
+  def inconsistency(previus_record, record)
+    print "falta desarrollar"
+  end
+  helper_method :inconsistency
   
   # GET /students/1
   # GET /students/1.json
   def show
+    @labs = Laboratory.all
+    if @student.records
+      @lasets_records = @student.records.last(3)
+
+    end
   end
 
   # GET /students/new
   def new
-    @student = Student.new
+    @student = Student.new 
   end
 
   # GET /students/1/edit

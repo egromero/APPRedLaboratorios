@@ -9,23 +9,18 @@ h2 {
 }
 </style>
 
-<body style="background-image: url('http://centrodeinnovacion.uc.cl/assets/uploads/2019/07/48252133732_e7f5d0d4ce_k-1280x605-c-default.jpg'); background-repeat: no-repeat; background-size: cover;background-attachment: fixed;  >
+<body style="background-image: url('http://centrodeinnovacion.uc.cl/assets/uploads/2019/07/48252133732_e7f5d0d4ce_k-1280x605-c-default.jpg'); background-repeat: no-repeat; background-size: cover;background-attachment: fixed; ">
+
 <div class="container" style="padding-top:40px;">
 <% if flash[:warning]%>
 <div class="alert alert-warning alert-dismissible">
   <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
- <strong><%= flash[:warning] %></strong> No tienes permisos para acceder a la página.
+  <strong><%= flash[:warning] %></strong> No tienes permisos para acceder a la página.
   <% end %>
 </div>
 </div>
-<div class="container">
-<% if flash[:notice]%>
-<div class="alert alert-notice alert-dismissible">
-  <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
- <strong><%= flash[:notice] %></strong> 
-  <% end %>
-</div>
-</div>
+
+
 <div class ="text-center" style="padding-top:200px">
 <h2>RED DE LABORATORIOS DE FABRICACIÓN UC</h2>
 

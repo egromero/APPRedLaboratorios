@@ -6,11 +6,12 @@
 
 <div class="container">
 <% if flash[:notice]%>
-<div class="alert alert-notice alert-dismissible">
+<div class="alert alert-danger">
   <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
  <strong><%= flash[:notice] %></strong> 
   <% end %>
 </div>
+
 <div style="padding-bottom:20px">
 <div class="input-group-prepend">
     <span class="input-group-text cyan lighten-2" id="basic-text1"><i class="fa fa-search" aria-hidden="true"></i></span>
