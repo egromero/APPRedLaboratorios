@@ -23,7 +23,7 @@ class RecordsController < ApplicationController
             @records_day = @record_all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
             @records_day.each do |record|
                 if not record.student.status
-                    @record_new = record.student.records.new(:tipo => record.student.status, :lab_id =>record.lab_id)
+                    @record_new = record.student.records.new(:tipo => record.student.status, :lab_id =>record.lab_id, :foul => true, :description => "Estudiante no generó registro de salida en laboratorio.")
                     @record_new.save  
                     record.student.status = true
                     record.student.save
@@ -48,6 +48,14 @@ class RecordsController < ApplicationController
             if student.status.nil?
                 student.status = true
                 student.save
+            end
+            if student.records.any?
+                if student.records.last.tipo == 't' && student.records.last.lab_id.to_i != params[:lab_id].to_i
+                    @checkout = student.records.new({:tipo => 'f', :lab_id => student.records.last.lab_id, :foul=>true, :description => "Estudiante no generó registro de salida en laboratorio y generó registro de entrada en otro laboratorio."})
+                    @checkout.save
+                    student.status = !student.status
+                    student.save
+                end
             end
             @record = student.records.new({:tipo => student.status, :lab_id =>params[:lab_id]})
             respond_to do |format|

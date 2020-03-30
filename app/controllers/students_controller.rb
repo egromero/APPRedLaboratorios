@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
   end
 
   def inconsistency(previus_record, record)
-    print "falta desarrollar"
+    print "mudando a registro de record"
   end
   helper_method :inconsistency
   
@@ -29,9 +29,9 @@ class StudentsController < ApplicationController
   def show
     @labs = Laboratory.all
     if @student.records
-      @lasets_records = @student.records.last(3)
-
+      @lasets_records = @student.records.last(4)
     end
+    @fouls = @student.records.where(foul: true)
   end
 
   # GET /students/new
@@ -96,10 +96,6 @@ def created_from_totem
     end
   end
 end
-  
-  
-  
-  
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update
