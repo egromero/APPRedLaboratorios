@@ -54,8 +54,7 @@ class RecordsController < ApplicationController
         else    
             
             respond_to do |format|
-                format.json {render json: @records, status:404}
-
+                format.json {render json: {'type': 'nonexistent', 'data': {'rfid' => params[:rfid] }}}
             end
         end
     end 
