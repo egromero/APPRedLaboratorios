@@ -85,5 +85,3 @@ production:
   database: APPRegister_production
   username: APPRegister
   password: <%= ENV['APPREGISTER_DATABASE_PASSWORD'] %>
-
-
