@@ -18,6 +18,7 @@ class Record < ApplicationRecord
             @record.save
         end
     end
+    
     def self.to_csv
         attributes = %w{estudiante fecha_registro hora_de_registro laboratorio}
     

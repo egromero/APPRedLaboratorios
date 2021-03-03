@@ -18,15 +18,25 @@ class StudentsController < ApplicationController
 
     end
   end
+
+  def inconsistency(previus_record, record)
+    print "mudando a registro de record"
+  end
+  helper_method :inconsistency
   
   # GET /students/1
   # GET /students/1.json
   def show
+    @labs = Laboratory.all
+    if @student.records
+      @lasets_records = @student.records.last(4)
+    end
+    @fouls = @student.records.where(foul: true)
   end
 
   # GET /students/new
   def new
-    @student = Student.new
+    @student = Student.new 
   end
 
   # GET /students/1/edit
@@ -43,7 +53,7 @@ class StudentsController < ApplicationController
        student.laboratories << @labs
     end
     respond_to do |format|
-    format.html { redirect_to records_url , notice: 'Estudiante matriculado' }
+    format.html { redirect_to laboratory_path(@labs) , notice: 'Estudiante matriculado' }
     end
   end
   
@@ -86,10 +96,6 @@ def created_from_totem
     end
   end
 end
-  
-  
-  
-  
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update

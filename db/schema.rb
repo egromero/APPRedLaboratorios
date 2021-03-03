@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_05_204200) do
+ActiveRecord::Schema.define(version: 2020_03_30_010056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,8 @@ ActiveRecord::Schema.define(version: 2020_02_05_204200) do
     t.bigint "student_id"
     t.datetime "created_at"
     t.integer "lab_id"
+    t.boolean "foul", default: false
+    t.string "description"
     t.index ["student_id"], name: "index_records_on_student_id"
   end
 

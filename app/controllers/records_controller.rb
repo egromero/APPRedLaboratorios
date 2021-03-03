@@ -7,22 +7,31 @@ class RecordsController < ApplicationController
         flash[:warning] = "Acceso Denegado!"
         redirect_to root_url
       end
-
-    def expulse
-        @laboratory = Laboratory.find(current_user.lab_id)
-        @record_all = Record.where(lab_id: @laboratory.id)
-        @records_day = @record_all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
-        @records_day.each do |record|
-            if not record.student.status
-                @record_new = record.student.records.new(:tipo => record.student.status, :lab_id =>record.lab_id)
-                @record_new.save  
-                record.student.status = true
-                record.student.save
-            end
+    def index
+        @record_all = Record.all
+        respond_to do |format|
+            format.html
+            format.csv { send_data @record_all.to_csv, filename: "records-until-#{Date.today}.csv" }
         end
-        sign_out_and_redirect(current_user)  
+    end 
+    def expulse
+        if @current_user.rol == "admin"
+            sign_out_and_redirect(current_user)  
+        else
+            @laboratory = Laboratory.find(current_user.lab_id)
+            @record_all = Record.where(lab_id: @laboratory.id)
+            @records_day = @record_all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+            @records_day.each do |record|
+                if not record.student.status
+                    @record_new = record.student.records.new(:tipo => record.student.status, :lab_id =>record.lab_id, :foul => true, :description => "Estudiante no generó registro de salida en laboratorio.")
+                    @record_new.save  
+                    record.student.status = true
+                    record.student.save
+                end
+            end
+            sign_out_and_redirect(current_user)  
+        end
     end
-
 
     def new
         @record = Record.new
@@ -32,7 +41,6 @@ class RecordsController < ApplicationController
         Record.import(params[:file])
         redirect_to root_path, notice: "Registros actualizados"
     end
-    #POST /records/rfid
 
     def create 
         student = Student.where(rfid: params[:rfid])[0]      
@@ -40,6 +48,14 @@ class RecordsController < ApplicationController
             if student.status.nil?
                 student.status = true
                 student.save
+            end
+            if student.records.any?
+                if student.records.last.tipo == 't' && student.records.last.lab_id.to_i != params[:lab_id].to_i
+                    @checkout = student.records.new({:tipo => 'f', :lab_id => student.records.last.lab_id, :foul=>true, :description => "Estudiante no generó registro de salida en laboratorio y generó registro de entrada en otro laboratorio."})
+                    @checkout.save
+                    student.status = !student.status
+                    student.save
+                end
             end
             @record = student.records.new({:tipo => student.status, :lab_id =>params[:lab_id]})
             respond_to do |format|

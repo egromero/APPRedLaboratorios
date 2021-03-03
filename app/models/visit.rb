@@ -21,4 +21,15 @@ class Visit < ApplicationRecord
             end
         end
     end
+    def self.to_csv
+        attributes = %w{visita fecha_registro hora_de_registro laboratorio motivo institucion}
+    
+        CSV.generate(headers: true) do |csv|
+          csv << attributes
+          all.each do |visit|
+            csv << [visit.rut, visit.created_at.to_s.split(' ')[0], visit.created_at.to_s.split(' ')[1], Laboratory.find(visit.lab_id).nombre, visit.motivo, visit.institucion]
+          end
+          
+        end
+      end
 end
