@@ -1,34 +1,31 @@
-<style>
-h2 {
-  color: white;
-  text-shadow:
-   -1px -1px 0 #000,  
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-     1px 1px 0 #000;
-}
-</style>
-
-<body style="background-image: url('http://centrodeinnovacion.uc.cl/assets/uploads/2019/07/48252133732_e7f5d0d4ce_k-1280x605-c-default.jpg'); background-repeat: no-repeat; background-size: cover;background-attachment: fixed;  >
-<div class="container" style="padding-top:40px;">
-<% if flash[:warning]%>
-<div class="alert alert-warning alert-dismissible">
-  <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
- <strong><%= flash[:warning] %></strong> No tienes permisos para acceder a la página.
+<div class="text-center">
+  <% if flash[:notice] %>
+    <div class="alert alert-success alert-dismissible fade show alert-top" role="alert">
+      <%= flash[:notice] %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
   <% end %>
 </div>
+
+<div class="header-text" >
+
+  <div class="text-side">
+    <h1 class="title-large">  Red de laboratorios de fabricación </h1>
+    <p class="pgray">Sistema de administración de asistencia y 
+      registro para los laboratorios de fabricación 
+      de la Pontificia Universidad Católica de chile </p>
+      <%if !signed_in?%>
+        <a href="/users/sign_in"><button class="btn btn-primary">Ingresar</button></a>
+      <%else%>
+        <a href="/laboratories"><button class="btn btn-primary">Registros</button></a>
+      <%end%>
+  </div>
+  <div class="img-side">
+    <%=image_tag "logo.jpg", :class => "logo-img"%>
+  </div>
 </div>
-<div class="container">
-<% if flash[:notice]%>
-<div class="alert alert-notice alert-dismissible">
-  <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
- <strong><%= flash[:notice] %></strong> 
-  <% end %>
-</div>
-</div>
-<div class ="text-center" style="padding-top:200px">
-<h2>RED DE LABORATORIOS DE FABRICACIÓN UC</h2>
 
 
-</div>
-</body>
+

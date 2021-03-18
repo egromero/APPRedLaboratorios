@@ -69,3 +69,6 @@ yarn-debug.log*
 
 /doc/*
 /doc
+
+tmp/cache/bootsnap-load-path-cache
+tmp/*

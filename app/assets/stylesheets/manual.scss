@@ -25,9 +25,9 @@
     -moz-transition: all 0.4s;
   }
   
-  a:focus {
-      outline: none !important;
-  }
+  // a:focus {
+  //     outline: none !important;
+  // }
   
   a:hover {
       text-decoration: none;
@@ -71,9 +71,9 @@
     border: none;
   }
   
-  textarea:focus, input:focus {
-    border-color: transparent !important;
-  }
+  // textarea:focus, input:focus {
+  //   border-color: transparent !important;
+  // }
   
   input:focus::-webkit-input-placeholder { color:transparent; }
   input:focus:-moz-placeholder { color:transparent; }

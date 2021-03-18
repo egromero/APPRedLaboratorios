@@ -18,7 +18,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   template: template0
-  username: root
+  #username: root
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -85,5 +85,3 @@ production:
   database: APPRegister_production
   username: APPRegister
   password: <%= ENV['APPREGISTER_DATABASE_PASSWORD'] %>
-
-

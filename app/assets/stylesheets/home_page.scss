@@ -2,3 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
+.header-text{
+    display: flex;
+    flex-direction: row;
+}
+
+.text-side{
+    flex: 1;
+}
+.img-side{
+    flex: 1;
+}
+
+.pgray{
+    color : #495057;
+    font-size: 18px;
+    line-height: 40px;
+}
+.title-large{
+    font-size: 4.5rem;
+}
+
+
+.logo-img{
+    width: 80%;
+    float: right;
+    margin-top: 2rem;
+}

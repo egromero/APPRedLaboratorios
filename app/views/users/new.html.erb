@@ -1,33 +1,119 @@
-<h3>Nuevo administrador</h3>
+<style>
+* {
+  box-sizing: border-box;
+}
 
+input[type=text], select, textarea {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  margin: 10px
+}
+input[type=password], select, textarea {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  margin: 10px
+}
+
+label {
+  padding: 10px 5px 0px 5px;
+  display: inline-block;
+}
+
+.container {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.col-25 {
+  float: left;
+  width: 10%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 55%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+
+<h3 style="padding: 40px 0px 20px 0px;">Formulario para nuevo administrador</h3>
 <%= form_with(model: @User, action: "create", local: true) do |form| %>
 
-  <div class="field">
-    <%= form.label :email %>
+
+
+ <div class="container">
+  <div class="row">
+    <div class="col-25">
+    <%= form.label "Correo electrónico" %>
+    </div>
+    <div class="col-75">
+        <%= form.text_field :email %>
+    </div>
   </div>
-  <div>
-    <%= form.text_field :email %>
   </div>
 
-  <div class="password">
-    <%= form.label :password %>
-  </div>
-  <div>
-    <%= form.text_field :password %>
-  </div>
-   <div class="rol">
-    <%= form.label :rol %>
+  <div class="container">
+  <div class="row">
+    <div class="col-25">
+    <%= form.label :password%>
     </div>
-  <div>
-    <%=form.select :rol, [['Administrador de lab', "user"], ['Admin General', "admin"]]%>
+  <div class="col-75">
+    <%= form.password_field :password %>
   </div>
-   <div class="lab_id">
-    <%= form.label :lab_id %>
+    </div>
   </div>
-  <div>
-  <%=form.collection_select :lab_id, Laboratory.order(:nombre), :id, :nombre%>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-25">
+          <%= form.label "Tipo de administrador" %>
+      </div>
+      <div class="col-75">
+        <%=form.select :rol, [['Administrador de lab', "user"], ['Admin General', "admin"]]%>
+      </div>
+    </div>
   </div>
-  <div class="actions" %>
-    <%=form.submit%>
+
+
+   <div class="container">
+    <div class="row">
+      <div class="col-25">
+      <%= form.label :lab_id %>
+      </div>
+  <div class="col-75">
+    <%=form.collection_select :lab_id, Laboratory.order(:nombre), :id, :nombre%>
   </div>
+  </div>
+  </div>
+  <div class="container">
+  <div class="row">
+  <div class="col-25" %>
+    <%=form.submit "Guardar", :class => "btn btn-primary"%>
+  </div>
+  <div class="col-75">
+    <%= link_to 'Volver', users_path %>
+  </div>
+  </div>
+  </div>
+
 <% end %>
