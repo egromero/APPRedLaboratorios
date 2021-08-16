@@ -1,0 +1,37 @@
+<div class="light-title">
+    Registros anteriores: <%=@lab.nombre%>
+    <hr/>
+</div>
+
+<div class="row-flex-div" style="width:50%; align-items:center; margin:auto;">
+    <div class="column-flex-div">
+        <label class="label-form"> Fecha de inicio</label>
+        <input class="input-form" type="date" id="start-previous-records">
+    </div>
+    <div class="column-flex-div">
+        <label class="label-form"> Fecha de termino</label>
+        <input class="input-form" type="date" id="end-previous-records">
+    </div>
+    <button class="btn btn-primary" type="button" onClick="window.getRecords(<%=@lab.id%>)">Buscar</button>
+</div>
+
+
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="today" role="tabpanel" aria-labelledby="today-tab">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Fecha Registro</th>
+                    <th scope="col">Hora Registro</th>
+                    <th scope="col">Tipo</th>
+                </tr>
+            </thead>
+            <tbody id="previous-table">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+

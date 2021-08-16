@@ -34,5 +34,9 @@ Rails.application.routes.draw do
   get "/slideshow" => "slideshow#slideshow"
   get 'home_page/index'
   get '/expulse', to: "records#expulse", as: "button"
+
+  get '/previous_records', to: "laboratories#previous_records"
+  post '/get_records', to: "records#get_records"
+  post '/get_student', to: "students#get_student"
   
 end

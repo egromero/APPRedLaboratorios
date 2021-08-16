@@ -73,5 +73,13 @@ class RecordsController < ApplicationController
                 format.json {render json: {'type': 'nonexistent', 'data': {'rfid' => params[:rfid] }}}
             end
         end
+    end
+    def get_records
+        start = params[:start].to_date
+        end_date= params[:end].blank? ? "": params[:end].to_date 
+        if !end_date.blank?
+            return render json: Record.where(lab_id: params[:lab_id], created_at: start.beginning_of_day..end_date.end_of_day).order(created_at: :desc)
+        end
+        return render json: Record.where(lab_id: params[:lab_id], created_at: start.beginning_of_day.. start.end_of_day).order(created_at: :desc)
     end 
 end

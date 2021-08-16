@@ -1,4 +1,5 @@
 class LaboratoriesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_laboratory, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource class: "Laboratory"
 
@@ -22,7 +23,7 @@ class LaboratoriesController < ApplicationController
 
   def show        
     @record_all = Record.where(lab_id: @laboratory.id)
-    @records_day = @record_all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+    @records_day = @record_all.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).order(created_at: :desc)
     @records_week = @record_all.where(created_at: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
     @records_month = @record_all.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
     respond_to do |format|
@@ -38,6 +39,10 @@ class LaboratoriesController < ApplicationController
 
   # GET /laboratories/1/edit
   def edit
+  end
+
+  def previous_records
+    @lab = Laboratory.find(params[:id])
   end
 
   def new_admin

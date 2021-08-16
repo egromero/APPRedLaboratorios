@@ -1,7 +1,43 @@
-<br>
-<br>
-<h4>Inscribir estudiante en plataforma</h4>
+<div class="light-title">
+    Inscripción Manual de Estudiantes a Plataforma
+    <hr/>
+</div>
 
-<%= render 'form', student: @student %>
+<form action="/students" method="post" id="new-student-form">
+<div class="student-form">
+    <p class="lil-title">Completa la información a continuación</p>
+<div class="form-box">
+    <p>Información personal</p>
+    <div class="column-flex-div">
+        <label class="label-form">Nombre completo</label>
+        <input class="input-form" name="student[nombre]">
+        <label class="label-form">RUT</label>
+        <input class="input-form" name="student[rut]"> 
+        <label class="label-form">Número de alumno</label>
+        <input class="input-form" name="student[nalumno]">
+    </div>
+    <p>Información de contacto</p>
+    <div class="column-flex-div">
+        <label class="label-form">Email</label>
+        <input class="input-form" name="student[correo]"> 
+    </div>
+    <p>Información UC</p>
+    <div class="column-flex-div">
+        <label class="label-form">Código MIFARE</label>
+        <input class="input-form" name="student[rfid]">
+        <label class="label-form">Situación académica</label>
+        <select class="input-form" name="student[sit_academica]">
+        <option value="Vigente" label="Vigente"/>
+        <option value="Ex-alumno" label="Ex-alumno"/>
+        <option value="Administrativo" label="Administrativo"/>
+        </select> 
+    </div>
+</div>
+
+<div class="row-flex-div" style="width:25%">
+    <button class="btn btn-primary" type="submit">Guardar</button>
+    <a href=<%=students_path%> class="btn btn-secondary">Volver</a>
+</div>
+</form>
 
 

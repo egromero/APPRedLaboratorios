@@ -37,39 +37,29 @@ class VisitsController < ApplicationController
     end
     
     def create 
-        student = Student.where(rut: params[:rut])[0]
+        student = Student.where(rut: visit_params[:rut])[0]
         if student 
             if student.status.nil?
                 student.status = true
                 student.save
             end
-            @record = student.records.new({:tipo => student.status, :lab_id =>params[:lab_id]})
-            respond_to do |format|
+            @record = student.records.new({:tipo => student.status, :lab_id =>visit_params[:lab_id]})
             if @record.save
-                format.html do redirect_to '/slideshow' , varforalert: 'student'
-                end 
-                format.json {render json: {'type': 'student', 'data': {student: @record.student, laboratory: @record.student.laboratories}}, status: 200}
-            else
-                format.json {render json: @record.errors, status: :unprocessable_entity}
+                student.status = !student.status
+                student.save
+                render json: {type: "student", name: student.nombre}
             end
-            end
-            student.status = !student.status
-            student.save
         else    
-            @visit = Visit.new(rut: params[:rut], motivo: params[:motivo], institucion: params[:institucion], lab_id: params[:lab_id], other: params[:other], quantity: params[:quantity])
-            print "la visita:"
-            print @visit.valid?
-            respond_to do |format|  
+            @visit = Visit.new(rut: visit_params[:rut], motivo: visit_params[:motivo], institucion: visit_params[:institucion], lab_id: visit_params[:lab_id], other: visit_params[:other], quantity: visit_params[:quantity])
             if @visit.save
-                format.html do redirect_to '/slideshow' , varforalert: 'visit'
-                end
-                format.json {render json: {'type': 'visit', 'data': @visit}, status: 200}
-            else
-                format.json {render json: @visit.errors, status: :unprocessable_entity}
-            end
+                render json: {type: "visit"}
             end
         end
     end 
+
+    def visit_params
+        params.require(:visit).permit(:rut, :motivo, :institucion, :lab_id, :other, :quantity)
+    end
 
 
 end
