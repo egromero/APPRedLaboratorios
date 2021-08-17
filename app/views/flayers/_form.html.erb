@@ -11,17 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :Título %>
-    <%= form.text_field :tittle %>
+  <div class="form-box" style="margin:auto;">
+    <%= form.label :Título, class: "label-form"%>
+    <%= form.text_field :tittle, class: "input-form"%>
+    <%= form.label :Imagen, class:"label-form"%>
+    <%=form.file_field :image, class:"input-form"%>
+    <div class="row-flex-div" style="margin:1rem auto; width:25% ">
+        <%= form.submit "Subir flayer", :class =>"btn btn-primary"%>
+        <%= link_to 'Volver', flayers_path, class:"btn btn-secondary"%>
+    </div>
   </div>
-
-  <div class= "field">
-  <%= form.label :Imagen%>
-  <%=form.file_field :image%>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Subir flayer", :class =>"btn btn-primary"%>
-  </div>
+  
 <% end %>

@@ -32,14 +32,12 @@ label {
   margin-top: 6px;
 }
 
-/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
   .col-25, .col-75, input[type=submit] {
     width: 100%;
@@ -47,6 +45,7 @@ label {
   }
 }
 </style>
+
 <%= form_with(model: student, local: true) do |form| %>
   <% if student.errors.any? %>
     <div id="error_explanation">
@@ -60,67 +59,70 @@ label {
     </div>
   <% end %>
   <div class="container">
-  <div class="row">
-    <div class="col-25">
-    <%= form.label :rfid, "Código MIFARE" %>
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :rfid, "Código MIFARE" %>
+      </div>
+      <div class="col-75">
+        <%= form.text_field:rfid %>
+        <%= form.label :rut, "RUT" %>
+        <%= form.text_field:rut %>
+      </div>
     </div>
-    <div class="col-75">
-      <%= form.text_field:rfid %>
-      <%= form.label :rut, "RUT" %>
-      <%= form.text_field:rut %>
-    </div>
-  </div>
   </div>
  
-   <div class="container">
-  <div class="row">
-    <div class="col-25">
-     <%= form.label :nombre, "Nombre Completo"%>
-    </div>
-    <div class="col-75">
-      <%= form.text_field:nombre %>
-    </div>
-  </div>
-  </div>
-   <div class="container">
-  <div class="row">
-    <div class="col-25">
-     <%= form.label :nalumno, "Número de alumno"%>
-    </div>
-    <div class="col-75">
-      <%= form.text_field:nalumno %>
+  <div class="container">
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :nombre, "Nombre Completo"%>
+      </div>
+      <div class="col-75">
+        <%= form.text_field:nombre %>
+      </div>
     </div>
   </div>
-  </div>
-   <div class="container">
-  <div class="row">
-    <div class="col-25">
-    <%= form.label :sit_academica, "Situación Académica"%>
-    </div>
-    <div class="col-75">
-      <%= form.select :sit_academica, options_for_select([["Seleccionar", ""], "Vigente", "Ex-Alumno", "Adminstrativo"])%>
-    </div>
-  </div>
-  </div>
-   <div class="container">
-  <div class="row">
-    <div class="col-25">
-     <%= form.label :correo, "Correo Electrónico"%>
-    </div>
-    <div class="col-75">
-      <%= form.text_field:correo %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :nalumno, "Número de alumno"%>
+      </div>
+      <div class="col-75">
+        <%= form.text_field:nalumno %>
+      </div>
     </div>
   </div>
-  </div>
-<div class = "container">
-  <div class = "row">
-    <div class = "col-25">
-     <%= form.submit "Guardar", :class => "btn btn-primary"%>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :sit_academica, "Situación Académica"%>
+      </div>
+      <div class="col-75">
+        <%= form.select :sit_academica, options_for_select([["Seleccionar", ""], "Vigente", "Ex-Alumno", "Adminstrativo"])%>
+      </div>
     </div>
-    <div class="col-75">
-    <%= link_to 'Volver', students_path %>
-    </div>
-    
   </div>
-</div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :correo, "Correo Electrónico"%>
+      </div>
+      <div class="col-75">
+        <%= form.text_field:correo %>
+      </div>
+    </div>
+  </div>
+
+  <div class = "container">
+    <div class = "row">
+      <div class = "col-25">
+        <%= form.submit "Guardar", :class => "btn btn-primary"%>
+      </div>
+      <div class="col-75">
+        <%= link_to 'Volver', students_path %>
+      </div>
+    </div>
+  </div>
 <% end %>

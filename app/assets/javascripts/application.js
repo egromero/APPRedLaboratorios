@@ -18,3 +18,72 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require keyboard/jquery.keyboard.min
+
+window.getRecords = function (id) {
+  const start = document.getElementById("start-previous-records").value;
+  const end = document.getElementById("end-previous-records").value;
+  const data = { lab_id: id, start: start, end: end };
+  const table = $("#previous-table");
+  table.html("");
+  fetch("http://localhost:3000/get_records", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((element) => {
+        fetch("http://localhost:3000/get_student", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ student_id: element.student_id }),
+        })
+          .then((response) => response.json())
+          .then((studentData) => {
+            const date = new Date(element.created_at)
+              .toLocaleString("es-ES")
+              .split(" ");
+            const row = `<tr><td><a href="/students/${studentData.id}">${
+              studentData.nombre
+            }</a></td>
+                      <td>${date[0]}</td>
+                      <td>${date[1]}</td>
+                      <td>${element.tipo == "t" ? "Ingreso" : "Salida"}</td>
+                      </tr>`;
+            table.append(row);
+          });
+      });
+    });
+};
+
+window.postForm = function () {
+  fetch("/visits", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      visit: {
+        rut: document.getElementById("run").value,
+        institucion: document.getElementById("institution").value,
+        lab_id: document.getElementById("lab").value,
+        motivo: document.getElementById("motivo").value,
+        other: document.getElementById("otro").value,
+        quantity: document.getElementById("counter").value,
+      },
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.type == "student") {
+        alert(`Bienvenido ${data.name} registro realizado`);
+      } else {
+        alert("Visita registrada.");
+      }
+      window.location.replace("/slideshow");
+    });
+};
