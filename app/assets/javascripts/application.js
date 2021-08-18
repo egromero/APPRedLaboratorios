@@ -44,10 +44,10 @@ window.getRecords = function (id) {
         })
           .then(function (response) { return response.json() })
           .then(function(studentData) {
-            const date = new Date(element.created_at)
+            var date = new Date(element.created_at)
               .toLocaleString("es-ES")
               .split(" ");
-            const row = `<tr><td><a href="/students/${studentData.id}">${
+            var row = `<tr><td><a href="/students/${studentData.id}">${
               studentData.nombre
             }</a></td>
                       <td>${date[0]}</td>
