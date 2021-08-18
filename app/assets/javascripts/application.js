@@ -77,7 +77,7 @@ window.postForm = function () {
     .then(function (response) { return response.json() })
     .then(function(data){
       if (data.type == "student") {
-        alert("Bienvenido "+data.name+"registro realizado");
+        alert("Bienvenido "+data.name+" registro realizado");
       } else {
         alert("Visita registrada.");
       }
