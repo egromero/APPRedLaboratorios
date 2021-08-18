@@ -47,13 +47,10 @@ window.getRecords = function (id) {
             var date = new Date(element.created_at)
               .toLocaleString("es-ES")
               .split(" ");
-            var row = `<tr><td><a href="/students/${studentData.id}">${
-              studentData.nombre
-            }</a></td>
-                      <td>${date[0]}</td>
-                      <td>${date[1]}</td>
-                      <td>${element.tipo == "t" ? "Ingreso" : "Salida"}</td>
-                      </tr>`;
+            var type = element.tipo == "t" ? "Ingreso" : "Salida" 
+            var row = '<tr><td><a href="/students/' + studentData.id + '">'
+              + studentData.nombre + '</a></td>' +
+              '<td>' + date[0] + '</td>'+'<td>' + date[1] + '</td>'+'<td>' +type + '</td></tr>';
             table.append(row);
           });
       });
@@ -80,7 +77,7 @@ window.postForm = function () {
     .then(function (response) { return response.json() })
     .then(function(data){
       if (data.type == "student") {
-        alert(`Bienvenido ${data.name} registro realizado`);
+        alert("Bienvenido "+data.name+"registro realizado");
       } else {
         alert("Visita registrada.");
       }
