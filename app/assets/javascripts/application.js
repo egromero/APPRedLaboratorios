@@ -20,10 +20,10 @@
 //= require keyboard/jquery.keyboard.min
 
 window.getRecords = function (id) {
-  const start = document.getElementById("start-previous-records").value;
-  const end = document.getElementById("end-previous-records").value;
-  const data = { lab_id: id, start: start, end: end };
-  const table = $("#previous-table");
+  var start = document.getElementById("start-previous-records").value;
+  var end = document.getElementById("end-previous-records").value;
+  var data = { lab_id: id, start: start, end: end };
+  var table = $("#previous-table");
   table.html("");
   fetch("http://localhost:3000/get_records", {
     method: "POST",
@@ -32,9 +32,9 @@ window.getRecords = function (id) {
       "Content-Type": "application/json",
     },
   })
-    .then((response) => response.json())
-    .then((data) => {
-      data.forEach((element) => {
+    .then(function(response) { return response.json() })
+    .then(function(data) {
+      data.forEach(function(element) {
         fetch("http://localhost:3000/get_student", {
           method: "POST",
           headers: {
@@ -42,8 +42,8 @@ window.getRecords = function (id) {
           },
           body: JSON.stringify({ student_id: element.student_id }),
         })
-          .then((response) => response.json())
-          .then((studentData) => {
+          .then(function (response) { return response.json() })
+          .then(function(studentData) {
             const date = new Date(element.created_at)
               .toLocaleString("es-ES")
               .split(" ");
@@ -77,8 +77,8 @@ window.postForm = function () {
       },
     }),
   })
-    .then((response) => response.json())
-    .then((data) => {
+    .then(function (response) { return response.json() })
+    .then(function(data){
       if (data.type == "student") {
         alert(`Bienvenido ${data.name} registro realizado`);
       } else {
