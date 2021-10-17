@@ -25,36 +25,43 @@ window.getRecords = function (id) {
   var data = { lab_id: id, start: start, end: end };
   var table = $("#previous-table");
   table.html("");
-  fetch("http://localhost:3000/get_records", {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then(function(response) { return response.json() })
-    .then(function(data) {
-      data.forEach(function(element) {
-        fetch("http://localhost:3000/get_student", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ student_id: element.student_id }),
-        })
-          .then(function (response) { return response.json() })
-          .then(function(studentData) {
-            var date = new Date(element.created_at)
+  $.ajax({
+    type: "POST",
+    url: "/get_records",
+    data: data,
+    dataType: "json",
+    success: (data) => {
+      data.forEach((studentRecord) => {
+        $.ajax({
+          type: "POST",
+          url: "/get_student",
+          data: { student_id: studentRecord.student_id },
+          success: (student) => {
+            var date = new Date(studentRecord.created_at)
               .toLocaleString("es-ES")
               .split(" ");
-            var type = element.tipo == "t" ? "Ingreso" : "Salida" 
-            var row = '<tr><td><a href="/students/' + studentData.id + '">'
-              + studentData.nombre + '</a></td>' +
-              '<td>' + date[0] + '</td>'+'<td>' + date[1] + '</td>'+'<td>' +type + '</td></tr>';
+            var type = studentRecord.tipo == "t" ? "Ingreso" : "Salida";
+            var row =
+              '<tr><td><a href="/students/' +
+              student.id +
+              '">' +
+              student.nombre +
+              "</a></td>" +
+              "<td>" +
+              date[0] +
+              "</td>" +
+              "<td>" +
+              date[1] +
+              "</td>" +
+              "<td>" +
+              type +
+              "</td></tr>";
             table.append(row);
-          });
+          },
+        });
       });
-    });
+    },
+  });
 };
 
 window.postForm = function () {
@@ -74,10 +81,12 @@ window.postForm = function () {
       },
     }),
   })
-    .then(function (response) { return response.json() })
-    .then(function(data){
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
       if (data.type == "student") {
-        alert("Bienvenido "+data.name+" registro realizado");
+        alert("Bienvenido " + data.name + " registro realizado");
       } else {
         alert("Visita registrada.");
       }
