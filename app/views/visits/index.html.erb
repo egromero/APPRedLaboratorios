@@ -32,24 +32,36 @@
   <div class="tab-content">
     <div class="tab-pane fade show active" id="today" role="tabpanel" aria-labelledby="today-tab">
     <table class="table table-bordered">
-    <thead>
-    <tr>
-    <th scope="col">RUN</th>
-    <th scope="col">Institución</th>
-    <th scope="col">Motivo</th>
-    </tr>
-    </thead>
-    <tbody>
-    <%@visits_day.each do |visit|%>
-    <tr>
-    <td scope="row"><%=visit.rut%></td>
-    <td><%=visit.institucion%></td>
-    <td><%=visit.motivo%></td>
-    <td><%=link_to "Ver más", visit%></td>
-    
-    </tr>
-    <%end%>
-    </tbody>
+      <thead>
+        <tr>
+          <th scope="col">RUN</th>
+          <th scope="col">Institución</th>
+          <th scope="col">Motivo</th>
+          <th scope="col">Hora</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Laboratorio</th> 
+          <th scope="col">Otro motivo</th>
+          <th scope="col">Cantidad de personas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%@visits_day.each do |visit|%>
+        <tr>
+          <td scope="row"><%=visit.rut%></td>
+          <td><%=visit.institucion%></td>
+          <td><%=visit.motivo%></td>
+          <td><%=visit.created_at.to_s.split(' ')[0]%></td>
+          <td><%=visit.created_at.to_s.split(' ')[1]%></td>
+          <td><%=@labs.find(visit.lab_id).nombre%></td>
+          <%if visit.other != ""%>
+          <td><%=visit.other%></td>
+          <%end%>
+          <%if visit.quantity%>
+          <td><%=visit.quantity%></td>
+          <%end%> 
+        </tr>
+        <%end%>
+      </tbody>
     </table>  
     </div>
 
@@ -101,13 +113,16 @@
 </body>
 
 
-<div class="left" id="buttonFile">
+<%
+=begin%>
+ <div class="left" id="buttonFile">
 <%= form_tag import_visits_path, multipart: true do%>
 <%= file_field_tag :file%>
 <%= submit_tag 'Cargar Datos', class: "btn btn-primary"%>
 <%end%>
-</div>
+</div> 
+<%
+=end%>
 
-</body>
 
 

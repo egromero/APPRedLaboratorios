@@ -32,6 +32,8 @@
   <thead>
     <tr>
     <th scope="col">Laboratorio</th>
+    <th scope="col">Hora de registro</th>
+    <th scope="col">Fecha de registro</th>
     <th scope="col">Tipo</th>
     </tr>
     </thead>
@@ -39,6 +41,8 @@
     <tr> 
     <%@lasets_records.each do |record|%>
     <td scope="row"><%=@labs.find(record.lab_id).nombre%></td>
+    <td><%=record.created_at.to_s.split(' ')[0]%></td>
+    <td><%=record.created_at.to_s.split(' ')[1]%></td>
     <td><%=record.tipo == 't' ? "Ingreso": "Salida" %></td>
 </td>
     </tr>
