@@ -35,7 +35,7 @@ window.getRecords = function (id) {
     dataType: "json",
     success: function (data) {
       if (!!data.length) {
-        data.forEach((studentRecord) => {
+        data.forEach(function (studentRecord) {
           $.ajax({
             type: "POST",
             url: "/get_student",
