@@ -42,5 +42,5 @@ Rails.application.routes.draw do
   get '/previous_records', to: "laboratories#previous_records"
   post '/get_records', to: "records#get_records"
   post '/get_student', to: "students#get_student"
-  
+  get '/get_laboratories_occupation', to: "records#get_occupation"
 end
