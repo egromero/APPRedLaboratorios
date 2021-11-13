@@ -25,9 +25,13 @@
     <%= form.label :campus %>
     <%= form.text_field :campus %>
   </div>
-  
+
+   <div class="field">
+    <%= form.label :capacidad %>
+    <%= form.text_field :capacity %>
+  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Guardar', class: 'btn' %>
   </div>
 <% end %>
