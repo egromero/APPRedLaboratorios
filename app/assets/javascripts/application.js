@@ -72,31 +72,28 @@ window.getRecords = function (id) {
 };
 
 window.postForm = function () {
-  fetch("/visits", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
+  var data = {
+    visit: {
+      rut: document.getElementById("run").value,
+      institucion: document.getElementById("institution").value,
+      lab_id: document.getElementById("lab").value,
+      motivo: document.getElementById("motivo").value,
+      other: document.getElementById("otro").value,
+      quantity: document.getElementById("counter").value,
     },
-    body: JSON.stringify({
-      visit: {
-        rut: document.getElementById("run").value,
-        institucion: document.getElementById("institution").value,
-        lab_id: document.getElementById("lab").value,
-        motivo: document.getElementById("motivo").value,
-        other: document.getElementById("otro").value,
-        quantity: document.getElementById("counter").value,
-      },
-    }),
-  })
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      if (data.type == "student") {
-        alert("Bienvenido " + data.name + " registro realizado");
+  };
+  $.ajax({
+    type: "POST",
+    url: "/visits",
+    dataType: "json",
+    data: data,
+    success: function (data) {
+      if (data.type === "student") {
+        alert("Bienvenido/a " + data.name + " registro realizado");
       } else {
         alert("Visita registrada.");
       }
       window.location.replace("/slideshow");
-    });
+    },
+  });
 };
