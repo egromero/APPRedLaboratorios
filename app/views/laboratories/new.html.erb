@@ -1,5 +1,28 @@
-<h1>New Laboratory</h1>
+<div class="light-title">
+    Creación de Nuevo Laboratorio
+    <hr/>
+</div>
 
-<%= render 'form', laboratory: @laboratory %>
+<form action="/laboratories" method="post" id="new-lab-form">
+<div class="student-form">
+    <p class="lil-title">Completa la información a continuación</p>
+<div class="form-box">
+    <p>Información personal</p>
+    <div class="column-flex-div">
+        <label class="label-form">Nombre</label>
+        <input class="input-form" name="laboratory[nombre]">
+        <label class="label-form">Campus</label>
+        <input class="input-form" name="laboratory[campus]"> 
+        <label class="label-form">Facultad responsable</label>
+        <input class="input-form" name="laboratory[facultad]">
+        <label class="label-form">Capacidad</label>
+        <input type=number class="input-form" name="laboratory[capacity]">
+    </div>
+</div>
 
-<%= link_to 'Back', laboratories_path %>
+<div class="row-flex-div" style="width:25%">
+    <button class="btn btn-primary" type="submit">Guardar</button>
+    <a href=<%=laboratories_path%> class="btn btn-secondary">Volver</a>
+</div>
+</form>
+

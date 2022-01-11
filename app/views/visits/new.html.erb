@@ -2,11 +2,9 @@
 <body>
 	<div class="container-contact100">
 		<div class="wrap-contact100">
+			<form class="contact100-form" id="visitForm">
 
-
-			<form class="contact100-form" action="/visits" method="post" id="visitForm">
-
-
+				<a href=<%=slideshow_path%> class="btn btn-secondary"> Volver </a>
 				<span class="contact100-form-title">
 					Registro Manual y Visitas
 				</span>
@@ -30,7 +28,7 @@
 				<div class="wrap-input100 input100-select bg1">
 					<span class="label-input100">Laboratorio</span>
 					<div>
-						<select class="js-select2" name="lab_id" id="lab">
+						<select class="input-form" name="lab_id" id="lab">
                             <%=@labs.each do |lab|%>
 							<option value=<%=lab.id%>> <%=lab.nombre%></option>
 							<%end%>
@@ -44,7 +42,7 @@
 				<div class="wrap-input100 input100-select bg1">
 					<span class="label-input100">Motivo de visita </span>
 					<div>
-						<select class="js-select2" name="motivo" id="motivo">
+						<select class="input-form" name="motivo" id="motivo">
                             <option>Investigación</option>
 							<option>Emprendimiento</option>
 							<option>Curso</option>
@@ -70,7 +68,7 @@
 
 
 				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn" type="submit" id="button">
+					<button class="contact100-form-btn" type="button" onClick="window.postForm();" id="button">
 						<span>
 							Ingresar
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>

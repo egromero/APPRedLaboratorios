@@ -1,7 +1,7 @@
 class RecordsController < ApplicationController
     skip_before_action :verify_authenticity_token
     load_and_authorize_resource class: "Record"
-    before_action :authenticate, only:[:create]
+    before_action :authenticate, only:[:create, :get_ocupacity]
 
     rescue_from CanCan::AccessDenied do |exception|
         flash[:warning] = "Acceso Denegado!"
@@ -70,9 +70,35 @@ class RecordsController < ApplicationController
         else    
             
             respond_to do |format|
-                format.json {render json: @records, status:404}
-
+                format.json {render json: {'type': 'nonexistent', 'data': {'rfid' => params[:rfid] }}}
             end
         end
+    end
+
+    def get_occupation
+        result = {}
+        laboratories = Laboratory.all.order(id: :asc)
+        records = Record.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+        laboratories.each do |lab|
+            lab_records = records.where(lab_id: lab.id)
+            occupation = lab_records.where(tipo: true).count - lab_records.where(tipo: false).count
+            occupation = occupation < 0 ? 0: occupation 
+            result[lab.id] = {
+                'name' => lab.nombre,
+                'capacity' => lab.capacity,
+                'occupation' => occupation,
+                'occupation_percentage' => occupation*100/lab.capacity
+            }
+        end
+        return render json: result
+    end
+
+    def get_records
+        start = params[:start].to_date
+        end_date= params[:end].blank? ? "": params[:end].to_date 
+        if !end_date.blank?
+            return render json: Record.where(lab_id: params[:lab_id], created_at: start.beginning_of_day..end_date.end_of_day).order(created_at: :desc)
+        end
+        return render json: Record.where(lab_id: params[:lab_id], created_at: start.beginning_of_day.. start.end_of_day).order(created_at: :desc)
     end 
 end

@@ -42,6 +42,20 @@ class UsersController < ApplicationController
     redirect_to users_path, :flash => { :success => 'User was successfully deleted.' }
   end
 
+  def reset_password
+    if current_user.rol=="admin"
+      user = User.find(params[:id])
+      ucUser = user.email.split("@")[0]
+      user.password = ucUser + Time.new.year.to_s
+      if user.save
+        redirect_to users_path, :flash => { :success => 'Contraseña restablecida' }  
+      end
+    else
+      redirect_to users_path, :flash => { :error => 'Solo el administrador puede hacer esta función' }
+    end
+
+  end
+
   private
     def user_params
       params.permit(:email, :password, :password_confirmation, :rol, :lab_id)

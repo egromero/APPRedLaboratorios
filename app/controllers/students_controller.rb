@@ -120,6 +120,10 @@ end
     end
   end
 
+  def get_student
+    render json: Student.find(params[:student_id])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student

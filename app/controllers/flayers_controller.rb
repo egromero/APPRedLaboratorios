@@ -28,7 +28,7 @@ class FlayersController < ApplicationController
 
     respond_to do |format|
       if @flayer.save
-        format.html { redirect_to @flayer, notice: 'Flayer was successfully created.' }
+        format.html { redirect_to slideshow_path	, notice: 'Afiche agregado exitosamente' }
         format.json { render :show, status: :created, location: @flayer }
       else
         format.html { render :new }
