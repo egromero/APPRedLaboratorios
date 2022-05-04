@@ -88,7 +88,8 @@ window.postForm = function () {
     dataType: "json",
     data: data,
     success: function (data) {
-      if (data.type === "student") {
+      console.log(data);
+      if (data.type == "student") {
         alert("Bienvenido/a " + data.name + " registro realizado");
       } else {
         alert("Visita registrada.");
