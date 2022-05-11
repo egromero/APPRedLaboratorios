@@ -7,6 +7,7 @@
     <th scope="col">Código MIFARE</th>
     <th scope="col">Situación Acadámica</th>
     <th scope="col">Correo UC</th>
+    <th scope="col">Carrera</th>
     <th scope="col">Laboratorios Autorizados</th>
     </tr>
     </thead>
@@ -17,6 +18,7 @@
     <td><%=@student.rfid%></td>
     <td><%=@student.sit_academica%></td>
     <td><%=@student.correo%></td>
+    <td><%=@student.major%></td>
     <%@student.laboratories.each do |lab|%>
     <td><%=lab.nombre%></td>
     <%end%>

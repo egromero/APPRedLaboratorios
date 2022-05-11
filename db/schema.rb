@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_13_182557) do
+ActiveRecord::Schema.define(version: 2022_05_04_215600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2021_11_13_182557) do
     t.datetime "updated_at", null: false
     t.string "rut"
     t.boolean "status"
+    t.string "major"
   end
 
   create_table "totems", force: :cascade do |t|

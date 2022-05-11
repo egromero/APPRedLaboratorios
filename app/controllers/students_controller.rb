@@ -85,9 +85,10 @@ def created_from_totem
     end
     return 0
   end
+  puts params
   @student = Student.new({:rfid => params[:rfid],:nombre => params[:nombre],
                           :correo => params[:correo], :sit_academica=> params[:sit_academica],
-                          :rut => params[:rut]})
+                          :rut => params[:rut], :major => params[:major]})
   respond_to do |format|
     if @student.save
       format.json {render json: @student, status: :created}
