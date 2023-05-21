@@ -1,0 +1,38 @@
+<div class="light-title">
+    Creación de nueva máquina
+    <hr/>
+</div>
+
+<form action="/machines" method="post" enctype="multipart/form-data">
+<div class="student-form">
+    <p class="lil-title">Completa la información a continuación</p>
+<div class="form-box">
+    <div class="column-flex-div">
+        <label class="label-form">Nombre</label>
+        <input class="input-form" name="machine[name]">
+        <label class="label-form">Descripción</label>
+        <textarea class="input-form" row=5 name="machine[description]"></textarea>
+        <label class="label-form">Laboratorio</label>
+        <select class="input-form" name="machine[lab_id]">
+            <% @laboratories.each do |lab| %>
+                <option value="<%=lab.id%>"><%=lab.nombre%></option>
+            <% end %>
+        </select>
+        <label class="label-form"> Imagen </label>
+        <input class="input-form" type="file" name="machine[cover_image]">
+        <div class="row-flex-div" style="margin:10px 0; align-items:baseline">
+        <label class="label-form"> Disponible para ser reservada </label>
+         <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+        </div>
+    </div>
+</div>
+
+<div class="row-flex-div" style="width:25%">
+    <button class="btn btn-primary" type="submit">Guardar</button>
+    <a href=<%=machines_path%> class="btn btn-secondary">Volver</a>
+</div>
+</form>
+

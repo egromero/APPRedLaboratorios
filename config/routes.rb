@@ -3,11 +3,18 @@ Rails.application.routes.draw do
   root 'home_page#index'
   
   resources :flayers
+  resources :machines
   resources :laboratories
   resources :students
   resources :records 
   resources :visits
+  resources :wallets
   devise_for :users
+
+  scope "/wallets/:student_id" do
+    post "modify_wallet", to: "wallets#modify_wallet"
+
+  end
 
   resource :students do 
     post 'enroll'
@@ -25,6 +32,8 @@ Rails.application.routes.draw do
   resources :students do 
     collection {post :import}
   end
+
+  
 
   scope '/admin' do
     resources :users

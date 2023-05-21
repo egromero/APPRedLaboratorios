@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_04_215600) do
+ActiveRecord::Schema.define(version: 2023_05_01_220158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 2022_05_04_215600) do
     t.index ["student_id", "laboratory_id"], name: "index_laboratories_students_on_student_id_and_laboratory_id"
   end
 
+  create_table "machines", force: :cascade do |t|
+    t.string "name"
+    t.float "weight"
+    t.boolean "is_available", default: true
+    t.integer "lab_id"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "records", force: :cascade do |t|
     t.string "tipo"
     t.bigint "student_id"
@@ -81,6 +91,7 @@ ActiveRecord::Schema.define(version: 2022_05_04_215600) do
     t.string "rut"
     t.boolean "status"
     t.string "major"
+    t.float "wallet_id"
   end
 
   create_table "totems", force: :cascade do |t|
@@ -112,6 +123,14 @@ ActiveRecord::Schema.define(version: 2022_05_04_215600) do
     t.integer "lab_id"
     t.string "other"
     t.integer "quantity"
+  end
+
+  create_table "wallets", force: :cascade do |t|
+    t.float "hours"
+    t.integer "student_id"
+    t.boolean "current", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

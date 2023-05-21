@@ -1,3 +1,26 @@
 // Place all the styles related to the Students controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.name {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
+  margin: 0 5px 0;
+}
+
+.element {
+    margin: 0 5px 0;
+}
+
+.row-profile {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin: 0;
+}

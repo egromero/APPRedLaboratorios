@@ -1,0 +1,12 @@
+<div class="show-container">
+<div class="row-flex-div" style="justify-content: inherit">
+    <%= image_tag(@machine.cover_image, :style => "width:600px") %>
+    <div class="column-flex-div" style="justify-content: inherit">
+        <h4><%=@machine.name.upcase%></h4>
+        <p> Laboratorio: <%=@laboratory.nombre%></p>
+        <p>Descripción: <%=@machine.description%></p>
+        <p> Horario disponible para reservar: 9:00 - 18:00</p>
+        <button class="btn btn-primary"> Reservar</button>
+    </div>
+</div>
+</div>
