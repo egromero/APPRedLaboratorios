@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.6.1"
+ruby "2.7.6"
 
 gem 'rake'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -20,7 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 ## An authorization library 
 gem "cancancan"
 
-# Use CoffeeScript for .coffee assets and views
+# Use CoffeeScript for .cof  fee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_01_220158) do
+ActiveRecord::Schema.define(version: 2023_05_21_235624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,18 @@ ActiveRecord::Schema.define(version: 2023_05_01_220158) do
     t.boolean "foul", default: false
     t.string "description"
     t.index ["student_id"], name: "index_records_on_student_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.date "date"
+    t.integer "starting_block"
+    t.integer "ending_block"
+    t.integer "student_id"
+    t.float "hours"
+    t.integer "machine_id"
+    t.integer "lab_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "students", force: :cascade do |t|

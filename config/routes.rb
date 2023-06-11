@@ -16,6 +16,11 @@ Rails.application.routes.draw do
 
   end
 
+  resources :reservations
+  scope "reservation/:machine_id" do
+    get "new", to: "reservations#new"
+  end
+
   resource :students do 
     post 'enroll'
     post 'created_from_totem'
