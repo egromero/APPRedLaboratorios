@@ -13,10 +13,17 @@ Rails.application.routes.draw do
 
   scope "/wallets/:student_id" do
     post "modify_wallet", to: "wallets#modify_wallet"
-
   end
 
+  scope "machines" do
+    get "/lab/:id", to: "machines#laboratories"
+  end
+
+
+
   resources :reservations
+  post "/occupied" => "reservations#occupied"
+  get "/reservation" => "reservations#index"
   scope "reservation/:machine_id" do
     get "new", to: "reservations#new"
   end

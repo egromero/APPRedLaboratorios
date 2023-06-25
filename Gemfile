@@ -16,7 +16,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-
+gem 'pry', '~> 0.13.1'
 ## An authorization library 
 gem "cancancan"
 

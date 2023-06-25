@@ -1,0 +1,19 @@
+
+<div style="width: 100%; padding: 1%; display: flex; justify-content: end;">
+  <a class="btn btn-secondary" href="/machines/new"> Crear maquina</a>
+</div>
+<div class="gallery">
+  <% @machines.each do |machine| %>
+  <div class="card" href=machines/<%=machine.id%>>
+      <%= image_tag(machine.cover_image) %>
+      <div class="description">
+        <h4><%= machine.name %></h4>
+        <p><%= machine.description%></p>
+      </div>
+      <div class="row-flex-div" style="margin-top:auto">
+      <a class="btn btn-secondary" style="font-family:inherit" href="/machines/<%=machine.id%>">Detalles</a>
+      <a class="btn btn-primary" href="/reservation/<%=machine.id%>/new" >Reservar</a>
+      </div>
+     </div> 
+  <% end %>
+</div>

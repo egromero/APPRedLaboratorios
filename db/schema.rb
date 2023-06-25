@@ -82,10 +82,8 @@ ActiveRecord::Schema.define(version: 2023_05_21_235624) do
 
   create_table "reservations", force: :cascade do |t|
     t.date "date"
-    t.integer "starting_block"
-    t.integer "ending_block"
+    t.integer "hour_block"
     t.integer "student_id"
-    t.float "hours"
     t.integer "machine_id"
     t.integer "lab_id"
     t.datetime "created_at", null: false

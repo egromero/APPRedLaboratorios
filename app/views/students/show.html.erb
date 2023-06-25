@@ -1,5 +1,5 @@
 <h2>Información del estudiante</h2>
-<div class="row-flex-div" style="justify-content: center">
+<div class="row-flex-div" style="justify-content: center;align-items: start;"">
   <div class="column-flex-div">
     <div class="row-profile"><p class="name"><%=@student.nombre%></p></div>
     <div class="row-profile"><p class="bold">RUT: </p> <p class="element"><%=@student.format_rut%></p></div>
@@ -16,59 +16,58 @@
     <%end%>
   </div>
 
-<%if @student.records.any?%>
-<div class="column-flex-div" style="width: 60%; justify-content: inherit">
-<p class="bold">Ultimos registros</p>
-<table class="table">
-  <thead>
-      <tr>
-        <th scope="col">Laboratorio</th>
-        <th scope="col">Hora de registro</th>
-        <th scope="col">Fecha de registro</th>
-        <th scope="col">Tipo</th>
-      </tr>
-  </thead>
-  <tbody id="records">
-    <tr> 
-      <%@lasets_records.each do |record|%>
-        <td scope="row"><%=@labs.find(record.lab_id).nombre%></td>
-        <td><%=record.created_at.to_s.split(' ')[0]%></td>
-        <td><%=record.created_at.to_s.split(' ')[1]%></td>
-        <td><%=record.tipo == 't' ? "Ingreso": "Salida" %></td>
-      <%end%>
-    </tr>
-  </tbody>
-</table>
-<%end%>
-</div>
-</div>
-
-
-
-
-<%if @fouls.any?%>
-<h4>Faltas</h4>
-<table class="table">
-  <thead>
-    <tr>
-    <th scope="col">Laboratorio</th>
-    <th scope="col">Fecha</th>
-    <th scope="col">Hora</th>
-    <th scope="col">Descripción</th>
-    </tr>
-    </thead>
-    <tbody id="records">
-    <tr> 
-    <%@fouls.each do |record|%>
-    <td scope="row"><%=@labs.find(record.lab_id).nombre%></td>
-    <td><%=record.created_at.to_s.split(' ')[0]%></td>
-    <td><%=record.created_at.to_s.split(' ')[1]%></td>
-    <td><p><%=record.description%></p></td>
-    </tr>
-     <%end%>
-     </tbody>
+  <div class="column-flex-div" style="width: 60%; justify-content: inherit">
+    <p class="bold">Ultimos registros</p>
+    <table class="table">
+      <thead>
+          <tr>
+            <th scope="col">Laboratorio</th>
+            <th scope="col">Hora de registro</th>
+            <th scope="col">Fecha de registro</th>
+            <th scope="col">Tipo</th>
+          </tr>
+      </thead>
+      <tbody id="records">
+        <tr> 
+          <%@lasets_records.each do |record|%>
+            <td scope="row"><%=@labs.find(record.lab_id).nombre%></td>
+            <td><%=record.created_at.to_s.split(' ')[0]%></td>
+            <td><%=record.created_at.to_s.split(' ')[1]%></td>
+            <td><%=record.tipo == 't' ? "Ingreso": "Salida" %></td>
+          <%end%>
+        </tr>
+      </tbody>
     </table>
-    <%end%>
+  </div>
+  <div class="column-flex-div" style="width: 60%; justify-content: inherit">
+    <p class="bold">Faltas</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Laboratorio</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Hora</th>
+          <th scope="col">Descripción</th>
+        </tr>
+      </thead>
+      <tbody id="records">
+        <tr> 
+          <%@fouls.each do |record|%>
+            <td scope="row"><%=@labs.find(record.lab_id).nombre%></td>
+            <td><%=record.created_at.to_s.split(' ')[0]%></td>
+            <td><%=record.created_at.to_s.split(' ')[1]%></td>
+            <td><p><%=record.description%></p></td>
+          <%end%>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
 
 <%= link_to 'Volver', students_path %>
 

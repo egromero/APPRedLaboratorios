@@ -6,7 +6,7 @@ class MachinesController < ApplicationController
   end
 
   def new
-    @laboratories = Laboratory.all
+    @laboratories = current_user.rol == 'admin' ? Laboratory.all : Laboratory.where(id: current_user.lab_id)
   end
 
   def show
@@ -18,6 +18,10 @@ class MachinesController < ApplicationController
     @machine = Machine.new(machine_params)
     @machine.save
     redirect_to machines_path
+  end
+
+  def laboratories
+    @machines = Machine.where(lab_id: params[:id])
   end
 
   private

@@ -19,7 +19,12 @@ class Student < ApplicationRecord
   end
 
   def current_wallet
-    wallets.where(current: true).first
+    walet = wallets.where(current: true).first
+    if walet.nil?
+      self.wallets.create(student_id: self.id, hours: 16)
+    else
+      walet
+    end
   end
 
   def format_rut
