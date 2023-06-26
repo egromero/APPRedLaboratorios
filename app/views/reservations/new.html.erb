@@ -11,16 +11,17 @@
               <div class="column-flex-div">
                  <p> Ingresa tu Rut en formato 12345678-9 (sin puntos con guíon)</p>
                   <div class="row-flex-div" style="justify-content: space-around">
-                    <input id="rut-student" placeholder="Ingresa RUT" style="padding-left:5px;">
+                    <input id="rut-student" placeholder="Ingresa RUT" style="padding-left:5px;" form="form" name="student_rut">
                     <button type="button" id="check-student" class="btn btn-primary"> Revisar horas disponibles</button>
                   </div>
                   <p id="available-hours"></p>
               </div>
                 <div class="row-flex-div" style="justify-content: space-around">
-                    <input type="date" id="selected-date" disabled/>
+                    <input type="date" id="selected-date" disabled form="form" name="date"/>
                     <button type="button" id="check-date" class="btn btn-primary" disabled> Revisar disponiblidad de máquina</button>
                     <input hidden name="blocks[]" id="blocks">
                     <input hidden name="machine_id" id="machine_id" value="<%= @machine.id %>">
+                    <input hidden name="lab_id" value="<%= @machine.lab_id %>">
                 </div> 
                 <div class="row-flex-div hour-box">
                     <%end_time = '18:00'%>
@@ -43,7 +44,7 @@
                         <%index = index + 1%>
                     <%end%>  
                 </div>
-                <button class="btn btn-primary" type="button" onClick="submitForm()"> Reservar</button>
+                <button class="btn btn-primary" type="button" id="reservation-button" disabled> Reservar</button>
             </form>
         </div>
     </div>
@@ -56,6 +57,10 @@
     opacity: 0.5;
     pointer-events: none;
 }
+.selected{
+  background-color: rgb(250, 210, 54);
+  color: white;
+}
 
 </style>
 
@@ -63,6 +68,7 @@
 
  function submitForm (){
      $("#blocks").val(JSON.stringify(window.elements));
+     $("#rut-student").prop('disabled', false);
      $("#form").submit();
 
   }
@@ -71,17 +77,31 @@
       var selectedRut = $('#rut-student').val();
       if(window.rut.validaRut(selectedRut)){
         $('#check-date').prop('disabled', false);
-        $('#selected-date').prop('disabled', false);
-        $('#available-hours').text("Usuario cuenta con X horas disponibles");
+        $('#selected-date').prop('disabled', false)
+        $.ajax({
+         url: '/check_student_wallet',
+         type: 'POST',
+         dataType: 'json',
+         data: {rut: selectedRut},
+         success: function(response) {
+           if(response.status != 200){
+            alert("Rut ingresado, no se encuentra registrado");
+            $('#rut-student').val('');
+            return;
+           }
+           $('#available-hours').text(response.student.nombre + ' cuenta con ' + response.wallet.hours + ' horas disponibles');
+           $('#rut-student').attr('readonly', true);
+           $('#check-student').prop('disabled', true);
+         },
+         error: function(xhr, status, error) {
+           // Handle the error case
+           console.log(status, error)
+         }
 
-        // Agregaar aquí la lógica para ir a buscar las horas disponibles del estudiante. 
-
-
-
-
-
+         ,
+         });
       }else{
-        alert("RUT no valido");
+        alert("RUT invalido o formato incorrecto, ingresar con guion y sin puntos");
         $('#rut-student').val('');
       }
     })

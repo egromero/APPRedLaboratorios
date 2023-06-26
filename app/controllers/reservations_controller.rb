@@ -34,25 +34,39 @@ class ReservationsController < ApplicationController
   def create
     # @reservation = Reservation.new(reservation_params)
     blocks = params[:blocks].first.gsub!(/[\[\]\"]/, '').split(',')
-    binding.pry
+    asked_hours = blocks.length * 0.5
+    @reservations = []
+    student = Student.find_by(rut: params[:student_rut])
+    if student.nil?
+      respond_to do |format|
+        format.html { redirect_to reservations_path, notice: "El estudiante no existe." }
+      end
+    end
+    student_id = student.id
     blocks.each do |block|
       @reservation = Reservation.new(
-                      date:params[:date],
+                      date: params[:date],
                       hour_block: block.to_i,
                       student_id: student_id,
                       machine_id: params[:machine_id].to_i,
                       lab_id: params[:lab_id].to_i)
+      @reservations.push(@reservation)
     end
-
-    # respond_to do |format|
-    #   if @reservation.save
-    #     format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully created." }
-    #     format.json { render :show, status: :created, location: @reservation }
-    #   else
-    #     format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @reservation.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    failed_reservations = []
+    @reservations.each do |reservation|
+      unless reservation.save
+        failed_reservations.push(reservation)
+      end
+    end
+    respond_to do |format|
+      if failed_reservations.empty?
+        student.discount(asked_hours)
+        format.html { redirect_to reservations_path, notice: "Reservas creadas correctamente." }
+      else
+        student.discount(asked_hours - failed_reservations.length * 0.5)
+        format.html { redirect_to reservations_path, notice: "Algunas reservas no fueron creadas." }
+      end
+    end
   end
 
   # PATCH/PUT /reservations/1 or /reservations/1.json

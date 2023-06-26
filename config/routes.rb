@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get "/lab/:id", to: "machines#laboratories"
   end
 
-
+  post "/check_student_wallet" => "students#check_student_wallet"
 
   resources :reservations
   post "/occupied" => "reservations#occupied"

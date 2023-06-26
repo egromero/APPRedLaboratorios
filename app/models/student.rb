@@ -27,6 +27,12 @@ class Student < ApplicationRecord
     end
   end
 
+  def discount(hours)
+    wallet = current_wallet
+    wallet.hours -= hours
+    wallet.save
+  end
+
   def format_rut
     '' if rut.nil?
     rut if rut.include? '-'

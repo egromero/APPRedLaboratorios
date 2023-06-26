@@ -102,8 +102,19 @@ window.postForm = function () {
 
 window.elements = [];
 window.addElement = function (element){
-  console.log("add:",element)
-  window.elements.push(element);
+  if(!window.elements.includes(element)){
+    $("#hour-"+element).addClass("selected")
+    window.elements.push(element);
+    console.log("add:",window.elements)
+  }else{
+    $("#hour-"+element).removeClass("selected")
+    window.elements.splice(window.elements.indexOf(element),1)
+    console.log("remove:", window.elements)
+  }
+  if(window.elements.length>0){
+    $("#reservation-button").prop("disabled", false)
+    $("#reservation-button").attr("onClick", "submitForm();");
+  }
 }
 
 
