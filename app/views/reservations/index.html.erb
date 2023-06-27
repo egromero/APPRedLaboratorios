@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1 style="text-align: center">Plataforma de reservas </h1>
+<div style="text-align: right">
+  <a class="btn btn-primary" href="/reservations/my_reservations">Mis reservas</a>
+</div>
 <div class="row-flex-div" style="justify-content: start">
   <% @laboratories.each do |lab| %>
     <div class="card" style= "padding: 0;align-items: center;">

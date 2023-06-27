@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   end
 
   post "/check_student_wallet" => "students#check_student_wallet"
-
+  get "/reservations/my_reservations" => "reservations#my_reservations"
+  post "/student_reservation" => "reservations#get_student_reservation"
   resources :reservations
   post "/occupied" => "reservations#occupied"
   get "/reservation" => "reservations#index"

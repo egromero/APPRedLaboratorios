@@ -22,6 +22,7 @@ class MachinesController < ApplicationController
 
   def laboratories
     @machines = Machine.where(lab_id: params[:id])
+    @laboratory_id = params[:id]
   end
 
   private

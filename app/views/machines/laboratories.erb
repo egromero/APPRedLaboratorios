@@ -1,6 +1,8 @@
 
 <div style="width: 100%; padding: 1%; display: flex; justify-content: end;">
-  <a class="btn btn-secondary" href="/machines/new"> Crear maquina</a>
+  <%if current_user.rol == "admin" || current_user.lab_id == @laboratory_id%>
+    <a class="btn btn-secondary" href="/machines/new"> Crear maquina</a>
+  <%end%>
 </div>
 <div class="gallery">
   <% @machines.each do |machine| %>

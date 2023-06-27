@@ -11,6 +11,27 @@ class ReservationsController < ApplicationController
   def show
   end
 
+  def get_student_reservation
+    student = Student.find_by(rut: params[:rut])
+    if student.nil?
+      render json: { message: "Student not found", status: 404}
+      return;
+    end
+    wallet = student.current_wallet
+    reservations = Reservation.where(student_id: student.id)
+    reservations_object = []
+    reservations.each do |reservation|
+      machine = Machine.find(reservation.machine_id).name
+      laboratory = Laboratory.find(reservation.lab_id).nombre
+      reservations_object << { date: reservation.date, hour_block: reservation.hour_block, machine: machine, laboratory: laboratory }
+    end
+
+    render json: { student: { name: student.nombre, rut: student.rut },
+                   wallet: { hours: wallet.hours }, 
+                   reservations: reservations_object,
+                   status: 200 }
+  end
+
   # GET /reservations/new
   def new
     @machine = Machine.find(params[:machine_id])
@@ -36,13 +57,27 @@ class ReservationsController < ApplicationController
     blocks = params[:blocks].first.gsub!(/[\[\]\"]/, '').split(',')
     asked_hours = blocks.length * 0.5
     @reservations = []
+    check_machines = Reservation.where(machine_id: params[:machine_id], date: params[:date], hour_block: blocks)
+    unless check_machines.empty?
+      respond_to do |format|
+        format.html { redirect_to reservations_path, notice: "Una o más horas ya están tomadas." }
+      end
+      return;
+    end
     student = Student.find_by(rut: params[:student_rut])
     if student.nil?
       respond_to do |format|
         format.html { redirect_to reservations_path, notice: "El estudiante no existe." }
       end
+      return;
     end
     student_id = student.id
+    if asked_hours > student.current_wallet.hours
+      respond_to do |format|
+        format.html { redirect_to reservations_path, notice: "No tienes suficientes horas para reservar." }
+      end
+      return;
+    end
     blocks.each do |block|
       @reservation = Reservation.new(
                       date: params[:date],

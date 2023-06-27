@@ -35,7 +35,17 @@ div {
 }
 
 #notice {
-  color: green;
+  background-color: rgb(250,210,54);
+  color:white;
+  padding: 1%;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 800;
+  margin: 10px 0;
+  text-align: center;
+}
+#notice:empty{
+  display: none;
 }
 
 .field_with_errors {

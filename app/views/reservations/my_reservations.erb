@@ -1,0 +1,77 @@
+<div class="column-flex-div" style="width: 20%; margin: 20px auto;justify-content: space-between; height: 70px;">
+    <h3 style="padding:0; text-align: center"> Consultar RUT</h3>
+    <input type="text" name="student_rut" style="margin-bottom:10px; padding-left:5px" id="rut">
+    <button type="button" class="btn btn-primary" id="search-student">Buscar</button>
+</div>
+<div id="content" style="margin: 3rem auto"></div>
+
+
+<script>
+
+    $('#search-student').on('click', function() {
+        const rut = $("#rut").val();
+        if(window.rut.validaRut(rut)){
+            $.ajax({
+            url: '/student_reservation',
+            type: 'POST',
+            dataType: 'json',
+            data: {rut: rut},
+            success: function(response) {
+            if(response.status != 200){
+                alert("Rut ingresado, no se encuentra registrado");
+                $('#rut').val('');
+                return;
+            }
+            const {student, reservations, wallet} = response;
+            const groups = reservations.reduce((groups, reservation ) => {
+                if (!groups[reservation.date]) {
+                    groups[reservation.date] = [];
+                }
+                groups[reservation.date].push(reservation);
+                return groups;
+                }, {});
+            const rows = Object.keys(groups).map(date => {
+                        return groups[date].reduce((acc, curr) => {
+                            const key = `${curr.date}`;
+                            const obj = acc[key] || { date: curr.date, machine: curr.machine, laboratory: curr.laboratory, hour_block: [] };
+                            obj.hour_block.push(window.modules[curr.hour_block]);
+                            acc[key] = obj;
+                            return acc;
+                            }, {});
+                        })
+            $("#content").html(`
+            <div class="column-flex-div">
+            <h3>${student.name}</h3>
+            <p>RUT: ${student.rut}</p>
+            <p>Horas disponibles: ${wallet.hours}</p>
+            <p>Horas ocupadas: ${reservations.length * 0.5}</p>
+            <h4 style="margin:20px 0">Reservas:</h4>
+            <table>
+                <thead>
+                    <tr>
+                    <th>Máquina Reservada</th>
+                    <th>Laboratorio</th>
+                    <th>Fecha</th>
+                    <th>Horario(s) Reservado(s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                ${rows.map(row =>{
+                    const {machine, laboratory, date, hour_block} = Object.values(row)[0];
+                    return `<tr><td>${machine}</td><td>${laboratory}</td><td>${date}</td><td>${hour_block}</td></tr>`
+                }).join("")}
+                </tbody>
+            </table>
+
+
+            </div>
+            
+            `)
+            },
+            })
+        }else{
+            alert("RUT no valido o en formato incorrecto");
+        }
+    });
+
+</script>
