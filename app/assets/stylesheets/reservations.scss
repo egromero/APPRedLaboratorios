@@ -1,0 +1,43 @@
+// Place all the styles related to the Reservations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hour-box {
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    width: 90%;
+    padding: 1%;
+    justify-content: start;
+    flex-wrap: wrap;
+    box-shadow: 0 0 3px gray;
+}
+
+.hour{
+    text-align: center;
+    margin: 5px;
+}
+.hour:hover{
+    color: white;
+}
+
+.hour-card{
+    border: 1px solid gray;
+    border-radius: 4px;
+    width: 90px;
+    margin: 10px 1px;
+    box-shadow: 1px 1px 3px gray;
+    font-size: 12px;
+    text-align: center;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.hour-card:hover{
+    color: white;
+    background-color: rgb(51, 133, 214);
+    box-shadow: 1px 1px 3px gray;
+    border: 1px solid rgb(51, 133, 214);
+}

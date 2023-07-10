@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1 style="text-align: center">Plataforma de reservas </h1>
+<div style="text-align: right">
+  <a class="btn btn-primary" href="/reservations/my_reservations">Mis reservas</a>
+</div>
+<div class="row-flex-div" style="justify-content: start">
+  <% @laboratories.each do |lab| %>
+    <div class="card" style= "padding: 0;align-items: center;">
+      <div class="row-flex-div" style="align-items:center;">
+        <div class="column-flex-div">
+          <p class="lil-title" style="margin-bottom: 3px"><%= lab.nombre %></p>
+          <p style="margin:0"><%= lab.campus %></p>
+        </div>
+        <a class="btn btn-secondary" style="color:white;" href="/machines/lab/<%= lab.id %>"> Seleccionar </a>
+      </div>
+    </div>
+  <% end %>
+</div>

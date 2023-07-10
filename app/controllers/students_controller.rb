@@ -19,10 +19,21 @@ class StudentsController < ApplicationController
     end
   end
 
+  def check_student_wallet
+    student = Student.find_by(rut: params[:rut])
+    if student.nil?
+      render json: { message: "Student not found", status: 404}
+    else
+      wallet = student.current_wallet
+      render json: { student: student, wallet: wallet, status: 200 } 
+    end
+  end
+
   def inconsistency(previus_record, record)
     print "mudando a registro de record"
   end
   helper_method :inconsistency
+
   
   # GET /students/1
   # GET /students/1.json
@@ -78,25 +89,25 @@ class StudentsController < ApplicationController
     end
   end
   
-def created_from_totem
-  if Student.where(rfid: params[:rfid]).exists?
+  def created_from_totem
+    if Student.where(rfid: params[:rfid]).exists?
+      respond_to do |format|
+        format.json {render json: @student, status: :created}
+      end
+      return 0
+    end
+    puts params
+    @student = Student.new({:rfid => params[:rfid],:nombre => params[:nombre],
+                            :correo => params[:correo], :sit_academica=> params[:sit_academica],
+                            :rut => params[:rut], :major => params[:major]})
     respond_to do |format|
-      format.json {render json: @student, status: :created}
-    end
-    return 0
-  end
-  puts params
-  @student = Student.new({:rfid => params[:rfid],:nombre => params[:nombre],
-                          :correo => params[:correo], :sit_academica=> params[:sit_academica],
-                          :rut => params[:rut], :major => params[:major]})
-  respond_to do |format|
-    if @student.save
-      format.json {render json: @student, status: :created}
-    else
-      format.json {render json: @student.errors, status: :unprocessable_entity }
+      if @student.save
+        format.json {render json: @student, status: :created}
+      else
+        format.json {render json: @student.errors, status: :unprocessable_entity }
+      end
     end
   end
-end
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update

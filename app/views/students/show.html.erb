@@ -1,82 +1,73 @@
-<h2>Información del estudiante </h2>
- <table class="table">
-  <thead>
-    <tr>
-    <th scope="col">Nombre</th>
-    <th scope="col">RUN</th>
-    <th scope="col">Código MIFARE</th>
-    <th scope="col">Situación Acadámica</th>
-    <th scope="col">Correo UC</th>
-    <th scope="col">Carrera</th>
-    <th scope="col">Laboratorios Autorizados</th>
-    </tr>
-    </thead>
-    <tbody id="student">
-    <tr>
-    <td scope="row"><%=@student.nombre%></td>
-    <td><%=@student.rut%></td>
-    <td><%=@student.rfid%></td>
-    <td><%=@student.sit_academica%></td>
-    <td><%=@student.correo%></td>
-    <td><%=@student.major%></td>
-    <%@student.laboratories.each do |lab|%>
-    <td><%=lab.nombre%></td>
+<h2>Información del estudiante</h2>
+<div class="row-flex-div" style="justify-content: center;align-items: start;"">
+  <div class="column-flex-div">
+    <div class="row-profile"><p class="name"><%=@student.nombre%></p></div>
+    <div class="row-profile"><p class="bold">RUT: </p> <p class="element"><%=@student.format_rut%></p></div>
+    <div class="row-profile"><p class="bold">N Alumno:</p> <p class="element"><%=@student.nalumno%></p></div>
+    <div class="row-profile"><p class="bold">MIFARE:</p><p class="element"> <%=@student.rfid%></p></div>
+    <div class="row-profile"><p class="bold">Sit. Acadámica:</p> <p class="element"><%=@student.sit_academica%></p></div>
+    <div class="row-profile"><p class="bold">Correo UC:</p> <p class="element"><%=@student.correo%></p></div>
+    <div class="row-profile"><p class="bold">Carrera:</p><p class="element"> <%=@student.major%></p></div>
+    <div class="row-profile"><p class="bold">Horas disponible: </p><p class="element"><%=@student.current_wallet.hours%></p></div>
+    <%if @student.laboratories.empty?%>
+      <%@student.laboratories.each do |lab|%>
+        <div><%=lab.nombre%></div>
+      <%end%>
     <%end%>
-    </tr>
-    </tbody>
-    </table>  
+  </div>
 
-
-
-<%if @student.records.any?%>
-<h4>Ultimos registros</h4>
-<table class="table">
-  <thead>
-    <tr>
-    <th scope="col">Laboratorio</th>
-    <th scope="col">Hora de registro</th>
-    <th scope="col">Fecha de registro</th>
-    <th scope="col">Tipo</th>
-    </tr>
-    </thead>
-    <tbody id="records">
-    <tr> 
-    <%@lasets_records.each do |record|%>
-    <td scope="row"><%=@labs.find(record.lab_id).nombre%></td>
-    <td><%=record.created_at.to_s.split(' ')[0]%></td>
-    <td><%=record.created_at.to_s.split(' ')[1]%></td>
-    <td><%=record.tipo == 't' ? "Ingreso": "Salida" %></td>
-</td>
-    </tr>
-     <%end%>
-     </tbody>
+  <div class="column-flex-div" style="width: 60%; justify-content: inherit">
+    <p class="bold">Ultimos registros</p>
+    <table class="table">
+      <thead>
+          <tr>
+            <th scope="col">Laboratorio</th>
+            <th scope="col">Hora de registro</th>
+            <th scope="col">Fecha de registro</th>
+            <th scope="col">Tipo</th>
+          </tr>
+      </thead>
+      <tbody id="records">
+        <tr> 
+          <%@lasets_records.each do |record|%>
+            <td scope="row"><%=@labs.find(record.lab_id).nombre%></td>
+            <td><%=record.created_at.to_s.split(' ')[0]%></td>
+            <td><%=record.created_at.to_s.split(' ')[1]%></td>
+            <td><%=record.tipo == 't' ? "Ingreso": "Salida" %></td>
+          <%end%>
+        </tr>
+      </tbody>
     </table>
-    <%end%>
-
-
-<%if @fouls.any?%>
-<h4>Faltas</h4>
-<table class="table">
-  <thead>
-    <tr>
-    <th scope="col">Laboratorio</th>
-    <th scope="col">Fecha</th>
-    <th scope="col">Hora</th>
-    <th scope="col">Descripción</th>
-    </tr>
-    </thead>
-    <tbody id="records">
-    <tr> 
-    <%@fouls.each do |record|%>
-    <td scope="row"><%=@labs.find(record.lab_id).nombre%></td>
-    <td><%=record.created_at.to_s.split(' ')[0]%></td>
-    <td><%=record.created_at.to_s.split(' ')[1]%></td>
-    <td><p><%=record.description%></p></td>
-    </tr>
-     <%end%>
-     </tbody>
+  </div>
+  <div class="column-flex-div" style="width: 60%; justify-content: inherit">
+    <p class="bold">Faltas</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Laboratorio</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Hora</th>
+          <th scope="col">Descripción</th>
+        </tr>
+      </thead>
+      <tbody id="records">
+        <tr> 
+          <%@fouls.each do |record|%>
+            <td scope="row"><%=@labs.find(record.lab_id).nombre%></td>
+            <td><%=record.created_at.to_s.split(' ')[0]%></td>
+            <td><%=record.created_at.to_s.split(' ')[1]%></td>
+            <td><p><%=record.description%></p></td>
+          <%end%>
+        </tr>
+      </tbody>
     </table>
-    <%end%>
+  </div>
+</div>
+
+
+
+
+
 
 <%= link_to 'Volver', students_path %>
 

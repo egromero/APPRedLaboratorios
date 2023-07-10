@@ -98,3 +98,62 @@ window.postForm = function () {
     },
   });
 };
+
+
+window.elements = [];
+window.addElement = function (element){
+  if(!window.elements.includes(element)){
+    $("#hour-"+element).addClass("selected")
+    window.elements.push(element);
+    console.log("add:",window.elements)
+  }else{
+    $("#hour-"+element).removeClass("selected")
+    window.elements.splice(window.elements.indexOf(element),1)
+    console.log("remove:", window.elements)
+  }
+  if(window.elements.length>0){
+    $("#reservation-button").prop("disabled", false)
+    $("#reservation-button").attr("onClick", "submitForm();");
+  }
+}
+
+
+window.rut = {
+  validaRut: function(rutCompleto) {
+      if (!/^[0-9]+-[0-9kK]{1}$/.test(rutCompleto))
+          return false;
+      var tmp = rutCompleto.split('-');
+      var digv = tmp[1];
+      var rut = tmp[0];
+      if (digv == 'K') digv = 'k';
+      return (window.rut.dv(rut) == digv);
+  },
+  dv: function(T) {
+      var M = 0,
+          S = 1;
+      for (; T; T = Math.floor(T / 10))
+          S = (S + T % 10 * (9 - M++ % 6)) % 11;
+      return S ? S - 1 : 'k';
+  }
+}
+
+window.modules = {
+  0: "8:00",
+  1: "8:30",
+  2: "9:00",
+  3: "9:30",
+  4: "10:00",
+  5: "10:30",
+  6: "11:00",
+  7: "11:30",
+  8: "12:00",
+  9: "12:30",
+  12: "14:00",
+  13: "14:30",
+  14: "15:00",
+  15: "15:30",
+  16: "16:00",
+  17: "16:30",
+  18: "17:00",
+  19: "17:30",
+}

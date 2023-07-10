@@ -1,0 +1,142 @@
+
+<div class="show-container">
+    <div class="row-flex-div" style="justify-content: inherit">
+        <%= image_tag(@machine.cover_image, :style => "width:600px") %>
+        <div class="column-flex-div" style="justify-content: inherit">
+            <h4><%=@machine.name.upcase%></h4>
+            <p> Laboratorio: <%=@laboratory.nombre%></p>
+            <p>Descripción: <%=@machine.description%></p>
+            <p> Horario disponible para reservar: 8:00 - 18:00</p>
+            <form method="POST" action="/reservations" id="form">
+              <div class="column-flex-div">
+                 <p> Ingresa tu Rut en formato 12345678-9 (sin puntos con guíon)</p>
+                  <div class="row-flex-div" style="justify-content: space-around">
+                    <input id="rut-student" placeholder="Ingresa RUT" style="padding-left:5px;" form="form" name="student_rut">
+                    <button type="button" id="check-student" class="btn btn-primary"> Revisar horas disponibles</button>
+                  </div>
+                  <p id="available-hours"></p>
+              </div>
+                <div class="row-flex-div" style="justify-content: space-around">
+                    <input type="date" id="selected-date" disabled form="form" name="date"/>
+                    <button type="button" id="check-date" class="btn btn-primary" disabled> Revisar disponiblidad de máquina</button>
+                    <input hidden name="blocks[]" id="blocks">
+                    <input hidden name="machine_id" id="machine_id" value="<%= @machine.id %>">
+                    <input hidden name="lab_id" value="<%= @machine.lab_id %>">
+                </div> 
+                <div class="row-flex-div hour-box">
+                    <%end_time = '18:00'%>
+                    <%time = "8:00"%>
+                    <%index = 0%>
+                    <%while time != end_time do %>
+                        <%if time != "13:30" && time != "13:00" && time != end_time%>
+                            <div class="hour-card disabled" id="hour-<%=index%>">
+                                <%=time%>
+                            </div>
+                        <%end%>
+                        <%splited = time.split(":")%>
+                        <%if splited[1] == "00"%>
+                            <%splited[1] = "30"%>
+                        <%else%>
+                            <%splited[1] = "00"%>
+                            <%splited[0] = splited[0].to_i + 1%>
+                        <%end%>
+                        <%time = splited[0].to_s + ":" + splited[1].to_s%>
+                        <%index = index + 1%>
+                    <%end%>  
+                </div>
+                <button class="btn btn-primary" type="button" id="reservation-button" disabled> Reservar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+.disabled{
+    background-color: grey;
+    color: white;
+    opacity: 0.5;
+    pointer-events: none;
+}
+.selected{
+  background-color: rgb(250, 210, 54);
+  color: white;
+}
+
+</style>
+
+<script>
+
+ function submitForm (){
+     $("#blocks").val(JSON.stringify(window.elements));
+     $("#rut-student").prop('disabled', false);
+     $("#form").submit();
+
+  }
+  $(document).ready(function() {
+    $('#check-student').on('click', function() {
+      var selectedRut = $('#rut-student').val();
+      if(window.rut.validaRut(selectedRut)){
+        $('#check-date').prop('disabled', false);
+        $('#selected-date').prop('disabled', false)
+        $.ajax({
+         url: '/check_student_wallet',
+         type: 'POST',
+         dataType: 'json',
+         data: {rut: selectedRut},
+         success: function(response) {
+           if(response.status != 200){
+            alert("Rut ingresado, no se encuentra registrado");
+            $('#rut-student').val('');
+            return;
+           }
+           $('#available-hours').text(response.student.nombre + ' cuenta con ' + response.wallet.hours + ' horas disponibles');
+           $('#rut-student').attr('readonly', true);
+           $('#check-student').prop('disabled', true);
+         },
+         error: function(xhr, status, error) {
+           // Handle the error case
+           console.log(status, error)
+         }
+
+         ,
+         });
+      }else{
+        alert("RUT invalido o formato incorrecto, ingresar con guion y sin puntos");
+        $('#rut-student').val('');
+      }
+    })
+    $('#check-date').on('click', function() {
+      var selectedDate = $('#selected-date').val();
+      if(!selectedDate){
+        return;
+      }
+      window.elements = []; 
+
+      $.ajax({
+        url: '/occupied',
+        type: 'POST',
+        dataType: 'json',
+        data: {date: selectedDate, machine_id: <%=@machine.id%>},
+        success: function(response) {
+          // Update the hours selector with the new data
+          var hours = response.hours;
+          $(".hour-card").each(function (card){
+            const id = this.id.split("-")[1]
+            if(hours.includes(parseInt(id,10))){
+              $(this).addClass('disabled');
+              $(this).attr("onClick", "undefined");
+            } else {
+              $(this).removeClass('disabled');
+              $(this).attr("onClick", "window.addElement("+ id + ");");
+            }
+          })
+
+          // Perform any necessary DOM manipulation to update the hours selector
+        },
+        error: function(xhr, status, error) {
+          // Handle the error case
+        }
+      });
+    });
+  });
+</script>
