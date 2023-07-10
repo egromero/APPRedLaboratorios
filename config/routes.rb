@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   post "/check_student_wallet" => "students#check_student_wallet"
   get "/reservations/my_reservations" => "reservations#my_reservations"
+  get "/reservations/admin_reservation" => "reservations#admin_reservations"
+  post "/reservations/get_admin_reservation" => "reservations#get_admin_reservation"
   post "/student_reservation" => "reservations#get_student_reservation"
   resources :reservations
   post "/occupied" => "reservations#occupied"

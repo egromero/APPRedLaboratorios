@@ -7,6 +7,29 @@ class ReservationsController < ApplicationController
     @laboratories = Laboratory.all
   end
 
+  def admin_reservations
+    if current_user.nil?
+      redirect_to reservations_path
+    end
+  end
+
+  def get_admin_reservation
+    if current_user.nil?
+      render json: { status: 400 }
+    end
+    lab_id = current_user.lab_id
+    date = params[:date]
+    reservations = Reservation.where(lab_id: lab_id, date: date)
+    reservations_object = []
+    reservations.each do |reservation|
+      student = Student.find(reservation.student_id)
+      machine = Machine.find(reservation.machine_id).name
+      laboratory = Laboratory.find(reservation.lab_id).nombre
+      reservations_object << { student: student, date: reservation.date, hour_block: reservation.hour_block, machine: machine, laboratory: laboratory }
+    end
+    render json: { reservations: reservations_object, status: 200 }
+  end
+
   # GET /reservations/1 or /reservations/1.json
   def show
   end

@@ -6,7 +6,7 @@
         <p> Laboratorio: <%=@laboratory.nombre%></p>
         <p>Descripción: <%=@machine.description%></p>
         <p> Horario disponible para reservar: 9:00 - 18:00</p>
-        <button class="btn btn-primary"> Reservar</button>
+        <a class="btn btn-primary" href="/reservation/<%= @machine.id %>/new" > Reservar</a>
     </div>
 </div>
 </div>

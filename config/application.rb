@@ -12,6 +12,7 @@ module APPRegister
     config.load_defaults 5.2
     config.time_zone = 'Santiago'
     config.active_record.default_timezone = :local
+    config.i18n.available_locales = [:es]
     config.i18n.default_locale = :es
 
     # Settings in config/environments/* take precedence over those specified here.

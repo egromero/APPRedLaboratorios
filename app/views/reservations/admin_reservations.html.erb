@@ -1,0 +1,40 @@
+<div style="margin-top: 3rem; text-align: center">
+    <input type="date" id="selected-date">
+    <button class="btn btn-primary" type="button" id="btn-reservation">Consultar</button>
+  <div id="content-reservation" class="row-flex-div" style="flex-wrap: wrap; justify-content: start; margin: 10px auto;"></div>
+</div>
+
+
+<script>
+  $('#btn-reservation').on('click', function() {
+        const date = $("#selected-date").val();
+        $('#content-reservation').html('');
+        $.ajax({
+        url: '/reservations/get_admin_reservation',
+        type: 'POST',
+        dataType: 'json',
+        data: { date: date },
+        success: function(response) {
+          if(response.reservations.length === 0) {
+            $('#content-reservation').html('No hay reservas para la fecha seleccionada');
+          }
+          response.reservations.map((reservation)=>{
+            $('#content-reservation').append(`
+              <div class="card">
+                <p style="font-weight: bold"> ${reservation.machine} </p>
+                <p style="font-weight: bold; font-size: 23px"> ${window.modules[reservation.hour_block]} </p>
+                <p> ${reservation.student.nombre} </p>
+                <p> ${reservation.student.correo} </p>
+                <p> ${reservation.student.rut} </p>
+              </div>
+            `)
+          })
+        }});
+  });
+
+
+</script>
+
+
+
+
