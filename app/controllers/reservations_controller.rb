@@ -11,6 +11,27 @@ class ReservationsController < ApplicationController
     if current_user.nil?
       redirect_to reservations_path
     end
+    @lab = Laboratory.find(current_user.lab_id).nombre
+  end
+
+  def validate_reservation
+    reservation = Reservation.find(params[:id])
+    reservation.status = "validada"
+    if reservation.save
+      render json: { status: 200 }
+    else 
+      render json: { status: 400 }
+    end
+  end
+
+  def release_reservation
+    reservation = Reservation.find(params[:id])
+    reservation.status = "rechazada"
+    if reservation.save
+      render json: { status: 200 }
+    else 
+      render json: { status: 400 }
+    end
   end
 
   def get_admin_reservation
@@ -19,15 +40,15 @@ class ReservationsController < ApplicationController
     end
     lab_id = current_user.lab_id
     date = params[:date]
-    reservations = Reservation.where(lab_id: lab_id, date: date)
+    reservations = Reservation.where(lab_id: lab_id, date: date).where.not(status: "rechazada")
     reservations_object = []
     reservations.each do |reservation|
       student = Student.find(reservation.student_id)
       machine = Machine.find(reservation.machine_id).name
-      laboratory = Laboratory.find(reservation.lab_id).nombre
-      reservations_object << { student: student, date: reservation.date, hour_block: reservation.hour_block, machine: machine, laboratory: laboratory }
+      reservations_object << { reservation_id: reservation.id, student: student, date: reservation.date, hour_block: reservation.hour_block, machine: machine, status: reservation.status }
     end
-    render json: { reservations: reservations_object, status: 200 }
+    reservations_object_sorted = reservations_object.sort_by { |obj| obj[:hour_block] }
+    render json: { reservations: reservations_object_sorted, status: 200 }
   end
 
   # GET /reservations/1 or /reservations/1.json
@@ -41,7 +62,7 @@ class ReservationsController < ApplicationController
       return;
     end
     wallet = student.current_wallet
-    reservations = Reservation.where(student_id: student.id)
+    reservations = Reservation.where(student_id: student.id).where.not(status: "rechazada")
     reservations_object = []
     reservations.each do |reservation|
       machine = Machine.find(reservation.machine_id).name
@@ -59,7 +80,7 @@ class ReservationsController < ApplicationController
   def new
     @machine = Machine.find(params[:machine_id])
     @laboratory = Laboratory.find(@machine.lab_id)
-    @reservations = Reservation.where(machine_id: params[:machine_id])
+    @reservations = Reservation.where(machine_id: params[:machine_id]).where.not(status: "rechazada")
     @reservation = Reservation.new
   end
 
@@ -70,7 +91,7 @@ class ReservationsController < ApplicationController
   def occupied
     date = params[:date]
     machine_id = params[:machine_id]
-    reserved = Reservation.where(date: date, machine_id: machine_id).pluck(:hour_block)
+    reserved = Reservation.where(date: date, machine_id: machine_id).where.not(status: "rechazada").pluck(:hour_block)
     render json: { hours: reserved }
   end
 
@@ -80,7 +101,7 @@ class ReservationsController < ApplicationController
     blocks = params[:blocks].first.gsub!(/[\[\]\"]/, '').split(',')
     asked_hours = blocks.length * 0.5
     @reservations = []
-    check_machines = Reservation.where(machine_id: params[:machine_id], date: params[:date], hour_block: blocks)
+    check_machines = Reservation.where(machine_id: params[:machine_id], date: params[:date], hour_block: blocks).where.not(status: "rechazada")
     unless check_machines.empty?
       respond_to do |format|
         format.html { redirect_to reservations_path, notice: "Una o más horas ya están tomadas." }

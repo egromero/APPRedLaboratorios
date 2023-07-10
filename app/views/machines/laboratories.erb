@@ -1,23 +1,60 @@
 
 <div style="width: 100%; padding: 1%; display: flex; justify-content: end;">
 <%if !current_user.nil? %>
-  <%if current_user.rol == "admin" || current_user.lab_id == @laboratory_id%>
-    <a class="btn btn-secondary" href="/machines/new"> Crear maquina</a>
+  <%if current_user.rol == "admin" || current_user.lab_id == @laboratory_id.to_i%>
+    <a class="btn btn-secondary" href="/machines/new"> Crear Máquina</a>
   <%end%>
 <%end%>
 </div>
 <div class="gallery">
   <% @machines.each do |machine| %>
-  <div class="card" href=machines/<%=machine.id%>>
+  <div class="card" href=machines/<%=machine.id%> style="<%=machine.is_available? ? 'opacity: 1' : 'opacity: 0.3'%>">
       <%= image_tag(machine.cover_image) %>
       <div class="description">
         <h4><%= machine.name %></h4>
         <p><%= machine.description%></p>
       </div>
-      <div class="row-flex-div" style="margin-top:auto">
-      <a class="btn btn-secondary" style="font-family:inherit" href="/machines/<%=machine.id%>">Detalles</a>
-      <a class="btn btn-primary" href="/reservation/<%=machine.id%>/new" >Reservar</a>
-      </div>
+      <%if machine.is_available%>
+        <div class="row-flex-div" style="margin-top:auto">
+          <a class="btn btn-secondary" style="font-family:inherit" href="/machines/<%=machine.id%>">Detalles</a>
+          <a class="btn btn-primary" href="/reservation/<%=machine.id%>/new" >Reservar</a>
+        </div>
+        <%if current_user && current_user.lab_id == @laboratory_id.to_i%>
+          <button class="btn btn-danger" onClick="disable(<%=machine.id%>)">Desactivar</button>
+        <%end%>
+      <%end%>
+      <input value="<%=machine.id%>" hidden id="machine_id">
+      <%if current_user%>
+        <% if !machine.is_available && current_user.lab_id == @laboratory_id.to_i%>
+          <button class="btn btn-primary" id="enable" onClick="enable(<%=machine.id%>)">Disponibilizar</button>
+        <%end%>
+      <%end%>
      </div> 
   <% end %>
 </div>
+
+<script>
+  function enable(id){
+    $.ajax({
+      url: '/machines/enable',
+      type: 'post',
+      data: {
+        id: id
+      }
+    }).done(function(){
+      location.reload();
+    });
+    }
+
+    function disable(id){
+      $.ajax({
+        url: '/machines/disable',
+        type: 'post',
+        data: {
+          id: id
+        }
+      }).done(function(){
+        location.reload();
+      })
+    }
+</script>

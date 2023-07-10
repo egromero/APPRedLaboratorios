@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   get "/reservations/my_reservations" => "reservations#my_reservations"
   get "/reservations/admin_reservation" => "reservations#admin_reservations"
   post "/reservations/get_admin_reservation" => "reservations#get_admin_reservation"
+  post "/reservations/validate_reservation" => "reservations#validate_reservation"
+  post "/reservations/release_reservation" => "reservations#release_reservation"
+  post "/machines/enable" => "machines#enable"
+  post "/machines/disable" => "machines#disable"
   post "/student_reservation" => "reservations#get_student_reservation"
   resources :reservations
   post "/occupied" => "reservations#occupied"

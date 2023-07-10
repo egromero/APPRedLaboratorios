@@ -3,7 +3,7 @@
     <hr/>
 </div>
 
-<form action="/machines" method="post" enctype="multipart/form-data">
+<form action="/machines" method="post" enctype="multipart/form-data" id="machine">
 <div class="student-form">
     <p class="lil-title">Completa la información a continuación</p>
 <div class="form-box">
@@ -22,8 +22,9 @@
         <input class="input-form" type="file" name="machine[cover_image]">
         <div class="row-flex-div" style="margin:10px 0; align-items:baseline">
         <label class="label-form"> Disponible para ser reservada </label>
+        <input name="machine[is_available]" value=1 hidden>
          <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" id="machine-status" checked>
             <span class="slider round"></span>
         </label>
         </div>
@@ -36,3 +37,12 @@
 </div>
 </form>
 
+<script>
+    $("#machine-status").change(function(){
+        if(this.checked){
+            $("#machine").find("input[name='machine[is_available]']").val(1);
+        }else{
+            $("#machine").find("input[name='machine[is_available]']").val(0);
+        }
+        });
+</script>

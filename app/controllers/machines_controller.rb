@@ -14,10 +14,24 @@ class MachinesController < ApplicationController
     @laboratory = Laboratory.find(@machine.lab_id)
   end
 
+  def enable
+    machine = Machine.find(params[:id])
+    machine.is_available = true
+    machine.save
+    render json: { status: 200 }
+  end
+
+  def disable
+    machine = Machine.find(params[:id])
+    machine.is_available = false
+    machine.save
+    render json: { status: 200 }
+  end
+
   def create
     @machine = Machine.new(machine_params)
     @machine.save
-    redirect_to machines_path
+    redirect_to "/machines/lab/#{@machine.lab_id}"
   end
 
   def laboratories
