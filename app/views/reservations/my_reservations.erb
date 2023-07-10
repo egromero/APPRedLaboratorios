@@ -67,7 +67,7 @@
                 <p>${reservation.laboratory}</p>
                 <p>${reservation.date}</p>
                 <div class="row-flex-div">
-                <button class="btn btn-danger" onClick="releaseReservation(${reservation.id})">Liberar</button>
+                <button class="btn btn-danger" onClick="releaseReservation(${reservation.id})">Anular</button>
                 <button class="btn btn-success" id="validate-${reservation.id}"style="${reservation.status != "validada-totem" ? "display: none;" : ""}" onClick="${reservation.status == 'validada-totem' ? stringValidate : undefined}">Validar</button>
                 </div>
             </div>

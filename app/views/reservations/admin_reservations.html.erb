@@ -29,7 +29,7 @@
                 <p> ${reservation.student.rut} </p>
                   ${ reservation.status != "validada" ? `<div class="row-flex-div" id="reservation-status-${reservation.reservation_id}">
                     <button class="btn btn-secondary" type="button" onclick="validateReservation(${reservation.reservation_id})">  Validar </button>
-                    <button class="btn btn-primary" type="button" id="free-reservation" onclick="releaseReservation(${reservation.reservation_id})"> Liberar </button>
+                    <button class="btn btn-danger" type="button" id="free-reservation" onclick="releaseReservation(${reservation.reservation_id})"> Anular </button>
                   </div>` : ""}
               </div>
             `)
