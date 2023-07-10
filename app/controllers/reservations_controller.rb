@@ -55,6 +55,24 @@ class ReservationsController < ApplicationController
   def show
   end
 
+
+  def get_date_reservation_student
+    student = Student.find_by(rut: params[:rut])
+    if student.nil?
+      render json: { message: "Student not found", status: 404}
+      return;
+    end
+    date = params[:date]
+    reservations = Reservation.where(student_id: student.id, date: date).where.not(status: "rechazada")
+    reservations_object = []
+    reservations.each do |reservation|
+      machine = Machine.find(reservation.machine_id).name
+      laboratory = Laboratory.find(reservation.lab_id).nombre
+      reservations_object << { id: reservation.id, status: reservation.status, date: reservation.date, hour_block: reservation.hour_block, machine: machine, laboratory: laboratory }
+    end
+    render json: { reservations: reservations_object, status: 200 }
+  end
+
   def get_student_reservation
     student = Student.find_by(rut: params[:rut])
     if student.nil?
@@ -62,17 +80,9 @@ class ReservationsController < ApplicationController
       return;
     end
     wallet = student.current_wallet
-    reservations = Reservation.where(student_id: student.id).where.not(status: "rechazada")
-    reservations_object = []
-    reservations.each do |reservation|
-      machine = Machine.find(reservation.machine_id).name
-      laboratory = Laboratory.find(reservation.lab_id).nombre
-      reservations_object << { date: reservation.date, hour_block: reservation.hour_block, machine: machine, laboratory: laboratory }
-    end
-
+    occupied  = Reservation.where(student_id: student.id).where.not(status: "rechazada").count * 0.5
     render json: { student: { name: student.nombre, rut: student.rut },
-                   wallet: { hours: wallet.hours }, 
-                   reservations: reservations_object,
+                   wallet: { hours: wallet.hours, occupied: occupied },
                    status: 200 }
   end
 

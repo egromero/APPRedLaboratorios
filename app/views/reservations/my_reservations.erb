@@ -9,7 +9,7 @@
 <script>
 
     $('#search-student').on('click', function() {
-        const rut = $("#rut").val();
+        const rut = $("#rut").val().toString();
         if(window.rut.validaRut(rut)){
             $.ajax({
             url: '/student_reservation',
@@ -22,8 +22,97 @@
                 $('#rut').val('');
                 return;
             }
-            const {student, reservations, wallet} = response;
-            const groups = reservations.reduce((groups, reservation ) => {
+            const {student, wallet} = response;
+            $("#content").html(`
+            <div class="column-flex-div">
+            <h3>${student.name}</h3>
+            <p>RUT: ${student.rut}</p>
+            <p>Horas disponibles: ${wallet.hours}</p>
+            <p>Horas ocupadas: ${wallet.occupied}</p>
+            <h4 style="margin:20px 0">Reservas:</h4> 
+            <p>Selecciona una fecha:</p>
+            <input style="width: 20%;"type="date" id="selected-date" onchange="getReservations(event.target.value)">
+            </div>
+            <div id="results" class="row-flex-div" style="justify-content: start"></div>
+            `)
+            },
+            })
+        }else{
+            alert("RUT no valido o en formato incorrecto");
+        }
+    });
+
+    function getReservations(date){ 
+        const rut = $("#rut").val().toString();
+        if(window.rut.validaRut(rut)){
+            $.ajax({
+            url: '/get_date_reservation_student',
+            type: 'POST',
+            dataType: 'json',
+            data: {rut: rut, date: date},
+            success: function(response) {
+            if(response.status != 200){
+                alert("Rut ingresado, no se encuentra registrado");
+            }else{
+            const { reservations } = response;
+            const sortedReservations = reservations.sort((a, b) => {
+                return a.hour_block - b.hour_block;
+            })
+            reservations.forEach(reservation => {
+            const stringValidate = `validateReservation(${reservation.id})`;
+            $("#results").append(`
+            <div class="card" id="reservation-${reservation.id}" style="${reservation.status === "validada" ? "background-color: #d7fcc791;" : ""}">
+                <p style="font-size:20px">${window.modules[reservation.hour_block]}</p>
+                <p style="font-weight:bold">${reservation.machine}</p>
+                <p>${reservation.laboratory}</p>
+                <p>${reservation.date}</p>
+                <div class="row-flex-div">
+                <button class="btn btn-danger" onClick="releaseReservation(${reservation.id})">Liberar</button>
+                <button class="btn btn-success" id="validate-${reservation.id}"style="${reservation.status != "validada-totem" ? "display: none;" : ""}" onClick="${reservation.status == 'validada-totem' ? stringValidate : undefined}">Validar</button>
+                </div>
+            </div>
+            `);
+            })
+            }
+            }
+            })
+        }
+    }
+
+    function validateReservation(reservationId) {
+    $.ajax({
+      url: '/reservations/validate_reservation',
+      type: 'POST',
+      dataType: 'json',
+      data: { id: reservationId },
+      success: function(response) {
+        if(response.status === 200) {
+          alert('Reserva validada');
+          $("#reservation-"+reservationId).css('background-color','#d7fcc791');
+          $("#reservation-status-"+reservationId).css('display', 'none');
+          $("#validate-"+reservationId).css('display', 'none');
+        }
+      }});
+  }
+  function releaseReservation(reservationId) {
+    $.ajax({
+      url: '/reservations/release_reservation',
+      type: 'POST',
+      dataType: 'json',
+      data: { id: reservationId },
+      success: function(response) {
+        if(response.status === 200) {
+          alert('Reserva liberada');
+          $("#reservation-"+reservationId).css('display','none');
+          $("#reservation-status-"+reservationId).css('display', 'none');
+        }
+      }});
+  }
+
+
+</script>
+
+<%# const groups = reservations.reduce((groups, reservation ) => {
                 if (!groups[reservation.date]) {
                     groups[reservation.date] = [];
                 }
@@ -38,15 +127,9 @@
                             acc[key] = obj;
                             return acc;
                             }, {});
-                        })
-            $("#content").html(`
-            <div class="column-flex-div">
-            <h3>${student.name}</h3>
-            <p>RUT: ${student.rut}</p>
-            <p>Horas disponibles: ${wallet.hours}</p>
-            <p>Horas ocupadas: ${reservations.length * 0.5}</p>
-            <h4 style="margin:20px 0">Reservas:</h4>
-            <table>
+                        }) %>
+
+<%# <table>
                 <thead>
                     <tr>
                     <th>Máquina Reservada</th>
@@ -61,17 +144,4 @@
                     return `<tr><td>${machine}</td><td>${laboratory}</td><td>${date}</td><td>${hour_block}</td></tr>`
                 }).join("")}
                 </tbody>
-            </table>
-
-
-            </div>
-            
-            `)
-            },
-            })
-        }else{
-            alert("RUT no valido o en formato incorrecto");
-        }
-    });
-
-</script>
+            </table> %>

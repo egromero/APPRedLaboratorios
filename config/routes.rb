@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   post "/reservations/release_reservation" => "reservations#release_reservation"
   post "/machines/enable" => "machines#enable"
   post "/machines/disable" => "machines#disable"
+  post "get_date_reservation_student" => "reservations#get_date_reservation_student"
   post "/student_reservation" => "reservations#get_student_reservation"
   resources :reservations
   post "/occupied" => "reservations#occupied"
