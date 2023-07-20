@@ -5,6 +5,7 @@ class Ability
       can :create, [Student, Record, Visit]
       can :created_from_totem, Student
       can :get_occupation, Record
+      can :check_student_wallet, Student
       if user.present?  # additional permissions for logged in users (they can manage their posts)
       can :previous_records, Laboratory
       can :manage, [Student, Record]
