@@ -58,17 +58,23 @@ class RecordsController < ApplicationController
                 end
             end
             @record = student.records.new({:tipo => student.status, :lab_id =>params[:lab_id]})
+            today = Time.now.strftime("%Y-%m-%d")
+            reservations= Reservation.where(student_id: student.id, date: today, lab_id: params[:lab_id]).where.not(status: "rechazada").where.not(status: "validada-totem")
+            has_reservation = reservations.any?
             respond_to do |format|
             if @record.save
-                format.json {render json: {'type': 'student', 'data': {student: @record.student, laboratory: @record.student.laboratories}}, status: 200}
+                format.json {render json: {'type': 'student', 'data': {student: @record.student, laboratory: @record.student.laboratories, reservation: has_reservation}}, status: 200}
             else
                 format.json {render json: @record.errors, status: :unprocessable_entity}
             end
             end
             student.status = !student.status
             student.save
+            reservations.each do |reservation|
+                reservation.status = "validada-totem"
+                reservation.save
+            end
         else    
-            
             respond_to do |format|
                 format.json {render json: {'type': 'nonexistent', 'data': {'rfid' => params[:rfid] }}}
             end
