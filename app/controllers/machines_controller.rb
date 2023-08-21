@@ -35,7 +35,13 @@ class MachinesController < ApplicationController
   end
 
   def laboratories
-    @machines = Machine.where(lab_id: params[:id])
+    is_admin = current_user.nil? ? false : current_user.rol == "admin"
+    if is_admin
+      @machines = Machine.all
+      @laboratories = Laboratory.all
+    else
+      @machines = Machine.where(lab_id: params[:id])
+    end
     @laboratory_id = params[:id]
   end
 

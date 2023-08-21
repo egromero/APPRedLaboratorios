@@ -66,6 +66,16 @@
 
 <script>
 
+$(document).ready(function() {
+  // Get today's date
+  const today = new Date();
+  const yesterday = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
+  const formatYesterday = yesterday.toISOString().split('T')[0];
+  // Set the min attribute of the date input element
+  $('#selected-date').attr('min', formatYesterday);
+});
+
  function submitForm (){
      $("#blocks").val(JSON.stringify(window.elements));
      $("#rut-student").prop('disabled', false);
@@ -76,22 +86,22 @@
     $('#check-student').on('click', function() {
       var selectedRut = $('#rut-student').val();
       if(window.rut.validaRut(selectedRut)){
-        $('#check-date').prop('disabled', false);
-        $('#selected-date').prop('disabled', false)
         $.ajax({
          url: '/check_student_wallet',
          type: 'POST',
          dataType: 'json',
-         data: {rut: selectedRut},
+         data: {rut: selectedRut, lab_id: <%=@machine.lab_id%> },
          success: function(response) {
            if(response.status != 200){
-            alert("Rut ingresado, no se encuentra registrado");
+            alert(response.message);
             $('#rut-student').val('');
             return;
            }
            $('#available-hours').text(response.student.nombre + ' cuenta con ' + response.wallet.hours + ' horas disponibles');
            $('#rut-student').attr('readonly', true);
            $('#check-student').prop('disabled', true);
+           $('#check-date').prop('disabled', false);
+           $('#selected-date').prop('disabled', false)
          },
          error: function(xhr, status, error) {
            // Handle the error case
@@ -101,9 +111,15 @@
          ,
          });
       }else{
-        alert("RUT invalido o formato incorrecto, ingresar con guion y sin puntos");
+        alert("RUT invalido o formato incorrecto, ingresar con guión y sin puntos");
         $('#rut-student').val('');
       }
+    })
+    $("#selected-date").on("change", function(){
+       $(".hour-card").each(function (card){
+        $(this).addClass('disabled');
+        $(this).attr("onClick", "undefined");
+        })
     })
     $('#check-date').on('click', function() {
       var selectedDate = $('#selected-date').val();

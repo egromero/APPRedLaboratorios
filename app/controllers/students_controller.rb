@@ -20,9 +20,19 @@ class StudentsController < ApplicationController
   end
 
   def check_student_wallet
-    student = Student.find_by(rut: params[:rut])
+    rut = params[:rut]
+    last_char = rut[-1]
+    if last_char == 'k'
+      rut[-1] = last_char.upcase
+    end
+    student = Student.find_by(rut: rut)
+    unless student.laboratories.where(id: params[:lab_id]).exists?
+      render json: { message: "Estudiante no autorizado para uso de laboratorio", status: 404}
+      return;
+    end
     if student.nil?
-      render json: { message: "Student not found", status: 404}
+      render json: { message: "Estudiante ingresado no existe en los registros", status: 404}
+      return;
     else
       wallet = student.current_wallet
       render json: { student: student, wallet: wallet, status: 200 } 
@@ -59,12 +69,14 @@ class StudentsController < ApplicationController
   end
   def enroll
     @student = Student.find(params[:student_id])
-    @labs = Laboratory.find(current_user.lab_id)
+    @labs = Laboratory.find(params[:lab_id])
     @student.each do |student|
-       student.laboratories << @labs
+      unless student.laboratories.include? @labs
+        student.laboratories << @labs
+      end
     end
     respond_to do |format|
-    format.html { redirect_to laboratory_path(@labs) , notice: 'Estudiante matriculado' }
+      format.html { redirect_to laboratory_path(@labs) , notice: 'Estudiante matriculado' }
     end
   end
   

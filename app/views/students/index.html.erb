@@ -27,6 +27,8 @@
     <tr>
     <th scope="col">Nombre</th>
     <th scope="col">Correo UC</th>
+    <th scope="col">Carrera</th>
+    <th scope="col">Laboratorios</th>
     <th scope="col">Horas disponibles</th>
     <th scope="col">Acciones</th>
     <th></th>
@@ -37,6 +39,11 @@
       <tr>
         <td scope="row"><%=link_to student.nombre, student%></td>
         <td><%=student.correo%></td>
+        <td><%=student.major%></td>
+        <td><%student.laboratories.each do |lab|%>
+             <%=lab.nombre%> 
+            <%end%>
+        </td>
         <td><%=student.current_wallet.hours%></td>
         <td> <%= link_to 'Editar estudiante', edit_student_path(student)%></td>
         <td> <%= link_to 'Editar horas disponibles', edit_wallet_path(student)%></td>

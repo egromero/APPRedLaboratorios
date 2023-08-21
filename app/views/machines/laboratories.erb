@@ -12,6 +12,11 @@
       <%= image_tag(machine.cover_image) %>
       <div class="description">
         <h4><%= machine.name %></h4>
+        <%if !current_user.nil? %>
+          <%if current_user.rol =="admin"%>
+            <p><%=@laboratories.find_by(id: machine.lab_id).nombre%></p>
+          <%end%>
+        <%end%>
         <p><%= machine.description%></p>
       </div>
       <%if machine.is_available%>
