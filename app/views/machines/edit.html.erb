@@ -1,0 +1,70 @@
+<div class="light-title row-flex-div">
+    Editar máquina
+    <%= link_to 'Eliminar máquina', machine_path(@machine), method: :delete, data: { confirm: 'Estás seguro?' } %>
+</div>
+    <hr/>
+
+<form action="/machines/<%=@machine.id%>" method="POST" enctype="multipart/form-data" id="machine">
+    <input type="hidden" name="_method" value="PATCH">
+    <div class="student-form">
+        <p class="lil-title">Completa la información a continuación</p>
+        <div class="form-box">
+            <div class="column-flex-div">
+                <label class="label-form">Nombre</label>
+                <input class="input-form" name="machine[name]" value=<%=@machine.name%>>
+                <label class="label-form">Descripción</label>
+                <textarea class="input-form" row=5 name="machine[description]"><%=@machine.description%></textarea>
+                <label class="label-form">Laboratorio</label>
+                <input style="padding-left:10px" disabled value=<%=@laboratory.nombre%>>
+                <label class="label-form"> Imagen </label>
+                <input class="input-form" type="file" name="machine[cover_image]">
+                <p>Si no ingresas una nueva imagen, se mantendrá la anterior</p>
+                <div>
+                    <label class="label-form"> Hora de inicio y finalización</label>
+                    <input type="time" min="8:00" max="23:00" name="machine[start_hour]" value=<%=@machine.start_hour%>>
+                    <input type="time" min="8:00" max="23:00" name="machine[end_hour]" value=<%=@machine.end_hour%>>
+                    <p>Para una mejor experiencia, selecciona horas cerradas o con 30 minutos (ej: 8:00, 8:30, etc)</p>
+                    <div class="row-flex-div" style="justify-content: start;align-items: center;margin-left: 0;">
+                        <input type="checkbox" id="has-lunch" <%=!!@machine.lunch? ? "checked" : ""%>/> 
+                        <p style="margin:0 10px">No permitir reservas en hora de almuerzo? </p>
+                    </div>
+                    <label class="label-form"> Hora de almuerzo </label>
+                    <input disabled type="time" min="8:00" max="23:00" name="machine[lunch]" value=<%= @machine.lunch.nil? ? "00:00" : "#{@machine.lunch}:00"%> id="lunch-hour">
+                    <p>El sistema asume que almuerzo dura una hora y no permite realizar reservas en esa hora.</p>
+                </div>
+                <div class="row-flex-div" style="margin:10px 0; align-items:baseline">
+                    <label class="label-form"> Disponible para ser reservada </label>
+                    <input name="machine[is_available]" value=1 hidden>
+                    <label class="switch">
+                        <input type="checkbox" id="machine-status" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-flex-div" style="width:25%">
+            <button class="btn btn-primary" type="submit">Guardar</button>
+            <a href=<%=machines_path%> class="btn btn-secondary">Volver</a>
+        </div>
+    </div>
+</form>
+
+<script>
+    $("#machine-status").change(function(){
+        if(this.checked){
+            $("#machine").find("input[name='machine[is_available]']").val(1);
+        }else{
+            $("#machine").find("input[name='machine[is_available]']").val(0);
+        }
+        });
+
+    $("#has-lunch").change(function(){
+        if(this.checked){
+            $("#lunch-hour").removeAttr("disabled");
+        }
+        else{
+            $("#lunch-hour").attr("disabled","disabled");
+        }
+    })
+</script>

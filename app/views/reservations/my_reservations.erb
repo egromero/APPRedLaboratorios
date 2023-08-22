@@ -1,5 +1,6 @@
 <div class="column-flex-div" style="width: 20%; margin: 20px auto;justify-content: space-between; height: 70px;">
     <h3 style="padding:0; text-align: center"> Consultar RUT</h3>
+    <p> Ingresar rut de estudiante sin puntos y con guión ej: 12345678-9</p>
     <input type="text" name="student_rut" style="margin-bottom:10px; padding-left:5px" id="rut">
     <button type="button" class="btn btn-primary" id="search-student">Buscar</button>
 </div>
@@ -23,6 +24,11 @@
                 return;
             }
             const {student, wallet} = response;
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = String(today.getMonth() + 1).padStart(2, '0');
+            var day = String(today.getDate()).padStart(2, '0');
+            var formattedDate = year + '-' + month + '-' + day;
             $("#content").html(`
             <div class="column-flex-div">
             <h3>${student.name}</h3>
@@ -31,10 +37,12 @@
             <p>Horas ocupadas: ${wallet.occupied}</p>
             <h4 style="margin:20px 0">Reservas:</h4> 
             <p>Selecciona una fecha:</p>
-            <input style="width: 20%;"type="date" id="selected-date" onchange="getReservations(event.target.value)">
+            <input style="width: 20%;"type="date" value="${formattedDate}" id="selected-date" onchange="getReservations(event.target.value)">
             </div>
-            <div id="results" class="row-flex-div" style="justify-content: start"></div>
+            <div id="results" class="row-flex-div" style="justify-content: start; flex-wrap: wrap;""></div>
             `)
+            console.log("vamos a cambiar")
+            getReservations(formattedDate);
             },
             })
         }else{
@@ -55,26 +63,32 @@
                 alert("Rut ingresado, no se encuentra registrado");
             }else{
             const { reservations } = response;
-            const sortedReservations = reservations.sort((a, b) => {
-                return a.hour_block - b.hour_block;
-            })
-            reservations.forEach(reservation => {
-            const stringValidate = `validateReservation(${reservation.id})`;
-            $("#results").append(`
-            <div class="card" id="reservation-${reservation.id}" style="${reservation.status === "validada" ? "background-color: #d7fcc791;" : ""}">
-                <p style="font-size:20px">${window.modules[reservation.hour_block]}</p>
-                <p style="font-weight:bold">${reservation.machine}</p>
-                <p>${reservation.laboratory}</p>
-                <p>${reservation.date}</p>
-                <div class="row-flex-div">
-                <button class="btn btn-danger" onClick="releaseReservation(${reservation.id})">Anular</button>
-                <button class="btn btn-success" id="validate-${reservation.id}"style="${reservation.status != "validada-totem" ? "display: none;" : ""}" onClick="${reservation.status == 'validada-totem' ? stringValidate : undefined}">Validar</button>
+            if(reservations.length == 0){
+                $("#results").html(`
+                <p>No hay reservas disponibles</p>
+                `);
+            }
+            else{
+                $("#results").html('')
+                const sortedReservations = reservations.sort((a, b) => {
+                    return a.hour_block - b.hour_block;
+                })
+                reservations.forEach(reservation => {
+                    const stringValidate = `validateReservation(${reservation.id})`;
+                $("#results").append(`
+                <div class="card" id="reservation-${reservation.id}" style="${reservation.status === "validada" ? "background-color: #d7fcc791;" : ""}">
+                    <p style="font-size:20px">${window.modules[reservation.hour_block]}</p>
+                    <p style="font-weight:bold">${reservation.machine}</p>
+                    <p>${reservation.laboratory}</p>
+                    <p>${reservation.date}</p>
+                    <div class="row-flex-div">
+                    <button class="btn btn-danger" onClick="releaseReservation(${reservation.id})">Anular</button>
+                    <button class="btn btn-success" id="validate-${reservation.id}"style="${reservation.status != "validada-totem" ? "display: none;" : ""}" onClick="${reservation.status == 'validada-totem' ? stringValidate : undefined}">Validar</button>
+                    </div>
                 </div>
-            </div>
-            `);
-            })
-            }
-            }
+                `);
+                })
+            }}}
             })
         }
     }

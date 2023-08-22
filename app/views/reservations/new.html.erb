@@ -6,7 +6,7 @@
             <h4><%=@machine.name.upcase%></h4>
             <p> Laboratorio: <%=@laboratory.nombre%></p>
             <p>Descripción: <%=@machine.description%></p>
-            <p> Horario disponible para reservar: 8:00 - 18:00</p>
+            <p> Horario disponible para reservar: <%=@machine.start_hour%> - <%=@machine.end_hour%></p>
             <form method="POST" action="/reservations" id="form">
               <div class="column-flex-div">
                  <p> Ingresa tu Rut en formato 12345678-9 (sin puntos con guíon)</p>
@@ -24,24 +24,32 @@
                     <input hidden name="lab_id" value="<%= @machine.lab_id %>">
                 </div> 
                 <div class="row-flex-div hour-box">
-                    <%end_time = '18:00'%>
-                    <%time = "8:00"%>
+                    <%end_time = @machine.end_hour%>
+                    <%time = @machine.start_hour%>
+                    <%lunch = @machine.lunch%>
                     <%index = 0%>
                     <%while time != end_time do %>
-                        <%if time != "13:30" && time != "13:00" && time != end_time%>
-                            <div class="hour-card disabled" id="hour-<%=index%>">
-                                <%=time%>
-                            </div>
-                        <%end%>
-                        <%splited = time.split(":")%>
-                        <%if splited[1] == "00"%>
-                            <%splited[1] = "30"%>
-                        <%else%>
-                            <%splited[1] = "00"%>
-                            <%splited[0] = splited[0].to_i + 1%>
-                        <%end%>
-                        <%time = splited[0].to_s + ":" + splited[1].to_s%>
-                        <%index = index + 1%>
+                      <%if !lunch.nil?%>
+                          <%hour = time.split(":")[0].to_i%>
+                          <%if hour != lunch && time != end_time%>
+                              <div class="hour-card disabled" id="hour-<%=index%>">
+                                  <%=time%>
+                              </div>
+                          <%end%>
+                          <%else%>
+                          <div class="hour-card disabled" id="hour-<%=index%>">
+                            <%=time%>
+                          </div>
+                      <%end%>
+                      <%splited = time.split(":")%>
+                      <%if splited[1] == "00"%>
+                          <%splited[1] = "30"%>
+                      <%else%>
+                          <%splited[1] = "00"%>
+                          <%splited[0] = splited[0].to_i + 1%>
+                      <%end%>
+                      <%time = splited[0].to_s + ":" + splited[1].to_s%>
+                      <%index = index + 1%>
                     <%end%>  
                 </div>
                 <button class="btn btn-primary" type="button" id="reservation-button" disabled> Reservar</button>
@@ -66,6 +74,16 @@
 
 <script>
 
+$(document).ready(function() {
+  // Get today's date
+  const today = new Date();
+  const yesterday = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
+  const formatYesterday = yesterday.toISOString().split('T')[0];
+  // Set the min attribute of the date input element
+  $('#selected-date').attr('min', formatYesterday);
+});
+
  function submitForm (){
      $("#blocks").val(JSON.stringify(window.elements));
      $("#rut-student").prop('disabled', false);
@@ -76,22 +94,22 @@
     $('#check-student').on('click', function() {
       var selectedRut = $('#rut-student').val();
       if(window.rut.validaRut(selectedRut)){
-        $('#check-date').prop('disabled', false);
-        $('#selected-date').prop('disabled', false)
         $.ajax({
          url: '/check_student_wallet',
          type: 'POST',
          dataType: 'json',
-         data: {rut: selectedRut},
+         data: {rut: selectedRut, lab_id: <%=@machine.lab_id%> },
          success: function(response) {
            if(response.status != 200){
-            alert("Rut ingresado, no se encuentra registrado");
+            alert(response.message);
             $('#rut-student').val('');
             return;
            }
            $('#available-hours').text(response.student.nombre + ' cuenta con ' + response.wallet.hours + ' horas disponibles');
            $('#rut-student').attr('readonly', true);
            $('#check-student').prop('disabled', true);
+           $('#check-date').prop('disabled', false);
+           $('#selected-date').prop('disabled', false)
          },
          error: function(xhr, status, error) {
            // Handle the error case
@@ -101,9 +119,15 @@
          ,
          });
       }else{
-        alert("RUT invalido o formato incorrecto, ingresar con guion y sin puntos");
+        alert("RUT invalido o formato incorrecto, ingresar con guión y sin puntos");
         $('#rut-student').val('');
       }
+    })
+    $("#selected-date").on("change", function(){
+       $(".hour-card").each(function (card){
+        $(this).addClass('disabled');
+        $(this).attr("onClick", "undefined");
+        })
     })
     $('#check-date').on('click', function() {
       var selectedDate = $('#selected-date').val();

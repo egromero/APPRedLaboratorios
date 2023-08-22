@@ -10,8 +10,10 @@ class ReservationsController < ApplicationController
   def admin_reservations
     if current_user.nil?
       redirect_to reservations_path
+      return;
     end
     @lab = Laboratory.find(current_user.lab_id).nombre
+    @laboratories = Laboratory.all
   end
 
   def validate_reservation
@@ -38,7 +40,7 @@ class ReservationsController < ApplicationController
     if current_user.nil?
       render json: { status: 400 }
     end
-    lab_id = current_user.lab_id
+    lab_id = current_user.rol = "admin" ? params[:lab_id] : current_user.lab_id
     date = params[:date]
     reservations = Reservation.where(lab_id: lab_id, date: date).where.not(status: "rechazada")
     reservations_object = []
@@ -57,7 +59,8 @@ class ReservationsController < ApplicationController
 
 
   def get_date_reservation_student
-    student = Student.find_by(rut: params[:rut])
+    rut = convert_last_char_to_uppercase(params[:rut])
+    student = Student.find_by(rut: rut)
     if student.nil?
       render json: { message: "Student not found", status: 404}
       return;
@@ -74,7 +77,8 @@ class ReservationsController < ApplicationController
   end
 
   def get_student_reservation
-    student = Student.find_by(rut: params[:rut])
+    rut = convert_last_char_to_uppercase(params[:rut])
+    student = Student.find_by(rut: rut)
     if student.nil?
       render json: { message: "Student not found", status: 404}
       return;
@@ -108,27 +112,35 @@ class ReservationsController < ApplicationController
   # POST /reservations or /reservations.json
   def create
     # @reservation = Reservation.new(reservation_params)
+    unless is_almost_today?(params[:date])
+      respond_to do |format|
+        format.html { redirect_to reservations_path, alert: "La fecha no es correcta." }
+      end
+      return;
+    end
+    date = params[:date]
     blocks = params[:blocks].first.gsub!(/[\[\]\"]/, '').split(',')
     asked_hours = blocks.length * 0.5
     @reservations = []
     check_machines = Reservation.where(machine_id: params[:machine_id], date: params[:date], hour_block: blocks).where.not(status: "rechazada")
     unless check_machines.empty?
       respond_to do |format|
-        format.html { redirect_to reservations_path, notice: "Una o más horas ya están tomadas." }
+        format.html { redirect_to reservations_path, alert: "Una o más horas ya están tomadas." }
       end
       return;
     end
-    student = Student.find_by(rut: params[:student_rut])
+    rut = convert_last_char_to_uppercase(params[:student_rut])
+    student = Student.find_by(rut: rut)
     if student.nil?
       respond_to do |format|
-        format.html { redirect_to reservations_path, notice: "El estudiante no existe." }
+        format.html { redirect_to reservations_path, alert: "El estudiante no existe." }
       end
       return;
     end
     student_id = student.id
     if asked_hours > student.current_wallet.hours
       respond_to do |format|
-        format.html { redirect_to reservations_path, notice: "No tienes suficientes horas para reservar." }
+        format.html { redirect_to reservations_path, alert: "No tienes suficientes horas para reservar." }
       end
       return;
     end
@@ -153,7 +165,7 @@ class ReservationsController < ApplicationController
         format.html { redirect_to reservations_path, notice: "Reservas creadas correctamente." }
       else
         student.discount(asked_hours - failed_reservations.length * 0.5)
-        format.html { redirect_to reservations_path, notice: "Algunas reservas no fueron creadas." }
+        format.html { redirect_to reservations_path, alert: "Algunas reservas no fueron creadas." }
       end
     end
   end
@@ -191,4 +203,21 @@ class ReservationsController < ApplicationController
     def reservation_params
       params.fetch(:reservation, {})
     end
+
+    def convert_last_char_to_uppercase(str)
+      last_char = str[-1]
+      if last_char == 'k'
+        str[-1] = last_char.upcase
+      end
+      str
+    end
+
+    def is_almost_today?(date_string)
+      date = Date.parse(date_string)
+      today = Date.today
+      difference = (date - today).to_i
+    
+      difference >= 0
+    end
+
 end

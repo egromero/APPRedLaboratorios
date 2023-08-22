@@ -1,5 +1,17 @@
-  <h2 style="text-align: center">Reservas <%=@lab%></h2>
+  <h2 style="text-align: center">Admin Reservas <%=current_user.rol == "admin" ? '' : @lab%></h2>
 <div style="margin-top: 3rem; text-align: center">
+  <%unless current_user.nil?%>
+    <%if current_user.rol == "admin"%>
+    <div style="width:15em; margin:10px auto;">
+      <label class="label-form">Selecciona laboratorio</label>
+        <select class="input-form" id="selected-laboratory">
+            <% @laboratories.each do |lab| %>
+                <option value="<%=lab.id%>"><%=lab.nombre%></option>
+            <% end %>
+        </select>
+    </div>
+    <% end %>
+ <% end %> 
     <input type="date" id="selected-date">
     <button class="btn btn-primary" type="button" id="btn-reservation">Consultar</button>
   <div id="content-reservation" class="row-flex-div" style="flex-wrap: wrap; justify-content: start; margin: 10px auto;"></div>
@@ -9,12 +21,13 @@
 <script>
   $('#btn-reservation').on('click', function() {
         const date = $("#selected-date").val();
+        const laboratory = $("#selected-laboratory").val()
         $('#content-reservation').html('');
         $.ajax({
         url: '/reservations/get_admin_reservation',
         type: 'POST',
         dataType: 'json',
-        data: { date: date },
+        data: { date: date, lab_id: laboratory },
         success: function(response) {
           if(response.reservations.length === 0) {
             $('#content-reservation').html('No hay reservas para la fecha seleccionada');

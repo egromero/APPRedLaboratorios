@@ -78,6 +78,7 @@
                         <td><i class="material-icons" style="font-size:28px;color:red">clear</i></td>
                          <td>
                         <form action="/students/enroll" method="post" id="auth-student">
+                            <input hidden name="lab_id" value=<%=@laboratory.id%>/>
                             <input id=<%=record.id%> name='student_id[]' value=<%=record.student.id%> type='checkbox'>
                             <label for=<%=record.id%>> Autorizar </label>
                         </form>
