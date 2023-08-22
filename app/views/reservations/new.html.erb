@@ -6,7 +6,7 @@
             <h4><%=@machine.name.upcase%></h4>
             <p> Laboratorio: <%=@laboratory.nombre%></p>
             <p>Descripción: <%=@machine.description%></p>
-            <p> Horario disponible para reservar: 8:00 - 18:00</p>
+            <p> Horario disponible para reservar: <%=@machine.start_hour%> - <%=@machine.end_hour%></p>
             <form method="POST" action="/reservations" id="form">
               <div class="column-flex-div">
                  <p> Ingresa tu Rut en formato 12345678-9 (sin puntos con guíon)</p>
@@ -24,24 +24,32 @@
                     <input hidden name="lab_id" value="<%= @machine.lab_id %>">
                 </div> 
                 <div class="row-flex-div hour-box">
-                    <%end_time = '18:00'%>
-                    <%time = "8:00"%>
+                    <%end_time = @machine.end_hour%>
+                    <%time = @machine.start_hour%>
+                    <%lunch = @machine.lunch%>
                     <%index = 0%>
                     <%while time != end_time do %>
-                        <%if time != "13:30" && time != "13:00" && time != end_time%>
-                            <div class="hour-card disabled" id="hour-<%=index%>">
-                                <%=time%>
-                            </div>
-                        <%end%>
-                        <%splited = time.split(":")%>
-                        <%if splited[1] == "00"%>
-                            <%splited[1] = "30"%>
-                        <%else%>
-                            <%splited[1] = "00"%>
-                            <%splited[0] = splited[0].to_i + 1%>
-                        <%end%>
-                        <%time = splited[0].to_s + ":" + splited[1].to_s%>
-                        <%index = index + 1%>
+                      <%if !lunch.nil?%>
+                          <%hour = time.split(":")[0].to_i%>
+                          <%if hour != lunch && time != end_time%>
+                              <div class="hour-card disabled" id="hour-<%=index%>">
+                                  <%=time%>
+                              </div>
+                          <%end%>
+                          <%else%>
+                          <div class="hour-card disabled" id="hour-<%=index%>">
+                            <%=time%>
+                          </div>
+                      <%end%>
+                      <%splited = time.split(":")%>
+                      <%if splited[1] == "00"%>
+                          <%splited[1] = "30"%>
+                      <%else%>
+                          <%splited[1] = "00"%>
+                          <%splited[0] = splited[0].to_i + 1%>
+                      <%end%>
+                      <%time = splited[0].to_s + ":" + splited[1].to_s%>
+                      <%index = index + 1%>
                     <%end%>  
                 </div>
                 <button class="btn btn-primary" type="button" id="reservation-button" disabled> Reservar</button>
