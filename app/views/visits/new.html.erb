@@ -19,6 +19,17 @@
 					<span class="label-input100" style="color:red ; visibility:hidden; padding-left: 90px" id="invalidError" >RUN ingresado es invalido</span>
 				</div>
 
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">¿Eres estudiante UC? </span>
+					<div>
+						<select class="input-form" name="uc_student" id="uc_student">
+							<option>Sí</option>
+							<option selected>No</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+
 				<div class="wrap-input100 bg1">
 					<span class="label-input100">Insitución que pertenece</span>
 					<input class="input100" id="institution" type="text" name="institucion" placeholder="ej: Universidad Católica">
@@ -38,7 +49,6 @@
 				</div>
 
 
-
 				<div class="wrap-input100 input100-select bg1">
 					<span class="label-input100">Motivo de visita </span>
 					<div>
@@ -54,7 +64,6 @@
 					</div>
 				</div>
 
-
                 <div class="wrap-input100 bg1" id="otro-motivo">
 					<span class="label-input100">Otro</span>
 					<input class="input100" id="otro" type="text" name="other" placeholder="ej: Consulta por maquinaria">
@@ -66,7 +75,6 @@
 					<input class="input100" type="text" id="counter" name="quantity"placeholder="ej: 15">
 				</div>
 
-
 				<div class="container-contact100-form-btn">
 					<button class="contact100-form-btn" type="button" onClick="window.postForm();" id="button">
 						<span>
@@ -75,7 +83,6 @@
 						</span>
 					</button>
 				</div>
-
 
 			</form>
 		</div>

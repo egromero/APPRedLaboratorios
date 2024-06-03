@@ -71,7 +71,7 @@ window.getRecords = function (id) {
   });
 };
 
-window.postForm = function () {
+/* window.postForm = function () {
   var data = {
     visit: {
       rut: document.getElementById("run").value,
@@ -97,8 +97,57 @@ window.postForm = function () {
       window.location.replace("/slideshow");
     },
   });
-};
+}; */
 
+window.postForm = function () {
+  var student_data = {
+      rut: document.getElementById("run").value,
+      institucion: document.getElementById("institution").value,
+      lab_id: document.getElementById("lab").value,
+      motivo: document.getElementById("motivo").value,
+      other: document.getElementById("otro").value,
+      uc_student: document.getElementById("otro").value,
+      quantity: document.getElementById("counter").value,
+  };
+
+  var headers = {
+      'Authorization': 'Bearer YOUR_API_KEY',
+      'Content-Type': 'application/json'
+  };
+
+  var data = {
+    'fields': {
+      'fldl99UjPoKChJyU1': visit_data.rut,
+      'fld4K10yQ9y74ryAO': visit_data.institucion,
+      'fldvLABQiqKIJPgK9': visit_data.lab_id,
+      'fldxNQvUYdFOf9x36': visit_data.motivo,
+      'fldBagNcAy9oSYo1n': visit_data.other,
+      'fldwFwYqPHLi5cqvE': visit_data.quantity,
+      'fldQDfXUY09GkKy1y': visit_data.uc_student
+    }
+  };
+
+  $.ajax({
+      type: "POST",
+      url: "https://api.airtable.com/v0/appAva5Ns7QQbSSVn/tblQKTOunnX5STdms",
+      headers: headers,
+      data: JSON.stringify(data),
+      dataType: "json",
+      success: function (data) {
+          console.log('Success:', data);
+          if (data.type == "student") {
+              alert("Bienvenido/a " + data.name + " registro realizado");
+          } else {
+              alert("Visita registrada.");
+          }
+          window.location.replace("/slideshow");
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+          console.error('Error:', textStatus, errorThrown);
+          alert('Error al registrar la visita.');
+      }
+  });
+};
 
 window.elements = [];
 window.addElement = function (element){
