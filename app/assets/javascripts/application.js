@@ -100,6 +100,9 @@ window.getRecords = function (id) {
 }; */
 
 window.postForm = function () {
+
+  const apiKey = window.RailsEnvJs.API_KEY;
+
   var visit_data = {
       rut: document.getElementById("run").value,
       institucion: document.getElementById("institution").value,
@@ -111,7 +114,7 @@ window.postForm = function () {
   };
 
   var headers = {
-      'Authorization': 'Bearer YOUR_API_KEY',
+      'Authorization': 'Bearer '+ apiKey,
       'Content-Type': 'application/json'
   };
 
