@@ -100,7 +100,7 @@ window.getRecords = function (id) {
 }; */
 
 window.postForm = function () {
-  var student_data = {
+  var visit_data = {
       rut: document.getElementById("run").value,
       institucion: document.getElementById("institution").value,
       lab_id: document.getElementById("lab").value,
@@ -135,11 +135,7 @@ window.postForm = function () {
       dataType: "json",
       success: function (data) {
           console.log('Success:', data);
-          if (data.type == "student") {
-              alert("Bienvenido/a " + data.name + " registro realizado");
-          } else {
-              alert("Visita registrada.");
-          }
+          alert("Visita registrada.");
           window.location.replace("/slideshow");
       },
       error: function (jqXHR, textStatus, errorThrown) {
