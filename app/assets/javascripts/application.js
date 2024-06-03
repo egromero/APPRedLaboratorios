@@ -101,7 +101,7 @@ window.getRecords = function (id) {
 
 window.postForm = function () {
 
-  const apiKey = window.RailsEnvJs.API_KEY;
+  const apiKey = process.env.API_KEY;
 
   var visit_data = {
       rut: document.getElementById("run").value,
