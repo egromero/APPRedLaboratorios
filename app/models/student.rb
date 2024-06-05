@@ -36,6 +36,6 @@ class Student < ApplicationRecord
   def format_rut
     '' if rut.nil?
     rut if rut.include? '-'
-    "#{rut[..-2]}-#{rut[-1]}"
+    "#{rut.slice(0..-2)}-#{rut[-1]}"
   end
 end
