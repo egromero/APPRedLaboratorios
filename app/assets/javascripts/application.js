@@ -101,6 +101,7 @@ window.getRecords = function (id) {
 
 window.postForm = function () {
 
+  console.log("Entrando a PostForm...")
   var apiKey = process.env.API_KEY;
 
   var visit_data = {
@@ -129,6 +130,7 @@ window.postForm = function () {
       'fldQDfXUY09GkKy1y': visit_data.uc_student
     }
   };
+  console.log(data)
 
   $.ajax({
       type: "POST",
