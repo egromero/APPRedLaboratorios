@@ -207,5 +207,3 @@ window.modules = {
   18: "17:00",
   19: "17:30",
 }
-
-windows.postForm()
