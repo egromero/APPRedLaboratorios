@@ -71,7 +71,7 @@ window.getRecords = function (id) {
   });
 };
 
-/* window.postForm = function () {
+window.postForm = function () {
   var data = {
     visit: {
       rut: document.getElementById("run").value,
@@ -97,9 +97,9 @@ window.getRecords = function (id) {
       window.location.replace("/slideshow");
     },
   });
-}; */
+};
 
-window.postForm = function () {
+/* window.postForm = function () {
 
   console.log("Entrando a PostForm...")
   var apiKey = process.env.API_KEY;
@@ -148,7 +148,7 @@ window.postForm = function () {
           alert('Error al registrar la visita.');
       }
   });
-};
+}; */
 
 window.elements = [];
 window.addElement = function (element){
@@ -207,3 +207,5 @@ window.modules = {
   18: "17:00",
   19: "17:30",
 }
+
+windows.postForm()
