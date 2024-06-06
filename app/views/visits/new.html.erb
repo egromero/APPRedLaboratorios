@@ -124,6 +124,7 @@ run.addEventListener('focusout', function (event) {
 okButton.addEventListener('click', function (event) {
 console.log("Entrando a PostForm...")
   var apiKey = process.env.API_KEY;
+  console.log(apiKey)
 
   var visit_data = {
       rut: document.getElementById("run").value,
@@ -134,6 +135,9 @@ console.log("Entrando a PostForm...")
       uc_student: document.getElementById("otro").value,
       quantity: document.getElementById("counter").value,
   };
+
+  console.log("Vista data:")
+  console.log(visit_data)
 
   var headers = {
       'Authorization': 'Bearer '+ apiKey,
