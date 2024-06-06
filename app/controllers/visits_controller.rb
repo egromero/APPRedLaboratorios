@@ -104,10 +104,11 @@ class VisitsController < ApplicationController
         Rails.logger.info "Entrando a create..."
         Rails.logger.info "Visit Params"
         Rails.logger.info visit_params
+        render json: {type: "visit"}
         @visit = Visit.new(visit_params)
 
         if @visit.save
-          redirect_to success_path, notice: 'Visita registrada exitosamente.'
+            render layout: 'slideshow', notice: 'Visita registrada exitosamente.'
         else
           render layout: 'slideshow' 
         end
