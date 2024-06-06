@@ -40,9 +40,11 @@ class VisitsController < ApplicationController
   
     def create
       Rails.logger.info "Entrando a create..."
-      @visit_params = params.require(:visit).permit(:rut, :motivo, :institucion, :lab_id, :other, :quantity, :uc_student)
-  
+      @visit_params = params.permit(:rut, :motivo, :institucion, :lab_id, :other, :quantity, :uc_student)
+      Rails.logger.info "Entrando a create..."
+      Rails.logger.info @visit_params
       # Lógica para enviar una solicitud POST a otro servicio usando net/http
+      Rails.logger.info "Entrando a enviar POST..."
       uri = URI.parse("https://example.com/api/endpoint") # Cambia esta URL por la del servicio al que necesitas enviar la solicitud
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = (uri.scheme == "https")
@@ -50,6 +52,8 @@ class VisitsController < ApplicationController
       request.body = @visit_params.to_json
   
       response = http.request(request)
+      Rails.logger.info "Respuesta recibida..."
+      Rails.logger.info response
   
       if response.code.to_i == 200
         redirect_to success_path, notice: 'Visita registrada exitosamente y solicitud enviada al servicio externo.'
