@@ -23,7 +23,7 @@ class VisitsController < ApplicationController
 
     
     def new
-        puts "Entrando a new..."
+        Rails.logger.info "Entrando a new..."
         @labs =  Laboratory.all
         render layout: 'slideshow'
         #@visit = Visit.new
@@ -35,7 +35,7 @@ class VisitsController < ApplicationController
     end
     
     def create
-        puts "Entrando a create..."
+        Rails.logger.info "Entrando a create..."
         render layout: 'slideshow' 
         # student = Student.where(rut: visit_params[:rut])[0]
         # if student 
