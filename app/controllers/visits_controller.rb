@@ -26,7 +26,7 @@ class VisitsController < ApplicationController
         Rails.logger.info "Entrando a new..."
         @labs =  Laboratory.all
         render layout: 'slideshow'
-        #@visit = Visit.new
+        @visit = Visit.new
     end
 
     def import
