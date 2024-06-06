@@ -28,9 +28,9 @@ class VisitsController < ApplicationController
         Rails.logger.info "Labs obtenidos..."
         #render layout: 'slideshow'
         Rails.logger.info "Saliendo de render layout slideshow..."
-        #@visit = Visit.new
-        #Rails.logger.info "Saliendo de Visit.new ..."
-        redirect_to 'slideshow'
+        @visit = Visit.new
+        Rails.logger.info "Saliendo de Visit.new ..."
+        redirect_to '/slideshow'
     end
 
     def import
