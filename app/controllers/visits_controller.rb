@@ -133,7 +133,7 @@ class VisitsController < ApplicationController
     end 
 
     def visit_params
-        params.permit(:rut, :motivo, :institucion, :lab_id, :other, :quantity, :uc_student)
+        params.require(:visit).permit(:rut, :motivo, :institucion, :lab_id, :other, :quantity, :uc_student)
     end
 
 
