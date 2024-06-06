@@ -25,7 +25,7 @@ class VisitsController < ApplicationController
     def new
         @labs =  Laboratory.all
         render layout: 'slideshow'
-        @visit = Visit.new
+        #@visit = Visit.new
     end
 
     def import
@@ -33,25 +33,26 @@ class VisitsController < ApplicationController
         redirect_to root_path, notice: "Registros de visitas actualizados"
     end
     
-    def create 
-        student = Student.where(rut: visit_params[:rut])[0]
-        if student 
-            if student.status.nil?
-                student.status = true
-                student.save
-            end
-            @record = student.records.new({:tipo => student.status, :lab_id =>visit_params[:lab_id]})
-            if @record.save
-                student.status = !student.status
-                student.save
-                render json: {type: "student", name: student.nombre}
-            end
-        else    
-            @visit = Visit.new(rut: visit_params[:rut], motivo: visit_params[:motivo], institucion: visit_params[:institucion], lab_id: visit_params[:lab_id], other: visit_params[:other], quantity: visit_params[:quantity])
-            if @visit.save
-                render json: {type: "visit"}
-            end
-        end
+    def create
+        render layout: 'slideshow' 
+        # student = Student.where(rut: visit_params[:rut])[0]
+        # if student 
+        #     if student.status.nil?
+        #         student.status = true
+        #         student.save
+        #     end
+        #     @record = student.records.new({:tipo => student.status, :lab_id =>visit_params[:lab_id]})
+        #     if @record.save
+        #         student.status = !student.status
+        #         student.save
+        #         render json: {type: "student", name: student.nombre}
+        #     end
+        # else    
+        #     @visit = Visit.new(rut: visit_params[:rut], motivo: visit_params[:motivo], institucion: visit_params[:institucion], lab_id: visit_params[:lab_id], other: visit_params[:other], quantity: visit_params[:quantity])
+        #     if @visit.save
+        #         render json: {type: "visit"}
+        #     end
+        # end
     end 
 
     def visit_params
