@@ -56,6 +56,7 @@ class VisitsController < ApplicationController
       Rails.logger.info response
   
       if response.code.to_i == 200
+        flash[:notice] = 'Visita registrada. Bienvenido al Laboratorio'
         redirect_to slideshow_path, notice: 'Visita registrada exitosamente y solicitud enviada al servicio externo.'
       else
         flash[:error] = "Hubo un error al enviar la solicitud al servicio externo."
