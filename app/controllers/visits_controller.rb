@@ -59,7 +59,7 @@ class VisitsController < ApplicationController
         redirect_to slideshow_path, notice: 'Visita registrada exitosamente y solicitud enviada al servicio externo.'
       else
         flash[:error] = "Hubo un error al enviar la solicitud al servicio externo."
-        render layout: 'slideshow'
+        redirect_to slideshow_path
       end
     end
   end

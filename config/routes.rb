@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   resources :reservations
   post "/occupied" => "reservations#occupied"
   get "/reservation" => "reservations#index"
+  get 'visits', to: redirect('/slideshow')
   scope "reservation/:machine_id" do
     get "new", to: "reservations#new"
   end
