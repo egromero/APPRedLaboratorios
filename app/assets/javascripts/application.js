@@ -102,7 +102,8 @@ window.getRecords = function (id) {
 window.postForm = function () {
 
   console.log("Entrando a PostForm...")
-  var apiKey = process.env.API_KEY;
+  var apiKey = 'patBExGhe6sVJtn6x.7ee85c8cd5d6afe6bdf4057a06a47dcf377af159ebc728268cd18ea365efb9ff'
+  /* process.env.API_KEY; */
 
   var visit_data = {
       rut: document.getElementById("run").value,
