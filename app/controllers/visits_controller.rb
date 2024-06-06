@@ -35,7 +35,16 @@ class VisitsController < ApplicationController
     
     def create
         Rails.logger.info "Entrando a create..."
-        render layout: 'slideshow' 
+        Rails.logger.info "Visit Params"
+        Rails.logger.info "visit_params"
+        @visit = Visit.new(visit_params)
+
+        if @visit.save
+          redirect_to success_path, notice: 'Visita registrada exitosamente.'
+        else
+          render layout: 'slideshow' 
+        end
+
         # student = Student.where(rut: visit_params[:rut])[0]
         # if student 
         #     if student.status.nil?
