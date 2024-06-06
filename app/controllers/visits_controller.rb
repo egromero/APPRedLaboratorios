@@ -23,6 +23,7 @@ class VisitsController < ApplicationController
 
     
     def new
+        puts "Entrando a new..."
         @labs =  Laboratory.all
         render layout: 'slideshow'
         #@visit = Visit.new
@@ -34,6 +35,7 @@ class VisitsController < ApplicationController
     end
     
     def create
+        puts "Entrando a create..."
         render layout: 'slideshow' 
         # student = Student.where(rut: visit_params[:rut])[0]
         # if student 
@@ -56,7 +58,7 @@ class VisitsController < ApplicationController
     end 
 
     def visit_params
-        params.require(:visit).permit(:rut, :motivo, :institucion, :lab_id, :other, :quantity)
+        params.require(:visit).permit(:rut, :motivo, :institucion, :lab_id, :other, :quantity, :uc_student)
     end
 
 
