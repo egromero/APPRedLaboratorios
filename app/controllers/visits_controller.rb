@@ -136,8 +136,9 @@ class VisitsController < ApplicationController
             render json: {type: "visit"}
             redirect_to slideshow_path
           else
-            Rails.logger.info 'Error al registrar visita'
-            flash[:alert] = "Error al registrar la visita: #{response.message}"
+            Rails.logger.error "Error al registrar la visita: #{response.message}"
+            Rails.logger.error "Cuerpo de la respuesta: #{response.body}"
+            #flash[:alert] = "Error al registrar la visita: #{response.message}"
             redirect_to slideshow_path
           end
         #@visit = Visit.new(visit_params)
