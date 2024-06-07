@@ -131,7 +131,15 @@ class VisitsController < ApplicationController
         Rails.logger.info 'Response recibida:'
         Rails.logger.info response
 
-        render json: {type: "visit"}
+        if response.code.to_i == 200
+            Rails.logger.info 'Código 200'
+            render json: {type: "visit"}
+            redirect_to slideshow_path
+          else
+            Rails.logger.info 'Error al registrar visita'
+            flash[:alert] = "Error al registrar la visita: #{response.message}"
+            redirect_to slideshow_path
+          end
         #@visit = Visit.new(visit_params)
 
         # if @visit.save
