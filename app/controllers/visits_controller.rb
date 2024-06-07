@@ -105,32 +105,32 @@ class VisitsController < ApplicationController
         Rails.logger.info "Visit Params"
         Rails.logger.info visit_params
         render json: {type: "visit"}
-        @visit = Visit.new(visit_params)
+        #@visit = Visit.new(visit_params)
 
-        if @visit.save
-            render layout: 'slideshow', notice: 'Visita registrada exitosamente.'
-        else
-          render layout: 'slideshow' 
-        end
+        # if @visit.save
+        #     render layout: 'slideshow', notice: 'Visita registrada exitosamente.'
+        # else
+        #   render layout: 'slideshow' 
+        # end
 
-        student = Student.where(rut: visit_params[:rut])[0]
-        if student 
-            if student.status.nil?
-                student.status = true
-                student.save
-            end
-            @record = student.records.new({:tipo => student.status, :lab_id =>visit_params[:lab_id]})
-            if @record.save
-                student.status = !student.status
-                student.save
-                render json: {type: "student", name: student.nombre}
-            end
-        else    
-            @visit = Visit.new(rut: visit_params[:rut], motivo: visit_params[:motivo], institucion: visit_params[:institucion], lab_id: visit_params[:lab_id], other: visit_params[:other], quantity: visit_params[:quantity])
-            if @visit.save
-                render json: {type: "visit"}
-            end
-        end
+        # student = Student.where(rut: visit_params[:rut])[0]
+        # if student 
+        #     if student.status.nil?
+        #         student.status = true
+        #         student.save
+        #     end
+        #     @record = student.records.new({:tipo => student.status, :lab_id =>visit_params[:lab_id]})
+        #     if @record.save
+        #         student.status = !student.status
+        #         student.save
+        #         render json: {type: "student", name: student.nombre}
+        #     end
+        # else    
+        #     @visit = Visit.new(rut: visit_params[:rut], motivo: visit_params[:motivo], institucion: visit_params[:institucion], lab_id: visit_params[:lab_id], other: visit_params[:other], quantity: visit_params[:quantity])
+        #     if @visit.save
+        #         render json: {type: "visit"}
+        #     end
+        # end
     end 
 
     def visit_params
