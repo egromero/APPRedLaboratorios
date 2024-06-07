@@ -104,6 +104,33 @@ class VisitsController < ApplicationController
         Rails.logger.info "Entrando a create..."
         Rails.logger.info "Visit Params"
         Rails.logger.info visit_params
+
+        # Datos a enviar
+        data = {
+          'fields': {
+            'fldl99UjPoKChJyU1': visit_params[:rut],
+            'fld4K10yQ9y74ryAO': visit_params[:institucion],
+            'fldvLABQiqKIJPgK9': visit_params[:lab_id],
+            'fldxNQvUYdFOf9x36': visit_params[:motivo],
+            'fldBagNcAy9oSYo1n': visit_params[:other],
+            'fldwFwYqPHLi5cqvE': visit_params[:quantity],
+            'fldQDfXUY09GkKy1y': visit_params[:uc_student]
+          }
+        }
+    
+        # Configuración de la solicitud
+        uri = URI.parse("https://api.airtable.com/v0/appAva5Ns7QQbSSVn/tblQKTOunnX5STdms")
+        http = Net::HTTP.new(uri.host, uri.port)
+        http.use_ssl = true
+        request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/json', 'Authorization' => 'Bearer patBExGhe6sVJtn6x.7ee85c8cd5d6afe6bdf4057a06a47dcf377af159ebc728268cd18ea365efb9ff'})
+        request.body = data.to_json
+    
+        # Enviar la solicitud
+        Rails.logger.info 'Enviando solicitud...'
+        response = http.request(request)
+        Rails.logger.info 'Response recibida:'
+        Rails.logger.info response
+
         render json: {type: "visit"}
         #@visit = Visit.new(visit_params)
 
