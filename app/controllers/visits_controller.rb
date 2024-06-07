@@ -104,6 +104,7 @@ class VisitsController < ApplicationController
         Rails.logger.info "Entrando a create..."
         Rails.logger.info "Visit Params"
         Rails.logger.info visit_params
+        render json: {type: "visit"}
 
         # Datos a enviar
         data = {
@@ -131,12 +132,6 @@ class VisitsController < ApplicationController
         Rails.logger.info 'Response recibida:'
         Rails.logger.info response
 
-        if request.xhr?
-            render json: { type: 'visit', message: 'Visita registrada exitosamente.' }
-          else
-            flash[:notice] = 'Visita registrada exitosamente.'
-            redirect_to slideshow_path
-          end
         # if response.code.to_i == 200
         #     Rails.logger.info 'Código 200'
         #     render json: {type: "visit"}
