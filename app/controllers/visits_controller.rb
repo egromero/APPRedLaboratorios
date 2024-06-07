@@ -134,7 +134,6 @@ class VisitsController < ApplicationController
         if response.code.to_i == 200
             Rails.logger.info 'Código 200'
             render json: {type: "visit"}
-            redirect_to slideshow_path
           else
             Rails.logger.error "Error al registrar la visita: #{response.message}"
             Rails.logger.error "Cuerpo de la respuesta: #{response.body}"

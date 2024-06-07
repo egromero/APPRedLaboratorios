@@ -80,6 +80,7 @@ window.postForm = function () {
       motivo: document.getElementById("motivo").value,
       other: document.getElementById("otro").value,
       quantity: document.getElementById("counter").value,
+      uc_student: document.getElementById("uc_student").value,
     },
   };
   $.ajax({
