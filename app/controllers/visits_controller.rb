@@ -54,29 +54,44 @@ class VisitsController < ApplicationController
           }
         }
         
-        render json: {type: "visit"}
-        # Configuración de la solicitud
-        # uri = URI.parse("https://api.airtable.com/v0/appAva5Ns7QQbSSVn/tblQKTOunnX5STdms")
-        # http = Net::HTTP.new(uri.host, uri.port)
-        # http.use_ssl = true
-        # request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/json', 'Authorization' => 'Bearer patBExGhe6sVJtn6x.7ee85c8cd5d6afe6bdf4057a06a47dcf377af159ebc728268cd18ea365efb9ff'})
-        # request.body = data.to_json
-    
-        # Enviar la solicitud
-        # Rails.logger.info 'Enviando solicitud...'
-        # response = http.request(request)
-        # Rails.logger.info 'Response recibida:'
-        # Rails.logger.info response
-
-        # if response.code.to_i == 200
-        #     Rails.logger.info 'Código 200'
-        #     render json: {type: "visit"}
-        #   else
-        #     Rails.logger.error "Error al registrar la visita: #{response.message}"
-        #     Rails.logger.error "Cuerpo de la respuesta: #{response.body}"
-        #     #flash[:alert] = "Error al registrar la visita: #{response.message}"
-        #     redirect_to slideshow_path
-        #   end
+        begin        
+            # Configuración de la solicitud
+            uri = URI.parse("https://api.airtable.com/v0/appAva5Ns7QQbSSVn/tblQKTOunnX5STdms")
+            http = Net::HTTP.new(uri.host, uri.port)
+            http.use_ssl = true
+            request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/json', 'Authorization' => 'Bearer patBExGhe6sVJtn6x.7ee85c8cd5d6afe6bdf4057a06a47dcf377af159ebc728268cd18ea365efb9ff'})
+            request.body = data.to_json
+        
+            # Enviar la solicitud
+            response = http.request(request)
+        
+            if response.code.to_i == 200
+              if request.xhr?
+                render json: { type: 'visit', message: 'Visita registrada exitosamente.' }
+              else
+                flash[:notice] = 'Visita registrada exitosamente.'
+                redirect_to slideshow_path
+              end
+            else
+              Rails.logger.error "Error al registrar la visita: #{response.message}"
+              Rails.logger.error "Cuerpo de la respuesta: #{response.body}"
+              if request.xhr?
+                render json: { type: 'error', message: "Error al registrar la visita: #{response.message}" }, status: :unprocessable_entity
+              else
+                flash[:alert] = "Error al registrar la visita: #{response.message}"
+                redirect_to slideshow_path
+              end
+            end
+        
+          rescue => e
+            Rails.logger.error "Excepción al registrar la visita: #{e.message}"
+            if request.xhr?
+              render json: { type: 'error', message: "Error al registrar la visita: #{e.message}" }, status: :internal_server_error
+            else
+              flash[:alert] = "Error al registrar la visita: #{e.message}"
+              redirect_to slideshow_path
+            end
+          end
     end 
 
     def visit_params
