@@ -131,15 +131,21 @@ class VisitsController < ApplicationController
         Rails.logger.info 'Response recibida:'
         Rails.logger.info response
 
-        if response.code.to_i == 200
-            Rails.logger.info 'Código 200'
-            render json: {type: "visit"}
+        if request.xhr?
+            render json: { type: 'visit', message: 'Visita registrada exitosamente.' }
           else
-            Rails.logger.error "Error al registrar la visita: #{response.message}"
-            Rails.logger.error "Cuerpo de la respuesta: #{response.body}"
-            #flash[:alert] = "Error al registrar la visita: #{response.message}"
+            flash[:notice] = 'Visita registrada exitosamente.'
             redirect_to slideshow_path
           end
+        # if response.code.to_i == 200
+        #     Rails.logger.info 'Código 200'
+        #     render json: {type: "visit"}
+        #   else
+        #     Rails.logger.error "Error al registrar la visita: #{response.message}"
+        #     Rails.logger.error "Cuerpo de la respuesta: #{response.body}"
+        #     #flash[:alert] = "Error al registrar la visita: #{response.message}"
+        #     redirect_to slideshow_path
+        #   end
         #@visit = Visit.new(visit_params)
 
         # if @visit.save
