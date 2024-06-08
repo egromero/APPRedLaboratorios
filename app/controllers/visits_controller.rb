@@ -71,7 +71,8 @@ class VisitsController < ApplicationController
         respond_to do |format|
             if response.code.to_i == 200
               Rails.logger.info 'Código 200'
-              render json: { type: 'visit', message: 'Visita registrada exitosamente.' }
+              format.html { redirect_to success_visits_path }
+              format.json { render json: { redirect: success_visits_path }, status: :created }
             else
               Rails.logger.error "Error al registrar la visita: #{response.message}"
               Rails.logger.error "Cuerpo de la respuesta: #{response.body}"
