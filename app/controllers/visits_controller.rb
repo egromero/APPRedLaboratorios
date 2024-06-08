@@ -70,12 +70,12 @@ class VisitsController < ApplicationController
 
         if response.code.to_i == 200
             Rails.logger.info 'Código 200'
-            redirect_to success_visits_path
+            redirect_to success_visits_path and return
           else
             Rails.logger.error "Error al registrar la visita: #{response.message}"
             Rails.logger.error "Cuerpo de la respuesta: #{response.body}"
             #flash[:alert] = "Error al registrar la visita: #{response.message}"
-            redirect_to slideshow_path
+            redirect_to slideshow_path and return
           end
     end
     
