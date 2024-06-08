@@ -70,17 +70,18 @@ class VisitsController < ApplicationController
 
         if response.code.to_i == 200
             Rails.logger.info 'Código 200'
-            redirect_to success_visits_path and return
+            format.html { redirect_to success_visits_path }
+            format.json { render json: { redirect: success_visits_path }, status: :created }
           else
             Rails.logger.error "Error al registrar la visita: #{response.message}"
             Rails.logger.error "Cuerpo de la respuesta: #{response.body}"
-            #flash[:alert] = "Error al registrar la visita: #{response.message}"
-            redirect_to slideshow_path and return
+            format.html { redirect_to slideshow_path }
+            format.json { render json: { error: "Error al registrar la visita: #{response.message}" }, status: :unprocessable_entity }    
           end
     end
     
     def success
-        # Esta acción solo renderiza la vista success.html.erb
+        render layout: 'slideshow'
     end      
 
     def visit_params
