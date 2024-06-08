@@ -107,6 +107,7 @@ window.postForm = function () {
       console.log(data)
       console.error("Error:", textStatus, errorThrown);
       alert("Error al registrar la visita: " + errorThrown);
+      window.location.replace("/slideshow");
     }
   });
 };
