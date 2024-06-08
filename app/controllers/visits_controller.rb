@@ -3,6 +3,7 @@ require 'uri'
 require 'json'
 
 class VisitsController < ApplicationController
+    before_action :set_cors_headers
     skip_before_action :verify_authenticity_token
     load_and_authorize_resource class: "Visit"
 
@@ -10,6 +11,12 @@ class VisitsController < ApplicationController
         flash[:warning] = "Acceso Denegado!"
         redirect_to root_url
     end
+
+    def set_cors_headers
+        response.set_header('Access-Control-Allow-Origin', '*')
+        response.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
+        response.set_header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+      end
 
     def index
         @visits_day = Visit.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
