@@ -55,7 +55,6 @@ class VisitsController < ApplicationController
           }
         }
         
-        render json: {type: "visit"}
         #Configuración de la solicitud
         uri = URI.parse("https://api.airtable.com/v0/appAva5Ns7QQbSSVn/tblQKTOunnX5STdms")
         http = Net::HTTP.new(uri.host, uri.port)
