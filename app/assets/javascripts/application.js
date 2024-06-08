@@ -97,6 +97,11 @@ window.postForm = function () {
       }
       window.location.replace("/slideshow");
     },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.log(data)
+      console.error("Error:", textStatus, errorThrown);
+      alert("Error al registrar la visita: " + errorThrown);
+    }
   });
 };
 
