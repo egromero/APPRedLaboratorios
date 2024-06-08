@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   resources :laboratories
   resources :students
   resources :records 
-  resources :visits, only: [:new, :create]
+  resources :visits, only: [:new, :create] do
+    collection do
+      get 'success'
+    end
+  end
   resources :wallets
   devise_for :users
 
