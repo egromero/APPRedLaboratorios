@@ -91,6 +91,8 @@ window.postForm = function () {
     data: data,
     complete: function (jqXHR, textStatus) {
       console.log("Solicitud completa:", textStatus);
+      alert("Visita registrada.");
+      window.location.replace("/slideshow");
     },    
     success: function (data) {
       console.log(data);
