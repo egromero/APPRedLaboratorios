@@ -83,11 +83,15 @@ window.postForm = function () {
       uc_student: document.getElementById("uc_student").value,
     },
   };
+  console.log('Entrando a ajax...')
   $.ajax({
     type: "POST",
     url: "/visits",
     dataType: "json",
     data: data,
+    complete: function (jqXHR, textStatus) {
+      console.log("Solicitud completa:", textStatus);
+    },    
     success: function (data) {
       console.log(data);
       if (data.type == "student") {
