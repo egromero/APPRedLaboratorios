@@ -71,7 +71,7 @@ class VisitsController < ApplicationController
 
         if response.code.to_i == 200
             Rails.logger.info 'Código 200'
-            redirect_to success_path
+            redirect_to success_visits_path
           else
             Rails.logger.error "Error al registrar la visita: #{response.message}"
             Rails.logger.error "Cuerpo de la respuesta: #{response.body}"
