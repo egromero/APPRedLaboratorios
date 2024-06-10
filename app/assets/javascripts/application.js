@@ -72,6 +72,7 @@ window.getRecords = function (id) {
 };
 
 window.postForm = function () {
+  event.preventDefault();
   var data = {
     visit: {
       rut: document.getElementById("run").value,
