@@ -91,10 +91,12 @@ window.postForm = function () {
     data: data,
     send: function (data) {
       console.log(data);
+      console.log('Entrando a send ajax...');
       alert("Visita registrada.");
       window.location.replace("/slideshow");
     },  
     success: function (data) {
+      console.log('Entrando a success ajax...');
       console.log(data);
       if (data.type == "student") {
         alert("Bienvenido/a " + data.name + " registro realizado");
