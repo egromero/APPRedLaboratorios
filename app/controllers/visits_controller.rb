@@ -46,49 +46,54 @@ class VisitsController < ApplicationController
     end
     
     def create
-        Rails.logger.info "Entrando a create..."
-        Rails.logger.info "Visit Params"
-        Rails.logger.info visit_params
 
-        data = {
-          'fields': {
-            'fldl99UjPoKChJyU1': visit_params[:rut],
-            'fld4K10yQ9y74ryAO': visit_params[:institucion],
-            'fldvLABQiqKIJPgK9': visit_params[:lab_id],
-            'fldxNQvUYdFOf9x36': visit_params[:motivo],
-            'fldBagNcAy9oSYo1n': visit_params[:other],
-            'fldwFwYqPHLi5cqvE': visit_params[:quantity],
-            'fldQDfXUY09GkKy1y': visit_params[:uc_student]
-          }
-        }
+      Rails.logger.info "Entrando a create..."
+      Rails.logger.info "Visit Params"
+      Rails.logger.info visit_params
+
+      Thread.new do
+        send_airtable_request(visit_parms)
+      end
+
+        # data = {
+        #   'fields': {
+        #     'fldl99UjPoKChJyU1': visit_params[:rut],
+        #     'fld4K10yQ9y74ryAO': visit_params[:institucion],
+        #     'fldvLABQiqKIJPgK9': visit_params[:lab_id],
+        #     'fldxNQvUYdFOf9x36': visit_params[:motivo],
+        #     'fldBagNcAy9oSYo1n': visit_params[:other],
+        #     'fldwFwYqPHLi5cqvE': visit_params[:quantity],
+        #     'fldQDfXUY09GkKy1y': visit_params[:uc_student]
+        #   }
+        # }
         
-        #Configuración de la solicitud
-        uri = URI.parse("https://api.airtable.com/v0/appAva5Ns7QQbSSVn/tblQKTOunnX5STdms")
-        http = Net::HTTP.new(uri.host, uri.port)
-        http.use_ssl = true
-        request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/json', 'Authorization' => 'Bearer patBExGhe6sVJtn6x.7ee85c8cd5d6afe6bdf4057a06a47dcf377af159ebc728268cd18ea365efb9ff'})
-        request.body = data.to_json
+        # #Configuración de la solicitud
+        # uri = URI.parse("https://api.airtable.com/v0/appAva5Ns7QQbSSVn/tblQKTOunnX5STdms")
+        # http = Net::HTTP.new(uri.host, uri.port)
+        # http.use_ssl = true
+        # request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/json', 'Authorization' => 'Bearer patBExGhe6sVJtn6x.7ee85c8cd5d6afe6bdf4057a06a47dcf377af159ebc728268cd18ea365efb9ff'})
+        # request.body = data.to_json
     
-        #Enviar la solicitud
-        Rails.logger.info 'Enviando solicitud...'
-        response = http.request(request)
-        Rails.logger.info 'Response recibida:'
-        Rails.logger.info response
-
-        respond_to do |format|
-            if response.code.to_i == 200
-              Rails.logger.info 'Código 200'
-              format.js
-              redirect_to slideshow_path
-              #render json: {type: "visit"}
-              Rails.logger.info 'Render realizado...'
-            else
-              Rails.logger.error "Error al registrar la visita: #{response.message}"
-              Rails.logger.error "Cuerpo de la respuesta: #{response.body}"
-              format.html { redirect_to slideshow_path }
-              format.json { render json: { error: "Error al registrar la visita: #{response.message}" }, status: :unprocessable_entity }
-            end
-          end
+        # #Enviar la solicitud
+        # Rails.logger.info 'Enviando solicitud...'
+        # response = http.request(request)
+        # Rails.logger.info 'Response recibida:'
+        # Rails.logger.info response
+        render json: {type: "visit"}
+        # respond_to do |format|
+        #     if response.code.to_i == 200
+        #       Rails.logger.info 'Código 200'
+        #       format.js
+        #       redirect_to slideshow_path
+        #       #render json: {type: "visit"}
+        #       Rails.logger.info 'Render realizado...'
+        #     else
+        #       Rails.logger.error "Error al registrar la visita: #{response.message}"
+        #       Rails.logger.error "Cuerpo de la respuesta: #{response.body}"
+        #       format.html { redirect_to slideshow_path }
+        #       format.json { render json: { error: "Error al registrar la visita: #{response.message}" }, status: :unprocessable_entity }
+        #     end
+        #   end
     end
     
     def success
@@ -97,6 +102,35 @@ class VisitsController < ApplicationController
 
     def visit_params
         params.require(:visit).permit(:rut, :motivo, :institucion, :lab_id, :other, :quantity, :uc_student)
+    end
+
+    private
+
+    def send_airtable_request(visit_params)
+      data = {
+        fields: {
+          rut: visit_params.rut,
+          uc_student: visit_params.uc_student,
+          institucion: visit_params.institucion,
+          lab_id: visit_params.lab_id,
+          motivo: visit_params.motivo,
+          other: visit_params.other,
+          quantity: visit_params.quantity
+        }
+      }
+  
+      uri = URI.parse("https://api.airtable.com/v0/appAva5Ns7QQbSSVn/tblQKTOunnX5STdms")
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      request = Net::HTTP::Post.new(uri.path, {
+        'Content-Type' => 'application/json',
+        'Authorization' => 'Bearer patBExGhe6sVJtn6x.7ee85c8cd5d6afe6bdf4057a06a47dcf377af159ebc728268cd18ea365efb9ff'
+      })
+      request.body = data.to_json
+  
+      Rails.logger.info 'Enviando solicitud a Airtable...'
+      response = http.request(request)
+      Rails.logger.info "Código de respuesta de Airtable: #{response.code}"
     end
 
 end
