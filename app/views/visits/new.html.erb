@@ -308,7 +308,6 @@ $('#otro')
     let time;
     let redirectUrl = "/slideshow";
 
-    #Reinicia el temporizador en cada evento de usuario
     window.onload = resetTimer;
     document.onmousemove = resetTimer;
     document.onkeypress = resetTimer;
@@ -321,7 +320,7 @@ $('#otro')
 
     function resetTimer() {
       clearTimeout(time);
-      time = setTimeout(redirect, 10000);  // 10000 ms = 10 segundos
+      time = setTimeout(redirect, 10000);
     }
   };
 
