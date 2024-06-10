@@ -302,3 +302,28 @@ $('#otro')
                 
     });
 </script>
+
+<script>
+  let inactivityTime = function () {
+    let time;
+    let redirectUrl = "/slideshow";
+
+    #Reinicia el temporizador en cada evento de usuario
+    window.onload = resetTimer;
+    document.onmousemove = resetTimer;
+    document.onkeypress = resetTimer;
+    document.onscroll = resetTimer;
+    document.onclick = resetTimer;
+
+    function redirect() {
+      window.location.href = redirectUrl;
+    }
+
+    function resetTimer() {
+      clearTimeout(time);
+      time = setTimeout(redirect, 10000);  // 10000 ms = 10 segundos
+    }
+  };
+
+  inactivityTime();
+</script>
