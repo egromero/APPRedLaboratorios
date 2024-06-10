@@ -78,7 +78,8 @@ class VisitsController < ApplicationController
         respond_to do |format|
             if response.code.to_i == 200
               Rails.logger.info 'Código 200'
-              render {'type': 'visit'}
+              render json: {type: "visit"}
+              Rails.logger.info 'Render realizado...'
             else
               Rails.logger.error "Error al registrar la visita: #{response.message}"
               Rails.logger.error "Cuerpo de la respuesta: #{response.body}"
