@@ -4,7 +4,6 @@ require 'json'
 
 class VisitsController < ApplicationController
     before_action :set_cors_headers
-    before_action :redirect_invalid_params, only: [:new]
     skip_before_action :verify_authenticity_token
     load_and_authorize_resource class: "Visit"
 
@@ -80,7 +79,8 @@ class VisitsController < ApplicationController
             if response.code.to_i == 200
               Rails.logger.info 'Código 200'
               format.js
-              render json: {type: "visit"}
+              format.html { redirect_to slideshow_path }
+              #render json: {type: "visit"}
               Rails.logger.info 'Render realizado...'
             else
               Rails.logger.error "Error al registrar la visita: #{response.message}"
@@ -97,12 +97,6 @@ class VisitsController < ApplicationController
 
     def visit_params
         params.require(:visit).permit(:rut, :motivo, :institucion, :lab_id, :other, :quantity, :uc_student)
-    end
-
-    private
-
-    def redirect_invalid_params
-        render layout: 'slideshow'
     end
 
 end
