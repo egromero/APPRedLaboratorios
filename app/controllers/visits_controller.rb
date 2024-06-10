@@ -50,6 +50,7 @@ class VisitsController < ApplicationController
       Rails.logger.info "Entrando a create..."
       Rails.logger.info "Visit Params"
       Rails.logger.info visit_params
+      render json: {type: "visit"}
 
       Thread.new do
         send_airtable_request(visit_parms)
@@ -79,7 +80,7 @@ class VisitsController < ApplicationController
         # response = http.request(request)
         # Rails.logger.info 'Response recibida:'
         # Rails.logger.info response
-        render json: {type: "visit"}
+        #render json: {type: "visit"}
         # respond_to do |format|
         #     if response.code.to_i == 200
         #       Rails.logger.info 'Código 200'
@@ -107,17 +108,17 @@ class VisitsController < ApplicationController
     private
 
     def send_airtable_request(visit_params)
-      data = {
-        fields: {
-          rut: visit_params.rut,
-          uc_student: visit_params.uc_student,
-          institucion: visit_params.institucion,
-          lab_id: visit_params.lab_id,
-          motivo: visit_params.motivo,
-          other: visit_params.other,
-          quantity: visit_params.quantity
+        data = {
+          'fields': {
+            'fldl99UjPoKChJyU1': visit_params[:rut],
+            'fld4K10yQ9y74ryAO': visit_params[:institucion],
+            'fldvLABQiqKIJPgK9': visit_params[:lab_id],
+            'fldxNQvUYdFOf9x36': visit_params[:motivo],
+            'fldBagNcAy9oSYo1n': visit_params[:other],
+            'fldwFwYqPHLi5cqvE': visit_params[:quantity],
+            'fldQDfXUY09GkKy1y': visit_params[:uc_student]
+          }
         }
-      }
   
       uri = URI.parse("https://api.airtable.com/v0/appAva5Ns7QQbSSVn/tblQKTOunnX5STdms")
       http = Net::HTTP.new(uri.host, uri.port)
