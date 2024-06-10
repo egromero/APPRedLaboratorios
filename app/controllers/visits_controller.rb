@@ -79,7 +79,7 @@ class VisitsController < ApplicationController
             if response.code.to_i == 200
               Rails.logger.info 'Código 200'
               format.js
-              format.html { redirect_to slideshow_path }
+              redirect_to slideshow_path
               #render json: {type: "visit"}
               Rails.logger.info 'Render realizado...'
             else
