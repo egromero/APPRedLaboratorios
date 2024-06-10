@@ -79,13 +79,13 @@ class VisitsController < ApplicationController
             if response.code.to_i == 200
               Rails.logger.info 'Código 200'
               format.js
-              redirect_to slideshow_path
+              redirect_to slideshow_url
               #render json: {type: "visit"}
               Rails.logger.info 'Render realizado...'
             else
               Rails.logger.error "Error al registrar la visita: #{response.message}"
               Rails.logger.error "Cuerpo de la respuesta: #{response.body}"
-              format.html { redirect_to slideshow_path }
+              format.html { redirect_to slideshow_url }
               format.json { render json: { error: "Error al registrar la visita: #{response.message}" }, status: :unprocessable_entity }
             end
           end

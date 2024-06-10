@@ -86,7 +86,6 @@ window.postForm = function () {
   };
   console.log('Entrando a ajax...')
   alert("Visita registrada.");
-  window.location.replace("/slideshow");
   $.ajax({
     type: "POST",
     url: "/visits",
