@@ -88,12 +88,7 @@ window.postForm = function () {
     type: "POST",
     url: "/visits",
     dataType: "json",
-    data: data,
-    complete: function (jqXHR, textStatus) {
-      console.log("Solicitud completa:", textStatus);
-      alert("Visita registrada.");
-      window.location.replace("/slideshow");
-    },    
+    data: data,  
     success: function (data) {
       console.log(data);
       if (data.type == "student") {
