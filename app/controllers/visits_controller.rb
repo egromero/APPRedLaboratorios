@@ -78,6 +78,7 @@ class VisitsController < ApplicationController
         respond_to do |format|
             if response.code.to_i == 200
               Rails.logger.info 'Código 200'
+              format.js
               render json: {type: "visit"}
               Rails.logger.info 'Render realizado...'
             else
